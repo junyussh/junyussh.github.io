@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Postman on 書術方隅</title>
+    <link>/tags/postman/</link>
+    <description>Recent content in Postman on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Thu, 19 Jul 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/postman/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Postman Shared window not present! 解決方法</title>
+      <link>/post/postman-shared-window-not-present/</link>
+      <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/postman-shared-window-not-present/</guid>
+      <description>最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但</description>
+    </item>
+    
+  </channel>
+</rss>

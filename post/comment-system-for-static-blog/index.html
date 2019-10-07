@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>靜態部落格留言板蒐集 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 Disqus 居多，網路上的教學也一堆，不過之前爆出 Disqus 五年前被駭，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。
+" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
+
+
+<link rel="canonical" href="/post/comment-system-for-static-blog/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="靜態部落格留言板蒐集" />
+<meta property="og:description" content="
+
+最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 Disqus 居多，網路上的教學也一堆，不過之前爆出 Disqus 五年前被駭，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/comment-system-for-static-blog/" />
+<meta property="article:published_time" content="2017-12-12T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-12T00:00:00+00:00" />
+<meta itemprop="name" content="靜態部落格留言板蒐集">
+<meta itemprop="description" content="
+
+最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 Disqus 居多，網路上的教學也一堆，不過之前爆出 Disqus 五年前被駭，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。">
+
+
+<meta itemprop="datePublished" content="2017-12-12T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-12-12T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="603">
+
+
+
+<meta itemprop="keywords" content="筆記,留言,Github," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="靜態部落格留言板蒐集"/>
+<meta name="twitter:description" content="
+
+最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 Disqus 居多，網路上的教學也一堆，不過之前爆出 Disqus 五年前被駭，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">靜態部落格留言板蒐集</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-12 </span>
+        <div class="post-category">
+            <a href="/categories/%E7%95%99%E8%A8%80%E6%9D%BF/"> 留言板 </a>
+            <a href="/categories/%E7%AD%86%E8%A8%98/"> 筆記 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#comm-ent-it">Comm(ent|it)</a></li>
+<li><a href="#來必利">來必利</a></li>
+<li><a href="#hypercomments">HyperComments</a></li>
+<li><a href="#valine">Valine</a></li>
+<li><a href="#gitalk">Gitalk</a></li>
+<li><a href="#any-else">Any else?</a></li>
+<li><a href="#consequence">Consequence</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://i.loli.net/2019/10/05/BGeitLCIW3V9lxZ.jpg" alt="Comment" /></p>
+
+<p>最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 <a href="https://disqus.com">Disqus</a> 居多，網路上的教學也一堆，不過之前爆出 <a href="https://www.ithome.com.tw/news/117312">Disqus 五年前被駭</a>，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。</p>
+
+<h2 id="comm-ent-it">Comm(ent|it)</h2>
+
+<p>將留言變成 commit，用 JavaScript 腳本提交至 Github 倉庫，可以用 Twitter、Facebook 或 Github 登入。</p>
+
+<p><a href="https://commentit.io/">https://commentit.io/</a></p>
+
+<h2 id="來必利">來必利</h2>
+
+<p>來自南韓的一款靜態部落格留言版，類似 Disqus，支援各社群平台登入，缺點是無法匿名留言(不過其他的似乎也不行)。</p>
+
+<p><a href="http://www.laibili.com.cn/">http://www.laibili.com.cn/</a></p>
+
+<h2 id="hypercomments">HyperComments</h2>
+
+<p><a href="https://www.hypercomments.com/">https://www.hypercomments.com/</a></p>
+
+<p>介紹文：<a href="https://goozy.github.io/2017/03/22/%E4%BB%8E%E4%BB%8A%E5%A4%A9%E5%BC%80%E5%A7%8B%E4%BD%BF%E7%94%A8HyperComments%E5%95%A6%EF%BC%81/">从今天开始使用HyperComments啦！ | 闲停</a></p>
+
+<h2 id="valine">Valine</h2>
+
+<blockquote>
+<p>一款快速、简洁且高效的无后端评论系统。</p>
+</blockquote>
+
+<p>需要註冊 <a href="https://leancloud.cn/">LeanCloud</a> 取得 API Key 才能使用。</p>
+
+<p><a href="https://valine.js.org/#/">https://valine.js.org/#/</a></p>
+
+<p>介紹文：<a href="https://giserdaishaoqing.github.io/2017/11/24/hexo%E5%8D%9A%E5%AE%A2%E8%AF%84%E8%AE%BA%E6%96%B0%E7%A5%9E%E5%99%A8%E2%80%94%E2%80%94Valine/">hexo博客评论新神器——Valine | GISerDaiShaoqing&rsquo;s Blog</a></p>
+
+<h2 id="gitalk">Gitalk</h2>
+
+<p>需要 Github 帳戶登入，用 Github Issue + Preact 開發而成，支援多種語言，並自動判斷用戶當前語言，還支援 Markdown 語法。</p>
+
+<p><a href="https://gitalk.github.io/">https://gitalk.github.io/</a></p>
+
+<p>介紹文：<a href="https://calpa.me/2017/08/04/utilize-github-issue-by-using-gitalk/">善用 Github Issue 的開源評論插件 &ndash; Gitalk | Calpa&rsquo;s Blog</a></p>
+
+<h2 id="any-else">Any else?</h2>
+
+<p>還有<a href="http://www.uyan.cc/">友言</a>及<a href="https://changyan.kuaizhan.com/">搜狐暢言</a>等留言版，不過是大陸公司開發的，介面用著不習慣，而且網站需要備案。</p>
+
+<h2 id="consequence">Consequence</h2>
+
+<p>怕麻煩的還是乖乖用 Disqus 就好了，大部分的佈景主題都能方便添加 Disqus 留言板，而且 Disqus 使用者多，介面體驗優良、社群活躍，說明文件也較詳細，生態也較良好。</p>
+
+<p>上述留言板如果要使用，我會推薦 Comm(ent|it)、HyperComments 和 Gitalk，這些用起來會比較高端。</p>
+
+<p>以後也許會自己造個輪子吧。</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="http://www.barretlee.com/blog/2017/03/21/duoshuo-comment-service-will-be-closed/">多说即将关闭，评论迁至何处？ | 小胡子哥的个人网站</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-12-12
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AD%86%E8%A8%98/">筆記</a>
+          <a href="/tags/%E7%95%99%E8%A8%80/">留言</a>
+          <a href="/tags/github/">Github</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/etn-cli-wallet-tutorial/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Electroneum CLI 錢包使用教學</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/etn-wallet-generate/">
+            <span class="next-text nav-default">ETN 挖礦起手式之產生錢包</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

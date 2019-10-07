@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on 書術方隅</title>
+    <link>/categories/</link>
+    <description>Recent content in Categories on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux</title>
+      <link>/categories/linux/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>影音播放</title>
+      <link>/categories/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>教學</title>
+      <link>/categories/%E6%95%99%E5%AD%B8/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E6%95%99%E5%AD%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>軟體</title>
+      <link>/categories/%E8%BB%9F%E9%AB%94/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E8%BB%9F%E9%AB%94/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Windows</title>
+      <link>/categories/windows/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/windows/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>科學上網</title>
+      <link>/categories/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>心得</title>
+      <link>/categories/%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E5%BF%83%E5%BE%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>生活</title>
+      <link>/categories/%E7%94%9F%E6%B4%BB/</link>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E7%94%9F%E6%B4%BB/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>紀錄</title>
+      <link>/categories/%E7%B4%80%E9%8C%84/</link>
+      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E7%B4%80%E9%8C%84/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>筆記</title>
+      <link>/categories/%E7%AD%86%E8%A8%98/</link>
+      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E7%AD%86%E8%A8%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>影音處理</title>
+      <link>/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</link>
+      <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>/categories/c&#43;&#43;/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Youtube</title>
+      <link>/categories/youtube/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/youtube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>觀後感</title>
+      <link>/categories/%E8%A7%80%E5%BE%8C%E6%84%9F/</link>
+      <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E8%A7%80%E5%BE%8C%E6%84%9F/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>電影</title>
+      <link>/categories/%E9%9B%BB%E5%BD%B1/</link>
+      <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E9%9B%BB%E5%BD%B1/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Electroneum</title>
+      <link>/categories/electroneum/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/electroneum/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>加密貨幣</title>
+      <link>/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/</link>
+      <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>留言板</title>
+      <link>/categories/%E7%95%99%E8%A8%80%E6%9D%BF/</link>
+      <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E7%95%99%E8%A8%80%E6%9D%BF/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>挖礦</title>
+      <link>/categories/%E6%8C%96%E7%A4%A6/</link>
+      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E6%8C%96%E7%A4%A6/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>日常隨筆</title>
+      <link>/categories/%E6%97%A5%E5%B8%B8%E9%9A%A8%E7%AD%86/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E6%97%A5%E5%B8%B8%E9%9A%A8%E7%AD%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>數學</title>
+      <link>/categories/%E6%95%B8%E5%AD%B8/</link>
+      <pubDate>Sat, 15 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/categories/%E6%95%B8%E5%AD%B8/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

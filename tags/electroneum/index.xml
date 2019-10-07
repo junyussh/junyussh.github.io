@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Electroneum on 書術方隅</title>
+    <link>/tags/electroneum/</link>
+    <description>Recent content in Electroneum on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Fri, 02 Feb 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/electroneum/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Electroneum 線上錢包教學</title>
+      <link>/post/etn-online-wallet-tutorial/</link>
+      <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/etn-online-wallet-tutorial/</guid>
+      <description>上回已經介紹過 ETN CLI 錢包的基本使用教學，今天要介紹的是 ETN 官方出的線上錢包，使用線上錢包，只要有瀏覽器就能輕鬆管理錢包，要轉帳什麼的也不需要輸入</description>
+    </item>
+    
+    <item>
+      <title>ETN 挖礦起手式之產生錢包</title>
+      <link>/post/etn-wallet-generate/</link>
+      <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/etn-wallet-generate/</guid>
+      <description>最近一周比特幣大漲，創歷史新高點 16000 USD，甚至一天漲幅超過 50%，從 12000 衝破 15000 USD 大關，其他加密貨幣也跟者水漲船高，再度掀起了加密貨幣的熱潮。 今</description>
+    </item>
+    
+  </channel>
+</rss>

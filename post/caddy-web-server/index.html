@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>用 Caddy 當伺服器，自動申請 SSL 證書 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&amp;rsquo;s Encrypt 取得憑證，還會定期續約，真的是很" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
+
+
+<link rel="canonical" href="/post/caddy-web-server/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="用 Caddy 當伺服器，自動申請 SSL 證書" />
+<meta property="og:description" content="Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&rsquo;s Encrypt 取得憑證，還會定期續約，真的是很" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/caddy-web-server/" />
+<meta property="article:published_time" content="2018-08-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-08-31T00:00:00+00:00" />
+<meta itemprop="name" content="用 Caddy 當伺服器，自動申請 SSL 證書">
+<meta itemprop="description" content="Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&rsquo;s Encrypt 取得憑證，還會定期續約，真的是很">
+
+
+<meta itemprop="datePublished" content="2018-08-31T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-08-31T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1128">
+
+
+
+<meta itemprop="keywords" content="" />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="用 Caddy 當伺服器，自動申請 SSL 證書"/>
+<meta name="twitter:description" content="Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&rsquo;s Encrypt 取得憑證，還會定期續約，真的是很"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">用 Caddy 當伺服器，自動申請 SSL 證書</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-08-31 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/linux/"> Linux </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安裝">安裝</a></li>
+<li><a href="#設定">設定</a>
+<ul>
+<li><a href="#caddyfile">Caddyfile</a></li>
+</ul></li>
+<li><a href="#應用於生產環境">應用於生產環境</a>
+<ul>
+<li><a href="#gcp-上無法啟動-caddy">GCP 上無法啟動 Caddy</a></li>
+</ul></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><img src="https://imgpoi.com/i/7X0HAB.jpg" alt="Photo is captured from Neon Genesis Evangelion film: &quot;Episode 25': Air / Love is Destructive&quot;" /></p>
+
+<p><a href="https://caddyserver.com/">Caddy</a> 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&rsquo;s Encrypt 取得憑證，還會定期續約，真的是很方便，也不需要設定複雜的 SSL 了。</p>
+
+<!-- more -->
+
+<p>先來抱怨一下，最近搞了個免費的新域名，想說拿來架個站，剛好 GCP 有試用金，開了一台 f1-micro 機型，本來打算用 <a href="https://oneinstack.com">Oneinstack</a> 的一鍵腳本架設 LNMP 環境，結果編譯了兩次才好不容易成功，編譯結束後還無法用 SSH 連接，還好 GCP 提供用序列埠(Console)方式連回 VM，要用 PHP 時發現該死的 Oneinstack 腳本竟然沒給我裝到 PHP，憤而不用 Oneinstack 腳本架設環境。</p>
+
+<h2 id="安裝">安裝</h2>
+
+<p>Caddy 的安裝方式很簡單，官方提供一鍵安裝腳本，可以輕鬆就把 Caddy 裝好。</p>
+
+<p>先到 Caddy 的<a href="https://caddyserver.com/download">下載頁面</a>選擇自己的伺服器作業系統平台，還有要安裝的擴充套件，然後下面就會產生指令，複製到 Terminal 執行就完成安裝了。</p>
+
+<p>Run 一下 <code>caddy</code> 看有沒有安裝成功，預設會監聽 <code>2015</code> Port，到瀏覽器輸入 <code>http://localhost:2015</code> 應該會出現 <code>404 not found</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">caddy</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="設定">設定</h2>
+
+<p>Caddy 的設定檔名稱預設為 <code>Caddyfile</code>，可以在執行 Caddy 時加入參數指定設定檔路徑，否則會使用當前目錄下的 <code>Caddyfile</code> 作為設定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">caddy -conf<span class="o">=</span>/etc/caddy/Caddyfile</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="caddyfile">Caddyfile</h3>
+
+<p>第一行必須為網站的網址，如果是多個網址綁定在同個空間建議第二種寫法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">localhost:80</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>以下示範簡易 <code>Caddyfile</code> 語法，設定不會太困難，有點像是 <code>nginx.conf</code> 的格式，詳細語法說明請參考<a href="https://caddyserver.com/docs">官方文件</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">example.com</span> <span class="p">{</span>
+    <span class="kn">gzip</span> <span class="c1"># 啟用 gzip 壓縮功能
+</span><span class="c1"></span>    <span class="s">root</span> <span class="s">/var/www/</span> <span class="c1"># 指定網站根目錄
+</span><span class="c1"></span>    <span class="s">tls</span> <span class="s">abc@example.com</span> <span class="c1"># 設定 SSL 申請人信箱
+</span><span class="c1"></span>    <span class="s">log</span> <span class="s">/var/log/caddy/access.log</span> <span class="c1"># log 儲存位置
+</span><span class="c1"></span><span class="err">}</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>瀏覽 example.com 應該就會出現綠色勾勾了，非常簡單。</p>
+
+<h2 id="應用於生產環境">應用於生產環境</h2>
+
+<p>每次啟動 Caddy 都要下指令，但要是離開 Session 就會停止了，當然你可以用 <code>nohup caddy &amp;</code> 來保持一直執行，我個人比較喜歡做成 system service 來管理。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service
+sudo systemctl daemon-reload <span class="c1"># 重新載入 service</span>
+sudo systemctl <span class="nb">enable</span> caddy <span class="c1"># 開機自動啟動</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>根據 service 的設定，Caddy 設定檔會讀取 <code>/etc/caddy/Caddyfile</code>，要先建立 <code>/etc/caddy</code> 目錄，並將 <code>Caddyfile</code> 放在目錄裡。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /etc/caddy
+sudo touch /etc/caddy/Caddyfile</code></pre></td></tr></table>
+</div>
+</div>
+<p>Caddy 會將 SSL 證書放在 <code>/etc/ssl/caddy</code>，要先建立此目錄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /etc/ssl/caddy
+sudo chown -R www-data:root /etc/ssl/caddy
+sudo chmod <span class="m">0770</span> /etc/ssl/caddy</code></pre></td></tr></table>
+</div>
+</div>
+<p>SSL 目錄裡面放有私鑰，把權限設定成 <code>0770</code> 來禁止其他使用者存取。</p>
+
+<p>可以先啟動 Caddy，看 <code>status</code> 有沒有錯誤訊息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start caddy <span class="c1"># 啟動 Caddy</span>
+sudo systemctl status caddy <span class="c1"># 檢視 Caddy 狀態</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>若出現 <code>active</code>，那恭喜你，已經成功部署 Caddy 了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">● caddy.service - Caddy HTTP/2 web server
+   Loaded: loaded <span class="o">(</span>/etc/systemd/system/caddy.service<span class="p">;</span> disabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
+   Active: active <span class="o">(</span>running<span class="o">)</span> since Fri <span class="m">2018</span>-08-31 <span class="m">09</span>:47:53 UTC<span class="p">;</span> 5s ago
+     Docs: https://caddyserver.com/docs
+ Main PID: <span class="m">25483</span> <span class="o">(</span>caddy<span class="o">)</span>
+    Tasks: <span class="m">7</span> <span class="o">(</span>limit: <span class="m">4915</span><span class="o">)</span>
+   CGroup: /system.slice/caddy.service
+           └─25483 /usr/local/bin/caddy -log stdout -agree<span class="o">=</span><span class="nb">true</span> -conf<span class="o">=</span>/etc/caddy/Caddyfile -root<span class="o">=</span>/var/tmp</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="gcp-上無法啟動-caddy">GCP 上無法啟動 Caddy</h3>
+
+<p>如果在 GCP 架設 Caddy 的話要注意，GCP 因為安全考量，必須要用 root 身分執行 Caddy 才能監聽 <code>80</code> Port，所以要修改 <code>caddy.service</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/systemd/system/caddy.service</code></pre></td></tr></table>
+</div>
+</div>
+<p>在 <code>User</code> 的地方改成 <code>root</code>，以 root 身分執行指令，一般的伺服器環境不需要做此設定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">;</span> User and group the process will run as.
+<span class="nv">User</span><span class="o">=</span>root
+<span class="nv">Group</span><span class="o">=</span>www-data</code></pre></td></tr></table>
+</div>
+</div>
+<p>最後開啟瀏覽器輸入網址應該就能看見你的網頁了。</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://caddyserver.com/docs">Caddy User Guide</a></li>
+<li><a href="https://wzfou.com/caddy/">Caddy最容易上手的Web Server-自动化HTTPS一分钟部署网站网盘 - 挖站否-挖掘建站的乐趣</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-08-31
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      
+      <nav class="post-nav">
+        <a class="prev" href="/post/use-lame-to-compress-wav/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">使用 LAME 輕鬆將無損 wav 壓制成 MP3 格式</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/linux-connect-serial-console/">
+            <span class="next-text nav-default">Linux 下用 screen 連接 Serial Port</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

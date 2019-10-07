@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>圖像處理 on 書術方隅</title>
+    <link>/tags/%E5%9C%96%E5%83%8F%E8%99%95%E7%90%86/</link>
+    <description>Recent content in 圖像處理 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E5%9C%96%E5%83%8F%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>在 Linux 下用 ImageMagick 批量壓縮圖片</title>
+      <link>/post/compress-photo-with-imagemagick/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/compress-photo-with-imagemagick/</guid>
+      <description>在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，</description>
+    </item>
+    
+  </channel>
+</rss>

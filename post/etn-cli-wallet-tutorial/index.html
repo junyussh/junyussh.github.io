@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Electroneum CLI 錢包使用教學 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="很多人產生了 Electroneum 錢包位址後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
+
+
+<link rel="canonical" href="/post/etn-cli-wallet-tutorial/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Electroneum CLI 錢包使用教學" />
+<meta property="og:description" content="很多人產生了 Electroneum 錢包位址後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/etn-cli-wallet-tutorial/" />
+<meta property="article:published_time" content="2018-01-29T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-01-29T00:00:00+00:00" />
+<meta itemprop="name" content="Electroneum CLI 錢包使用教學">
+<meta itemprop="description" content="很多人產生了 Electroneum 錢包位址後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI">
+
+
+<meta itemprop="datePublished" content="2018-01-29T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-01-29T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2350">
+
+
+
+<meta itemprop="keywords" content="挖礦,加密貨幣,教學,錢包,," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Electroneum CLI 錢包使用教學"/>
+<meta name="twitter:description" content="很多人產生了 Electroneum 錢包位址後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Electroneum CLI 錢包使用教學</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-01-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/"> 加密貨幣 </a>
+            <a href="/categories/electroneum/"> Electroneum </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#使用節點">使用節點</a></li>
+<li><a href="#自行同步區塊鏈">自行同步區塊鏈</a></li>
+<li><a href="#查看種子碼">查看種子碼</a></li>
+<li><a href="#查看餘額">查看餘額</a></li>
+<li><a href="#轉帳">轉帳</a></li>
+<li><a href="#從種子碼還原錢包">從種子碼還原錢包</a></li>
+<li><a href="#donate">Donate</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><img src="https://i.imgur.com/PgJLl8u.jpg" alt="CLI Interface" /></p>
+
+<p>很多人<a href="https://junyussh.gitlab.io/p/etn-wallet-generate/">產生了 Electroneum 錢包位址</a>後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI 程式；今天介紹的教學，是最正統的方式，也就是用 CLI 介面操作，請先從 Electroneum 官方 <a href="https://github.com/electroneum/electroneum/releases">Github Release</a> 下載 Electroneum CLI 錢包，再按照教學做。</p>
+
+<p>以下教學 Monero 的 CLI 錢包也適用，只要把指令中的 <code>electroneum</code> 替代成 <code>monero</code> 就可以了，但別忘記錢包軟體要換成 <a href="https://www.monero.how/tutorial-restore-monero-command-line-wallet-from-seed">Monero</a> 的。</p>
+
+<!-- more -->
+
+<h2 id="使用節點">使用節點</h2>
+
+<p>如果你手上有架好的 ETN 節點，就不需要自行同步啦，這是最方便最快速的做法。</p>
+
+<p>在資料夾開啟 CMD，執行 <code>electroneum-wallet-cli --daemon-host 你的節點網址</code> 就可以開始操作錢包了。</p>
+
+<h2 id="自行同步區塊鏈">自行同步區塊鏈</h2>
+
+<p>解壓縮官方的錢包檔案後，執行 <code>electroneumd.exe</code> 開始同步，再開啟錢包 <code>electroneum-wallet-cli.exe</code>。</p>
+
+<p>你也可以把區塊鏈檔案放在你想要的位置，建議寫個腳本來同步，<code>D:\blockchain\electroneum</code> 可以替換成你想要的路徑。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">electroneumd --data-dir D:<span class="se">\b</span>lockchain<span class="se">\e</span>lectroneum</code></pre></td></tr></table>
+</div>
+</div>
+<p>更多參數可以輸入 <code>--help</code> 取得詳細內容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">electroneumd --help</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="查看種子碼">查看種子碼</h2>
+
+<p>輸入 <code>seed</code>，再輸入錢包密碼，就會顯示出種子碼了，還是老話一句，<strong>很重要不可洩漏</strong>。(測試用錢包，裡面沒錢。)</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[wallet etnk1U (out of sync)]: seed
+Wallet password: **************
+
+PLEASE NOTE: the following 25 words can be used to recover access to your wallet. Please write them down and store them somewhere safe and secure. Please do not store them in your email or on file storage services outside of your immediate control.
+
+waxing liar gave coal vixen geyser satin punch
+neon yeti alerts loudly tugs urchins unafraid symptoms
+textbook vain amply oatmeal gels future fawns frying textbook</pre></td></tr></table>
+</div>
+</div>
+<h2 id="查看餘額">查看餘額</h2>
+
+<p>進入錢包後，輸入 <code>balance</code> 即可查看錢包餘額。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[wallet etnkKX (out of sync)]: balance
+Balance: 0.00, unlocked balance: 0.00</pre></td></tr></table>
+</div>
+</div>
+<h2 id="轉帳">轉帳</h2>
+
+<p>下面是發送 100 ETN 的範例，<code>etnkKXAv5TaVAnQuhc3ZCg8nJCSnLQYWCNREJwi5QitHiTzDmS179GbBdzLHp2z3bFNsFzrJmjhuHLzX475oEWVr8CgN4AucjM</code> 記得換成你要發送的目標位址，你要發錢給我我也不介意。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">transfer etnkKXAv5TaVAnQuhc3ZCg8nJCSnLQYWCNREJwi5QitHiTzDmS179GbBdzLHp2z3bFNsFzrJmjhuHLzX475oEWVr8CgN4AucjM 100</pre></td></tr></table>
+</div>
+</div>
+<p>更多指令可以輸入 <code>help</code> 取得詳細資訊。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">[wallet etnkKX (out of sync)]: help
+Commands:
+  address              Show current wallet public address
+  address_book         address_book [(add (&lt;address&gt; [pid &lt;long or short payment id&gt;])|&lt;integrated address&gt; [&lt;description possibly with whitespaces&gt;])|(delete &lt;index&gt;)] - Print all entries in the address book, optionally adding/deleting an entry to/from it
+  balance              Show current wallet balance
+  bc_height            Show blockchain height
+  check_tx_key         Check amount going to &lt;address&gt; in &lt;txid&gt;
+  check_tx_proof       Check tx proof for payment going to &lt;address&gt; in &lt;txid&gt;
+  donate               donate [&lt;ring_size&gt;] &lt;amount&gt; [payment_id] - Donate &lt;amount&gt; to the development team (donate.getmonero.org)
+  export_key_images    Export a signed set of key images
+  export_outputs       Export a set of outputs owned by this wallet
+  fee                  Print information about fee and current transaction backlog
+  get_tx_key           Get transaction key (r) for a given &lt;txid&gt;
+  get_tx_note          Get a string note for a txid
+  get_tx_proof         Generate a signature to prove payment to &lt;address&gt; in &lt;txid&gt; using the transaction secret key (r) without revealing it
+  help                 Show this help
+  import_key_images    Import signed key images list and verify their spent status
+  import_outputs       Import set of outputs owned by this wallet
+  incoming_transfers   incoming_transfers [available|unavailable] - Show incoming transfers, all or filtered by availability
+  integrated_address   integrated_address [PID] - Encode a payment ID into an integrated address for the current wallet public address (no argument uses a random payment ID), or decode an integrated address to standard address and payment ID
+  locked_transfer      locked_transfer [&lt;ring_size&gt;] &lt;addr&gt; &lt;amount&gt; &lt;lockblocks&gt;(Number of blocks to lock the transaction for, max 1000000) [&lt;payment_id&gt;]
+  password             Change wallet password
+  payment_id           Generate a new random full size payment id - these will be unencrypted on the blockchain, see integrated_address for encrypted short payment ids
+  payments             payments &lt;PID_1&gt; [&lt;PID_2&gt; ... &lt;PID_N&gt;] - Show payments for given payment ID[s]
+  refresh              Synchronize transactions and balance
+  rescan_bc            Rescan blockchain from scratch
+  rescan_spent         Rescan blockchain for spent outputs
+  save                 Save wallet data
+  save_bc              Save current blockchain data
+  save_watch_only      Save a watch-only keys file
+  seed                 Display Electrum-style mnemonic seed
+  set                  Available options: seed language - set wallet seed language; always-confirm-transfers &lt;1|0&gt; - whether to confirm unsplit txes; print-ring-members &lt;1|0&gt; - whether to print detailed information about ring members during confirmation; store-tx-info &lt;1|0&gt; - whether to store outgoing tx info (destination address, payment ID, tx secret key) for future reference; default-ring-size &lt;n&gt; - set default ring size (default is 5); auto-refresh &lt;1|0&gt; - whether to automatically sync new blocks from the daemon; refresh-type &lt;full|optimize-coinbase|no-coinbase|default&gt; - set wallet refresh behaviour; priority [0|1|2|3|4] - default/unimportant/normal/elevated/priority fee; confirm-missing-payment-id &lt;1|0&gt;; ask-password &lt;1|0&gt;; unit &lt;electroneum|ecent&gt; - set default monero (sub-)unit; min-outputs-count [n] - try to keep at least that many outputs of value at least min-outputs-value; min-outputs-value [n] - try to keep at least min-outputs-count outputs of at least that value; merge-destinations &lt;1|0&gt; - whether to merge multiple payments to the same destination address; confirm-backlog &lt;1|0&gt; - whether to warn if there is transaction backlog
+  set_log              set_log &lt;level&gt;|&lt;categories&gt; - Change current log detail (level must be &lt;0-4&gt;)
+  set_tx_note          Set an arbitrary string note for a txid
+  show_transfer        Show information about a transfer to/from this address
+  show_transfers       show_transfers [in|out|pending|failed|pool] [&lt;min_height&gt; [&lt;max_height&gt;]] - Show incoming/outgoing transfers within an optional height range
+  sign                 Sign the contents of a file
+  sign_transfer        Sign a transaction from a file
+  spendkey             Display private spend key
+  start_mining         start_mining [&lt;number_of_threads&gt;] - Start mining in daemon
+  status               Show wallet status information
+  stop_mining          Stop mining in daemon
+  submit_transfer      Submit a signed transaction from a file
+  sweep_all            sweep_all [ring_size] address [payment_id] - Send all unlocked balance to an address
+  sweep_below          sweep_below &lt;amount_threshold&gt; [ring_size] address [payment_id] - Send all unlocked outputs below the threshold to an address
+  sweep_unmixable      Send all unmixable outputs to yourself with ring_size 1
+  transfer             transfer [&lt;priority&gt;] [&lt;ring_size&gt;] &lt;address&gt; &lt;amount&gt; [&lt;payment_id&gt;] - Transfer &lt;amount&gt; to &lt;address&gt;. &lt;priority&gt; is the priority of the transaction. The higher the priority, the higher the fee of the transaction. Valid values in priority order (from lowest to highest) are: unimportant, normal, elevated, priority. If omitted, the default value (see the command &#34;set priority&#34;) is used. &lt;ring_size&gt; is the number of inputs to include for untraceability. Multiple payments can be made at once by adding &lt;address_2&gt; &lt;amount_2&gt; etcetera (before the payment ID, if it&#39;s included)
+  transfer_original    Same as transfer, but using an older transaction building algorithm
+  unspent_outputs      unspent_outputs [&lt;min_amount&gt; &lt;max_amount&gt;] - Show unspent outputs within an optional amount range
+  verify               Verify a signature on the contents of a file
+  viewkey              Display private view key</pre></td></tr></table>
+</div>
+</div>
+<h2 id="從種子碼還原錢包">從種子碼還原錢包</h2>
+
+<p>在 CLI 錢包的資料夾開啟 CMD，執行下面指令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">electroneum-wallet-cli --restore-deterministic-wallet</code></pre></td></tr></table>
+</div>
+</div>
+<p>輸入要還原的錢包名稱，<code>restore</code> 可換成你想要的錢包名稱。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Specify a new wallet file name for your restored wallet (e.g., MyWallet).
+Wallet file name (or Ctrl-C to quit): restore</pre></td></tr></table>
+</div>
+</div>
+<p>然後輸入種子碼。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Specify Electrum seed: waxing liar gave coal vixen geyser satin punch
+Electrum seed continued: neon yeti alerts loudly tugs urchins unafraid symptoms
+Electrum seed continued: textbook vain amply oatmeal gels future fawns frying textbook</pre></td></tr></table>
+</div>
+</div>
+<p>要求輸入密碼加密錢包。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Enter new wallet password: ************
+Confirm Password: ************
+Generated new wallet: etnk1UfXSXj9uGadvvE3AZhCZVj3peVqpjnenhmYYYD2cafTrQX3oyZQxLEmNz3eLahqxfGfYzCywEv4K2mC9uwq2w1qEjs2kY
+View key: 2fda80d79c3a9cd2bde21a597c0b3de8db6c3671dea09cccae668a6355e4620c
+**********************************************************************
+Your wallet has been generated!
+To start synchronizing with the daemon, use &#34;refresh&#34; command.
+Use &#34;help&#34; command to see the list of available commands.
+Always use &#34;exit&#34; command when closing electroneum-wallet-cli to save your
+current session&#39;s state. Otherwise, you might need to synchronize
+your wallet again (your wallet keys are NOT at risk in any case).
+
+
+PLEASE NOTE: the following 25 words can be used to recover access to your wallet. Please write them down and store them somewhere safe and secure. Please do not store them in your email or on file storage services outside of your immediate control.
+
+waxing liar gave coal vixen geyser satin punch
+neon yeti alerts loudly tugs urchins unafraid symptoms
+textbook vain amply oatmeal gels future fawns frying textbook
+**********************************************************************</pre></td></tr></table>
+</div>
+</div>
+<p>詢問從哪個區塊鏈高度同步，通常選 <code>0</code> 就好，之後就開始同步錢包了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Restore from specific blockchain height (optional, default 0),
+or alternatively from specific date (YYYY-MM-DD): 0
+Starting refresh...
+Height 771 / 34449</pre></td></tr></table>
+</div>
+</div>
+<p>錢包資料夾會多出 <code>restore</code>、<code>restore.address.txt</code>、<code>restore.key</code>；<code>restore</code> 及 <code>restore.key</code> 是加密後的檔案，沒有你的密碼是解不開的，<code>restore.address.txt</code> 裡面是錢包位址，這些檔案可以放心放在雲端空間上，如果要操作錢包，把這些檔案下載回來，輸入密碼就可以開始操作，很方便。</p>
+
+<h2 id="donate">Donate</h2>
+
+<p>如果覺得我的文章有幫助到您，可以透過發送加密貨幣到以下地址贊助我：</p>
+
+<p>BTC：1AG6wprRirfBwV4FoYEEbZebGacroh7CHV</p>
+
+<p>ETH：0xe1BCEAa7e2863F58430ace725a79EcEDaE747b07</p>
+
+<p>XMR：45ceB7fA4r4Mo8trRQG6bSYTHmFaYQeA7Q3B192FZLsYfipV4LfRWwNjA72aSgWbhPQQqcxkXmpmi7KZbd1zxCwe3TdHyvm</p>
+
+<p>ETN：etnkKXAv5TaVAnQuhc3ZCg8nJCSnLQYWCNREJwi5QitHiTzDmS179GbBdzLHp2z3bFNsFzrJmjhuHLzX475oEWVr8CgN4AucjM</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://lafudoci.gitbooks.io/monero-xmr/content/full-monero-client-cli.html">Monero 核心錢包 (CLI 命令列) 教學 · Monero (XMR) 介紹及使用教學</a></li>
+<li><a href="https://www.monero.how/tutorial-restore-monero-command-line-wallet-from-seed">How to restore a Monero wallet from your 25 word seed</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-01-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%8C%96%E7%A4%A6/">挖礦</a>
+          <a href="/tags/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/">加密貨幣</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/%E9%8C%A2%E5%8C%85/">錢包</a>
+          <a href="/tags//"></a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/etn-online-wallet-tutorial/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Electroneum 線上錢包教學</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/comment-system-for-static-blog/">
+            <span class="next-text nav-default">靜態部落格留言板蒐集</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

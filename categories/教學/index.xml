@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>教學 on 書術方隅</title>
+    <link>/categories/%E6%95%99%E5%AD%B8/</link>
+    <description>Recent content in 教學 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/categories/%E6%95%99%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mopidy &#43; ncmpcpp 打造 Spotify 客戶端</title>
+      <link>/post/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</link>
+      <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</guid>
+      <description>Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的</description>
+    </item>
+    
+    <item>
+      <title>ShadowsocksR Windows 版新手教學</title>
+      <link>/post/ssr-client-tutorial-for-windows/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ssr-client-tutorial-for-windows/</guid>
+      <description>Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一</description>
+    </item>
+    
+    <item>
+      <title>將 TAK 轉檔成其他格式(Windows)</title>
+      <link>/post/convert-tak-format-in-windows/</link>
+      <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/convert-tak-format-in-windows/</guid>
+      <description>Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了</description>
+    </item>
+    
+    <item>
+      <title>用 youtube-dl 優雅下載影片</title>
+      <link>/post/use-youtube-dl-to-download-videos/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/use-youtube-dl-to-download-videos/</guid>
+      <description>Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最</description>
+    </item>
+    
+    <item>
+      <title>解決 PTT 在中國無法連線問題</title>
+      <link>/post/solve-ptt-cannot-connect/</link>
+      <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/solve-ptt-cannot-connect/</guid>
+      <description>PTT 實業坊是全台最大的線上討論區，以電子佈告欄系統為主的開放自由討論空間，很多人是每天都要上 PTT，不然就會渾身不適，那要是工作出差到了中國，</description>
+    </item>
+    
+    <item>
+      <title>使用 LAME 輕鬆將無損 wav 壓制成 MP3 格式</title>
+      <link>/post/use-lame-to-compress-wav/</link>
+      <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/use-lame-to-compress-wav/</guid>
+      <description>Photo by Dmitry Bayer on Unsplash LAME 是一套開源的 MP3 Encoder，可以將音源壓制成標準的 MP3 格式，一般擷取 CD 裡的音源大部分都是無損的 wav 格式，檔案大小大，不好攜帶，今</description>
+    </item>
+    
+    <item>
+      <title>用 Caddy 當伺服器，自動申請 SSL 證書</title>
+      <link>/post/caddy-web-server/</link>
+      <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/caddy-web-server/</guid>
+      <description>Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&amp;rsquo;s Encrypt 取得憑證，還會定期續約，真的是很</description>
+    </item>
+    
+    <item>
+      <title>在 Linux 下用 ImageMagick 批量壓縮圖片</title>
+      <link>/post/compress-photo-with-imagemagick/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>/post/compress-photo-with-imagemagick/</guid>
+      <description>在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ShadowsocksR Windows 版新手教學 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一" /><meta name="keywords" content="Hugo, theme, even" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
+
+
+<link rel="canonical" href="/post/ssr_%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ShadowsocksR Windows 版新手教學" />
+<meta property="og:description" content="Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="/post/ssr_%E4%BD%BF%E7%94%A8%E6%95%99%E5%AD%B8/" />
+<meta property="article:published_time" content="2019-05-03T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-05-03T00:00:00+00:00" />
+<meta itemprop="name" content="ShadowsocksR Windows 版新手教學">
+<meta itemprop="description" content="Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一">
+
+
+<meta itemprop="datePublished" content="2019-05-03T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-05-03T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1802">
+
+
+
+<meta itemprop="keywords" content="科學上網,Windows,軟體,教學,中國,經驗," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ShadowsocksR Windows 版新手教學"/>
+<meta name="twitter:description" content="Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ShadowsocksR Windows 版新手教學</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-05-03 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/windows/"> Windows </a>
+            <a href="/categories/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/"> 科學上網 </a>
+            </div>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#安裝">安裝</a></li>
+<li><a href="#使用">使用</a></li>
+<li><a href="#選項設定">選項設定</a></li>
+<li><a href="#proxy-switchyomega-gfwlist">Proxy SwitchyOmega + GFWlist</a>
+<ul>
+<li><a href="#chrome">Chrome</a></li>
+<li><a href="#firefox">Firefox</a></li>
+<li><a href="#switchyomega-設定">SwitchyOmega 設定</a></li>
+</ul></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><img src="https://i.loli.net/2019/05/03/5ccc00a2d32fd.jpg" alt="乘著飛機飛越高牆，前往自由的天空" /></p>
+
+<blockquote>
+<p>Photo by <a href="https://unsplash.com/photos/X_MOr6oa4-k?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Ethan McArthur</a> on <a href="https://unsplash.com/search/photos/airplane?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+
+<p><strong>這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一款優秀的代理工具，此教學也可通用於 Shadowsocks 和 V2RayN。</strong></p>
+
+<p>ShadowsocksR 是繼 Shadowsocks 之後的有效翻牆工具，使用更強大的混淆技術，跟 SS 一樣都是將封包偽裝成正常流量，加上很多網站都已經啟用 SSL 加密連線，基本上政府想查你在幹嘛是不可能的，當然你電腦裡最好不要裝一些中國特色流氓軟體，說不定內建後門監控你，像是什麼 360 安全瀏覽器(不知道哪裡安全，還有一堆廣告)、360 安全衛士、金山毒霸、百毒等，如果你剛好是中共政府盯上的民運分子，那安裝中國軟體相當是作死。</p>
+
+<!-- more -->
+
+<p>雖然最近中國政府已經研究出分析 SS 和 SSR 特徵流量的技術，還有大學生研究的<a href="https://patents.google.com/patent/CN109286576A/">論文</a>，並已經在某些區域進行測試(廣東深圳)，不敢說百分之百不會被抓到，但是政府抓的都是那些國外網站發佈反動言論，傳播反動言論給中國境內民眾的人，一般個人翻牆是不會抓的，只要你不去幹這些事，只是翻牆看國外資訊是不會怎樣的，在中國生活請牢記一句話：「<strong>不作死就不會死</strong>」。</p>
+
+<h2 id="安裝">安裝</h2>
+
+<p>開發 SSR 的原作者已經因為政治因素刪庫了，還好有善心人士把專案 fork 了，不過客戶端是用 Release 發佈的，不知道為何在中國 Github 的 Release 下載速度特別慢(WTF?)。</p>
+
+<p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases">https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases</a></p>
+
+<p>順便附上其他大大蒐集的一些小工具，工具都已經用資料夾分類好了，直接 Raw 方式下載就行，這步很簡單，應該沒有人不會。</p>
+
+<p><a href="https://github.com/junyussh/SS-and-SSR-Collection">https://github.com/junyussh/SS-and-SSR-Collection</a></p>
+
+<p>將壓縮檔內容解壓縮到一個資料夾後執行 <code>ShadowsocksR-dotnet4.0.exe</code>。</p>
+
+<h2 id="使用">使用</h2>
+
+<p>開啟 SSR 後，可以點兩下常駐工具列的小飛機圖示兩下編輯伺服器，或是在圖標上點擊右鍵選單 [伺服器] &gt; [編輯伺服器]。</p>
+
+<p><img src="https://i.loli.net/2019/03/11/5c86847034f2e.jpg" alt="點兩下小飛機圖示" /></p>
+
+<p><img src="https://i.loli.net/2019/03/11/5c86847046321.jpg" alt="右鍵選單編輯" /></p>
+
+<p>然後按照你的 SSR 節點填入設定，不要完全照圖片抄啊，沒用的，節點別跟我要啊，我沒辦法提供的。</p>
+
+<p><img src="https://i.loli.net/2019/03/11/5c8684706eebf.jpg" alt="配置伺服器" /></p>
+
+<p>如果本身有在用 Telegram 的朋友就有福了，推薦大家一個<a href="https://t.me/SSRlist">頻道</a>，裡面會定期發送免費 SSR 節點，不過有些很快就會失效，要定期更換。</p>
+
+<p>複製你看中的節點，把 <code>ssr://</code> 開頭的連結複製，然後在 SSR 圖示點右鍵選擇 [Import SSR links from clipboard] 就能批量匯入了，是不是很簡單呢。</p>
+
+<p><img src="https://i.loli.net/2019/03/11/5c86847040d3e.jpg" alt="右鍵批量匯入 SSR 連結" /></p>
+
+<p>眼尖的同學應該有發現從剪貼簿匯入網址的上面還有一個 [QR 碼掃描] 的功能，沒錯，也能用 QR Code 匯入，若掃描到 SSR 連結就會自動加入伺服器列表，如果不是會幫你掃出 QR Code 中的內容(太方便了，還內建 QR Code 掃描器)。</p>
+
+<p><img src="https://i.loli.net/2019/03/11/5c868470878b8.jpg" alt="SSR 掃描螢幕畫面中的 QR Code" /></p>
+
+<p><img src="https://i.loli.net/2019/03/11/5c868470693a0.jpg" alt="辨識出非 SSR 連結" /></p>
+
+<h2 id="選項設定">選項設定</h2>
+
+<p>右鍵選單有個 [選項設置]，點開後可以設定開機自動啟動和監聽本機的端口等。</p>
+
+<p><img src="https://i.loli.net/2019/03/11/5c86847031ca7.jpg" alt="進階設定" /></p>
+
+<p>本機端口預設 <code>1080</code>，如果沒有跟其他程式衝突到就保持預設，通常代理工具預設的監聽端口都是 <code>socks5://127.0.0.1:1080</code>，你如果已經開了 SS，又開啟 SSR，端口又都設一樣(通常會噴錯誤訊息)，那就只有先開啟的程式能占用該端口。</p>
+
+<p>如果長期在中國生活，啟用開機自動啟動比較方便，一開機就幫你開 SSR，開啟瀏覽器就能享受自由的網路。</p>
+
+<h2 id="proxy-switchyomega-gfwlist">Proxy SwitchyOmega + GFWlist</h2>
+
+<p>瀏覽器建議搭配 <a href="https://www.switchyomega.com/">Proxy SwitchyOmega</a> 擴充套件使用，這工具的前身是 Proxy SwitchSharp，此工具可以快速切換代理設定，<a href="https://addons.mozilla.org/en-US/firefox/addon/switchyomega/">Firefox Add-Ons</a> 和 <a href="https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif">Chrome 應用商店</a>皆可找到，如果沒有上述其中一款瀏覽器請趕快去載一個。</p>
+
+<p>先來解釋為何要用此工具管理代理，有些網站其實是不用翻牆的，這時採用直接連線反而更快，有些影視網站也限制中國大陸境內才有使用，要是翻到國外就無法使用服務，網路上已有善心人士整理出需要翻牆的網站清單，把這清單匯入 SwitchyOmega 後，改成自動切換模式，這樣上網時就會自動分辨網站需不需要翻牆，其實 SwitchyOmega 的 Github Wiki 教學[^1]已經很清楚了。</p>
+
+<h3 id="chrome">Chrome</h3>
+
+<p>Chrome 應用商店是需要翻牆的，先開啟 SSR，然後右鍵 [系統代理模式] &gt; [全局代理]，瀏覽器預設連線就會使用代理伺服器，然後開啟<a href="https://chrome.google.com/webstore/detail/padekgcemlokbadohgkifijomclgjgif">安裝網址</a>應該就能上了。</p>
+
+<p><img src="https://i.loli.net/2019/05/03/5ccbf9978ae3e.jpg" alt="SSR 設定系統全局代理" /></p>
+
+<h3 id="firefox">Firefox</h3>
+
+<p>Firefox 安裝擴充套件我記得不用翻牆，直接去官方商店搜尋 SwitchyOmega 就能安裝，使用方式跟 Chrome 大同小異。</p>
+
+<h3 id="switchyomega-設定">SwitchyOmega 設定</h3>
+
+<p>安裝完成後右上角會出現一個圓形的圖示，點一下按 [選項]，左側選單點選 [匯入/匯出]，建議匯入<a href="https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList.bak">官方設定檔</a>比較快。</p>
+
+<p>官方設定檔網址：<code>https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList.bak</code></p>
+
+<p><img src="https://i.loli.net/2019/05/03/5ccbf644352af.png" alt="" /></p>
+
+<p><img src="https://i.loli.net/2019/05/03/5ccbf6449d8c3.png" alt="匯入設定檔" /></p>
+
+<p>匯入完成後點左側 [自動切換]，在規則清單設定的地方點 [立即更新情景模式]，如果更新失敗把連線切換成 [直接連線] 試試，這網址不用翻牆，更新成功後應該會長這樣。</p>
+
+<p><img src="https://i.loli.net/2019/05/03/5ccbf644a2220.png" alt="更新 GFWList 設定" /></p>
+
+<p>點右上角圖示切換成 [自動切換]，然後瀏覽 <a href="http://google.com">Google</a> 看看能不能成功連線，如果此網站需要應用代理的話圖示會變色。</p>
+
+<p><img src="https://i.loli.net/2019/05/03/5ccbf8263a70c.png" alt="瀏覽 GFWList 所列之需要代理的網站，SwitchyOmega 圖示會變色" /></p>
+
+<p>如果瀏覽 GFWList 沒有列入的網站，但好像需要翻牆可以加入自定義規則透過代理瀏覽(沒錯，<a href="https://hackmd.io">HackMD</a> 被牆了)。</p>
+
+<p><img src="https://i.loli.net/2019/05/03/5ccbfb3e7b866.png" alt="點一下 [資源未加載]" /></p>
+
+<p><img src="https://i.loli.net/2019/05/03/5ccbfb3e95af7.png" alt="把網域通用符加入規則" /></p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li>[^1]: <a href="https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList">GFWList · FelisCatus/SwitchyOmega Wiki</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-05-03
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/">科學上網</a>
+          <a href="/tags/windows/">Windows</a>
+          <a href="/tags/%E8%BB%9F%E9%AB%94/">軟體</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/%E4%B8%AD%E5%9C%8B/">中國</a>
+          <a href="/tags/%E7%B6%93%E9%A9%97/">經驗</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/post/the-pillows-one-life-%E4%B8%AD%E6%96%87%E7%BF%BB%E8%AD%AF%E6%AD%8C%E8%A9%9E/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">the pillows One Life 中文翻譯歌詞</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/post/%E4%B8%96%E7%95%8C%E5%9C%B0%E7%90%83%E6%97%A5/">
+            <span class="next-text nav-default">世界地球日．免費咖啡</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:your@email.com" class="iconfont icon-email" title="email"></a>
+      <a href="http://localhost:1313" class="iconfont icon-stack-overflow" title="stack-overflow"></a>
+      <a href="http://localhost:1313" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="http://localhost:1313" class="iconfont icon-facebook" title="facebook"></a>
+      <a href="http://localhost:1313" class="iconfont icon-linkedin" title="linkedin"></a>
+      <a href="http://localhost:1313" class="iconfont icon-google" title="google"></a>
+      <a href="http://localhost:1313" class="iconfont icon-github" title="github"></a>
+      <a href="http://localhost:1313" class="iconfont icon-weibo" title="weibo"></a>
+      <a href="http://localhost:1313" class="iconfont icon-zhihu" title="zhihu"></a>
+      <a href="http://localhost:1313" class="iconfont icon-douban" title="douban"></a>
+      <a href="http://localhost:1313" class="iconfont icon-pocket" title="pocket"></a>
+      <a href="http://localhost:1313" class="iconfont icon-tumblr" title="tumblr"></a>
+      <a href="http://localhost:1313" class="iconfont icon-instagram" title="instagram"></a>
+      <a href="http://localhost:1313" class="iconfont icon-gitlab" title="gitlab"></a>
+      <a href="http://localhost:1313" class="iconfont icon-bilibili" title="bilibili"></a>
+  <a href="/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2017 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+
+
+</body>
+</html>

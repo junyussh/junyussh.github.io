@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>日常隨筆 on 書術方隅</title>
+    <link>/tags/%E6%97%A5%E5%B8%B8%E9%9A%A8%E7%AD%86/</link>
+    <description>Recent content in 日常隨筆 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Tue, 17 Oct 2017 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E6%97%A5%E5%B8%B8%E9%9A%A8%E7%AD%86/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>新環境，新氣象</title>
+      <link>/post/new-hexo-blog/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>/post/new-hexo-blog/</guid>
+      <description>話說先前我本想遠端用 Hexo 寫作，於是把 Hexo 的原始檔案都放在了 Coding.net 的 WebIDE 了，最近想發表文章卻無法進入 WebIDE，發 Issue 也沒有解決問題，這下只能下大絕了—</description>
+    </item>
+    
+  </channel>
+</rss>

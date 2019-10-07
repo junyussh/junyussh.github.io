@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>中國 on 書術方隅</title>
+    <link>/tags/%E4%B8%AD%E5%9C%8B/</link>
+    <description>Recent content in 中國 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Fri, 03 May 2019 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E4%B8%AD%E5%9C%8B/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>ShadowsocksR Windows 版新手教學</title>
+      <link>/post/ssr-client-tutorial-for-windows/</link>
+      <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>/post/ssr-client-tutorial-for-windows/</guid>
+      <description>Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一</description>
+    </item>
+    
+  </channel>
+</rss>

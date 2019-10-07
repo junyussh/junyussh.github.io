@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>數學 on 書術方隅</title>
+    <link>/tags/%E6%95%B8%E5%AD%B8/</link>
+    <description>Recent content in 數學 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Sat, 15 Oct 2016 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="/tags/%E6%95%B8%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>三角函數角度公式</title>
+      <link>/post/trangle-angle-formula/</link>
+      <pubDate>Sat, 15 Oct 2016 00:00:00 +0000</pubDate>
+      
+      <guid>/post/trangle-angle-formula/</guid>
+      <description>之前高二有在學三角函數，當時無聊就將我們數學老師的講義內容稍微電子化了一下，把三角函數所用到的重要公式用 LaTEX 語法寫在 Markdown 裡，作為數學筆記，如果有</description>
+    </item>
+    
+  </channel>
+</rss>
