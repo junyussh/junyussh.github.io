@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>將 TAK 轉檔成其他格式(Windows) - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.com/p/convert-tak-format-in-windows/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="將 TAK 轉檔成其他格式(Windows)" />
+<meta property="og:description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.com/p/convert-tak-format-in-windows/" />
+<meta property="article:published_time" content="2018-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-12-25T00:00:00+00:00" />
+<meta itemprop="name" content="將 TAK 轉檔成其他格式(Windows)">
+<meta itemprop="description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了">
+
+
+<meta itemprop="datePublished" content="2018-12-25T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2018-12-25T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1000">
+
+
+
+<meta itemprop="keywords" content="教學,TAK,影音處理,Windows,ffmpeg,libav," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="將 TAK 轉檔成其他格式(Windows)"/>
+<meta name="twitter:description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">將 TAK 轉檔成其他格式(Windows)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2018-12-25 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/"> 影音處理 </a>
+            </div>
+          <span class="more-meta"> 約 1000 字 </span>
+          <span class="more-meta"> 預計閱讀 2 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#tak-官方轉檔程式">TAK 官方轉檔程式</a></li>
+<li><a href="#tak-sdk-搭配-ffmpeg-libav">TAK SDK 搭配 FFmpeg/Libav</a></li>
+<li><a href="#foobar200-tak-decoder">foobar200 + TAK Decoder</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><img src="https://i.loli.net/2019/10/05/wsFoH24QMyCzYgm.jpg" alt="Music Albums" /></p>
+
+<blockquote>
+<p>Photo by <a href="https://unsplash.com/photos/W8BRzoUTHNA?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Natalie Perea</a> on <a href="https://unsplash.com/search/photos/musiuc-album?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+
+<p>TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了一下才發現支援 TAK 播放的軟體非常稀少，不知道這作者不知道在想什麼，竟然沒有開源解碼器，讓 TAK 的編輯、播放相當受限。</p>
+
+<!-- more -->
+
+<p>為了找出轉換的方式，在網路上找了很多資料，經過多番嘗試後總算成功將 TAK 格式轉換成常見的無損音樂格式 FLAC。</p>
+
+<p>首先準備工具：</p>
+
+<ol>
+<li><a href="http://thbeck.de/Download/TAK_2.3.0.zip">TAK SDK</a>: 官方釋出的解碼器，內含有 TAK 解碼器、簡易轉檔器還有 Winamp 的播放外掛</li>
+<li><a href="https://ffmpeg.zeranoe.com/builds/">ffmpeg</a>/<a href="https://libav.org/download/">Libav</a>: 轉換影音格式的瑞士軍刀，Libav 是 ffmpeg 的 fork，兩者指令大同小異</li>
+</ol>
+
+<p>先把 TAK 工具包載回來，在 bin 資料夾裡面有個 <code>takc.exe</code> 可以解碼 TAK 格式並以標準格式輸出，可把 <code>takc.exe</code> 的路徑放到環境變數裡，這樣就能直接在終端機內執行 <code>takc</code> 指令。</p>
+
+<h2 id="tak-官方轉檔程式">TAK 官方轉檔程式</h2>
+
+<p>壓縮檔裡面還有個 <code>tak.exe</code>，有簡單的 GUI，「Compress」可以把 WAV 壓縮成 TAK，「Decompress」則是能把 TAK 還原成 WAV。</p>
+
+<p><img src="https://i.imgur.com/I0aGdpV.jpg" alt="tak.exe 基本界面" /></p>
+
+<p>「Options」可以設定一些優化選項。</p>
+
+<p><img src="https://i.imgur.com/BuWvNlt.jpg" alt="轉換參數" /></p>
+
+<p>可以一次加入多個檔案，加入檔案後點「Decompress」就好。</p>
+
+<p><img src="https://i.imgur.com/jGPH5uF.jpg" alt="Decompress" /></p>
+
+<h2 id="tak-sdk-搭配-ffmpeg-libav">TAK SDK 搭配 FFmpeg/Libav</h2>
+
+<p>雖然官方提供的程式可以做簡易的轉換，但這樣只能轉 WAV，而且沒有什麼技術要求，接下來才是這本篇文章的重點。</p>
+
+<p>載完 ffmpeg(或 libav) 後，可以加入環境變量，然後開啟終端機，輸入下面指令，指令的功能是先用 <code>takc</code> 解碼，再用 pipeline 串流給 libav 做轉檔(也可換成 ffmpeg)，輸出成 flac 格式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">takc -d disc1.tak - <span class="p">|</span> avconv -i - disc1.flac</code></pre></td></tr></table>
+</div>
+</div>
+<p>要是出現以下錯誤訊息，請把檔案名稱取的簡單一點，盡量不要有特殊字符，像是中文、日文，還有我發現別跟 <code>.cue</code> 檔放在同一目錄下執行指令，不然也會出錯。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>tak @ 03af5860<span class="o">]</span> unsupported codec: <span class="m">0</span>
+Error <span class="k">while</span> decoding stream <span class="c1">#0:0: Not yet implemented in FFmpeg, patches welcome</span></code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span> files with read/write errors.</code></pre></td></tr></table>
+</div>
+</div><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pipe:: Invalid data found when processing input</code></pre></td></tr></table>
+</div>
+</div>
+<p>雖然 TAK 號稱擁有優秀的壓縮率，但轉成 flac 後也才多了 7 MB，真不知道把音樂弄成這格式的意義在哪裡？</p>
+
+<h2 id="foobar200-tak-decoder">foobar200 + TAK Decoder</h2>
+
+<p>TAK 官網上列出的支援軟體其中一個就是 foobar2000，裝上了 foobar2000 的 <a href="https://foobar.hyv.fi/?view=foo_input_tak">TAK Decoder</a> 元件便能在 foobar2000 中享受高碼率無損音樂。不愧是最優質的音訊播放軟體。</p>
+
+<p>轉檔過程剛上次<a href="/p/use-lame-to-compress-wav/#壓制">教學</a>一樣，將 TAK 音訊加入 foobar2000 播放清單後，選取歌曲點右鍵，轉換 &gt; 快速轉換，選擇要輸出的格式轉換就好，不過我習慣將整軌版音訊用 CUE 分割工具分成多軌，可以自訂 ID3 標籤和檔名，比較偏好第二種方式。</p>
+
+<p><img src="https://i.imgur.com/Bv6hS62.jpg" alt="" /></p>
+
+<p><img src="https://i.imgur.com/CvZPtM5.jpg" alt="選擇輸出格式" /></p>
+
+<p>至於在 Linux 下該怎麼轉檔改天我再研究，今天為了打這篇文章實驗了好久，有夠累的，對了今天是聖誕節，祝大家聖誕快樂。</p>
+
+<p><img src="https://i.imgur.com/5f4qtms.jpg" alt="聖誕絆愛祝大家聖誕快樂！" /></p>
+
+<blockquote>
+<p>繪師：<a href="https://twitter.com/morikuraen/">森倉円</a>，原圖取自<a href="https://twitter.com/morikuraen/status/1076994971176075264">推特</a></p>
+</blockquote>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://wiki.hydrogenaud.io/index.php?title=TAK">TAK - Hydrogenaudio Knowledgebase</a></li>
+<li><a href="https://hkgoldenmra.blogspot.com/2013/08/tak.html">分享科技與遊戲 by HKGoldenMr.A: 令人討厭的 TAK 聲音檔</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2018-12-25
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/tak/">TAK</a>
+          <a href="/tags/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/">影音處理</a>
+          <a href="/tags/windows/">Windows</a>
+          <a href="/tags/ffmpeg/">ffmpeg</a>
+          <a href="/tags/libav/">libav</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/p/recommend-programs-on-windows/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Windows 電腦推薦安裝軟體</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/p/c-convert-string-type-to-int/">
+            <span class="next-text nav-default">C&#43;&#43; string 型態轉 int</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>plasma on 書術方隅</title>
-    <link>/tags/plasma/</link>
+    <link>https://junyussh.github.com/tags/plasma/</link>
     <description>Recent content in plasma on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Tue, 12 Sep 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/plasma/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.com/tags/plasma/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Arch Linux sddm 啟動失敗方法</title>
-      <link>/post/sddm-start-failed/</link>
+      <link>https://junyussh.github.com/p/sddm-start-failed/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/sddm-start-failed/</guid>
+      <guid>https://junyussh.github.com/p/sddm-start-failed/</guid>
       <description>Photo by Norbert Levajsics on Unsplash 今天我正準備進入我的 Plasma 桌面工作，卻出現黑屏要我按 Ctrl+Alt+F1 來解鎖，按了也沒反應就切到 tty2 來 reboot，結果開機後連 sddm 都沒有出現，看了 sddm 的</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>C&#43;&#43; on 書術方隅</title>
-    <link>/tags/c&#43;&#43;/</link>
+    <link>https://junyussh.github.com/tags/c&#43;&#43;/</link>
     <description>Recent content in C&#43;&#43; on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/c++/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.com/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>C&#43;&#43; string 型態轉 int</title>
-      <link>/post/c&#43;&#43;-convert-string-type-to-int/</link>
+      <link>https://junyussh.github.com/p/c-convert-string-type-to-int/</link>
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/c&#43;&#43;-convert-string-type-to-int/</guid>
+      <guid>https://junyussh.github.com/p/c-convert-string-type-to-int/</guid>
       <description>Photo by Joanne Gerber on Unsplash 不知道大家有沒有想過在 C++ 裡將 string 型態轉換成 int，在 C 語言中可以使用 atoi() 進行轉換，但是在 C++ 內就會出錯，我之前打 ACM 比賽時就遇上這個問題</description>
     </item>
     

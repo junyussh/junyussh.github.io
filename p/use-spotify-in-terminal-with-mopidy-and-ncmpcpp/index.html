@@ -1,0 +1,616 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Mopidy &#43; ncmpcpp 打造 Spotify 客戶端 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Mopidy &#43; ncmpcpp 打造 Spotify 客戶端" />
+<meta property="og:description" content="Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/" />
+<meta property="article:published_time" content="2019-10-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-07T00:00:00+00:00" />
+<meta itemprop="name" content="Mopidy &#43; ncmpcpp 打造 Spotify 客戶端">
+<meta itemprop="description" content="Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的">
+
+
+<meta itemprop="datePublished" content="2019-10-07T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2019-10-07T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1789">
+
+
+
+<meta itemprop="keywords" content="Linux,軟體,教學,mpd,mopidy,ncmpcpp,terminal,影音播放," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Mopidy &#43; ncmpcpp 打造 Spotify 客戶端"/>
+<meta name="twitter:description" content="Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Mopidy &#43; ncmpcpp 打造 Spotify 客戶端</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2019-10-07 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> Linux </a>
+            <a href="/categories/%E8%BB%9F%E9%AB%94/"> 軟體 </a>
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/"> 影音播放 </a>
+            </div>
+          <span class="more-meta"> 約 1789 字 </span>
+          <span class="more-meta"> 預計閱讀 4 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#mopidy">Mopidy</a></li>
+<li><a href="#ncmpcpp">ncmpcpp</a></li>
+<li><a href="#安裝">安裝</a></li>
+<li><a href="#設定">設定</a>
+<ul>
+<li><a href="#本機音樂瀏覽">本機音樂瀏覽</a></li>
+<li><a href="#spotify-模組">Spotify 模組</a></li>
+<li><a href="#用-pulseaudio-輸出音源">用 PulseAudio 輸出音源</a></li>
+</ul></li>
+<li><a href="#音樂可視化">音樂可視化</a>
+<ul>
+<li><a href="#ncmpcpp-內建">ncmpcpp 內建</a></li>
+<li><a href="#cli-visualizer">cli-visualizer</a></li>
+</ul></li>
+<li><a href="#效果展示">效果展示</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><img src="https://i.loli.net/2019/10/07/knRFLfS9zEXTx5s.jpg" alt="Mixer" /></p>
+
+<blockquote>
+<p>Photo by <a href="https://stocksnap.io/author/454">Abigail Keenan</a> on <a href="https://stocksnap.io/photo/T44YT37NFO">StockSnap</a></p>
+</blockquote>
+
+<p>你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的 Spotify 桌面客戶端，結果只能播放收藏的播放清單，也無法搜尋，不過 Mopidy 只是個串流伺服器，沒辦法要求這麼多，雖然無法達到預期效果，還折騰了我一夜，不過真的配好了播放本機音樂還挺不錯用的，一般人看見你用終端機播音樂一定會覺得你是位大神，也順便達到耍帥的作用了。</p>
+
+<!-- more -->
+
+<p>其實整套下來就是個 Server/Client 架構，Mopidy 當串流伺服器，ncmpcpp 是客戶端，所以播放音樂時如果退出 ncmpcpp 音樂還是會繼續播放。</p>
+
+<h2 id="mopidy">Mopidy</h2>
+
+<p>mpd 的替代品，相較於 mpd 多了許多擴充功能，可以串流 Spotify, SoundCloud 等線上音樂服務，比較多人裝在樹莓派來做 mpd 串流伺服器，不僅支援 mpd 也支援 http，可以透過各種客戶端控制。</p>
+
+<h2 id="ncmpcpp">ncmpcpp</h2>
+
+<p>一款簡潔的 mpd 客戶端，同時兼容 Mopidy，提供音樂庫搜尋、過濾、檔案瀏覽器等功能，使用 ncmpcpp 必須指定 mpd 伺服器位址。</p>
+
+<p>使用方式：</p>
+
+<ul>
+<li><code>F1</code>: 使用說明</li>
+<li><code>#</code>: 當前連線伺服器資訊</li>
+<li><code>1</code>: 目前播放佇列</li>
+<li><code>2</code>: 檔案瀏覽器，可以在這裡新增歌曲到播放清單</li>
+<li><code>3</code>: 資料庫搜尋</li>
+<li><code>4</code>: 音樂資料庫</li>
+<li><code>5</code>: 播放清單編輯器</li>
+<li><code>6</code>: 標籤編輯器</li>
+<li><code>7</code>: 輸出選擇</li>
+<li><code>8</code>: 音樂可視化</li>
+<li><code>=</code>: 數位時鐘</li>
+<li><code>\</code>: 切換版面</li>
+<li><code>f</code>: 播放進度向前</li>
+<li><code>q</code>: 播放進度向後</li>
+<li><code>i</code>: 顯示歌曲資訊</li>
+<li><code>I</code>: 顯示歌曲藝術家資訊</li>
+<li><code>l</code>: 顯示歌詞(靜態歌詞)</li>
+<li><code>L</code>: 切換歌詞源(建議選 All)</li>
+<li><code>&lt;</code>: 前一首</li>
+<li><code>&gt;</code>: 下一首</li>
+<li><code>p</code>: 播放/暫停</li>
+<li><code>s</code>: 停止</li>
+<li><code>+</code>: 增大音量</li>
+<li><code>-</code>: 減小音量</li>
+</ul>
+
+<p>更多 Key Binding 可以去看這個 <a href="https://pkgbuild.com/~jelle/ncmpcpp/">Cheat Sheet</a>。</p>
+
+<h2 id="安裝">安裝</h2>
+
+<p>這裡只介紹 Arch Linux 的安裝方法，先把 Mopidy 和 ncmpcpp 裝好。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S mopidy ncmpcpp</code></pre></td></tr></table>
+</div>
+</div>
+<h2 id="設定">設定</h2>
+
+<p>強烈建議將 Mopidy 作為系統服務執行，這樣比較不容易出錯，也可以保持其穩定性。</p>
+
+<p>將 <code>mopidy</code> 加入 <code>audio</code> 組。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo gpasswd -a mopidy audio</code></pre></td></tr></table>
+</div>
+</div>
+<p>先建立一個範例設定檔。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mopidyctl config</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果建立途中發生 <code>使用者帳戶已逾期</code> 就更改 <code>mopidy</code> 使用者的過期日期為永不逾期，這個是大坑啊，找了好久資料才找到解決方法。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo chage -E -1 mopidy</code></pre></td></tr></table>
+</div>
+</div>
+<p>設定檔的位置在 <code>/etc/mopidy/mopidy.conf</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/mopidy/mopidy.conf</code></pre></td></tr></table>
+</div>
+</div>
+<p>注意：設定檔修改後須重啟服務才會生效。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl restart mopidy</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="本機音樂瀏覽">本機音樂瀏覽</h3>
+
+<p>Mopidy 設定檔中的 <code>[file]</code>  區塊取消註解，在 <code>media_dirs</code> 裡設定你想要瀏覽的目錄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[file]</span>
+<span class="na">enabled</span> <span class="o">=</span> <span class="s">true</span>
+<span class="na">media_dirs</span> <span class="o">=</span> <span class="s">
+</span><span class="s">  $XDG_MUSIC_DIR|Music
+</span><span class="s">  ~/|Home
+</span><span class="s">  /mnt/</span></code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="spotify-模組">Spotify 模組</h3>
+
+<p>安裝 Mopidy 的 Spotify 的擴充套件，Arch 已經放在 aur 裡了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S mopidy-spotify</code></pre></td></tr></table>
+</div>
+</div>
+<p>加入 Spotify 模組的設定，比特率預設 <code>160</code>，嫌音質不夠高的話可以改成 <code>320</code>，<code>client_id</code> 和 <code>client_secret</code> 請從<a href="https://www.mopidy.com/authenticate/#spotify">這裡</a>獲取。</p>
+
+<p><strong>注意：Spotify 會員才能使用此模組</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[spotify]</span>
+<span class="na">username</span> <span class="o">=</span> <span class="s">abc@example.com</span>
+<span class="na">password</span> <span class="o">=</span> <span class="s">123456</span>
+<span class="na">client_id</span> <span class="o">=</span> 
+<span class="na">client_secret</span> <span class="o">=</span> 
+<span class="na">bitrate</span> <span class="o">=</span> <span class="s">320</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>按 <code>2</code> 進入檔案瀏覽器界面應該能看見一個 Spotify 的選項，點進去有各類榜單，就是沒有自己的播放清單，不知道是不是 Bug？</p>
+
+<p><img src="https://i.loli.net/2019/10/07/j57XVBqDsiWF3lx.png" alt="ncmpcpp 的 Spotify 界面" /></p>
+
+<h3 id="用-pulseaudio-輸出音源">用 PulseAudio 輸出音源</h3>
+
+<p>輸出建議設定 PulseAudio 來混合音道，使用 <code>autoaudiosink</code> 會有聲卡獨占的問題，如果想要音質好一點的可以設 <code>alsasink</code>。</p>
+
+<p>若要使用 PulseAudio 服務要先配置 PulseAudio 的 TCP Socket 監聽，編輯 <code>/etc/pulse/default.pa</code>，寫入下面這行。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="c1">### Network access (may be configured with paprefs, so leave this commented</span>
+<span class="c1">### here if you plan to use paprefs)</span>
+<span class="c1">#load-module module-esound-protocol-tcp</span>
+<span class="na">load-module module-native-protocol-tcp auth-ip-acl</span><span class="o">=</span><span class="s">127.0.0.1</span>
+<span class="c1">#load-module module-zeroconf-publish</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>然後 Mopidy 設定檔輸出設定指定剛才設置的 PulseAudio 端口。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[audio]</span>
+<span class="na">output</span> <span class="o">=</span> <span class="s">pulsesink server=127.0.0.1</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>修改完設定後重啟 PulseAudio 和 Mopidy。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pulseaudio --kill
+start-pulseaudio-x11
+sudo systemctl restart mopidy</code></pre></td></tr></table>
+</div>
+</div>
+<p>如果你不是在 X 環境下操作，請把 <code>start-pulseaudio-x11</code> 替換成 <code>pulseaudio --start</code>。</p>
+
+<h2 id="音樂可視化">音樂可視化</h2>
+
+<h3 id="ncmpcpp-內建">ncmpcpp 內建</h3>
+
+<p>ncmpcpp 之所以被譽為終端機的音樂播放神器其中一個原因就是內建音樂可視化功能，進入 <code>ncmpcpp</code> 後按數字鍵 <code>8</code> 就可以跳轉到 Music visualizer 界面。</p>
+
+<p>音樂可視化需要在 ncmpcpp 設定檔設定，先建立 config 資料夾。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir ~/.ncmpcpp</code></pre></td></tr></table>
+</div>
+</div>
+<p>編輯 <code>~/.ncmpcpp/config</code> 寫入：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">visualizer_output_name</span> <span class="o">=</span>                 <span class="s">&#34;FIFO&#34;</span>
+<span class="na">visualizer_in_stereo</span> <span class="o">=</span>                     <span class="s">&#34;no&#34;</span>
+<span class="na">visualizer_fifo_path</span> <span class="o">=</span>                     <span class="s">&#34;/tmp/mpd.fifo&#34;</span>
+<span class="na">visualizer_sync_interval</span> <span class="o">=</span>                 <span class="s">&#34;10&#34;</span>
+<span class="na">visualizer_type</span> <span class="o">=</span>                         <span class="s">&#34;spectrum&#34;</span>
+<span class="na">visualizer_look</span> <span class="o">=</span>                         <span class="s">&#34;▋▋&#34;</span></code></pre></td></tr></table>
+</div>
+</div>
+<p>然後新建 <code>/tmp/mpd.fifo</code>，這個檔案是類比輸出裝置的 buffer。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">mkfifo /tmp/mpd.fifo</code></pre></td></tr></table>
+</div>
+</div>
+<h3 id="cli-visualizer">cli-visualizer</h3>
+
+<p>用 ncmpcpp 內建的可視化界面常常出現 <code>Could not open file &quot;/tmp/mpd.fifo&quot; for writing</code> 的錯誤，所以我通常使用 cli-visulizer 來做音樂可視化，cli-visualizer 是 CLI 界面下的音樂可視化軟體，有多種可視化模式可以選擇，在 Arch 中一樣可以用 aur 安裝。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S cli-visualizer</code></pre></td></tr></table>
+</div>
+</div>
+<p>這個工具可以讀取當前音源，並即時畫出可視化圖形，如果用 PulseAudio 輸出，電腦其他音源也會被繪製出來，安裝好後無須設定，在終端中輸入 <code>vis</code> 即可開啟，缺點是如果終端機字體設太大像素就會很少。</p>
+
+<p>使用方式：</p>
+
+<ul>
+<li><code>space</code>: 切換模式</li>
+<li><code>s</code>: 切換立體聲/單聲道</li>
+<li><code>q</code>/<code>Ctrl+c</code>: 退出 cli-visualizer</li>
+<li><code>c</code>: 切換顏色主題</li>
+<li><code>+</code>: 放大 10%</li>
+<li><code>-</code>: 縮小 10%</li>
+</ul>
+
+<p>常用的按鍵就 <code>s</code> 和 <code>Space</code>，剩下的功能不知道為什麼沒用。</p>
+
+<p>立體聲效果：</p>
+
+<p><img src="https://i.loli.net/2019/10/07/mNIU129f85elGhq.png" alt="立體聲效果" /></p>
+
+<p>單聲道效果：</p>
+
+<p><img src="https://i.loli.net/2019/10/07/9tCniAjeobyJKdv.png" alt="單聲道效果" /></p>
+
+<p>還有其他不知如何形容的圖形：</p>
+
+<p><img src="https://i.loli.net/2019/10/07/s9RFef75biXPOul.png" alt="其他圖形" /></p>
+
+<h2 id="效果展示">效果展示</h2>
+
+<p>顯示當前歌曲歌詞，記得要將 ID3 標籤填寫完整搜到歌詞的機率才比較高。</p>
+
+<p><img src="https://i.loli.net/2019/10/07/tV8UoNHD7SKzWb5.png" alt="ncmpcpp 播放界面搭配 cli-visualizer" /></p>
+
+<p>我用 tmux 切割成兩個視窗，一邊顯示播放清單，另一邊顯示可視化圖形，當然你也可以用終端機自帶的視窗分割功能。</p>
+
+<p><img src="https://i.loli.net/2019/10/07/SDXwq3dbuALzpMn.jpg" alt="ncmpcpp + Mopidy 效果展示" /></p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://blog.yangmame.org/mpd-ncmpcpp%E9%85%8D%E7%BD%AE%E7%BE%8E%E5%8C%96%E6%95%99%E7%A8%8B.html">mpd+ncmpcpp配置美化教程 - YangMame</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2019-10-07
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/%E8%BB%9F%E9%AB%94/">軟體</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/mpd/">mpd</a>
+          <a href="/tags/mopidy/">mopidy</a>
+          <a href="/tags/ncmpcpp/">ncmpcpp</a>
+          <a href="/tags/terminal/">terminal</a>
+          <a href="/tags/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/">影音播放</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/p/write-masm-style-assembly-in-linux/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">Linux 下使用 MASM 編譯組合語言</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/p/ssr-client-tutorial-for-windows/">
+            <span class="next-text nav-default">ShadowsocksR Windows 版新手教學</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

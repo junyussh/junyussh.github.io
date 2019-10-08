@@ -2,39 +2,39 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Windows on 書術方隅</title>
-    <link>/tags/windows/</link>
+    <link>https://junyussh.github.com/tags/windows/</link>
     <description>Recent content in Windows on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Fri, 03 May 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/windows/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.com/tags/windows/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>ShadowsocksR Windows 版新手教學</title>
-      <link>/post/ssr-client-tutorial-for-windows/</link>
+      <link>https://junyussh.github.com/p/ssr-client-tutorial-for-windows/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/ssr-client-tutorial-for-windows/</guid>
+      <guid>https://junyussh.github.com/p/ssr-client-tutorial-for-windows/</guid>
       <description>Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一</description>
     </item>
     
     <item>
       <title>Windows 電腦推薦安裝軟體</title>
-      <link>/post/recommend-programs-on-windows/</link>
+      <link>https://junyussh.github.com/p/recommend-programs-on-windows/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/recommend-programs-on-windows/</guid>
+      <guid>https://junyussh.github.com/p/recommend-programs-on-windows/</guid>
       <description>Photo by Farzad Nazifi on Unsplash 最近在中國某大學做了一陣子的工具人，發現好多人的電腦都裝了一些奇奇怪怪的中國特色軟體，有感而發，身為一個學資訊的人，實在是看不下</description>
     </item>
     
     <item>
       <title>將 TAK 轉檔成其他格式(Windows)</title>
-      <link>/post/convert-tak-format-in-windows/</link>
+      <link>https://junyussh.github.com/p/convert-tak-format-in-windows/</link>
       <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/convert-tak-format-in-windows/</guid>
+      <guid>https://junyussh.github.com/p/convert-tak-format-in-windows/</guid>
       <description>Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了</description>
     </item>
     

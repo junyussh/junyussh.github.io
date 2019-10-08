@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>ETN 挖礦起手式之產生錢包 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="最近一周比特幣大漲，創歷史新高點 16000 USD，甚至一天漲幅超過 50%，從 12000 衝破 15000 USD 大關，其他加密貨幣也跟者水漲船高，再度掀起了加密貨幣的熱潮。 今" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.58.3 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.com/p/etn-wallet-generate/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="ETN 挖礦起手式之產生錢包" />
+<meta property="og:description" content="最近一周比特幣大漲，創歷史新高點 16000 USD，甚至一天漲幅超過 50%，從 12000 衝破 15000 USD 大關，其他加密貨幣也跟者水漲船高，再度掀起了加密貨幣的熱潮。 今" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.com/p/etn-wallet-generate/" />
+<meta property="article:published_time" content="2017-12-09T00:00:00+00:00" />
+<meta property="article:modified_time" content="2017-12-09T00:00:00+00:00" />
+<meta itemprop="name" content="ETN 挖礦起手式之產生錢包">
+<meta itemprop="description" content="最近一周比特幣大漲，創歷史新高點 16000 USD，甚至一天漲幅超過 50%，從 12000 衝破 15000 USD 大關，其他加密貨幣也跟者水漲船高，再度掀起了加密貨幣的熱潮。 今">
+
+
+<meta itemprop="datePublished" content="2017-12-09T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2017-12-09T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1624">
+
+
+
+<meta itemprop="keywords" content="挖礦,加密貨幣,教學,錢包,Electroneum," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="ETN 挖礦起手式之產生錢包"/>
+<meta name="twitter:description" content="最近一周比特幣大漲，創歷史新高點 16000 USD，甚至一天漲幅超過 50%，從 12000 衝破 15000 USD 大關，其他加密貨幣也跟者水漲船高，再度掀起了加密貨幣的熱潮。 今"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">ETN 挖礦起手式之產生錢包</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2017-12-09 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8C%96%E7%A4%A6/"> 挖礦 </a>
+            </div>
+          <span class="more-meta"> 約 1624 字 </span>
+          <span class="more-meta"> 預計閱讀 4 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#產生錢包">產生錢包</a>
+<ul>
+<li><a href="#離線紙錢包">離線紙錢包</a></li>
+<li><a href="#cli-錢包">CLI 錢包</a></li>
+</ul></li>
+<li><a href="#匯入紙錢包到-cli-錢包">匯入紙錢包到 CLI 錢包</a></li>
+<li><a href="#donate">Donate</a></li>
+<li><a href="#reference">Reference</a></li>
+</ul></li>
+</ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      
+
+<p><img src="https://i.imgur.com/LA7EhPT.png" alt="Electroneum" /></p>
+
+<p>最近一周比特幣大漲，創歷史新高點 16000 USD，甚至一天漲幅超過 50%，從 12000 衝破 15000 USD 大關，其他加密貨幣也跟者水漲船高，再度掀起了加密貨幣的熱潮。</p>
+
+<p>今天要介紹一個新的幣種叫做 <a href="https://electroneum.com/">Electroneum</a>，代碼為 ETN，跟門羅幣(XMR)使用同樣的 Cryptonight 演算法，所以也能用 XMR 的挖礦軟體挖。</p>
+
+<!-- more -->
+
+<h2 id="產生錢包">產生錢包</h2>
+
+<h3 id="離線紙錢包">離線紙錢包</h3>
+
+<p>Electroneum <a href="https://downloads.electroneum.com/">官網</a>提供線上產生錢包地址的服務。
+<strong>注意：此功能僅相容於 Chrome 瀏覽器。</strong></p>
+
+<p><a href="https://downloads.electroneum.com/offline_paper_electroneum_walletV1.5.html">https://downloads.electroneum.com/offline_paper_electroneum_walletV1.5.html</a></p>
+
+<p>點選 LET&rsquo;S GET STARTED，開始產生錢包地址。</p>
+
+<p><img src="https://i.imgur.com/7GjTLNu.png" alt="Get Started" /></p>
+
+<p>過程中要求移動游標以產生足夠的熵。</p>
+
+<p><img src="https://i.imgur.com/79qrUaf.png" alt="" /></p>
+
+<p>進度條滿了後，你的紙錢包就產生完成了，按 SAVE WALLET AS PDF 儲存錢包為 PDF 格式。</p>
+
+<p><img src="https://i.imgur.com/2JrHcw1.png" alt="Paper Wallet" /></p>
+
+<p>有 Public Wallet、Private View、Private Spend 的地址，除了 Public Wallet，Private View 和 Private Spend 皆不可外傳，如果丟失了也找不回來。</p>
+
+<p><img src="https://i.imgur.com/zRbpnBZ.png" alt="" /></p>
+
+<p>可以把紙錢包列印出來，還可以折成一個皮夾，這樣就不怕被駭客竊取了。</p>
+
+<p><img src="https://i.imgur.com/aZeBPwy.png" alt="" /></p>
+
+<h3 id="cli-錢包">CLI 錢包</h3>
+
+<p>從官方 Github 的 <a href="https://github.com/electroneum/electroneum/releases">Release</a> 取得程式，支援各種平台。</p>
+
+<p>這邊示範 Windows 下的操作方法，先把 zip 解出來，執行 <code>electroneum-wallet-cli.exe</code>。</p>
+
+<p>執行後會先問你是否載入錢包，因為還沒有產生錢包，先輸入想要的檔名。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Specify wallet file name (e.g., MyWallet). If the wallet doesn&#39;t exist, it will be created.
+Wallet file name (or Ctrl-C to quit): TestWallet</pre></td></tr></table>
+</div>
+</div>
+<p>找不到錢包，是否新增名為 <code>TestWallet</code> 的錢包，這裡選 Yes。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">No wallet found with that name. Confirm creation of new wallet named: TestWallet
+(Y/Yes/N/No): y</pre></td></tr></table>
+</div>
+</div>
+<p>錢包產生完畢後會要求輸入密碼加密錢包。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Generating new wallet...
+Enter new wallet password: ******
+Confirm Password: ******</pre></td></tr></table>
+</div>
+</div>
+<p>選擇錢包種子碼的語言，選 1(English)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">List of available languages for your wallet&#39;s seed:
+0 : Deutsch
+1 : English
+2 : Espa帽ol
+3 : Fran莽ais
+4 : Italiano
+5 : Nederlands
+6 : Portugu锚s
+7 : 褉褍褋褋泻懈泄 褟蟹褘泻
+8 : 鏃ユ湰瑾
+9 : 绠€浣撲腑鏂?(涓浗)
+10 : Esperanto
+Enter the number corresponding to the language of your choice: 1</pre></td></tr></table>
+</div>
+</div>
+<p>下面會印出由 25 個英文單子所組成的種子碼，請好好保存，如果你遺失錢包的話可以用它來恢復錢包，當然也不能外流。</p>
+
+<p>程式目錄會產生三個檔案，分別為 <code>TestWallet</code>、<code>TestWallet.address.txt</code> 及 <code>TestWallet.key</code>，其中 <code>TestWallet.address.txt</code> 是錢包的公開地址，剩下兩個都是加密過後的檔案。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Generated new wallet: etnjwj1BaJh2cm4Xe1rpwEfbrx4TUxd1zJSgErbtJoARMbiwrRGXnAdR2ev8HxDyk7HBG4EQ2GBo9E7DvZxWGavL8zFkqC53ni
+View key: ccc1cd64c3f0a947016f8cab7a38beb633782e7a791873ebb7da3ffaada48a02
+**********************************************************************
+Your wallet has been generated!
+To start synchronizing with the daemon, use &#34;refresh&#34; command.
+Use &#34;help&#34; command to see the list of available commands.
+Always use &#34;exit&#34; command when closing electroneum-wallet-cli to save your
+current session&#39;s state. Otherwise, you might need to synchronize
+your wallet again (your wallet keys are NOT at risk in any case).
+
+
+PLEASE NOTE: the following 25 words can be used to recover access to your wallet. Please write them down and store them somewhere safe and secure. Please do not store them in your email or on file storage services outside of your immediate control.
+
+duckling eluded unlikely quick razor wife viking impel
+touchy family butter ripped fuzzy bevel pastry pyramid
+pheasants value bawled ajar corrode asylum woven acumen butter
+**********************************************************************</pre></td></tr></table>
+</div>
+</div>
+<h2 id="匯入紙錢包到-cli-錢包">匯入紙錢包到 CLI 錢包</h2>
+
+<p>如果想要轉出轉入就要用 CLI 錢包來操控，建議先將之前產生的紙錢包刪除換行符號，整理成純文字檔，等一下會比較好操作。</p>
+
+<p><img src="https://i.imgur.com/wRbpkF0.png" alt="" /></p>
+
+<p>在程式目錄下啟動 CMD，並執行下面指令：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">electroneum-wallet-cli.exe --generate-from-keys NewWallet.etn</pre></td></tr></table>
+</div>
+</div>
+<p><code>NewWallet</code> 可以改成自己想要的名稱。</p>
+
+<p>分別輸入剛才的 Public Wallet、Private Spend 和 Private View 地址。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Standard address: etnkPiiBjzL15T4T59bnQ4BosUwBSZ4TDKMAQienFzBjF5RPAQ9HoQgd2ay2sd18m2dVWztyy42vo9p5PaCJMNsR8tLmBoV91m
+Secret spend key: 179693c1adf2325c6cdc207804e74256a04756486c0284f407b7b2aa89fe5c0f
+Secret view key: e470c969edefbc671e5870f23d3acafc576ec8dba56ccedb2269cca8f946d30f</pre></td></tr></table>
+</div>
+</div>
+<p>接著會詢問密碼來加密錢包檔。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Enter new wallet password: ******
+Confirm Password: ******
+Generated new wallet: etnkPiiBjzL15T4T59bnQ4BosUwBSZ4TDKMAQienFzBjF5RPAQ9HoQgd2ay2sd18m2dVWztyy42vo9p5PaCJMNsR8tLmBoV91m</pre></td></tr></table>
+</div>
+</div>
+<p>最後問的問題選預設即可。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><span class="lnt">1
+</span></pre></td>
+<td class="lntd">
+<pre class="chroma">Restore from specific blockchain height (optional, default 0): 0</pre></td></tr></table>
+</div>
+</div>
+<p>跟用 CLI 錢包產生新錢包一樣，會產生三個檔案，<code>NewWallet</code>、<code>NewWallet.address.txt</code> 及 <code>NewWallet.key</code>，下次開啟 CLI 錢包時就可以輸入 <code>NewWallet</code> 載入錢包了。</p>
+
+<h2 id="donate">Donate</h2>
+
+<p>如果覺得我的文章有幫助到您，可以透過發送加密貨幣到以下地址贊助我：</p>
+
+<p>BTC：1AG6wprRirfBwV4FoYEEbZebGacroh7CHV</p>
+
+<p>ETH：0xe1BCEAa7e2863F58430ace725a79EcEDaE747b07</p>
+
+<p>XMR：45ceB7fA4r4Mo8trRQG6bSYTHmFaYQeA7Q3B192FZLsYfipV4LfRWwNjA72aSgWbhPQQqcxkXmpmi7KZbd1zxCwe3TdHyvm</p>
+
+<p>ETN：etnkKXAv5TaVAnQuhc3ZCg8nJCSnLQYWCNREJwi5QitHiTzDmS179GbBdzLHp2z3bFNsFzrJmjhuHLzX475oEWVr8CgN4AucjM</p>
+
+<h2 id="reference">Reference</h2>
+
+<ul>
+<li><a href="https://www.ptt.cc/bbs/DigiCurrency/M.1510118254.A.590.html">[挖礦] ETN挖礦 - 看板 DigiCurrency - 批踢踢實業坊</a></li>
+<li><a href="https://www.reddit.com/r/Electroneum/comments/7a1aho/guide_importing_paper_wallet_into_cli_wallet/?st=jaz7i581&amp;sh=4d48fc64">GUIDE: Importing paper wallet into CLI wallet：Electroneum</a></li>
+</ul>
+
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2017-12-09
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E6%8C%96%E7%A4%A6/">挖礦</a>
+          <a href="/tags/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/">加密貨幣</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/%E9%8C%A2%E5%8C%85/">錢包</a>
+          <a href="/tags/electroneum/">Electroneum</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/p/comment-system-for-static-blog/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">靜態部落格留言板蒐集</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/p/new-hexo-blog/">
+            <span class="next-text nav-default">新環境，新氣象</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2019
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

@@ -2,84 +2,93 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Linux on 書術方隅</title>
-    <link>/categories/linux/</link>
+    <link>https://junyussh.github.com/categories/linux/</link>
     <description>Recent content in Linux on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.com/categories/linux/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Linux 下使用 MASM 編譯組合語言</title>
+      <link>https://junyussh.github.com/p/write-masm-style-assembly-in-linux/</link>
+      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.com/p/write-masm-style-assembly-in-linux/</guid>
+      <description>Photo by Umberto on Unsplash 最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也</description>
+    </item>
+    
+    <item>
       <title>Mopidy &#43; ncmpcpp 打造 Spotify 客戶端</title>
-      <link>/post/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</link>
+      <link>https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</guid>
+      <guid>https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</guid>
       <description>Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的</description>
     </item>
     
     <item>
       <title>用 youtube-dl 優雅下載影片</title>
-      <link>/post/use-youtube-dl-to-download-videos/</link>
+      <link>https://junyussh.github.com/p/use-youtube-dl-to-download-videos/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/use-youtube-dl-to-download-videos/</guid>
+      <guid>https://junyussh.github.com/p/use-youtube-dl-to-download-videos/</guid>
       <description>Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最</description>
     </item>
     
     <item>
       <title>解決 PTT 在中國無法連線問題</title>
-      <link>/post/solve-ptt-cannot-connect/</link>
+      <link>https://junyussh.github.com/p/solve-ptt-cannot-connect/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/solve-ptt-cannot-connect/</guid>
+      <guid>https://junyussh.github.com/p/solve-ptt-cannot-connect/</guid>
       <description>PTT 實業坊是全台最大的線上討論區，以電子佈告欄系統為主的開放自由討論空間，很多人是每天都要上 PTT，不然就會渾身不適，那要是工作出差到了中國，</description>
     </item>
     
     <item>
       <title>使用 LAME 輕鬆將無損 wav 壓制成 MP3 格式</title>
-      <link>/post/use-lame-to-compress-wav/</link>
+      <link>https://junyussh.github.com/p/use-lame-to-compress-wav/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/use-lame-to-compress-wav/</guid>
+      <guid>https://junyussh.github.com/p/use-lame-to-compress-wav/</guid>
       <description>Photo by Dmitry Bayer on Unsplash LAME 是一套開源的 MP3 Encoder，可以將音源壓制成標準的 MP3 格式，一般擷取 CD 裡的音源大部分都是無損的 wav 格式，檔案大小大，不好攜帶，今</description>
     </item>
     
     <item>
       <title>用 Caddy 當伺服器，自動申請 SSL 證書</title>
-      <link>/post/caddy-web-server/</link>
+      <link>https://junyussh.github.com/p/caddy-web-server/</link>
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/caddy-web-server/</guid>
+      <guid>https://junyussh.github.com/p/caddy-web-server/</guid>
       <description>Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&amp;rsquo;s Encrypt 取得憑證，還會定期續約，真的是很</description>
     </item>
     
     <item>
       <title>Postman Shared window not present! 解決方法</title>
-      <link>/post/postman-shared-window-not-present/</link>
+      <link>https://junyussh.github.com/p/postman-shared-window-not-present/</link>
       <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/postman-shared-window-not-present/</guid>
+      <guid>https://junyussh.github.com/p/postman-shared-window-not-present/</guid>
       <description>最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但</description>
     </item>
     
     <item>
       <title>在 Linux 下用 ImageMagick 批量壓縮圖片</title>
-      <link>/post/compress-photo-with-imagemagick/</link>
+      <link>https://junyussh.github.com/p/compress-photo-with-imagemagick/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>/post/compress-photo-with-imagemagick/</guid>
+      <guid>https://junyussh.github.com/p/compress-photo-with-imagemagick/</guid>
       <description>在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，</description>
     </item>
     
     <item>
       <title>Arch Linux sddm 啟動失敗方法</title>
-      <link>/post/sddm-start-failed/</link>
+      <link>https://junyussh.github.com/p/sddm-start-failed/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>/post/sddm-start-failed/</guid>
+      <guid>https://junyussh.github.com/p/sddm-start-failed/</guid>
       <description>Photo by Norbert Levajsics on Unsplash 今天我正準備進入我的 Plasma 桌面工作，卻出現黑屏要我按 Ctrl+Alt+F1 來解鎖，按了也沒反應就切到 tty2 來 reboot，結果開機後連 sddm 都沒有出現，看了 sddm 的</description>
     </item>
     

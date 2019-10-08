@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ncmpcpp on 書術方隅</title>
-    <link>/tags/ncmpcpp/</link>
+    <link>https://junyussh.github.com/tags/ncmpcpp/</link>
     <description>Recent content in ncmpcpp on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Mon, 07 Oct 2019 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="/tags/ncmpcpp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.com/tags/ncmpcpp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Mopidy &#43; ncmpcpp 打造 Spotify 客戶端</title>
-      <link>/post/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</link>
+      <link>https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>/post/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</guid>
+      <guid>https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</guid>
       <description>Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的</description>
     </item>
     
