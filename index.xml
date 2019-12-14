@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>書術方隅</title>
@@ -107,7 +107,7 @@
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.com/p/caddy-web-server/</guid>
-      <description>Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&amp;rsquo;s Encrypt 取得憑證，還會定期續約，真的是很</description>
+      <description>Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&#39;s Encrypt 取得憑證，還會定期續約，真的是很</description>
     </item>
     
     <item>
@@ -170,8 +170,7 @@
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.com/p/comment-system-for-static-blog/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/10/05/BGeitLCIW3V9lxZ.jpg&#34; alt=&#34;Comment&#34; /&gt;&lt;/p&gt;
-
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/10/05/BGeitLCIW3V9lxZ.jpg&#34; alt=&#34;Comment&#34;&gt;&lt;/p&gt;
 &lt;p&gt;最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 &lt;a href=&#34;https://disqus.com&#34;&gt;Disqus&lt;/a&gt; 居多，網路上的教學也一堆，不過之前爆出 &lt;a href=&#34;https://www.ithome.com.tw/news/117312&#34;&gt;Disqus 五年前被駭&lt;/a&gt;，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。&lt;/p&gt;</description>
     </item>
     

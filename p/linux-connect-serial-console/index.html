@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/linux-connect-serial-console/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2018-07-26T00:00:00+00:00" />
 <meta itemprop="name" content="Linux 下用 screen 連接 Serial Port">
 <meta itemprop="description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總">
-
-
 <meta itemprop="datePublished" content="2018-07-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="462">
+<meta itemprop="wordCount" content="461">
 
 
 
-<meta itemprop="keywords" content="Linux,screen,console,tty,教學,筆記," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Linux,screen,console,tty,教學,筆記," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux 下用 screen 連接 Serial Port"/>
 <meta name="twitter:description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總"/>
 
@@ -125,7 +122,7 @@
       <div class="post-meta">
         <span class="post-time"> 2018-07-26 </span>
         
-          <span class="more-meta"> 約 462 字 </span>
+          <span class="more-meta"> 約 461 字 </span>
           <span class="more-meta"> 預計閱讀 1 分鐘 </span>
         
       </div>
@@ -135,45 +132,37 @@
   <h2 class="post-toc-title">文章目錄</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#查詢-com-port">查詢 COM Port</a></li>
-<li><a href="#serial-連接">Serial 連接</a>
-<ul>
-<li><a href="#arch-linux">Arch Linux</a></li>
-<li><a href="#ubuntu-debian">Ubuntu &amp; Debian</a></li>
-<li><a href="#redhat-centos-fedora">Redhat (CentOS, Fedora)</a></li>
-</ul></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#-com-port">查詢 COM Port</a></li>
+    <li><a href="#serial-">Serial 連接</a>
+      <ul>
+        <li><a href="#arch-linux">Arch Linux</a></li>
+        <li><a href="#ubuntu--debian">Ubuntu & Debian</a></li>
+        <li><a href="#redhat-centos-fedora">Redhat (CentOS, Fedora)</a></li>
+      </ul>
+    </li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><img src="https://i.loli.net/2019/10/05/Ib7W4uR28ehkKmB.jpg" alt="Connect" /></p>
-
+      <p><img src="https://i.loli.net/2019/10/05/Ib7W4uR28ehkKmB.jpg" alt="Connect"></p>
 <p>有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接的方式。</p>
-
-<!-- more -->
-
-<h2 id="查詢-com-port">查詢 COM Port</h2>
-
+<!-- raw HTML omitted -->
+<h2 id="-com-port">查詢 COM Port</h2>
 <p>在 Windows 下，使用裝置管理員就能查詢序列埠，在 Linux 下，先用 <code>dmesg</code> 來查詢 tty 連接記錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">dmesg <span class="p">|</span> grep tty</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">dmesg <span class="p">|</span> grep tty
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>會印出類似 log 的東西。</p>
+</div><p>會印出類似 log 的東西。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -182,69 +171,58 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>    <span class="m">0</span>.000000<span class="o">]</span> console <span class="o">[</span>tty0<span class="o">]</span> enabled
-<span class="o">[</span>    <span class="m">0</span>.363187<span class="o">]</span> <span class="m">0000</span>:00:16.3: ttyS0 at I/O 0x60b0 <span class="o">(</span><span class="nv">irq</span> <span class="o">=</span> <span class="m">19</span>, <span class="nv">base_baud</span> <span class="o">=</span> <span class="m">115200</span><span class="o">)</span> is a 16550A
-<span class="o">[</span><span class="m">70780</span>.799601<span class="o">]</span> usb <span class="m">1</span>-1.2: pl2303 converter now attached to ttyUSB0
-<span class="o">[</span><span class="m">70820</span>.199828<span class="o">]</span> pl2303 ttyUSB0: pl2303 converter now disconnected from ttyUSB0
-<span class="o">[</span><span class="m">70833</span>.676660<span class="o">]</span> usb <span class="m">1</span>-1.2: pl2303 converter now attached to ttyUSB0
-<span class="o">[</span><span class="m">77968</span>.249687<span class="o">]</span> pl2303 ttyUSB0: usb_serial_generic_read_bulk_callback - urb stopped: -32
-<span class="o">[</span><span class="m">77968</span>.251187<span class="o">]</span> pl2303 ttyUSB0: usb_serial_generic_read_bulk_callback - urb stopped: -32</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>    0.000000<span class="o">]</span> console <span class="o">[</span>tty0<span class="o">]</span> enabled
+<span class="o">[</span>    0.363187<span class="o">]</span> 0000:00:16.3: ttyS0 at I/O 0x60b0 <span class="o">(</span><span class="nv">irq</span> <span class="o">=</span> 19, <span class="nv">base_baud</span> <span class="o">=</span> 115200<span class="o">)</span> is a 16550A
+<span class="o">[</span>70780.799601<span class="o">]</span> usb 1-1.2: pl2303 converter now attached to ttyUSB0
+<span class="o">[</span>70820.199828<span class="o">]</span> pl2303 ttyUSB0: pl2303 converter now disconnected from ttyUSB0
+<span class="o">[</span>70833.676660<span class="o">]</span> usb 1-1.2: pl2303 converter now attached to ttyUSB0
+<span class="o">[</span>77968.249687<span class="o">]</span> pl2303 ttyUSB0: usb_serial_generic_read_bulk_callback - urb stopped: -32
+<span class="o">[</span>77968.251187<span class="o">]</span> pl2303 ttyUSB0: usb_serial_generic_read_bulk_callback - urb stopped: -32
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>如果看不出來自己插的是哪個 tty，可以先印出來，然後拔掉，再看一次記錄來比對，像是我用 USB 來連接 COM，大概猜一下應該是 <code>ttyUSB0</code>。</p>
-
+</div><p>如果看不出來自己插的是哪個 tty，可以先印出來，然後拔掉，再看一次記錄來比對，像是我用 USB 來連接 COM，大概猜一下應該是 <code>ttyUSB0</code>。</p>
 <p>如果你是直接插 USB 來連接的話可以執行下這個指令來查詢。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">ls /dev/ttyUSB*</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">ls /dev/ttyUSB*
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="serial-連接">Serial 連接</h2>
-
+</div><h2 id="serial-">Serial 連接</h2>
 <p>Linux 下有一些 Serial 連接工具，像是 <code>cu</code>, <code>minicom</code>, <code>screen</code> 等等，這邊用 <code>screen</code> 來進行示範。</p>
-
 <p>有些作業系統可能不會預裝 <code>screen</code>，要先自行安裝。</p>
-
 <h3 id="arch-linux">Arch Linux</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S screen</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S screen
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="ubuntu-debian">Ubuntu &amp; Debian</h3>
+</div><h3 id="ubuntu--debian">Ubuntu &amp; Debian</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install screen</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install screen
+</code></pre></td></tr></table>
 </div>
-</div>
-<h3 id="redhat-centos-fedora">Redhat (CentOS, Fedora)</h3>
+</div><h3 id="redhat-centos-fedora">Redhat (CentOS, Fedora)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo yum install screen</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo yum install screen
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>安裝完成後就可以下指令來連接 COM Port 了，<code>speed</code> 通常是 <code>9600</code> 或 <code>115200</code>，最主要還是要看你那台設備的參數來輸。</p>
-<div class="highlight"><div class="chroma">
-<table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><span class="lnt">1
-</span></pre></td>
-<td class="lntd">
-<pre class="chroma">sudo screen /dev/ttyUSB0 -s &lt;speed&gt;</pre></td></tr></table>
-</div>
-</div>
-<p>記得要加 <code>sudo</code> 不然會跑出 <code>[*screen is terminating*]</code> 訊息。</p>
+</div><p>安裝完成後就可以下指令來連接 COM Port 了，<code>speed</code> 通常是 <code>9600</code> 或 <code>115200</code>，最主要還是要看你那台設備的參數來輸。</p>
+<pre><code>sudo screen /dev/ttyUSB0 -s &lt;speed&gt;
+</code></pre><p>記得要加 <code>sudo</code> 不然會跑出 <code>[*screen is terminating*]</code> 訊息。</p>
 
     </div>
 

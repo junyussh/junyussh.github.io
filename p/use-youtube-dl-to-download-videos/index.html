@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/use-youtube-dl-to-download-videos/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2018-09-18T00:00:00+00:00" />
 <meta itemprop="name" content="用 youtube-dl 優雅下載影片">
 <meta itemprop="description" content="Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最">
-
-
 <meta itemprop="datePublished" content="2018-09-18T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-18T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="1036">
 
 
 
-<meta itemprop="keywords" content="" />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="用 youtube-dl 優雅下載影片"/>
 <meta name="twitter:description" content="Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最"/>
 
@@ -139,69 +136,57 @@
   <h2 class="post-toc-title">文章目錄</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#安裝">安裝</a></li>
-<li><a href="#使用">使用</a></li>
-<li><a href="#proxy-設定">Proxy 設定</a></li>
-<li><a href="#其他影音平台">其他影音平台</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#heading">安裝</a></li>
+    <li><a href="#heading1">使用</a></li>
+    <li><a href="#proxy-">Proxy 設定</a></li>
+    <li><a href="#heading2">其他影音平台</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><img src="https://i.imgur.com/hOhXMd8.jpg" alt="Youtube" /></p>
-
+      <p><img src="https://i.imgur.com/hOhXMd8.jpg" alt="Youtube"></p>
 <p>Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最優雅，最簡便，最快速的方式了，而且是開源軟體，還支援多種影音平台，可以說是下載影片的瑞士刀。</p>
-
-<!-- more -->
-
-<h2 id="安裝">安裝</h2>
-
+<!-- raw HTML omitted -->
+<h2 id="heading">安裝</h2>
 <p>先去官網下載符合自己平台的檔案，Windows 有已經編譯好的<a href="https://rg3.github.io/youtube-dl/download.html">可執行檔</a>，Linux 可以直接將執行檔放入 <code>/usr/local/bin/</code>，或著用 pip 套件管理員安裝。</p>
-
-<p>Windows 使用者下載完 youtube-dl 後請在 <code>youtube-dl.exe</code> 所在資料夾開啟 CMD 進行操作，至於怎麼在所在資料夾開啟 CMD 請參考之前的<a href="/p/use-lame-to-compress-wav/#壓制">教學</a>。</p>
-
+<p>Windows 使用者下載完 youtube-dl 後請在 <code>youtube-dl.exe</code> 所在資料夾開啟 CMD 進行操作，至於怎麼在所在資料夾開啟 CMD 請參考之前的<a href="/p/use-lame-to-compress-wav/#%E5%A3%93%E5%88%B6">教學</a>。</p>
 <p>類 UNIX 作業系統皆可用下面指令安裝。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl</code></pre></td></tr></table>
+sudo chmod a+rx /usr/local/bin/youtube-dl
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>也能使用 pip 安裝。</p>
+</div><p>也能使用 pip 安裝。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install --upgrade youtube_dl</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install --upgrade youtube_dl
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="使用">使用</h2>
-
+</div><h2 id="heading1">使用</h2>
 <p>以下載一部 Youtube 影片為例，先在 Youtube 找到你想下載的影片，然後複製網址。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>這樣雖然能直接下載影片，但是不能選擇自己想要的品質，加上參數 <code>-F</code> 會列出提供哪些畫質下載。</p>
+</div><p>這樣雖然能直接下載影片，但是不能選擇自己想要的品質，加上參數 <code>-F</code> 會列出提供哪些畫質下載。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt"> 1
+<pre class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -227,56 +212,50 @@ sudo chmod a+rx /usr/local/bin/youtube-dl</code></pre></td></tr></table>
 <span class="o">[</span>youtube<span class="o">]</span> ZzvYGRH9H1M: Downloading video info webpage
 <span class="o">[</span>info<span class="o">]</span> Available formats <span class="k">for</span> ZzvYGRH9H1M:
 format code  extension  resolution note
-<span class="m">249</span>          webm       audio only DASH audio   54k , 1fps, opus @ 50k, <span class="m">2</span>.80MiB
-<span class="m">250</span>          webm       audio only DASH audio   76k , 1fps, opus @ 70k, <span class="m">3</span>.59MiB
-<span class="m">140</span>          m4a        audio only DASH audio  129k , m4a_dash container, mp4a.40.2@128k, <span class="m">7</span>.20MiB
-<span class="m">171</span>          webm       audio only DASH audio  132k , 1fps, vorbis@128k, <span class="m">6</span>.25MiB
-<span class="m">251</span>          webm       audio only DASH audio  184k , 1fps, opus @160k, <span class="m">8</span>.45MiB
-<span class="m">160</span>          mp4        256x144    144p  109k , avc1.4d400c, 15fps, video only, <span class="m">5</span>.92MiB
-<span class="m">134</span>          mp4        640x360    360p  248k , avc1.4d401e, 30fps, video only, <span class="m">11</span>.42MiB
-<span class="m">133</span>          mp4        426x240    240p  249k , avc1.4d4015, 30fps, video only, <span class="m">13</span>.60MiB
-<span class="m">135</span>          mp4        854x480    480p  518k , avc1.4d401f, 30fps, video only, <span class="m">20</span>.28MiB
-<span class="m">136</span>          mp4        1280x720   720p  887k , avc1.4d401f, 30fps, video only, <span class="m">33</span>.83MiB
-<span class="m">137</span>          mp4        1920x1080  1080p 1639k , avc1.640028, 30fps, video only, <span class="m">62</span>.66MiB
-<span class="m">17</span>           3gp        176x144    small , mp4v.20.3, mp4a.40.2@ 24k, <span class="m">4</span>.59MiB
-<span class="m">36</span>           3gp        320x180    small , mp4v.20.3, mp4a.40.2, <span class="m">12</span>.73MiB
-<span class="m">18</span>           mp4        640x360    medium , avc1.42001E, mp4a.40.2@ 96k, <span class="m">19</span>.78MiB <span class="o">(</span>best<span class="o">)</span></code></pre></td></tr></table>
+<span class="m">249</span>          webm       audio only DASH audio   54k , 1fps, opus @ 50k, 2.80MiB
+<span class="m">250</span>          webm       audio only DASH audio   76k , 1fps, opus @ 70k, 3.59MiB
+<span class="m">140</span>          m4a        audio only DASH audio  129k , m4a_dash container, mp4a.40.2@128k, 7.20MiB
+<span class="m">171</span>          webm       audio only DASH audio  132k , 1fps, vorbis@128k, 6.25MiB
+<span class="m">251</span>          webm       audio only DASH audio  184k , 1fps, opus @160k, 8.45MiB
+<span class="m">160</span>          mp4        256x144    144p  109k , avc1.4d400c, 15fps, video only, 5.92MiB
+<span class="m">134</span>          mp4        640x360    360p  248k , avc1.4d401e, 30fps, video only, 11.42MiB
+<span class="m">133</span>          mp4        426x240    240p  249k , avc1.4d4015, 30fps, video only, 13.60MiB
+<span class="m">135</span>          mp4        854x480    480p  518k , avc1.4d401f, 30fps, video only, 20.28MiB
+<span class="m">136</span>          mp4        1280x720   720p  887k , avc1.4d401f, 30fps, video only, 33.83MiB
+<span class="m">137</span>          mp4        1920x1080  1080p 1639k , avc1.640028, 30fps, video only, 62.66MiB
+<span class="m">17</span>           3gp        176x144    small , mp4v.20.3, mp4a.40.2@ 24k, 4.59MiB
+<span class="m">36</span>           3gp        320x180    small , mp4v.20.3, mp4a.40.2, 12.73MiB
+<span class="m">18</span>           mp4        640x360    medium , avc1.42001E, mp4a.40.2@ 96k, 19.78MiB <span class="o">(</span>best<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>要注意有些格式是只有純影片或純聲音的，像是 1080p 的通常只有純影片，選好你要下載的格式，把 format code 填入參數 <code>-f</code> 裡。</p>
+</div><p>要注意有些格式是只有純影片或純聲音的，像是 1080p 的通常只有純影片，選好你要下載的格式，把 format code 填入參數 <code>-f</code> 裡。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl -f <span class="m">137</span> https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl -f <span class="m">137</span> https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="proxy-設定">Proxy 設定</h2>
-
+</div><h2 id="proxy-">Proxy 設定</h2>
 <p>如果你身在無法使用 Youtube 的國家要使用 youtube-dl，可以用 <code>--proxy</code> 參數進行代理。</p>
-
 <p>youtube-dl 內建的 &ndash;proxy 參數，支持 socks5 和 http 代理伺服器，通常現代代理軟體(SS、SSR 等)預設的本機連接埠都是 socks5://127.0.0.1:1080。</p>
-
 <p>更多參數可以去看 youtube-dl 官方的 <a href="https://github.com/rg3/youtube-dl/blob/master/README.md">README</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl --proxy socks5://127.0.0.1:1080 https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl --proxy socks5://127.0.0.1:1080 https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="其他影音平台">其他影音平台</h2>
-
+</div><h2 id="heading2">其他影音平台</h2>
 <p>youtube-dl 除了可以下載 Youtube 影片，也能下載其他的影音平台，詳細支援網站詳見<a href="https://rg3.github.io/youtube-dl/supportedsites.html">官方文檔</a>，裡面列出了非常多的網站，你認識的影音平台應該都有列在上面，這裡示範如何下載 <a href="https://www.bilibili.com/">bilibili</a> 的影片。</p>
-
 <p>操作流程跟前面 Youtube 一樣，先到 B 站找尋你想要下載的影片，把網址複製。</p>
-
 <p>先看提供哪些格式下載。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -287,19 +266,19 @@ format code  extension  resolution note
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl -F https://www.bilibili.com/video/av30534279
-<span class="o">[</span>BiliBili<span class="o">]</span> <span class="m">30534279</span>: Downloading webpage
-<span class="o">[</span>BiliBili<span class="o">]</span> <span class="m">30534279</span>: Downloading video info page
-<span class="o">[</span>info<span class="o">]</span> Available formats <span class="k">for</span> <span class="m">30534279</span>:
+<span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading webpage
+<span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading video info page
+<span class="o">[</span>info<span class="o">]</span> Available formats <span class="k">for</span> 30534279:
 format code  extension  resolution note
 <span class="m">0</span>            flv        unknown
 <span class="m">1</span>            flv        unknown
-<span class="m">2</span>            flv        unknown    <span class="m">164</span>.17MiB <span class="o">(</span>best<span class="o">)</span></code></pre></td></tr></table>
+<span class="m">2</span>            flv        unknown    164.17MiB <span class="o">(</span>best<span class="o">)</span>
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>B 站提供的格式相較於 Youtube 少很多，應該也只能選 <code>2</code> 了。</p>
+</div><p>B 站提供的格式相較於 Youtube 少很多，應該也只能選 <code>2</code> 了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -307,16 +286,14 @@ format code  extension  resolution note
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl -f <span class="m">2</span> https://www.bilibili.com/video/av30534279
-<span class="o">[</span>BiliBili<span class="o">]</span> <span class="m">30534279</span>: Downloading webpage
-<span class="o">[</span>BiliBili<span class="o">]</span> <span class="m">30534279</span>: Downloading video info page
+<span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading webpage
+<span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading video info page
 <span class="o">[</span>download<span class="o">]</span> Destination: 【FGO动画】无限流星制-Unlimited Stella Works--30534279.flv
-<span class="o">[</span>download<span class="o">]</span>  <span class="m">81</span>.8% of <span class="m">164</span>.17MiB at <span class="m">622</span>.88KiB/s ETA <span class="m">00</span>:49</code></pre></td></tr></table>
+<span class="o">[</span>download<span class="o">]</span>  81.8% of 164.17MiB at 622.88KiB/s ETA 00:49
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>youtube-dl 真的是下載影片的神器，自從用了 youtube-dl 就再也不需要其他影片下載軟體了。</p>
-
+</div><p>youtube-dl 真的是下載影片的神器，自從用了 youtube-dl 就再也不需要其他影片下載軟體了。</p>
 <h2 id="reference">Reference</h2>
-
 <ul>
 <li><a href="https://github.com/rg3/youtube-dl/blob/master/README.md">youtube-dl/README.md at master · rg3/youtube-dl</a></li>
 </ul>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/convert-tak-format-in-windows/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2018-12-25T00:00:00+00:00" />
 <meta itemprop="name" content="將 TAK 轉檔成其他格式(Windows)">
 <meta itemprop="description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了">
-
-
 <meta itemprop="datePublished" content="2018-12-25T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-12-25T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="1000">
 
 
 
-<meta itemprop="keywords" content="教學,TAK,影音處理,Windows,ffmpeg,libav," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="教學,TAK,影音處理,Windows,ffmpeg,libav," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="將 TAK 轉檔成其他格式(Windows)"/>
 <meta name="twitter:description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了"/>
 
@@ -138,116 +135,86 @@
   <h2 class="post-toc-title">文章目錄</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#tak-官方轉檔程式">TAK 官方轉檔程式</a></li>
-<li><a href="#tak-sdk-搭配-ffmpeg-libav">TAK SDK 搭配 FFmpeg/Libav</a></li>
-<li><a href="#foobar200-tak-decoder">foobar200 + TAK Decoder</a></li>
-<li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#tak-">TAK 官方轉檔程式</a></li>
+    <li><a href="#tak-sdk--ffmpeglibav">TAK SDK 搭配 FFmpeg/Libav</a></li>
+    <li><a href="#foobar200--tak-decoder">foobar200 + TAK Decoder</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><img src="https://i.loli.net/2019/10/05/wsFoH24QMyCzYgm.jpg" alt="Music Albums" /></p>
-
+      <p><img src="https://i.loli.net/2019/10/05/wsFoH24QMyCzYgm.jpg" alt="Music Albums"></p>
 <blockquote>
 <p>Photo by <a href="https://unsplash.com/photos/W8BRzoUTHNA?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Natalie Perea</a> on <a href="https://unsplash.com/search/photos/musiuc-album?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
 </blockquote>
-
 <p>TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了一下才發現支援 TAK 播放的軟體非常稀少，不知道這作者不知道在想什麼，竟然沒有開源解碼器，讓 TAK 的編輯、播放相當受限。</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>為了找出轉換的方式，在網路上找了很多資料，經過多番嘗試後總算成功將 TAK 格式轉換成常見的無損音樂格式 FLAC。</p>
-
 <p>首先準備工具：</p>
-
 <ol>
 <li><a href="http://thbeck.de/Download/TAK_2.3.0.zip">TAK SDK</a>: 官方釋出的解碼器，內含有 TAK 解碼器、簡易轉檔器還有 Winamp 的播放外掛</li>
 <li><a href="https://ffmpeg.zeranoe.com/builds/">ffmpeg</a>/<a href="https://libav.org/download/">Libav</a>: 轉換影音格式的瑞士軍刀，Libav 是 ffmpeg 的 fork，兩者指令大同小異</li>
 </ol>
-
 <p>先把 TAK 工具包載回來，在 bin 資料夾裡面有個 <code>takc.exe</code> 可以解碼 TAK 格式並以標準格式輸出，可把 <code>takc.exe</code> 的路徑放到環境變數裡，這樣就能直接在終端機內執行 <code>takc</code> 指令。</p>
-
-<h2 id="tak-官方轉檔程式">TAK 官方轉檔程式</h2>
-
+<h2 id="tak-">TAK 官方轉檔程式</h2>
 <p>壓縮檔裡面還有個 <code>tak.exe</code>，有簡單的 GUI，「Compress」可以把 WAV 壓縮成 TAK，「Decompress」則是能把 TAK 還原成 WAV。</p>
-
-<p><img src="https://i.imgur.com/I0aGdpV.jpg" alt="tak.exe 基本界面" /></p>
-
+<p><img src="https://i.imgur.com/I0aGdpV.jpg" alt="tak.exe 基本界面"></p>
 <p>「Options」可以設定一些優化選項。</p>
-
-<p><img src="https://i.imgur.com/BuWvNlt.jpg" alt="轉換參數" /></p>
-
+<p><img src="https://i.imgur.com/BuWvNlt.jpg" alt="轉換參數"></p>
 <p>可以一次加入多個檔案，加入檔案後點「Decompress」就好。</p>
-
-<p><img src="https://i.imgur.com/jGPH5uF.jpg" alt="Decompress" /></p>
-
-<h2 id="tak-sdk-搭配-ffmpeg-libav">TAK SDK 搭配 FFmpeg/Libav</h2>
-
+<p><img src="https://i.imgur.com/jGPH5uF.jpg" alt="Decompress"></p>
+<h2 id="tak-sdk--ffmpeglibav">TAK SDK 搭配 FFmpeg/Libav</h2>
 <p>雖然官方提供的程式可以做簡易的轉換，但這樣只能轉 WAV，而且沒有什麼技術要求，接下來才是這本篇文章的重點。</p>
-
 <p>載完 ffmpeg(或 libav) 後，可以加入環境變量，然後開啟終端機，輸入下面指令，指令的功能是先用 <code>takc</code> 解碼，再用 pipeline 串流給 libav 做轉檔(也可換成 ffmpeg)，輸出成 flac 格式。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">takc -d disc1.tak - <span class="p">|</span> avconv -i - disc1.flac</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">takc -d disc1.tak - <span class="p">|</span> avconv -i - disc1.flac
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>要是出現以下錯誤訊息，請把檔案名稱取的簡單一點，盡量不要有特殊字符，像是中文、日文，還有我發現別跟 <code>.cue</code> 檔放在同一目錄下執行指令，不然也會出錯。</p>
+</div><p>要是出現以下錯誤訊息，請把檔案名稱取的簡單一點，盡量不要有特殊字符，像是中文、日文，還有我發現別跟 <code>.cue</code> 檔放在同一目錄下執行指令，不然也會出錯。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>tak @ 03af5860<span class="o">]</span> unsupported codec: <span class="m">0</span>
-Error <span class="k">while</span> decoding stream <span class="c1">#0:0: Not yet implemented in FFmpeg, patches welcome</span></code></pre></td></tr></table>
+Error <span class="k">while</span> decoding stream <span class="c1">#0:0: Not yet implemented in FFmpeg, patches welcome</span>
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span> files with read/write errors.</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span> files with read/write errors.
+</code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pipe:: Invalid data found when processing input</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">pipe:: Invalid data found when processing input
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>雖然 TAK 號稱擁有優秀的壓縮率，但轉成 flac 後也才多了 7 MB，真不知道把音樂弄成這格式的意義在哪裡？</p>
-
-<h2 id="foobar200-tak-decoder">foobar200 + TAK Decoder</h2>
-
+</div><p>雖然 TAK 號稱擁有優秀的壓縮率，但轉成 flac 後也才多了 7 MB，真不知道把音樂弄成這格式的意義在哪裡？</p>
+<h2 id="foobar200--tak-decoder">foobar200 + TAK Decoder</h2>
 <p>TAK 官網上列出的支援軟體其中一個就是 foobar2000，裝上了 foobar2000 的 <a href="https://foobar.hyv.fi/?view=foo_input_tak">TAK Decoder</a> 元件便能在 foobar2000 中享受高碼率無損音樂。不愧是最優質的音訊播放軟體。</p>
-
-<p>轉檔過程剛上次<a href="/p/use-lame-to-compress-wav/#壓制">教學</a>一樣，將 TAK 音訊加入 foobar2000 播放清單後，選取歌曲點右鍵，轉換 &gt; 快速轉換，選擇要輸出的格式轉換就好，不過我習慣將整軌版音訊用 CUE 分割工具分成多軌，可以自訂 ID3 標籤和檔名，比較偏好第二種方式。</p>
-
-<p><img src="https://i.imgur.com/Bv6hS62.jpg" alt="" /></p>
-
-<p><img src="https://i.imgur.com/CvZPtM5.jpg" alt="選擇輸出格式" /></p>
-
+<p>轉檔過程剛上次<a href="/p/use-lame-to-compress-wav/#%E5%A3%93%E5%88%B6">教學</a>一樣，將 TAK 音訊加入 foobar2000 播放清單後，選取歌曲點右鍵，轉換 &gt; 快速轉換，選擇要輸出的格式轉換就好，不過我習慣將整軌版音訊用 CUE 分割工具分成多軌，可以自訂 ID3 標籤和檔名，比較偏好第二種方式。</p>
+<p><img src="https://i.imgur.com/Bv6hS62.jpg" alt=""></p>
+<p><img src="https://i.imgur.com/CvZPtM5.jpg" alt="選擇輸出格式"></p>
 <p>至於在 Linux 下該怎麼轉檔改天我再研究，今天為了打這篇文章實驗了好久，有夠累的，對了今天是聖誕節，祝大家聖誕快樂。</p>
-
-<p><img src="https://i.imgur.com/5f4qtms.jpg" alt="聖誕絆愛祝大家聖誕快樂！" /></p>
-
+<p><img src="https://i.imgur.com/5f4qtms.jpg" alt="聖誕絆愛祝大家聖誕快樂！"></p>
 <blockquote>
 <p>繪師：<a href="https://twitter.com/morikuraen/">森倉円</a>，原圖取自<a href="https://twitter.com/morikuraen/status/1076994971176075264">推特</a></p>
 </blockquote>
-
 <h2 id="reference">Reference</h2>
-
 <ul>
 <li><a href="https://wiki.hydrogenaud.io/index.php?title=TAK">TAK - Hydrogenaudio Knowledgebase</a></li>
 <li><a href="https://hkgoldenmra.blogspot.com/2013/08/tak.html">分享科技與遊戲 by HKGoldenMr.A: 令人討厭的 TAK 聲音檔</a></li>

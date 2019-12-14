@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.58.3 with theme even" />
+<meta name="generator" content="Hugo 0.60.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/postman-shared-window-not-present/" />
@@ -46,16 +46,13 @@
 <meta property="article:modified_time" content="2018-07-19T00:00:00+00:00" />
 <meta itemprop="name" content="Postman Shared window not present! 解決方法">
 <meta itemprop="description" content="最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但">
-
-
 <meta itemprop="datePublished" content="2018-07-19T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-19T00:00:00&#43;00:00" />
 <meta itemprop="wordCount" content="224">
 
 
 
-<meta itemprop="keywords" content="Linux,Postman,筆記," />
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="keywords" content="Linux,Postman,筆記," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Postman Shared window not present! 解決方法"/>
 <meta name="twitter:description" content="最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但"/>
 
@@ -138,48 +135,38 @@
   <h2 class="post-toc-title">文章目錄</h2>
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
-<ul>
-<li>
-<ul>
-<li><a href="#reference">Reference</a></li>
-</ul></li>
-</ul>
+  <ul>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
 </nav>
   </div>
 </div>
     <div class="post-content">
-      
-
-<p><img src="https://i.imgur.com/0ubb6Gi.jpg" alt="Post" /></p>
-
+      <p><img src="https://i.imgur.com/0ubb6Gi.jpg" alt="Post"></p>
 <p>最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但有些東西卻無法執行，平常測試 API 的工具 Postman 無法開啟，Telegram 啟動速度太慢等等。</p>
-
 <p>經過 Google 大神的協助，總算找到解決方法，順便記錄下來給需要的人。</p>
-
-<!-- more -->
-
+<!-- raw HTML omitted -->
 <p>一開始是點開應用程式啟動器的 Postman 捷徑沒有反應，後來在終端機輸入 <code>postman</code> 才出現錯誤訊息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ postman
-Shared window not present!</code></pre></td></tr></table>
+Shared window not present!
+</code></pre></td></tr></table>
 </div>
-</div>
-<p>至於解決方法很簡單，刪除 Postman 的 config 目錄就可以解決問題了。</p>
+</div><p>至於解決方法很簡單，刪除 Postman 的 config 目錄就可以解決問題了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="lnt">1
+<pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">rm -rf <span class="nv">$HOME</span>/.config/Postman</code></pre></td></tr></table>
+<pre class="chroma"><code class="language-bash" data-lang="bash">rm -rf <span class="nv">$HOME</span>/.config/Postman
+</code></pre></td></tr></table>
 </div>
-</div>
-<h2 id="reference">Reference</h2>
-
+</div><h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://github.com/postmanlabs/postman-app-support/issues/4359">[Linux] Stuck on splash screen</a></li>
 </ul>
