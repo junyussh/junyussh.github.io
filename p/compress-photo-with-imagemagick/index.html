@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/compress-photo-with-imagemagick/" />
@@ -136,16 +136,16 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#-imagemagick">安裝 ImageMagick</a>
+    <li><a href="#安裝-imagemagick">安裝 ImageMagick</a>
       <ul>
         <li><a href="#arch-linux">Arch Linux</a></li>
         <li><a href="#centosfedorarhel">CentOS/Fedora/RHEL</a></li>
         <li><a href="#ubuntudebian">Ubuntu/Debian</a></li>
       </ul>
     </li>
-    <li><a href="#heading">指令格式</a></li>
-    <li><a href="#heading1">壓縮圖片</a></li>
-    <li><a href="#heading2">批量處理</a></li>
+    <li><a href="#指令格式">指令格式</a></li>
+    <li><a href="#壓縮圖片">壓縮圖片</a></li>
+    <li><a href="#批量處理">批量處理</a></li>
   </ul>
 </nav>
   </div>
@@ -154,7 +154,7 @@
       <p><img src="https://i.loli.net/2019/10/05/JYPQubRBOaUDr2K.jpg" alt="Compress"></p>
 <p>在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，檔案甚至比用 Caesium 壓縮的更小。</p>
 <!-- raw HTML omitted -->
-<h2 id="-imagemagick">安裝 ImageMagick</h2>
+<h2 id="安裝-imagemagick">安裝 ImageMagick</h2>
 <p>ImageMagick 是 unix 裡一套開放原始碼的圖像轉換套件，用來做批量處理很方便。</p>
 <h3 id="arch-linux">Arch Linux</h3>
 <div class="highlight"><div class="chroma">
@@ -192,7 +192,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">convert --version
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading">指令格式</h2>
+</div><h2 id="指令格式">指令格式</h2>
 <p>詳細用法可以輸入 <code>convert</code> 了解。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -202,7 +202,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">convert <span class="o">[</span>options ...<span class="o">]</span> file <span class="o">[</span> <span class="o">[</span>options ...<span class="o">]</span> file ...<span class="o">]</span> <span class="o">[</span>options ...<span class="o">]</span> file
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading1">壓縮圖片</h2>
+</div><h2 id="壓縮圖片">壓縮圖片</h2>
 <p><code>quality</code> 可以選擇壓縮品質，數值愈高，輸出品質愈好，當然檔案也愈大，我在 Caesium 中通常使用 <code>80</code> 或 <code>90</code> 的品質，壓縮出來檔案大小大概減少了 90%，圖片看起來也差不多。</p>
 <p>輸出的檔案格式不能是 png，png 是無損格式，如果選 png，檔案不會壓縮，所以建議選用 jpg。</p>
 <div class="highlight"><div class="chroma">
@@ -213,7 +213,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">convert a.png -quality <span class="m">80</span> a.jpg
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading2">批量處理</h2>
+</div><h2 id="批量處理">批量處理</h2>
 <p>Unix 系統中，bash 指令相當好用，組合一下就能做出強大的功能，如果想要把當前目錄的所有副檔名為 png 的圖片進行壓縮，可以用 <code>find</code> 來過濾檔案。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -324,7 +324,7 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -353,17 +353,17 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-110952206-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 

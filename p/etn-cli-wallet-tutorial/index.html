@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/etn-cli-wallet-tutorial/" />
@@ -48,7 +48,7 @@
 <meta itemprop="description" content="很多人產生了 Electroneum 錢包位址後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI">
 <meta itemprop="datePublished" content="2018-01-29T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-01-29T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="2260">
+<meta itemprop="wordCount" content="2350">
 
 
 
@@ -125,7 +125,7 @@
             <a href="/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/"> 加密貨幣 </a>
             <a href="/categories/electroneum/"> Electroneum </a>
             </div>
-          <span class="more-meta"> 約 2260 字 </span>
+          <span class="more-meta"> 約 2350 字 </span>
           <span class="more-meta"> 預計閱讀 5 分鐘 </span>
         
       </div>
@@ -136,12 +136,12 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">使用節點</a></li>
-    <li><a href="#heading1">自行同步區塊鏈</a></li>
-    <li><a href="#heading2">查看種子碼</a></li>
-    <li><a href="#heading3">查看餘額</a></li>
-    <li><a href="#heading4">轉帳</a></li>
-    <li><a href="#heading5">從種子碼還原錢包</a></li>
+    <li><a href="#使用節點">使用節點</a></li>
+    <li><a href="#自行同步區塊鏈">自行同步區塊鏈</a></li>
+    <li><a href="#查看種子碼">查看種子碼</a></li>
+    <li><a href="#查看餘額">查看餘額</a></li>
+    <li><a href="#轉帳">轉帳</a></li>
+    <li><a href="#從種子碼還原錢包">從種子碼還原錢包</a></li>
     <li><a href="#donate">Donate</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
@@ -153,10 +153,10 @@
 <p>很多人<a href="https://junyussh.gitlab.io/p/etn-wallet-generate/">產生了 Electroneum 錢包位址</a>後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI 程式；今天介紹的教學，是最正統的方式，也就是用 CLI 介面操作，請先從 Electroneum 官方 <a href="https://github.com/electroneum/electroneum/releases">Github Release</a> 下載 Electroneum CLI 錢包，再按照教學做。</p>
 <p>以下教學 Monero 的 CLI 錢包也適用，只要把指令中的 <code>electroneum</code> 替代成 <code>monero</code> 就可以了，但別忘記錢包軟體要換成 <a href="https://www.monero.how/tutorial-restore-monero-command-line-wallet-from-seed">Monero</a> 的。</p>
 <!-- raw HTML omitted -->
-<h2 id="heading">使用節點</h2>
+<h2 id="使用節點">使用節點</h2>
 <p>如果你手上有架好的 ETN 節點，就不需要自行同步啦，這是最方便最快速的做法。</p>
 <p>在資料夾開啟 CMD，執行 <code>electroneum-wallet-cli --daemon-host 你的節點網址</code> 就可以開始操作錢包了。</p>
-<h2 id="heading1">自行同步區塊鏈</h2>
+<h2 id="自行同步區塊鏈">自行同步區塊鏈</h2>
 <p>解壓縮官方的錢包檔案後，執行 <code>electroneumd.exe</code> 開始同步，再開啟錢包 <code>electroneum-wallet-cli.exe</code>。</p>
 <p>你也可以把區塊鏈檔案放在你想要的位置，建議寫個腳本來同步，<code>D:\blockchain\electroneum</code> 可以替換成你想要的路徑。</p>
 <div class="highlight"><div class="chroma">
@@ -176,9 +176,21 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">electroneumd --help
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading2">查看種子碼</h2>
+</div><h2 id="查看種子碼">查看種子碼</h2>
 <p>輸入 <code>seed</code>，再輸入錢包密碼，就會顯示出種子碼了，還是老話一句，<strong>很重要不可洩漏</strong>。(測試用錢包，裡面沒錢。)</p>
-<pre><code>[wallet etnk1U (out of sync)]: seed
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[wallet etnk1U (out of sync)]: seed
 Wallet password: **************
 
 PLEASE NOTE: the following 25 words can be used to recover access to your wallet. Please write them down and store them somewhere safe and secure. Please do not store them in your email or on file storage services outside of your immediate control.
@@ -186,15 +198,87 @@ PLEASE NOTE: the following 25 words can be used to recover access to your wallet
 waxing liar gave coal vixen geyser satin punch
 neon yeti alerts loudly tugs urchins unafraid symptoms
 textbook vain amply oatmeal gels future fawns frying textbook
-</code></pre><h2 id="heading3">查看餘額</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="查看餘額">查看餘額</h2>
 <p>進入錢包後，輸入 <code>balance</code> 即可查看錢包餘額。</p>
-<pre><code>[wallet etnkKX (out of sync)]: balance
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[wallet etnkKX (out of sync)]: balance
 Balance: 0.00, unlocked balance: 0.00
-</code></pre><h2 id="heading4">轉帳</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="轉帳">轉帳</h2>
 <p>下面是發送 100 ETN 的範例，<code>etnkKXAv5TaVAnQuhc3ZCg8nJCSnLQYWCNREJwi5QitHiTzDmS179GbBdzLHp2z3bFNsFzrJmjhuHLzX475oEWVr8CgN4AucjM</code> 記得換成你要發送的目標位址，你要發錢給我我也不介意。</p>
-<pre><code>transfer etnkKXAv5TaVAnQuhc3ZCg8nJCSnLQYWCNREJwi5QitHiTzDmS179GbBdzLHp2z3bFNsFzrJmjhuHLzX475oEWVr8CgN4AucjM 100
-</code></pre><p>更多指令可以輸入 <code>help</code> 取得詳細資訊。</p>
-<pre><code>[wallet etnkKX (out of sync)]: help
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">transfer etnkKXAv5TaVAnQuhc3ZCg8nJCSnLQYWCNREJwi5QitHiTzDmS179GbBdzLHp2z3bFNsFzrJmjhuHLzX475oEWVr8CgN4AucjM 100
+</code></pre></td></tr></table>
+</div>
+</div><p>更多指令可以輸入 <code>help</code> 取得詳細資訊。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span><span class="lnt">36
+</span><span class="lnt">37
+</span><span class="lnt">38
+</span><span class="lnt">39
+</span><span class="lnt">40
+</span><span class="lnt">41
+</span><span class="lnt">42
+</span><span class="lnt">43
+</span><span class="lnt">44
+</span><span class="lnt">45
+</span><span class="lnt">46
+</span><span class="lnt">47
+</span><span class="lnt">48
+</span><span class="lnt">49
+</span><span class="lnt">50
+</span><span class="lnt">51
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">[wallet etnkKX (out of sync)]: help
 Commands:
   address              Show current wallet public address
   address_book         address_book [(add (&lt;address&gt; [pid &lt;long or short payment id&gt;])|&lt;integrated address&gt; [&lt;description possibly with whitespaces&gt;])|(delete &lt;index&gt;)] - Print all entries in the address book, optionally adding/deleting an entry to/from it
@@ -240,12 +324,14 @@ Commands:
   sweep_all            sweep_all [ring_size] address [payment_id] - Send all unlocked balance to an address
   sweep_below          sweep_below &lt;amount_threshold&gt; [ring_size] address [payment_id] - Send all unlocked outputs below the threshold to an address
   sweep_unmixable      Send all unmixable outputs to yourself with ring_size 1
-  transfer             transfer [&lt;priority&gt;] [&lt;ring_size&gt;] &lt;address&gt; &lt;amount&gt; [&lt;payment_id&gt;] - Transfer &lt;amount&gt; to &lt;address&gt;. &lt;priority&gt; is the priority of the transaction. The higher the priority, the higher the fee of the transaction. Valid values in priority order (from lowest to highest) are: unimportant, normal, elevated, priority. If omitted, the default value (see the command &quot;set priority&quot;) is used. &lt;ring_size&gt; is the number of inputs to include for untraceability. Multiple payments can be made at once by adding &lt;address_2&gt; &lt;amount_2&gt; etcetera (before the payment ID, if it's included)
+  transfer             transfer [&lt;priority&gt;] [&lt;ring_size&gt;] &lt;address&gt; &lt;amount&gt; [&lt;payment_id&gt;] - Transfer &lt;amount&gt; to &lt;address&gt;. &lt;priority&gt; is the priority of the transaction. The higher the priority, the higher the fee of the transaction. Valid values in priority order (from lowest to highest) are: unimportant, normal, elevated, priority. If omitted, the default value (see the command &#34;set priority&#34;) is used. &lt;ring_size&gt; is the number of inputs to include for untraceability. Multiple payments can be made at once by adding &lt;address_2&gt; &lt;amount_2&gt; etcetera (before the payment ID, if it&#39;s included)
   transfer_original    Same as transfer, but using an older transaction building algorithm
   unspent_outputs      unspent_outputs [&lt;min_amount&gt; &lt;max_amount&gt;] - Show unspent outputs within an optional amount range
   verify               Verify a signature on the contents of a file
   viewkey              Display private view key
-</code></pre><h2 id="heading5">從種子碼還原錢包</h2>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="從種子碼還原錢包">從種子碼還原錢包</h2>
 <p>在 CLI 錢包的資料夾開啟 CMD，執行下面指令。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -256,23 +342,63 @@ Commands:
 </code></pre></td></tr></table>
 </div>
 </div><p>輸入要還原的錢包名稱，<code>restore</code> 可換成你想要的錢包名稱。</p>
-<pre><code>Specify a new wallet file name for your restored wallet (e.g., MyWallet).
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Specify a new wallet file name for your restored wallet (e.g., MyWallet).
 Wallet file name (or Ctrl-C to quit): restore
-</code></pre><p>然後輸入種子碼。</p>
-<pre><code>Specify Electrum seed: waxing liar gave coal vixen geyser satin punch
+</code></pre></td></tr></table>
+</div>
+</div><p>然後輸入種子碼。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Specify Electrum seed: waxing liar gave coal vixen geyser satin punch
 Electrum seed continued: neon yeti alerts loudly tugs urchins unafraid symptoms
 Electrum seed continued: textbook vain amply oatmeal gels future fawns frying textbook
-</code></pre><p>要求輸入密碼加密錢包。</p>
-<pre><code>Enter new wallet password: ************
+</code></pre></td></tr></table>
+</div>
+</div><p>要求輸入密碼加密錢包。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Enter new wallet password: ************
 Confirm Password: ************
 Generated new wallet: etnk1UfXSXj9uGadvvE3AZhCZVj3peVqpjnenhmYYYD2cafTrQX3oyZQxLEmNz3eLahqxfGfYzCywEv4K2mC9uwq2w1qEjs2kY
 View key: 2fda80d79c3a9cd2bde21a597c0b3de8db6c3671dea09cccae668a6355e4620c
 **********************************************************************
 Your wallet has been generated!
-To start synchronizing with the daemon, use &quot;refresh&quot; command.
-Use &quot;help&quot; command to see the list of available commands.
-Always use &quot;exit&quot; command when closing electroneum-wallet-cli to save your
-current session's state. Otherwise, you might need to synchronize
+To start synchronizing with the daemon, use &#34;refresh&#34; command.
+Use &#34;help&#34; command to see the list of available commands.
+Always use &#34;exit&#34; command when closing electroneum-wallet-cli to save your
+current session&#39;s state. Otherwise, you might need to synchronize
 your wallet again (your wallet keys are NOT at risk in any case).
 
 
@@ -282,12 +408,24 @@ waxing liar gave coal vixen geyser satin punch
 neon yeti alerts loudly tugs urchins unafraid symptoms
 textbook vain amply oatmeal gels future fawns frying textbook
 **********************************************************************
-</code></pre><p>詢問從哪個區塊鏈高度同步，通常選 <code>0</code> 就好，之後就開始同步錢包了。</p>
-<pre><code>Restore from specific blockchain height (optional, default 0),
+</code></pre></td></tr></table>
+</div>
+</div><p>詢問從哪個區塊鏈高度同步，通常選 <code>0</code> 就好，之後就開始同步錢包了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Restore from specific blockchain height (optional, default 0),
 or alternatively from specific date (YYYY-MM-DD): 0
 Starting refresh...
 Height 771 / 34449
-</code></pre><p>錢包資料夾會多出 <code>restore</code>、<code>restore.address.txt</code>、<code>restore.key</code>；<code>restore</code> 及 <code>restore.key</code> 是加密後的檔案，沒有你的密碼是解不開的，<code>restore.address.txt</code> 裡面是錢包位址，這些檔案可以放心放在雲端空間上，如果要操作錢包，把這些檔案下載回來，輸入密碼就可以開始操作，很方便。</p>
+</code></pre></td></tr></table>
+</div>
+</div><p>錢包資料夾會多出 <code>restore</code>、<code>restore.address.txt</code>、<code>restore.key</code>；<code>restore</code> 及 <code>restore.key</code> 是加密後的檔案，沒有你的密碼是解不開的，<code>restore.address.txt</code> 裡面是錢包位址，這些檔案可以放心放在雲端空間上，如果要操作錢包，把這些檔案下載回來，輸入密碼就可以開始操作，很方便。</p>
 <h2 id="donate">Donate</h2>
 <p>如果覺得我的文章有幫助到您，可以透過發送加密貨幣到以下地址贊助我：</p>
 <p>BTC：1AG6wprRirfBwV4FoYEEbZebGacroh7CHV</p>
@@ -384,7 +522,7 @@ Height 771 / 34449
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -413,17 +551,17 @@ Height 771 / 34449
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-110952206-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 

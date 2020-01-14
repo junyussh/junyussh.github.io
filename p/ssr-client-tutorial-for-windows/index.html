@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/ssr-client-tutorial-for-windows/" />
@@ -48,7 +48,7 @@
 <meta itemprop="description" content="Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一">
 <meta itemprop="datePublished" content="2019-05-03T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2019-05-03T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1923">
+<meta itemprop="wordCount" content="1924">
 
 
 
@@ -126,7 +126,7 @@
             <a href="/categories/windows/"> Windows </a>
             <a href="/categories/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/"> 科學上網 </a>
             </div>
-          <span class="more-meta"> 約 1923 字 </span>
+          <span class="more-meta"> 約 1924 字 </span>
           <span class="more-meta"> 預計閱讀 4 分鐘 </span>
         
       </div>
@@ -137,14 +137,14 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">安裝</a></li>
-    <li><a href="#heading1">使用</a></li>
-    <li><a href="#heading2">選項設定</a></li>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#使用">使用</a></li>
+    <li><a href="#選項設定">選項設定</a></li>
     <li><a href="#proxy-switchyomega--gfwlist">Proxy SwitchyOmega + GFWlist</a>
       <ul>
         <li><a href="#chrome">Chrome</a></li>
         <li><a href="#firefox">Firefox</a></li>
-        <li><a href="#switchyomega-">SwitchyOmega 設定</a></li>
+        <li><a href="#switchyomega-設定">SwitchyOmega 設定</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -164,13 +164,13 @@
 <p>ShadowsocksR 是繼 Shadowsocks 之後的有效翻牆工具，使用更強大的混淆技術，跟 SS 一樣都是將封包偽裝成正常流量，加上很多網站都已經啟用 SSL 加密連線，基本上政府想查你在幹嘛是不可能的，當然你電腦裡最好不要裝一些中國特色流氓軟體，說不定內建後門監控你，像是什麼 360 安全瀏覽器(不知道哪裡安全，還有一堆廣告)、360 安全衛士、金山毒霸、百毒等，如果你剛好是中共政府盯上的民運分子，那安裝中國軟體相當是作死。</p>
 <!-- raw HTML omitted -->
 <p>雖然最近中國政府已經研究出分析 SS 和 SSR 特徵流量的技術，還有大學生研究的<a href="https://patents.google.com/patent/CN109286576A/">論文</a>，並已經在某些區域進行測試(廣東深圳)，不敢說百分之百不會被抓到，但是政府抓的都是那些國外網站發佈反動言論，傳播反動言論給中國境內民眾的人，一般個人翻牆是不會抓的，只要你不去幹這些事，只是翻牆看國外資訊是不會怎樣的，在中國生活請牢記一句話：「<strong>不作死就不會死</strong>」。</p>
-<h2 id="heading">安裝</h2>
+<h2 id="安裝">安裝</h2>
 <p>開發 SSR 的原作者已經因為政治因素刪庫了，還好有善心人士把專案 fork 了，不過客戶端是用 Release 發佈的，不知道為何在中國 Github 的 Release 下載速度特別慢(WTF?)。</p>
 <p><a href="https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases">https://github.com/shadowsocksr-backup/shadowsocksr-csharp/releases</a></p>
 <p>順便附上其他大大蒐集的一些小工具，工具都已經用資料夾分類好了，直接 Raw 方式下載就行，這步很簡單，應該沒有人不會。</p>
 <p><a href="https://github.com/junyussh/SS-and-SSR-Collection">https://github.com/junyussh/SS-and-SSR-Collection</a></p>
 <p>將壓縮檔內容解壓縮到一個資料夾後執行 <code>ShadowsocksR-dotnet4.0.exe</code>。</p>
-<h2 id="heading1">使用</h2>
+<h2 id="使用">使用</h2>
 <p>開啟 SSR 後，可以點兩下常駐工具列的小飛機圖示兩下編輯伺服器，或是在圖標上點擊右鍵選單 [伺服器] &gt; [編輯伺服器]。</p>
 <p><img src="https://i.loli.net/2019/03/11/5c86847034f2e.jpg" alt="點兩下小飛機圖示"></p>
 <p><img src="https://i.loli.net/2019/03/11/5c86847046321.jpg" alt="右鍵選單編輯"></p>
@@ -182,7 +182,7 @@
 <p>眼尖的同學應該有發現從剪貼簿匯入網址的上面還有一個 [QR 碼掃描] 的功能，沒錯，也能用 QR Code 匯入，若掃描到 SSR 連結就會自動加入伺服器列表，如果不是會幫你掃出 QR Code 中的內容(太方便了，還內建 QR Code 掃描器)。</p>
 <p><img src="https://i.loli.net/2019/03/11/5c868470878b8.jpg" alt="SSR 掃描螢幕畫面中的 QR Code"></p>
 <p><img src="https://i.loli.net/2019/03/11/5c868470693a0.jpg" alt="辨識出非 SSR 連結"></p>
-<h2 id="heading2">選項設定</h2>
+<h2 id="選項設定">選項設定</h2>
 <p>右鍵選單有個 [選項設置]，點開後可以設定開機自動啟動和監聽本機的端口等。</p>
 <p><img src="https://i.loli.net/2019/03/11/5c86847031ca7.jpg" alt="進階設定"></p>
 <p>本機端口預設 <code>1080</code>，如果沒有跟其他程式衝突到就保持預設，通常代理工具預設的監聽端口都是 <code>socks5://127.0.0.1:1080</code>，你如果已經開了 SS，又開啟 SSR，端口又都設一樣(通常會噴錯誤訊息)，那就只有先開啟的程式能占用該端口，這個端口與等會的 SwitchyOmega 設定端口相同。</p>
@@ -195,7 +195,7 @@
 <p><img src="https://i.loli.net/2019/05/03/5ccbf9978ae3e.jpg" alt="SSR 設定系統全局代理"></p>
 <h3 id="firefox">Firefox</h3>
 <p>Firefox 安裝擴充套件我記得不用翻牆，直接去官方商店搜尋 SwitchyOmega 就能安裝，使用方式跟 Chrome 大同小異。</p>
-<h3 id="switchyomega-">SwitchyOmega 設定</h3>
+<h3 id="switchyomega-設定">SwitchyOmega 設定</h3>
 <p>安裝完成後右上角會出現一個圓形的圖示，點一下按 [選項]，左側選單點選 [匯入/匯出]，建議匯入<a href="https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList.bak">官方設定檔</a>比較快。</p>
 <p>官方設定檔網址：<code>https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList.bak</code></p>
 <p><img src="https://i.loli.net/2019/05/03/5ccbf644352af.png" alt=""></p>
@@ -217,7 +217,7 @@
 <hr>
 <ol>
 <li id="fn:1" role="doc-endnote">
-<p><a href="https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList">GFWList · FelisCatus/SwitchyOmega Wiki</a><a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#8617;</a></p>
+<p><a href="https://github.com/FelisCatus/SwitchyOmega/wiki/GFWList">GFWList · FelisCatus/SwitchyOmega Wiki</a> <a href="#fnref:1" class="footnote-backref" role="doc-backlink">&#x21a9;&#xfe0e;</a></p>
 </li>
 </ol>
 </section>
@@ -307,7 +307,7 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -336,17 +336,17 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-110952206-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 

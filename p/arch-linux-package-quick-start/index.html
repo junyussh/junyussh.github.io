@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arch Linux 第一次打包就上手 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content=" Photo by Kira auf der Heide on Unsplash
+ Arch Linux 採用類似 ports 的構建系統，使用 PKGBUILD 這種軟體包建立描述檔案，用 makepkg 從原始碼構建二進制軟體包。
+最近參加了軟創比賽，官方要求必須使用快應用開發，雖然 IDE 有提供 Linux 版，但只有 deb 格式，AUR 也沒人打包，身為一位 Arch Linux 的愛好者怎麼能因此而放棄呢，於是我便打算親自打包，用 Arch Linux 這麼多年了，Arch Linux 的倉庫以軟體多聞名，大部分軟體都已經有人打包好了，不用自己打包，沒想到我也有需要自己打包的一天，第一次打包成功的那刻非常有成就感，我也能變成 Arch Linux 的貢獻者了。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.com/p/arch-linux-package-quick-start/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Arch Linux 第一次打包就上手" />
+<meta property="og:description" content="
+
+Photo by Kira auf der Heide on Unsplash
+
+Arch Linux 採用類似 ports 的構建系統，使用 PKGBUILD 這種軟體包建立描述檔案，用 makepkg 從原始碼構建二進制軟體包。
+最近參加了軟創比賽，官方要求必須使用快應用開發，雖然 IDE 有提供 Linux 版，但只有 deb 格式，AUR 也沒人打包，身為一位 Arch Linux 的愛好者怎麼能因此而放棄呢，於是我便打算親自打包，用 Arch Linux 這麼多年了，Arch Linux 的倉庫以軟體多聞名，大部分軟體都已經有人打包好了，不用自己打包，沒想到我也有需要自己打包的一天，第一次打包成功的那刻非常有成就感，我也能變成 Arch Linux 的貢獻者了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.com/p/arch-linux-package-quick-start/" />
+<meta property="article:published_time" content="2020-01-14T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-14T00:00:00+00:00" />
+<meta itemprop="name" content="Arch Linux 第一次打包就上手">
+<meta itemprop="description" content="
+
+Photo by Kira auf der Heide on Unsplash
+
+Arch Linux 採用類似 ports 的構建系統，使用 PKGBUILD 這種軟體包建立描述檔案，用 makepkg 從原始碼構建二進制軟體包。
+最近參加了軟創比賽，官方要求必須使用快應用開發，雖然 IDE 有提供 Linux 版，但只有 deb 格式，AUR 也沒人打包，身為一位 Arch Linux 的愛好者怎麼能因此而放棄呢，於是我便打算親自打包，用 Arch Linux 這麼多年了，Arch Linux 的倉庫以軟體多聞名，大部分軟體都已經有人打包好了，不用自己打包，沒想到我也有需要自己打包的一天，第一次打包成功的那刻非常有成就感，我也能變成 Arch Linux 的貢獻者了。">
+<meta itemprop="datePublished" content="2020-01-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-14T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="4689">
+
+
+
+<meta itemprop="keywords" content="Arch Linux,AUR,Linux,打包,Package," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arch Linux 第一次打包就上手"/>
+<meta name="twitter:description" content="
+
+Photo by Kira auf der Heide on Unsplash
+
+Arch Linux 採用類似 ports 的構建系統，使用 PKGBUILD 這種軟體包建立描述檔案，用 makepkg 從原始碼構建二進制軟體包。
+最近參加了軟創比賽，官方要求必須使用快應用開發，雖然 IDE 有提供 Linux 版，但只有 deb 格式，AUR 也沒人打包，身為一位 Arch Linux 的愛好者怎麼能因此而放棄呢，於是我便打算親自打包，用 Arch Linux 這麼多年了，Arch Linux 的倉庫以軟體多聞名，大部分軟體都已經有人打包好了，不用自己打包，沒想到我也有需要自己打包的一天，第一次打包成功的那刻非常有成就感，我也能變成 Arch Linux 的貢獻者了。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Arch Linux 第一次打包就上手</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-14 </span>
+        <div class="post-category">
+            <a href="/categories/arch-linux/"> Arch Linux </a>
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/linux/"> Linux </a>
+            <a href="/categories/%E6%89%93%E5%8C%85/"> 打包 </a>
+            </div>
+          <span class="more-meta"> 約 4689 字 </span>
+          <span class="more-meta"> 預計閱讀 10 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#準備工作">準備工作</a></li>
+    <li><a href="#新建-pkgbuild">新建 PKGBUILD</a></li>
+    <li><a href="#編寫-pkgbuild">編寫 PKGBUILD</a></li>
+    <li><a href="#pkgbuild-變數">PKGBUILD 變數</a>
+      <ul>
+        <li><a href="#srcdir">srcdir</a></li>
+        <li><a href="#pkgdir">pkgdir</a></li>
+      </ul>
+    </li>
+    <li><a href="#pkgbuild-函數">PKGBUILD 函數</a>
+      <ul>
+        <li><a href="#prepare">prepare()</a></li>
+        <li><a href="#pkgver">pkgver()</a></li>
+        <li><a href="#build">build()</a></li>
+        <li><a href="#check">check()</a></li>
+        <li><a href="#package">package()</a></li>
+      </ul>
+    </li>
+    <li><a href="#構建軟體包">構建軟體包</a>
+      <ul>
+        <li><a href="#壓縮太久">壓縮太久？</a></li>
+      </ul>
+    </li>
+    <li><a href="#測試-pkgbuild">測試 PKGBUILD</a>
+      <ul>
+        <li><a href="#檢查包的邏輯性">檢查包的邏輯性</a></li>
+      </ul>
+    </li>
+    <li><a href="#安裝包">安裝包</a></li>
+    <li><a href="#提交到-aur">提交到 AUR</a>
+      <ul>
+        <li><a href="#認證">認證</a></li>
+        <li><a href="#建立軟體包倉庫">建立軟體包倉庫</a></li>
+        <li><a href="#提交與更新">提交與更新</a></li>
+      </ul>
+    </li>
+    <li><a href="#總結">總結</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://i.loli.net/2020/01/14/UceohJkzNpBglfT.jpg" alt="Packaging"></p>
+<blockquote>
+<p>Photo by <a href="https://unsplash.com/@kadh?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kira auf der Heide</a> on <a href="https://unsplash.com/s/photos/gift?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+<p>Arch Linux 採用類似 ports 的構建系統，使用 <code>PKGBUILD</code> 這種軟體包建立描述檔案，用 <code>makepkg</code> 從原始碼構建二進制軟體包。</p>
+<p>最近參加了軟創比賽，官方要求必須使用快應用開發，雖然 IDE 有提供 Linux 版，但只有 deb 格式，AUR 也沒人打包，身為一位 Arch Linux 的愛好者怎麼能因此而放棄呢，於是我便打算親自打包，用 Arch Linux 這麼多年了，Arch Linux 的倉庫以軟體多聞名，大部分軟體都已經有人打包好了，不用自己打包，沒想到我也有需要自己打包的一天，第一次打包成功的那刻非常有成就感，我也能變成 Arch Linux 的貢獻者了。</p>
+<p>建議先閱讀 Arch Wiki 上的<a href="https://wiki.archlinux.org/index.php/Creating_packages">打包教學</a>和 <a href="https://wiki.archlinux.org/index.php/PKGBUILD_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">PKGBUILD 規範</a>，下面內容大多翻譯、擷取自 Arch Wiki。</p>
+<h2 id="準備工作">準備工作</h2>
+<p>先檢查是否已安裝 <code>base-devel</code> 包，裡面有打包需要的工具，包含 <code>make</code> 和 <code>makepkg</code> 等工具。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S base-devel
+</code></pre></td></tr></table>
+</div>
+</div><p>然後把你要打包的軟體上游下載回來編譯，大部分軟體都是用這三步安裝，主要還是看軟體的 README 怎麼寫。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./configure
+make
+make install
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="新建-pkgbuild">新建 PKGBUILD</h2>
+<p>當你執行 <code>makepkg</code> 時，會在當前目錄尋找 <code>PKGBUILD</code> 檔案，並根據 <code>PKGBUILD</code> 的內容去下載軟體的原始碼，再根據 <code>PKGBUILD</code> 的指令編譯，如果成功，會產生一個 <code>pkgname.pkg.tar.xz</code> 的壓縮檔，內含該軟體的二進制檔案及元資料(metadata)，描述該包的版本、依賴，可以使用 <code>pacman -U &lt;package file&gt;</code> 來安裝。</p>
+<p><code>PKGBUILD</code> 的原型範例放在 <code>/usr/share/pacman/</code>，找個適合你的原型複製下來。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ls -l /usr/share/pacman/
+總計 <span class="m">20</span>
+drwxr-xr-x <span class="m">2</span> root root <span class="m">4096</span> Nov  <span class="m">2</span> 23:03 keyrings
+-rw-r--r-- <span class="m">1</span> root root  <span class="m">918</span> Nov  <span class="m">1</span> 12:08 PKGBUILD.proto
+-rw-r--r-- <span class="m">1</span> root root <span class="m">1319</span> Nov  <span class="m">1</span> 12:08 PKGBUILD-split.proto
+-rw-r--r-- <span class="m">1</span> root root <span class="m">2031</span> Nov  <span class="m">1</span> 12:08 PKGBUILD-vcs.proto
+-rw-r--r-- <span class="m">1</span> root root  <span class="m">689</span> Nov  <span class="m">1</span> 12:08 proto.install
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li><code>PKGBUILD.proto</code>: 經典原型</li>
+<li><code>PKGBUILD-split.proto</code>: 分包原型</li>
+<li><code>PKGBUILD-vcs.proto</code>: 如果你要打包的軟體原始碼上源來自 Git, SVN, Mercurial 這類版本控制系統(Version control systems, VCS)，請參考這份原型作為基礎</li>
+</ul>
+<h2 id="編寫-pkgbuild">編寫 PKGBUILD</h2>
+<p>下面是從 <a href="https://wiki.archlinux.org/index.php/Arch_package_guidelines">Arch Wiki</a> 擷取的 PKGBUILD 的 Prototype。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span><span class="lnt">28
+</span><span class="lnt">29
+</span><span class="lnt">30
+</span><span class="lnt">31
+</span><span class="lnt">32
+</span><span class="lnt">33
+</span><span class="lnt">34
+</span><span class="lnt">35
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># Maintainer: Your Name &lt;youremail@domain.com&gt;</span>
+<span class="nv">pkgname</span><span class="o">=</span>NAME
+<span class="nv">pkgver</span><span class="o">=</span>VERSION
+<span class="nv">pkgrel</span><span class="o">=</span><span class="m">1</span>
+<span class="nv">pkgdesc</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+<span class="nv">arch</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">url</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
+<span class="nv">license</span><span class="o">=</span><span class="o">(</span><span class="s1">&#39;GPL&#39;</span><span class="o">)</span>
+<span class="nv">groups</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">depends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">makedepends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">optdepends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">provides</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">conflicts</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">replaces</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">backup</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">options</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">install</span><span class="o">=</span>
+<span class="nv">changelog</span><span class="o">=</span>
+<span class="nv">source</span><span class="o">=</span><span class="o">(</span><span class="nv">$pkgname</span>-<span class="nv">$pkgver</span>.tar.gz<span class="o">)</span>
+<span class="nv">noextract</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">md5sums</span><span class="o">=</span><span class="o">(</span><span class="o">)</span> <span class="c1">#autofill using updpkgsums</span>
+
+build<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
+
+  ./configure --prefix<span class="o">=</span>/usr
+  make
+<span class="o">}</span>
+
+package<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+  <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
+
+  make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/</span><span class="s2">&#34;</span> install
+<span class="o">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>下面是通常要修改的屬性。</p>
+<ul>
+<li>
+<p><code>pkgname</code>: 套件的名稱，由小寫字母、數字和下面字符組成：<code>@ . _ + -</code>，不能以符號作為開頭。軟體名稱應要與來源壓縮檔相符，舉例來說檔名叫做 <code>foobar-2.5.tar.gz</code>，則 <code>pkgname=foobar</code></p>
+</li>
+<li>
+<p><code>pkgver</code>: 套件版本，應與上游作者發行版本一致，可包含字母、數字、日期、下劃線，但不可包含連字符號(<code>-</code>)，如果有請替換成下劃線</p>
+</li>
+<li>
+<p><code>pkgrel</code>: 釋出號，一個正整數，當同個套件版本的 PKGBUILD 更新，釋出號增加 1，當套件發佈新版本時，釋出號重置 1</p>
+</li>
+<li>
+<p><code>pkgdesc</code>: 套件的描述，建議少於 80 字符，建議不要使用套件名稱，除非安裝的套件名稱與該應用程式名稱不同</p>
+</li>
+<li>
+<p><code>arch</code>: 應用程式支援的架構，Arch 官方僅支援 <code>x86_64</code></p>
+</li>
+<li>
+<p><code>url</code>: 套件的上源發佈網址</p>
+</li>
+<li>
+<p><code>license</code>: 該軟體、套件採用的發佈許可證，在 <code>[core]</code> 的 license 包中有常用的許可證，安裝後可在 <code>/usr/share/licenses/common</code> 找到這些許可證協議，如果套件使用的許可證是裡面其中一個，這個值應該被設為許可證的目錄名稱，如果套件使用的許可證沒有在裡面，值設為 <code>custom</code>。</p>
+<p>通用許可證列表。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ls /usr/share/licenses/common  
+AGPL    APACHE       CCPL  EPL     FDL1.3  GPL3     LGPL3  MPL2          PSF        W3C
+AGPL3   Artistic2.0  CDDL  FDL     GPL     LGPL     LPPL   PerlArtistic  RUBY       ZPL
+Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicense
+</code></pre></td></tr></table>
+</div>
+</div><p>授權要安裝到 <code>/usr/share/licenses/pkgname/</code>，把下面指令寫入 PKGBUILD。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">install -Dm644 LICENSE <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>depends</code>: 套件執行時所需的依賴列表，可以用比較運算符來限制依賴版本，如：<code>depends=('foobar&gt;=1.8.0')</code>，不需要列出二次依賴，舉例來說，<code>gtk2</code> 依賴 <code>glibc</code> 和 <code>glib2</code>，而 <code>glib2</code> 本來就依賴 <code>glibc</code>，<code>glibc</code> 就不用加入依賴列表。</p>
+</li>
+<li>
+<p><code>outdepends</code>: 不影響軟體主要功能，提供額外特性的軟體包，要簡要說明每個包提供的功能。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">optdepends</span><span class="o">=</span><span class="o">(</span>
+  <span class="s1">&#39;cups: printing support&#39;</span>
+  <span class="s1">&#39;sane: scanners support&#39;</span>
+  <span class="s1">&#39;libgphoto2: digital cameras support&#39;</span>
+  <span class="s1">&#39;alsa-lib: sound support&#39;</span>
+  <span class="s1">&#39;giflib: GIF images support&#39;</span>
+  <span class="s1">&#39;libjpeg: JPEG images support&#39;</span>
+  <span class="s1">&#39;libpng: PNG images support&#39;</span>
+<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>makedepends</code>: 編譯時所需的依賴，可以像 <code>depends</code> 指定依賴版本，編譯時會將 <code>depends</code> 的軟體包預設作為編譯依賴，使用 <code>makepkg</code> 構件時 <code>base-devel</code> 視為已安裝，<code>base-devel</code> 的成員不應該出現在列表中，可用下面指令檢查一個依賴關係是否已存在 <code>base-devel</code> 中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">LC_ALL</span><span class="o">=</span>C pacman -Si <span class="k">$(</span>pactree -rl <span class="s1">&#39;&#39;</span>package<span class="s1">&#39;&#39;</span><span class="k">)</span> 2&gt;/dev/null <span class="p">|</span> grep -q <span class="s2">&#34;^Groups *:.*base-devel&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div></li>
+<li>
+<p><code>source</code>: 構件軟體的來源，通常是 HTTP 或 FTP 網址，可以調用前面的 <code>pkgname</code> 和 <code>pkgver</code>，如：<code>source=(&quot;https://example.com/$pkgname-$pkgver.tar.gz&quot;</code></p>
+</li>
+<li>
+<p><code>md5sums</code>/<code>sha1sums</code>/<code>sha256sums</code>: <code>source</code> 所列檔案校驗和，不需要自己填寫，用 <code>updpkgsums</code> 產生，或是用 <code>makepkg -g &gt;&gt; PKGBUILD</code> 產生</p>
+</li>
+</ul>
+<h2 id="pkgbuild-變數">PKGBUILD 變數</h2>
+<p><code>makepkg</code> 定義了兩個變數，在構建、安裝過程中會用到，在 <code>packge()</code> 函數中用的多。</p>
+<h3 id="srcdir"><code>srcdir</code></h3>
+<p><code>makepkg</code> 會將來源檔案解壓縮到這個目錄，或著在此目錄產生指向 PKGBUILD 中 <code>source</code> 陣列中的軟連結。</p>
+<h3 id="pkgdir"><code>pkgdir</code></h3>
+<p><code>makepkg</code> 會把此目錄當作系統根目錄，將軟體安裝在此目錄下。</p>
+<h2 id="pkgbuild-函數">PKGBUILD 函數</h2>
+<p>當構建一個軟體包，如果 PKGBUILD 有定義下面五個函數，<code>makepkg</code> 將會觸發它們，而 <code>package()</code> 是必須被定義的，其他沒定義的函數在構建時將會跳過。</p>
+<h3 id="prepare"><code>prepare()</code></h3>
+<p>用來執行構建來源的指令，此函數執行在 <code>build()</code> 之前，軟體包解壓之後，可以用 <code>makepkg --noextract</code> 跳過此函數執行。</p>
+<h3 id="pkgver"><code>pkgver()</code></h3>
+<p>構件 VSC 軟體包時，軟體的版本可能每隔幾小時就更新，這時用 pkgver()。</p>
+<h3 id="build"><code>build()</code></h3>
+<p>這個函數使用通用 Bash 指令編譯軟體並建立軟體安裝目錄，在 <code>build()</code> 的第一步就是進入解壓縮原始碼後的目錄。<code>makepkg</code> 會在執行 <code>build()</code> 前進入 <code>$srcdir</code>，大多情況第一條指令是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$srcdir</span><span class="s2">/</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接下來編寫編譯要用到的指令，<code>build()</code> 會在 fakeroot 環境下執行，如果你要打包的軟體使用到了配置指令碼 (configure script)，使用參數 <code>--prefix=/usr</code> 是個好習慣，很多軟體在手動編譯安裝的時候會安裝到 <code>/usr/local</code>，但所有的 Arch 包應該安裝到 <code>/usr</code> 目錄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">./configure --prefix<span class="o">=</span>/usr
+make
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="check"><code>check()</code></h3>
+<p>用來執行 <code>make check</code> 或其他例行測試的地方，建議用 <code>check()</code> 去檢查軟體是否正確編譯且能正常執行。</p>
+<p>若使用者不需要這步可以在 <code>PKGBUILD/makepkg.conf</code> 加入 <code>BUILDENV+=('!check')</code> 禁用，或是在執行 <code>makepkg</code> 加上參數 <code>--nocheck</code>。</p>
+<h3 id="package"><code>package()</code></h3>
+<p>最後一步就是把編譯好的檔案放到一個目錄讓 <code>makepkg</code> 可以檢索並打包，這個目錄通常是 <code>pkg</code>，一個 fakeroot 環境，<code>pkg</code> 目錄複製了軟體安裝根目錄的階層關係，如果你手動放置了一個檔案到根目錄，那你也要把檔案放在 <code>pkg</code> 中相同的層級結構中，假設你想要把檔案安裝到 <code>/usr/bin</code>，在 fakeroot 環境中對應的路徑應該是 <code>$pkgdir/usr/bin</code>，極少情況會需要使用者手動去安裝檔案，一般情況使用 <code>make install</code> 即可將軟體安裝到正確的路徑，最後一行通常這樣寫：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/</span><span class="s2">&#34;</span> install
+</code></pre></td></tr></table>
+</div>
+</div><p><code>makepkg --repackage</code> 只執行 <code>package()</code>，不執行 <code>build()</code>，如果僅修改包的依賴可以用這個指令重新打包以節省時間。</p>
+<h2 id="構建軟體包">構建軟體包</h2>
+<p>終於來到最令人興奮的一步，也就是俗稱的「打包」，成敗與否就決定在此刻。</p>
+<p>第一次構建先直接執行 <code>makepkg -s</code>，如果報錯後修改 <code>PKGBUILD</code>，下一次再構建的時候j傳入參數 <code>--repackage</code> 直接執行打包函數，這樣可以節省一些時間。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">makepkg --repackage
+</code></pre></td></tr></table>
+</div>
+</div><p>如果都沒有問題的話會提示構建成功，注意在壓縮那步可能會久一點。</p>
+<h3 id="壓縮太久">壓縮太久？</h3>
+<p>系統預設使用的壓縮演算法是 xz，速度比較慢，推薦使用 zstd 算法，雖然 xz 打包出來的檔案相對小一點，但是壓縮時間和解壓縮時間都比 zstd 長很多，官方目前也建議用 zstd 來發佈，如果只是自己電腦安裝的話可以選擇不壓縮直接安裝。</p>
+<p>編輯 <code>/etc/makepkg.conf</code>，找到最下面的 <code>PKGEXT</code> 修改裡面的值。</p>
+<p>不壓縮：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">PKGEXT</span><span class="o">=</span><span class="s1">&#39;.pkg.tar&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>zstd 算法：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">PKGEXT</span><span class="o">=</span><span class="s1">&#39;.pkg.tar.zst&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>根據 <a href="https://t.me/archlinuxcn">Arch Linux Chinese Messages</a> 頻道的<a href="https://t.me/archlinuxcn/135">消息</a>，現在已經採用 zstd 來取代 xz 算法了，下面是從簡體中文翻譯成正體中文並修正用語的公告訊息。</p>
+<blockquote>
+<p>現在開始使用 zstd 替代 xz 進行軟體包壓縮</p>
+<p><a href="https://lists.archlinux.org/pipermail/arch-dev-public/2019-December/029752.html">郵件列表</a>上已經宣布了，從 2019 年 12 月 27 日開始，我們的套裝軟體壓縮格式已經從 xz (.pkg.tar.xz) 改為了 <a href="https://lists.archlinux.org/pipermail/arch-dev-public/2019-December/029778.html">zstd (.pkg.tar.zst)</a>。</p>
+<p>zstd 相較於 xz 用壓縮比換來高性能。用我們的壓縮參數調用 zstd 重新壓縮軟體包導致了總體包大小增加 ～0.8% ，相對的這些包的解壓時間總體有 ～1300% 的提速。</p>
+<p>我們的軟體源中已經有超過 545 個 zstd 壓縮的套裝軟體了，隨著我們發布更新包，更多的會不斷加入。目前為止我們還未發現任何用戶可見的問題，所以感覺一切順利。</p>
+<p>如果你是一名打包者，如果你在使用最新的 devtools (&gt;= 20191227) 那麼你將自動開始打包新的 .pkg.tar.zst 包。
+如果你是一名最終用戶，沒有手動操作需要做，只要你已經閱讀並遵從了去年新聞中的建議 (https://t.me/archlinuxcn/124)。</p>
+<p>如果你從 2018 年到現在還沒有升級過 libarchive ，還有希望拯救你的系統！在 Eli Schwartz 的個人源 (<a href="https://wiki.archlinux.org/index.php/Unofficial_user_repositories#eschwartz">https://wiki.archlinux.org/index.php/Unofficial_user_repositories#eschwartz</a>)中提供了打包好的 pacman-static 二進位制包，用他的受信用戶(Trusted User)金鑰簽名，可以用這個完成系統升級。</p>
+</blockquote>
+<h2 id="測試-pkgbuild">測試 PKGBUILD</h2>
+<p>如果 <code>makepkg</code> 成功了，會在當前目錄產生一個 <code>$pkgname-$pkgver.pkg.tar.gz</code> 的檔案，可以使用 <code>pacman -U</code> 或 <code>pacman -A</code> 安裝。你可以用 pacman 的查詢函數來檢驗產生的包有沒有問題，<code>pacman -Qlp [package file]</code> 可以列出包裡的所有檔案，<code>pacman -Qip [package file]</code> 列出包的描述資訊。</p>
+<h3 id="檢查包的邏輯性">檢查包的邏輯性</h3>
+<p>確認包可以正常使用後，再使用 <a href="https://wiki.archlinux.org/index.php/Namcap">namcap</a> 來檢查錯誤。</p>
+<p>安裝 namcap。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S namscap
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你的 namcap 無法正常使用，可能是依賴的 Python 版本較新，而本機的 Python 沒有更新，<code>-Syu</code> 滾一下就好了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ namcap PKGBUILD
+$ namcap &lt;package file name&gt;.pkg.tar.xz
+</code></pre></td></tr></table>
+</div>
+</div><p>Namcap 的作用：</p>
+<ol>
+<li>檢查 PKGBUILD 的內容是否有常見錯誤，並檢查軟體包檔案結構中是否存在不必要、放錯的檔案</li>
+<li>用 <code>ldd</code> 檢查包裡的 ELF 檔案，自動報告缺失或可去除的依賴</li>
+<li>啟發式搜尋遺失或多餘的依賴</li>
+</ol>
+<p>要養成使用 namcap 檢查包的習慣，避免提交後再去修復的麻煩。</p>
+<h2 id="安裝包">安裝包</h2>
+<p>寫好 PKGBUILD 且沒有問題後，用正常使用者執行 <code>makepkg</code> 測試可不可以正常安裝。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">makepkg -si
+</code></pre></td></tr></table>
+</div>
+</div><p>參數說明：</p>
+<ul>
+<li><code>s</code>/<code>--syncdeps</code>: 在構建前會自動用 pacman 解析並安裝所有依賴，如果依賴 AUR 裡的包要在之前手動安裝</li>
+<li><code>-i</code>/<code>--install</code>: 當構建成功後安裝，可以用 <code>pacman -U package_name.pkg.tar.xz</code> 替代</li>
+</ul>
+<p>其他有用的參數：</p>
+<ul>
+<li><code>-r</code>/<code>--rmdeps</code>: 編譯後移除編譯時需要的套件，然而這些套件可能會在軟體包更新的時候重新安裝</li>
+<li><code>-c</code>/<code>--clean</code>: 構建後清除臨時構建檔案，通常在調試過程中才會需要這些檔案</li>
+</ul>
+<h2 id="提交到-aur">提交到 AUR</h2>
+<h3 id="認證">認證</h3>
+<p>要建立一組 AUR 的 SSH 金鑰，並為 <code>aur.archlinux.org</code> 指定金鑰位置。</p>
+<p>編輯 <code>~/.ssh/config</code>，並寫入下面內容。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">Host aur.archlinux.org
+  IdentityFile ~/.ssh/aur
+  User aur
+</code></pre></td></tr></table>
+</div>
+</div><p>為 AUR 產生一組 SSH 金鑰。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">ssh-keygen -f ~/.ssh/aur
+</code></pre></td></tr></table>
+</div>
+</div><p>如果沒有 AUR 帳戶的話先到 <a href="https://aur.archlinux.org/register/">AUR 網站</a>註冊一個帳戶，記得填入自己電腦的 SSH 公鑰，已註冊帳戶登入後到 [我的帳號] &gt; [SSH 公開金鑰] 設定。</p>
+<h3 id="建立軟體包倉庫">建立軟體包倉庫</h3>
+<p>如果是建立新軟體包，從 AUR clone 一個 pkgbase，下面指令中的 <code>pkgbase</code> 換成自己打包的套件名稱，如果該軟體包還不存在於 AUR 中，會提示該包還不存在。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git clone ssh://aur@aur.archlinux.org/pkgbase.git
+</code></pre></td></tr></table>
+</div>
+</div><p>如果已經有個軟體包了，在當前目錄初始化一個 git 倉庫並添加遠端 AUR 網址。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git init
+git remote add label ssh://aur@aur.archlinux.org/pkgbase.git
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="提交與更新">提交與更新</h3>
+<p>當釋出新版本的包，更新 <code>pkgver</code> 或 <code>pkgrel</code> 來通知所有使用者需要升級，如果 PKGBUILD 只有微小的更改(如：修正筆誤)，不要去更改這兩個屬性的值。</p>
+<p><strong>當 <code>PKGBUILD</code> 的屬性修改了，就需要重新產生 <code>.SRCINFO</code></strong>，否則 AUR 上將不會顯示更新後的版本。</p>
+<p>上傳或更新到 AUR 的軟體包，至少要包含 <code>PKGBUILD</code> 和 <code>.SRCINFO</code> 兩個檔案，注意<strong>第一條 commit 要包含兩個檔案</strong>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">makepkg --printsrcinfo &gt; .SRCINFO
+git add PKGBUILD .SRCINFO
+git commit -m <span class="s2">&#34;useful commit message&#34;</span>
+git push
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你「不幸」忘記在第一條 commit 的時候加入 <code>.SRCINFO</code>，沒錯，就是我，這裡提供一個解決方案。</p>
+<p>先將 <code>.SRCINFO</code> add 並 commit，然後用 <code>git rebase</code> 來修改 commit 紀錄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git rebase --root -i
+</code></pre></td></tr></table>
+</div>
+</div><p>會出現下面的編輯界面，把第二行的 <code>pick</code> 改成 <code>s</code> 存檔，這樣會將第二條 commit 與前一條合併。</p>
+<p><img src="https://i.loli.net/2020/01/12/CAJgKjEQ729imwn.png" alt="git rebase 互動畫面"></p>
+<p>另一種方法是擷取自高見龍大大寫的<a href="https://gitbook.tw/chapters/using-git/amend-commit2.html">《為你自己學 Git》</a>，先將 <code>.SRCINFO</code> 加入追蹤，然後在 commit 的時候加上參數 <code>--amend --no-edit</code>，這個方法簡單點。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git commit --amend --no-edit
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>一定要加入兩個檔案，不然會報錯無法上傳到 AUR。</strong></p>
+<p>最後 <code>git push</code> 如果成功的話就會出現如下畫面。</p>
+<p><img src="https://i.loli.net/2020/01/13/6mTuVLwcfkBxKzF.png" alt="軟體包上傳 AUR 成功"></p>
+<p>去 AUR 網站檢查一下自己提交的軟體包有沒有成功提交，下面是我提交後在 AUR 檢索到的結果。</p>
+<p><img src="https://i.loli.net/2020/01/13/Wvf8JouPLIMQs7X.png" alt="AUR 網站查詢結果"></p>
+<h2 id="總結">總結</h2>
+<p>雖然整篇文章看下來很多內容，但打包主要就是兩步驟：編寫 PKGBUILD、<code>makepkg</code>，PKGBUILD 可以想像是一份安裝腳本，整體分成兩大部份，第一個是套件的描述、依賴，第二個就是編譯、打包函數的編寫，而在「打包」之後會產生一個壓縮檔，平常用 Pacman 安裝的套件就是安裝的包就是這種格式，可以想像成二進制，把整體概念搞懂，打包就不難了。</p>
+<p>建議大家在打包軟體時可以先去 AUR 找類似的軟體(相同構建方式)，並把該軟體的 <code>PKGBUILD</code> Clone 下來參考，這樣可以大大降低 <code>PKGBUILD</code> 的錯誤並加速編寫的速度。</p>
+<p>希望大家能成功打包自己想用的軟體並提交到 AUR 或 Mainline 上，為 Arch Linux 做一份貢獻。</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://wiki.archlinux.org/index.php/Creating_packages#prepare()">Creating packages - ArchWiki</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-01-14
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/arch-linux/">Arch Linux</a>
+          <a href="/tags/aur/">AUR</a>
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/%E6%89%93%E5%8C%85/">打包</a>
+          <a href="/tags/package/">Package</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/write-masm-style-assembly-in-linux/">
+            <span class="next-text nav-default">Linux 下使用 MASM 編譯組合語言</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.com/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+</body>
+</html>

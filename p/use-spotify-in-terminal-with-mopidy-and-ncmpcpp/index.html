@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/" />
@@ -140,21 +140,21 @@
   <ul>
     <li><a href="#mopidy">Mopidy</a></li>
     <li><a href="#ncmpcpp">ncmpcpp</a></li>
-    <li><a href="#heading">安裝</a></li>
-    <li><a href="#heading1">設定</a>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#設定">設定</a>
       <ul>
-        <li><a href="#heading2">本機音樂瀏覽</a></li>
-        <li><a href="#spotify-">Spotify 模組</a></li>
-        <li><a href="#-pulseaudio-">用 PulseAudio 輸出音源</a></li>
+        <li><a href="#本機音樂瀏覽">本機音樂瀏覽</a></li>
+        <li><a href="#spotify-模組">Spotify 模組</a></li>
+        <li><a href="#用-pulseaudio-輸出音源">用 PulseAudio 輸出音源</a></li>
       </ul>
     </li>
-    <li><a href="#heading3">音樂可視化</a>
+    <li><a href="#音樂可視化">音樂可視化</a>
       <ul>
-        <li><a href="#ncmpcpp-">ncmpcpp 內建</a></li>
-        <li><a href="#clivisualizer">cli-visualizer</a></li>
+        <li><a href="#ncmpcpp-內建">ncmpcpp 內建</a></li>
+        <li><a href="#cli-visualizer">cli-visualizer</a></li>
       </ul>
     </li>
-    <li><a href="#heading4">效果展示</a></li>
+    <li><a href="#效果展示">效果展示</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
 </nav>
@@ -200,7 +200,7 @@
 <li><code>-</code>: 減小音量</li>
 </ul>
 <p>更多 Key Binding 可以去看這個 <a href="https://pkgbuild.com/~jelle/ncmpcpp/">Cheat Sheet</a>。</p>
-<h2 id="heading">安裝</h2>
+<h2 id="安裝">安裝</h2>
 <p>這裡只介紹 Arch Linux 的安裝方法，先把 Mopidy 和 ncmpcpp 裝好。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -210,7 +210,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S mopidy ncmpcpp
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading1">設定</h2>
+</div><h2 id="設定">設定</h2>
 <p>強烈建議將 Mopidy 作為系統服務執行，這樣比較不容易出錯，也可以保持其穩定性。</p>
 <p>將 <code>mopidy</code> 加入 <code>audio</code> 組。</p>
 <div class="highlight"><div class="chroma">
@@ -257,7 +257,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl restart mopidy
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="heading2">本機音樂瀏覽</h3>
+</div><h3 id="本機音樂瀏覽">本機音樂瀏覽</h3>
 <p>Mopidy 設定檔中的 <code>[file]</code>  區塊取消註解，在 <code>media_dirs</code> 裡設定你想要瀏覽的目錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -277,7 +277,7 @@
 </span><span class="s">  /mnt/</span>
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="spotify-">Spotify 模組</h3>
+</div><h3 id="spotify-模組">Spotify 模組</h3>
 <p>安裝 Mopidy 的 Spotify 的擴充套件，Arch 已經放在 aur 裡了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -309,7 +309,7 @@
 </div>
 </div><p>按 <code>2</code> 進入檔案瀏覽器界面應該能看見一個 Spotify 的選項，點進去有各類榜單，就是沒有自己的播放清單，不知道是不是 Bug？</p>
 <p><img src="https://i.loli.net/2019/10/07/j57XVBqDsiWF3lx.png" alt="ncmpcpp 的 Spotify 界面"></p>
-<h3 id="-pulseaudio-">用 PulseAudio 輸出音源</h3>
+<h3 id="用-pulseaudio-輸出音源">用 PulseAudio 輸出音源</h3>
 <p>輸出建議設定 PulseAudio 來混合音道，使用 <code>autoaudiosink</code> 會有聲卡獨占的問題，如果想要音質好一點的可以設 <code>alsasink</code>。</p>
 <p>若要使用 PulseAudio 服務要先配置 PulseAudio 的 TCP Socket 監聽，編輯 <code>/etc/pulse/default.pa</code>，寫入下面這行。</p>
 <div class="highlight"><div class="chroma">
@@ -353,8 +353,8 @@ sudo systemctl restart mopidy
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你不是在 X 環境下操作，請把 <code>start-pulseaudio-x11</code> 替換成 <code>pulseaudio --start</code>。</p>
-<h2 id="heading3">音樂可視化</h2>
-<h3 id="ncmpcpp-">ncmpcpp 內建</h3>
+<h2 id="音樂可視化">音樂可視化</h2>
+<h3 id="ncmpcpp-內建">ncmpcpp 內建</h3>
 <p>ncmpcpp 之所以被譽為終端機的音樂播放神器其中一個原因就是內建音樂可視化功能，進入 <code>ncmpcpp</code> 後按數字鍵 <code>8</code> 就可以跳轉到 Music visualizer 界面。</p>
 <p>音樂可視化需要在 ncmpcpp 設定檔設定，先建立 config 資料夾。</p>
 <div class="highlight"><div class="chroma">
@@ -393,7 +393,7 @@ sudo systemctl restart mopidy
 <pre class="chroma"><code class="language-bash" data-lang="bash">mkfifo /tmp/mpd.fifo
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="clivisualizer">cli-visualizer</h3>
+</div><h3 id="cli-visualizer">cli-visualizer</h3>
 <p>用 ncmpcpp 內建的可視化界面常常出現 <code>Could not open file &quot;/tmp/mpd.fifo&quot; for writing</code> 的錯誤，所以我通常使用 cli-visulizer 來做音樂可視化，cli-visualizer 是 CLI 界面下的音樂可視化軟體，有多種可視化模式可以選擇，在 Arch 中一樣可以用 aur 安裝。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -408,7 +408,7 @@ sudo systemctl restart mopidy
 <ul>
 <li><code>space</code>: 切換模式</li>
 <li><code>s</code>: 切換立體聲/單聲道</li>
-<li><code>q`/</code>Ctrl+c`: 退出 cli-visualizer</li>
+<li><code>q</code>/<code>Ctrl+c</code>: 退出 cli-visualizer</li>
 <li><code>c</code>: 切換顏色主題</li>
 <li><code>+</code>: 放大 10%</li>
 <li><code>-</code>: 縮小 10%</li>
@@ -420,7 +420,7 @@ sudo systemctl restart mopidy
 <p><img src="https://i.loli.net/2019/10/07/9tCniAjeobyJKdv.png" alt="單聲道效果"></p>
 <p>還有其他不知如何形容的圖形：</p>
 <p><img src="https://i.loli.net/2019/10/07/s9RFef75biXPOul.png" alt="其他圖形"></p>
-<h2 id="heading4">效果展示</h2>
+<h2 id="效果展示">效果展示</h2>
 <p>顯示當前歌曲歌詞，記得要將 ID3 標籤填寫完整搜到歌詞的機率才比較高。</p>
 <p><img src="https://i.loli.net/2019/10/07/tV8UoNHD7SKzWb5.png" alt="ncmpcpp 播放界面搭配 cli-visualizer"></p>
 <p>我用 tmux 切割成兩個視窗，一邊顯示播放清單，另一邊顯示可視化圖形，當然你也可以用終端機自帶的視窗分割功能。</p>
@@ -517,7 +517,7 @@ sudo systemctl restart mopidy
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -546,17 +546,17 @@ sudo systemctl restart mopidy
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-110952206-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 

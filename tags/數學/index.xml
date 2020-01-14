@@ -17,7 +17,7 @@
       <pubDate>Sat, 15 Oct 2016 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.com/p/trangle-angle-formula/</guid>
-      <description>之前高二有在學三角函數，當時無聊就將我們數學老師的講義內容稍微電子化了一下，把三角函數所用到的重要公式用 LaTEX 語法寫在 Markdown 裡，作為數學筆記，如果有</description>
+      <description>之前高二有在學三角函數，當時無聊就將我們數學老師的講義內容稍微電子化了一下，把三角函數所用到的重要公式用 $\LaTeX$ 語法寫在 Markdown 裡，作為數學筆記，如果有</description>
     </item>
     
   </channel>

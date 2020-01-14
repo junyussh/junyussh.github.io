@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/caddy-web-server/" />
@@ -136,15 +136,15 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#heading">安裝</a></li>
-    <li><a href="#heading1">設定</a>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#設定">設定</a>
       <ul>
         <li><a href="#caddyfile">Caddyfile</a></li>
       </ul>
     </li>
-    <li><a href="#heading2">應用於生產環境</a>
+    <li><a href="#應用於生產環境">應用於生產環境</a>
       <ul>
-        <li><a href="#gcp--caddy">GCP 上無法啟動 Caddy</a></li>
+        <li><a href="#gcp-上無法啟動-caddy">GCP 上無法啟動 Caddy</a></li>
       </ul>
     </li>
     <li><a href="#reference">Reference</a></li>
@@ -157,7 +157,7 @@
 <p><a href="https://caddyserver.com/">Caddy</a> 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let's Encrypt 取得憑證，還會定期續約，真的是很方便，也不需要設定複雜的 SSL 了。</p>
 <!-- raw HTML omitted -->
 <p>先來抱怨一下，最近搞了個免費的新域名，想說拿來架個站，剛好 GCP 有試用金，開了一台 f1-micro 機型，本來打算用 <a href="https://oneinstack.com">Oneinstack</a> 的一鍵腳本架設 LNMP 環境，結果編譯了兩次才好不容易成功，編譯結束後還無法用 SSH 連接，還好 GCP 提供用序列埠(Console)方式連回 VM，要用 PHP 時發現該死的 Oneinstack 腳本竟然沒給我裝到 PHP，憤而不用 Oneinstack 腳本架設環境。</p>
-<h2 id="heading">安裝</h2>
+<h2 id="安裝">安裝</h2>
 <p>Caddy 的安裝方式很簡單，官方提供一鍵安裝腳本，可以輕鬆就把 Caddy 裝好。</p>
 <p>先到 Caddy 的<a href="https://caddyserver.com/download">下載頁面</a>選擇自己的伺服器作業系統平台，還有要安裝的擴充套件，然後下面就會產生指令，複製到 Terminal 執行就完成安裝了。</p>
 <p>Run 一下 <code>caddy</code> 看有沒有安裝成功，預設會監聽 <code>2015</code> Port，到瀏覽器輸入 <code>http://localhost:2015</code> 應該會出現 <code>404 not found</code>。</p>
@@ -169,7 +169,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">caddy
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="heading1">設定</h2>
+</div><h2 id="設定">設定</h2>
 <p>Caddy 的設定檔名稱預設為 <code>Caddyfile</code>，可以在執行 Caddy 時加入參數指定設定檔路徑，否則會使用當前目錄下的 <code>Caddyfile</code> 作為設定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -209,7 +209,7 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>瀏覽 example.com 應該就會出現綠色勾勾了，非常簡單。</p>
-<h2 id="heading2">應用於生產環境</h2>
+<h2 id="應用於生產環境">應用於生產環境</h2>
 <p>每次啟動 Caddy 都要下指令，但要是離開 Session 就會停止了，當然你可以用 <code>nohup caddy &amp;</code> 來保持一直執行，我個人比較喜歡做成 system service 來管理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -282,7 +282,7 @@ sudo systemctl status caddy <span class="c1"># 檢視 Caddy 狀態</span>
            └─25483 /usr/local/bin/caddy -log stdout -agree<span class="o">=</span><span class="nb">true</span> -conf<span class="o">=</span>/etc/caddy/Caddyfile -root<span class="o">=</span>/var/tmp
 </code></pre></td></tr></table>
 </div>
-</div><h3 id="gcp--caddy">GCP 上無法啟動 Caddy</h3>
+</div><h3 id="gcp-上無法啟動-caddy">GCP 上無法啟動 Caddy</h3>
 <p>如果在 GCP 架設 Caddy 的話要注意，GCP 因為安全考量，必須要用 root 身分執行 Caddy 才能監聽 <code>80</code> Port，所以要修改 <code>caddy.service</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -390,7 +390,7 @@ sudo systemctl status caddy <span class="c1"># 檢視 Caddy 狀態</span>
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -419,17 +419,17 @@ sudo systemctl status caddy <span class="c1"># 檢視 Caddy 狀態</span>
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-110952206-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 

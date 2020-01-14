@@ -6,10 +6,55 @@
     <description>Recent content in Tags on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.com/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arch Linux</title>
+      <link>https://junyussh.github.com/tags/arch-linux/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.com/tags/arch-linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AUR</title>
+      <link>https://junyussh.github.com/tags/aur/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.com/tags/aur/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://junyussh.github.com/tags/linux/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.com/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Package</title>
+      <link>https://junyussh.github.com/tags/package/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.com/tags/package/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>打包</title>
+      <link>https://junyussh.github.com/tags/%E6%89%93%E5%8C%85/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.com/tags/%E6%89%93%E5%8C%85/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>dosbox</title>
@@ -17,15 +62,6 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.com/tags/dosbox/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://junyussh.github.com/tags/linux/</link>
-      <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.com/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -485,15 +521,6 @@
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.com/tags/%E6%97%A5%E5%B8%B8%E9%9A%A8%E7%AD%86/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Arch Linux</title>
-      <link>https://junyussh.github.com/tags/arch-linux/</link>
-      <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.com/tags/arch-linux/</guid>
       <description></description>
     </item>
     

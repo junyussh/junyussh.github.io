@@ -6,10 +6,24 @@
     <description>Recent content in 教學 on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Tue, 08 Oct 2019 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.com/categories/%E6%95%99%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arch Linux 第一次打包就上手</title>
+      <link>https://junyussh.github.com/p/arch-linux-package-quick-start/</link>
+      <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.com/p/arch-linux-package-quick-start/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/01/14/UceohJkzNpBglfT.jpg&#34; alt=&#34;Packaging&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@kadh?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Kira auf der Heide&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/gift?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Arch Linux 採用類似 ports 的構建系統，使用 &lt;code&gt;PKGBUILD&lt;/code&gt; 這種軟體包建立描述檔案，用 &lt;code&gt;makepkg&lt;/code&gt; 從原始碼構建二進制軟體包。&lt;/p&gt;
+&lt;p&gt;最近參加了軟創比賽，官方要求必須使用快應用開發，雖然 IDE 有提供 Linux 版，但只有 deb 格式，AUR 也沒人打包，身為一位 Arch Linux 的愛好者怎麼能因此而放棄呢，於是我便打算親自打包，用 Arch Linux 這麼多年了，Arch Linux 的倉庫以軟體多聞名，大部分軟體都已經有人打包好了，不用自己打包，沒想到我也有需要自己打包的一天，第一次打包成功的那刻非常有成就感，我也能變成 Arch Linux 的貢獻者了。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Linux 下使用 MASM 編譯組合語言</title>

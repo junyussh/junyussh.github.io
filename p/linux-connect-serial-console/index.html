@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/linux-connect-serial-console/" />
@@ -48,7 +48,7 @@
 <meta itemprop="description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總">
 <meta itemprop="datePublished" content="2018-07-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="461">
+<meta itemprop="wordCount" content="462">
 
 
 
@@ -122,7 +122,7 @@
       <div class="post-meta">
         <span class="post-time"> 2018-07-26 </span>
         
-          <span class="more-meta"> 約 461 字 </span>
+          <span class="more-meta"> 約 462 字 </span>
           <span class="more-meta"> 預計閱讀 1 分鐘 </span>
         
       </div>
@@ -133,8 +133,8 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#-com-port">查詢 COM Port</a></li>
-    <li><a href="#serial-">Serial 連接</a>
+    <li><a href="#查詢-com-port">查詢 COM Port</a></li>
+    <li><a href="#serial-連接">Serial 連接</a>
       <ul>
         <li><a href="#arch-linux">Arch Linux</a></li>
         <li><a href="#ubuntu--debian">Ubuntu & Debian</a></li>
@@ -149,7 +149,7 @@
       <p><img src="https://i.loli.net/2019/10/05/Ib7W4uR28ehkKmB.jpg" alt="Connect"></p>
 <p>有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接的方式。</p>
 <!-- raw HTML omitted -->
-<h2 id="-com-port">查詢 COM Port</h2>
+<h2 id="查詢-com-port">查詢 COM Port</h2>
 <p>在 Windows 下，使用裝置管理員就能查詢序列埠，在 Linux 下，先用 <code>dmesg</code> 來查詢 tty 連接記錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -190,7 +190,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">ls /dev/ttyUSB*
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="serial-">Serial 連接</h2>
+</div><h2 id="serial-連接">Serial 連接</h2>
 <p>Linux 下有一些 Serial 連接工具，像是 <code>cu</code>, <code>minicom</code>, <code>screen</code> 等等，這邊用 <code>screen</code> 來進行示範。</p>
 <p>有些作業系統可能不會預裝 <code>screen</code>，要先自行安裝。</p>
 <h3 id="arch-linux">Arch Linux</h3>
@@ -221,8 +221,15 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝完成後就可以下指令來連接 COM Port 了，<code>speed</code> 通常是 <code>9600</code> 或 <code>115200</code>，最主要還是要看你那台設備的參數來輸。</p>
-<pre><code>sudo screen /dev/ttyUSB0 -s &lt;speed&gt;
-</code></pre><p>記得要加 <code>sudo</code> 不然會跑出 <code>[*screen is terminating*]</code> 訊息。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo screen /dev/ttyUSB0 -s &lt;speed&gt;
+</code></pre></td></tr></table>
+</div>
+</div><p>記得要加 <code>sudo</code> 不然會跑出 <code>[*screen is terminating*]</code> 訊息。</p>
 
     </div>
 
@@ -309,7 +316,7 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -338,17 +345,17 @@
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-110952206-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 

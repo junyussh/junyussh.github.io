@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.60.1 with theme even" />
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.com/p/convert-tak-format-in-windows/" />
@@ -136,8 +136,8 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#tak-">TAK 官方轉檔程式</a></li>
-    <li><a href="#tak-sdk--ffmpeglibav">TAK SDK 搭配 FFmpeg/Libav</a></li>
+    <li><a href="#tak-官方轉檔程式">TAK 官方轉檔程式</a></li>
+    <li><a href="#tak-sdk-搭配-ffmpeglibav">TAK SDK 搭配 FFmpeg/Libav</a></li>
     <li><a href="#foobar200--tak-decoder">foobar200 + TAK Decoder</a></li>
     <li><a href="#reference">Reference</a></li>
   </ul>
@@ -158,14 +158,14 @@
 <li><a href="https://ffmpeg.zeranoe.com/builds/">ffmpeg</a>/<a href="https://libav.org/download/">Libav</a>: 轉換影音格式的瑞士軍刀，Libav 是 ffmpeg 的 fork，兩者指令大同小異</li>
 </ol>
 <p>先把 TAK 工具包載回來，在 bin 資料夾裡面有個 <code>takc.exe</code> 可以解碼 TAK 格式並以標準格式輸出，可把 <code>takc.exe</code> 的路徑放到環境變數裡，這樣就能直接在終端機內執行 <code>takc</code> 指令。</p>
-<h2 id="tak-">TAK 官方轉檔程式</h2>
+<h2 id="tak-官方轉檔程式">TAK 官方轉檔程式</h2>
 <p>壓縮檔裡面還有個 <code>tak.exe</code>，有簡單的 GUI，「Compress」可以把 WAV 壓縮成 TAK，「Decompress」則是能把 TAK 還原成 WAV。</p>
 <p><img src="https://i.imgur.com/I0aGdpV.jpg" alt="tak.exe 基本界面"></p>
 <p>「Options」可以設定一些優化選項。</p>
 <p><img src="https://i.imgur.com/BuWvNlt.jpg" alt="轉換參數"></p>
 <p>可以一次加入多個檔案，加入檔案後點「Decompress」就好。</p>
 <p><img src="https://i.imgur.com/jGPH5uF.jpg" alt="Decompress"></p>
-<h2 id="tak-sdk--ffmpeglibav">TAK SDK 搭配 FFmpeg/Libav</h2>
+<h2 id="tak-sdk-搭配-ffmpeglibav">TAK SDK 搭配 FFmpeg/Libav</h2>
 <p>雖然官方提供的程式可以做簡易的轉換，但這樣只能轉 WAV，而且沒有什麼技術要求，接下來才是這本篇文章的重點。</p>
 <p>載完 ffmpeg(或 libav) 後，可以加入環境變量，然後開啟終端機，輸入下面指令，指令的功能是先用 <code>takc</code> 解碼，再用 pipeline 串流給 libav 做轉檔(也可換成 ffmpeg)，輸出成 flac 格式。</p>
 <div class="highlight"><div class="chroma">
@@ -305,7 +305,7 @@ Error <span class="k">while</span> decoding stream <span class="c1">#0:0: Not ye
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2019
+    2020
     <span class="heart">
       <i class="iconfont icon-heart"></i>
     </span>
@@ -334,17 +334,17 @@ Error <span class="k">while</span> decoding stream <span class="c1">#0:0: Not ye
   <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
 
 
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-110952206-1', 'auto');
-	ga('set', 'anonymizeIp', true);
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
 
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
 
 
 
