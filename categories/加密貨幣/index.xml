@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>加密貨幣 on 書術方隅</title>
-    <link>https://junyussh.github.com/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/</link>
+    <link>https://junyussh.github.io/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/</link>
     <description>Recent content in 加密貨幣 on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Mon, 29 Jan 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/categories/%E5%8A%A0%E5%AF%86%E8%B2%A8%E5%B9%A3/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Electroneum CLI 錢包使用教學</title>
-      <link>https://junyussh.github.com/p/etn-cli-wallet-tutorial/</link>
+      <link>https://junyussh.github.io/p/etn-cli-wallet-tutorial/</link>
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/etn-cli-wallet-tutorial/</guid>
+      <guid>https://junyussh.github.io/p/etn-cli-wallet-tutorial/</guid>
       <description>很多人產生了 Electroneum 錢包位址後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI</description>
     </item>
     

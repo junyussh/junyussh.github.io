@@ -2,30 +2,30 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>影音處理 on 書術方隅</title>
-    <link>https://junyussh.github.com/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</link>
+    <link>https://junyussh.github.io/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</link>
     <description>Recent content in 影音處理 on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Tue, 25 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>將 TAK 轉檔成其他格式(Windows)</title>
-      <link>https://junyussh.github.com/p/convert-tak-format-in-windows/</link>
+      <link>https://junyussh.github.io/p/convert-tak-format-in-windows/</link>
       <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/convert-tak-format-in-windows/</guid>
+      <guid>https://junyussh.github.io/p/convert-tak-format-in-windows/</guid>
       <description>Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了</description>
     </item>
     
     <item>
       <title>使用 LAME 輕鬆將無損 wav 壓制成 MP3 格式</title>
-      <link>https://junyussh.github.com/p/use-lame-to-compress-wav/</link>
+      <link>https://junyussh.github.io/p/use-lame-to-compress-wav/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/use-lame-to-compress-wav/</guid>
+      <guid>https://junyussh.github.io/p/use-lame-to-compress-wav/</guid>
       <description>Photo by Dmitry Bayer on Unsplash LAME 是一套開源的 MP3 Encoder，可以將音源壓制成標準的 MP3 格式，一般擷取 CD 裡的音源大部分都是無損的 wav 格式，檔案大小大，不好攜帶，今</description>
     </item>
     

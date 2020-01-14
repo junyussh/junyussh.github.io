@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://junyussh.github.com/sitemap.xml
+Sitemap: https://junyussh.github.io/sitemap.xml

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Hexo on 書術方隅</title>
-    <link>https://junyussh.github.com/tags/hexo/</link>
+    <link>https://junyussh.github.io/tags/hexo/</link>
     <description>Recent content in Hexo on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Tue, 17 Oct 2017 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/tags/hexo/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>新環境，新氣象</title>
-      <link>https://junyussh.github.com/p/new-hexo-blog/</link>
+      <link>https://junyussh.github.io/p/new-hexo-blog/</link>
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/new-hexo-blog/</guid>
+      <guid>https://junyussh.github.io/p/new-hexo-blog/</guid>
       <description>話說先前我本想遠端用 Hexo 寫作，於是把 Hexo 的原始檔案都放在了 Coding.net 的 WebIDE 了，最近想發表文章卻無法進入 WebIDE，發 Issue 也沒有解決問題，這下只能下大絕了—</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Youtube on 書術方隅</title>
-    <link>https://junyussh.github.com/categories/youtube/</link>
+    <link>https://junyussh.github.io/categories/youtube/</link>
     <description>Recent content in Youtube on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Tue, 18 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/categories/youtube/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/categories/youtube/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>用 youtube-dl 優雅下載影片</title>
-      <link>https://junyussh.github.com/p/use-youtube-dl-to-download-videos/</link>
+      <link>https://junyussh.github.io/p/use-youtube-dl-to-download-videos/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/use-youtube-dl-to-download-videos/</guid>
+      <guid>https://junyussh.github.io/p/use-youtube-dl-to-download-videos/</guid>
       <description>Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最</description>
     </item>
     

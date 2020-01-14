@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>console on 書術方隅</title>
-    <link>https://junyussh.github.com/tags/console/</link>
+    <link>https://junyussh.github.io/tags/console/</link>
     <description>Recent content in console on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Thu, 26 Jul 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/tags/console/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/tags/console/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Linux 下用 screen 連接 Serial Port</title>
-      <link>https://junyussh.github.com/p/linux-connect-serial-console/</link>
+      <link>https://junyussh.github.io/p/linux-connect-serial-console/</link>
       <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/linux-connect-serial-console/</guid>
+      <guid>https://junyussh.github.io/p/linux-connect-serial-console/</guid>
       <description>有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總</description>
     </item>
     

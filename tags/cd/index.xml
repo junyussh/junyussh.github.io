@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CD on 書術方隅</title>
-    <link>https://junyussh.github.com/tags/cd/</link>
+    <link>https://junyussh.github.io/tags/cd/</link>
     <description>Recent content in CD on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Sun, 02 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/tags/cd/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/tags/cd/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>使用 LAME 輕鬆將無損 wav 壓制成 MP3 格式</title>
-      <link>https://junyussh.github.com/p/use-lame-to-compress-wav/</link>
+      <link>https://junyussh.github.io/p/use-lame-to-compress-wav/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/use-lame-to-compress-wav/</guid>
+      <guid>https://junyussh.github.io/p/use-lame-to-compress-wav/</guid>
       <description>Photo by Dmitry Bayer on Unsplash LAME 是一套開源的 MP3 Encoder，可以將音源壓制成標準的 MP3 格式，一般擷取 CD 裡的音源大部分都是無損的 wav 格式，檔案大小大，不好攜帶，今</description>
     </item>
     

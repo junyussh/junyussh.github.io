@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Package on 書術方隅</title>
-    <link>https://junyussh.github.com/tags/package/</link>
+    <link>https://junyussh.github.io/tags/package/</link>
     <description>Recent content in Package on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/tags/package/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/tags/package/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Arch Linux 第一次打包就上手</title>
-      <link>https://junyussh.github.com/p/arch-linux-package-quick-start/</link>
+      <link>https://junyussh.github.io/p/arch-linux-package-quick-start/</link>
       <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/arch-linux-package-quick-start/</guid>
+      <guid>https://junyussh.github.io/p/arch-linux-package-quick-start/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/01/14/UceohJkzNpBglfT.jpg&#34; alt=&#34;Packaging&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@kadh?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Kira auf der Heide&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/gift?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;

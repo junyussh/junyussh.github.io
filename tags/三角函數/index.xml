@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>三角函數 on 書術方隅</title>
-    <link>https://junyussh.github.com/tags/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8/</link>
+    <link>https://junyussh.github.io/tags/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8/</link>
     <description>Recent content in 三角函數 on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Sat, 15 Oct 2016 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/tags/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/tags/%E4%B8%89%E8%A7%92%E5%87%BD%E6%95%B8/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>三角函數角度公式</title>
-      <link>https://junyussh.github.com/p/trangle-angle-formula/</link>
+      <link>https://junyussh.github.io/p/trangle-angle-formula/</link>
       <pubDate>Sat, 15 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/trangle-angle-formula/</guid>
+      <guid>https://junyussh.github.io/p/trangle-angle-formula/</guid>
       <description>之前高二有在學三角函數，當時無聊就將我們數學老師的講義內容稍微電子化了一下，把三角函數所用到的重要公式用 $\LaTeX$ 語法寫在 Markdown 裡，作為數學筆記，如果有</description>
     </item>
     

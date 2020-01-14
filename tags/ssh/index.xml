@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SSH on 書術方隅</title>
-    <link>https://junyussh.github.com/tags/ssh/</link>
+    <link>https://junyussh.github.io/tags/ssh/</link>
     <description>Recent content in SSH on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>解決 PTT 在中國無法連線問題</title>
-      <link>https://junyussh.github.com/p/solve-ptt-cannot-connect/</link>
+      <link>https://junyussh.github.io/p/solve-ptt-cannot-connect/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/solve-ptt-cannot-connect/</guid>
+      <guid>https://junyussh.github.io/p/solve-ptt-cannot-connect/</guid>
       <description>PTT 實業坊是全台最大的線上討論區，以電子佈告欄系統為主的開放自由討論空間，很多人是每天都要上 PTT，不然就會渾身不適，那要是工作出差到了中國，</description>
     </item>
     

@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>書術方隅</title>
-    <link>https://junyussh.github.com/</link>
+    <link>https://junyussh.github.io/</link>
     <description>Recent content on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
     <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="https://junyussh.github.com/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://junyussh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Arch Linux 第一次打包就上手</title>
-      <link>https://junyussh.github.com/p/arch-linux-package-quick-start/</link>
+      <link>https://junyussh.github.io/p/arch-linux-package-quick-start/</link>
       <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/arch-linux-package-quick-start/</guid>
+      <guid>https://junyussh.github.io/p/arch-linux-package-quick-start/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/01/14/UceohJkzNpBglfT.jpg&#34; alt=&#34;Packaging&#34;&gt;&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@kadh?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Kira auf der Heide&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/gift?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
@@ -27,209 +27,209 @@
     
     <item>
       <title>Linux 下使用 MASM 編譯組合語言</title>
-      <link>https://junyussh.github.com/p/write-masm-style-assembly-in-linux/</link>
+      <link>https://junyussh.github.io/p/write-masm-style-assembly-in-linux/</link>
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/write-masm-style-assembly-in-linux/</guid>
+      <guid>https://junyussh.github.io/p/write-masm-style-assembly-in-linux/</guid>
       <description>Photo by Umberto on Unsplash 最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也</description>
     </item>
     
     <item>
       <title>Mopidy &#43; ncmpcpp 打造 Spotify 客戶端</title>
-      <link>https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</link>
+      <link>https://junyussh.github.io/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</link>
       <pubDate>Mon, 07 Oct 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</guid>
+      <guid>https://junyussh.github.io/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/</guid>
       <description>Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的</description>
     </item>
     
     <item>
       <title>ShadowsocksR Windows 版新手教學</title>
-      <link>https://junyussh.github.com/p/ssr-client-tutorial-for-windows/</link>
+      <link>https://junyussh.github.io/p/ssr-client-tutorial-for-windows/</link>
       <pubDate>Fri, 03 May 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/ssr-client-tutorial-for-windows/</guid>
+      <guid>https://junyussh.github.io/p/ssr-client-tutorial-for-windows/</guid>
       <description>Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一</description>
     </item>
     
     <item>
       <title>世界地球日．免費咖啡</title>
-      <link>https://junyussh.github.com/p/free-coffee-on-earth-day/</link>
+      <link>https://junyussh.github.io/p/free-coffee-on-earth-day/</link>
       <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/free-coffee-on-earth-day/</guid>
+      <guid>https://junyussh.github.io/p/free-coffee-on-earth-day/</guid>
       <description>Photo by Arūnas Naujokas on Unsplash 今天(4 月 22 日)是一年一度的世界地球日，地球是我等如母親般的存在，卻因為人類經濟活動造成氣候變遷、生態浩劫，我們居住在</description>
     </item>
     
     <item>
       <title>Windows 電腦推薦安裝軟體</title>
-      <link>https://junyussh.github.com/p/recommend-programs-on-windows/</link>
+      <link>https://junyussh.github.io/p/recommend-programs-on-windows/</link>
       <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/recommend-programs-on-windows/</guid>
+      <guid>https://junyussh.github.io/p/recommend-programs-on-windows/</guid>
       <description>Photo by Farzad Nazifi on Unsplash 最近在中國某大學做了一陣子的工具人，發現好多人的電腦都裝了一些奇奇怪怪的中國特色軟體，有感而發，身為一個學資訊的人，實在是看不下</description>
     </item>
     
     <item>
       <title>將 TAK 轉檔成其他格式(Windows)</title>
-      <link>https://junyussh.github.com/p/convert-tak-format-in-windows/</link>
+      <link>https://junyussh.github.io/p/convert-tak-format-in-windows/</link>
       <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/convert-tak-format-in-windows/</guid>
+      <guid>https://junyussh.github.io/p/convert-tak-format-in-windows/</guid>
       <description>Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了</description>
     </item>
     
     <item>
       <title>C&#43;&#43; string 型態轉 int</title>
-      <link>https://junyussh.github.com/p/c-convert-string-type-to-int/</link>
+      <link>https://junyussh.github.io/p/c-convert-string-type-to-int/</link>
       <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/c-convert-string-type-to-int/</guid>
+      <guid>https://junyussh.github.io/p/c-convert-string-type-to-int/</guid>
       <description>Photo by Joanne Gerber on Unsplash 不知道大家有沒有想過在 C++ 裡將 string 型態轉換成 int，在 C 語言中可以使用 atoi() 進行轉換，但是在 C++ 內就會出錯，我之前打 ACM 比賽時就遇上這個問題</description>
     </item>
     
     <item>
       <title>用 youtube-dl 優雅下載影片</title>
-      <link>https://junyussh.github.com/p/use-youtube-dl-to-download-videos/</link>
+      <link>https://junyussh.github.io/p/use-youtube-dl-to-download-videos/</link>
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/use-youtube-dl-to-download-videos/</guid>
+      <guid>https://junyussh.github.io/p/use-youtube-dl-to-download-videos/</guid>
       <description>Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最</description>
     </item>
     
     <item>
       <title>解決 PTT 在中國無法連線問題</title>
-      <link>https://junyussh.github.com/p/solve-ptt-cannot-connect/</link>
+      <link>https://junyussh.github.io/p/solve-ptt-cannot-connect/</link>
       <pubDate>Mon, 03 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/solve-ptt-cannot-connect/</guid>
+      <guid>https://junyussh.github.io/p/solve-ptt-cannot-connect/</guid>
       <description>PTT 實業坊是全台最大的線上討論區，以電子佈告欄系統為主的開放自由討論空間，很多人是每天都要上 PTT，不然就會渾身不適，那要是工作出差到了中國，</description>
     </item>
     
     <item>
       <title>使用 LAME 輕鬆將無損 wav 壓制成 MP3 格式</title>
-      <link>https://junyussh.github.com/p/use-lame-to-compress-wav/</link>
+      <link>https://junyussh.github.io/p/use-lame-to-compress-wav/</link>
       <pubDate>Sun, 02 Sep 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/use-lame-to-compress-wav/</guid>
+      <guid>https://junyussh.github.io/p/use-lame-to-compress-wav/</guid>
       <description>Photo by Dmitry Bayer on Unsplash LAME 是一套開源的 MP3 Encoder，可以將音源壓制成標準的 MP3 格式，一般擷取 CD 裡的音源大部分都是無損的 wav 格式，檔案大小大，不好攜帶，今</description>
     </item>
     
     <item>
       <title>用 Caddy 當伺服器，自動申請 SSL 證書</title>
-      <link>https://junyussh.github.com/p/caddy-web-server/</link>
+      <link>https://junyussh.github.io/p/caddy-web-server/</link>
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/caddy-web-server/</guid>
+      <guid>https://junyussh.github.io/p/caddy-web-server/</guid>
       <description>Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&#39;s Encrypt 取得憑證，還會定期續約，真的是很</description>
     </item>
     
     <item>
       <title>Linux 下用 screen 連接 Serial Port</title>
-      <link>https://junyussh.github.com/p/linux-connect-serial-console/</link>
+      <link>https://junyussh.github.io/p/linux-connect-serial-console/</link>
       <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/linux-connect-serial-console/</guid>
+      <guid>https://junyussh.github.io/p/linux-connect-serial-console/</guid>
       <description>有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總</description>
     </item>
     
     <item>
       <title>Postman Shared window not present! 解決方法</title>
-      <link>https://junyussh.github.com/p/postman-shared-window-not-present/</link>
+      <link>https://junyussh.github.io/p/postman-shared-window-not-present/</link>
       <pubDate>Thu, 19 Jul 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/postman-shared-window-not-present/</guid>
+      <guid>https://junyussh.github.io/p/postman-shared-window-not-present/</guid>
       <description>最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但</description>
     </item>
     
     <item>
       <title>在 Linux 下用 ImageMagick 批量壓縮圖片</title>
-      <link>https://junyussh.github.com/p/compress-photo-with-imagemagick/</link>
+      <link>https://junyussh.github.io/p/compress-photo-with-imagemagick/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/compress-photo-with-imagemagick/</guid>
+      <guid>https://junyussh.github.io/p/compress-photo-with-imagemagick/</guid>
       <description>在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，</description>
     </item>
     
     <item>
       <title>《你的名字。》觀後感。心得 (含劇透內容)</title>
-      <link>https://junyussh.github.com/p/your-name/</link>
+      <link>https://junyussh.github.io/p/your-name/</link>
       <pubDate>Wed, 21 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/your-name/</guid>
+      <guid>https://junyussh.github.io/p/your-name/</guid>
       <description>不常寫這種影評，文筆內容不佳敬請指教，為了怕自己忘記這種感覺，於是看完電影後就趕快記錄下來，避免自己像瀧一樣忘記三葉的名字，記憶如夢境般淡忘</description>
     </item>
     
     <item>
       <title>Electroneum 線上錢包教學</title>
-      <link>https://junyussh.github.com/p/etn-online-wallet-tutorial/</link>
+      <link>https://junyussh.github.io/p/etn-online-wallet-tutorial/</link>
       <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/etn-online-wallet-tutorial/</guid>
+      <guid>https://junyussh.github.io/p/etn-online-wallet-tutorial/</guid>
       <description>上回已經介紹過 ETN CLI 錢包的基本使用教學，今天要介紹的是 ETN 官方出的線上錢包，使用線上錢包，只要有瀏覽器就能輕鬆管理錢包，要轉帳什麼的也不需要輸入</description>
     </item>
     
     <item>
       <title>Electroneum CLI 錢包使用教學</title>
-      <link>https://junyussh.github.com/p/etn-cli-wallet-tutorial/</link>
+      <link>https://junyussh.github.io/p/etn-cli-wallet-tutorial/</link>
       <pubDate>Mon, 29 Jan 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/etn-cli-wallet-tutorial/</guid>
+      <guid>https://junyussh.github.io/p/etn-cli-wallet-tutorial/</guid>
       <description>很多人產生了 Electroneum 錢包位址後，就不知道要怎麼轉出轉入加密貨幣，官方也只提供 CLI 介面的錢包，現在 Windows 的盛行，造成許多人都只會操作 GUI 軟體，反而不會使用 CLI</description>
     </item>
     
     <item>
       <title>靜態部落格留言板蒐集</title>
-      <link>https://junyussh.github.com/p/comment-system-for-static-blog/</link>
+      <link>https://junyussh.github.io/p/comment-system-for-static-blog/</link>
       <pubDate>Tue, 12 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/comment-system-for-static-blog/</guid>
+      <guid>https://junyussh.github.io/p/comment-system-for-static-blog/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/10/05/BGeitLCIW3V9lxZ.jpg&#34; alt=&#34;Comment&#34;&gt;&lt;/p&gt;
 &lt;p&gt;最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 &lt;a href=&#34;https://disqus.com&#34;&gt;Disqus&lt;/a&gt; 居多，網路上的教學也一堆，不過之前爆出 &lt;a href=&#34;https://www.ithome.com.tw/news/117312&#34;&gt;Disqus 五年前被駭&lt;/a&gt;，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>ETN 挖礦起手式之產生錢包</title>
-      <link>https://junyussh.github.com/p/etn-wallet-generate/</link>
+      <link>https://junyussh.github.io/p/etn-wallet-generate/</link>
       <pubDate>Sat, 09 Dec 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/etn-wallet-generate/</guid>
+      <guid>https://junyussh.github.io/p/etn-wallet-generate/</guid>
       <description>最近一周比特幣大漲，創歷史新高點 16000 USD，甚至一天漲幅超過 50%，從 12000 衝破 15000 USD 大關，其他加密貨幣也跟者水漲船高，再度掀起了加密貨幣的熱潮。 今</description>
     </item>
     
     <item>
       <title>新環境，新氣象</title>
-      <link>https://junyussh.github.com/p/new-hexo-blog/</link>
+      <link>https://junyussh.github.io/p/new-hexo-blog/</link>
       <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/new-hexo-blog/</guid>
+      <guid>https://junyussh.github.io/p/new-hexo-blog/</guid>
       <description>話說先前我本想遠端用 Hexo 寫作，於是把 Hexo 的原始檔案都放在了 Coding.net 的 WebIDE 了，最近想發表文章卻無法進入 WebIDE，發 Issue 也沒有解決問題，這下只能下大絕了—</description>
     </item>
     
     <item>
       <title>Arch Linux sddm 啟動失敗方法</title>
-      <link>https://junyussh.github.com/p/sddm-start-failed/</link>
+      <link>https://junyussh.github.io/p/sddm-start-failed/</link>
       <pubDate>Tue, 12 Sep 2017 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/sddm-start-failed/</guid>
+      <guid>https://junyussh.github.io/p/sddm-start-failed/</guid>
       <description>Photo by Norbert Levajsics on Unsplash 今天我正準備進入我的 Plasma 桌面工作，卻出現黑屏要我按 Ctrl+Alt+F1 來解鎖，按了也沒反應就切到 tty2 來 reboot，結果開機後連 sddm 都沒有出現，看了 sddm 的</description>
     </item>
     
     <item>
       <title>三角函數角度公式</title>
-      <link>https://junyussh.github.com/p/trangle-angle-formula/</link>
+      <link>https://junyussh.github.io/p/trangle-angle-formula/</link>
       <pubDate>Sat, 15 Oct 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/trangle-angle-formula/</guid>
+      <guid>https://junyussh.github.io/p/trangle-angle-formula/</guid>
       <description>之前高二有在學三角函數，當時無聊就將我們數學老師的講義內容稍微電子化了一下，把三角函數所用到的重要公式用 $\LaTeX$ 語法寫在 Markdown 裡，作為數學筆記，如果有</description>
     </item>
     
     <item>
       <title>Hello World</title>
-      <link>https://junyussh.github.com/p/hello-world/</link>
+      <link>https://junyussh.github.io/p/hello-world/</link>
       <pubDate>Sat, 23 Apr 2016 00:00:00 +0000</pubDate>
       
-      <guid>https://junyussh.github.com/p/hello-world/</guid>
+      <guid>https://junyussh.github.io/p/hello-world/</guid>
       <description>Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
 Quick Start Create a new post 1  $ hexo new &amp;#34;My New Post&amp;#34;   More info: Writing
 Run server 1  $ hexo server   More info: Server
