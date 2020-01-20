@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>斯特林(Stirling)數介紹與程式計算(C&#43;&#43;) - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.62.2 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/stirling-number/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)" />
+<meta property="og:description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/stirling-number/" />
+<meta property="article:published_time" content="2020-01-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-20T00:00:00+00:00" />
+<meta itemprop="name" content="斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)">
+<meta itemprop="description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。">
+<meta itemprop="datePublished" content="2020-01-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-01-20T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="1507">
+
+
+
+<meta itemprop="keywords" content="離散數學,筆記,C&#43;&#43;,圖表,Stirling,Matplotlib,Python," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)"/>
+<meta name="twitter:description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-01-20 </span>
+        <div class="post-category">
+            <a href="/categories/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/"> 離散數學 </a>
+            <a href="/categories/%E7%AD%86%E8%A8%98/"> 筆記 </a>
+            <a href="/categories/c&#43;&#43;/"> C&#43;&#43; </a>
+            </div>
+          <span class="more-meta"> 約 1507 字 </span>
+          <span class="more-meta"> 預計閱讀 4 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#概念">概念</a></li>
+    <li><a href="#表格遞推法">表格遞推法</a></li>
+    <li><a href="#程式撰寫">程式撰寫</a>
+      <ul>
+        <li><a href="#假設">假設</a></li>
+        <li><a href="#輸入">輸入</a></li>
+        <li><a href="#使用遞迴">使用遞迴</a></li>
+        <li><a href="#非遞迴">非遞迴</a></li>
+      </ul>
+    </li>
+    <li><a href="#時間比較">時間比較</a></li>
+    <li><a href="#結論">結論</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。</p>
+<h2 id="概念">概念</h2>
+<p>Stirling 數是用來計算一個集合中可以分組的組合數量，公式如下，<code>n</code> 是集合中元素數量，<code>k</code> 是組合數，利用遞迴關係可以求出 Stirling 數。</p>
+<p>$$S(n, k)=S(n-1, k-1)+k \cdot S(n-1, k)$$</p>
+<h2 id="表格遞推法">表格遞推法</h2>
+<p>假設欄數代表公式中的 n，列則是 k，已知當 $n=1$ 和 $n=k$ 時的組合數為 1(n 個元素分 1 組的組合數為 1，且 n 個元素分 n 組的組合數為 1)，由此可遞推更高階的 Stirling 數。</p>
+<p>根據上面的遞迴關係式，要求的那格等於欄數乘上一列格子的值再加上左上方格子的數字，假設我要求第 6 列第 3 欄的值，已知要求 $S(6, 3)$，左上角($S(5, 2)$)數字是 15，在加上上面那格 $S(6, 2)$，就可以得到 $15+3\times25=90$。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>1</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>3</td>
+<td>1</td>
+<td>3</td>
+<td>1</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>4</td>
+<td>1</td>
+<td>7</td>
+<td>6</td>
+<td>1</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>5</td>
+<td>1</td>
+<td>15</td>
+<td>25</td>
+<td>10</td>
+<td>1</td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td>1</td>
+<td>31</td>
+<td>90</td>
+<td>65</td>
+<td>15</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<h2 id="程式撰寫">程式撰寫</h2>
+<h3 id="假設">假設</h3>
+<p>我認為遞迴是最簡單快速的方法，因為不用考慮其他複雜邏輯，而非遞迴還需要一個時間複雜度將所有堆疊彈出求和，所以我先假設遞迴的時間應該會比用非遞迴的時間時間短，不過根據我改良的方法時間複雜度應該會大幅下降。</p>
+<h3 id="輸入">輸入</h3>
+<p>輸入兩個數字，第一個數字是欄數 $n$，第二個數字是列數 $k$。</p>
+<h3 id="使用遞迴">使用遞迴</h3>
+<p>用遞迴來寫是最直覺簡單的方式了，程式碼也較為簡單，遞迴中止的條件設 $k=1$ 和 $n=k$ 時返回 1，核心程式碼如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="nf">s</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="mi">1</span> <span class="o">|</span><span class="o">|</span> <span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="k">return</span> <span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="非遞迴">非遞迴</h3>
+<p>一般人可能直覺想到用陣列來畫表格推算，但是這樣時間、空間複雜度會很高，經過我一夜的思考，想到用堆疊(stack)來存儲遞迴的過程，實驗多次總算寫出成品了，先寫個結構來記錄 Stirling 數的參數，<code>n</code>, <code>k</code> 前面解釋過了，而 <code>times</code> 的目的是用來記錄這個 Stirling 數前面的乘數，還記得前面 Stirling 數的遞迴關係式嗎？</p>
+<p>$$S(n, k)=S(n-1, k-1)+k \cdot S(n-1, k)$$</p>
+<p><code>times</code> 就是代表 $S(n-1, k)$ 前面的 $k$，預設值為 1。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="nc">Stirling</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">times</span><span class="p">;</span>
+<span class="p">}</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>定義兩個堆疊，一個存結構，一個存算出來的值。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">stack</span><span class="o">&lt;</span><span class="n">Stirling</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+<span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ans</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>先輸入 n, k，並寫入到 Stirling 的結構裡推入推疊中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%d %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">)</span><span class="p">;</span>
+<span class="n">Stirling</span> <span class="n">stirling</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span><span class="p">;</span>
+<span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">stirling</span><span class="p">)</span><span class="p">;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>接下來就是核心部份了，會先從 <code>s</code> 取堆疊頂端，看 <code>n</code>, <code>k</code> 是否符合條件(<code>n==1 || n==k</code>)，如果條件為真就在 <code>ans</code> 推入 <code>times</code> 的值並彈出 <code>s</code>，否則將 <code>s</code> 彈出，聲明兩個 <em>Stirling</em> 型態的結構 <code>new1</code> 和 <code>new2</code>，分別代表公式中的 $S(n-1, k-1)$ 和 $S(n-1, k)$ 並推入堆疊中，這步驟是為了將原本的 $S(n, k)$ 拆分成子問題，當條件符合中就會彈出 <code>s</code>，直到 <code>s</code> 為空迴圈終止，而拆分出來的子問題解答會存在 <code>ans</code> 堆疊中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="n">Stirling</span> <span class="n">top</span><span class="p">,</span> <span class="n">new1</span><span class="p">,</span> <span class="n">new2</span><span class="p">;</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span> <span class="o">|</span><span class="o">|</span> <span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">ans</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">top</span><span class="p">.</span><span class="n">times</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">else</span>
+    <span class="p">{</span>
+        <span class="n">new1</span> <span class="o">=</span> <span class="p">{</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">times</span> <span class="o">*</span> <span class="mi">1</span><span class="p">}</span><span class="p">,</span> <span class="n">new2</span> <span class="o">=</span> <span class="p">{</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">times</span> <span class="o">*</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span><span class="p">}</span><span class="p">;</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">new1</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">new2</span><span class="p">)</span><span class="p">;</span>
+    <span class="p">}</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>最後將 <code>ans</code> 中的值一個一個彈出求和就是答案了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ans</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">ans</span><span class="p">.</span><span class="n">top</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="n">sum</span> <span class="o">+</span><span class="o">=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">ans</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="時間比較">時間比較</h2>
+<p>我在計算完成後將計算時間寫入到檔案裡，並用 Python + Matplotlib 繪製三維散佈圖表，可視化兩種實現方法的時間差異，初學 Matplotlib 製圖，下面圖片都是直接在 GUI 界面儲存的，如果有更好的方法歡迎告訴我。</p>
+<p>下面是 n 從 1~10 的時間比較，橘色三角形是非遞迴的實現時間，可以明顯看出非遞迴在 $k$ 值愈高的時候所花費的計算時間比遞迴多愈多。</p>
+<p><img src="https://i.loli.net/2020/01/20/C2twSWqX3jU5lFQ.png" alt="n 從 1~10"></p>
+<p>接下來把 $n$ 的範圍加大到 25，其實我本來是想跑到 100 的，但是我發現這樣計算量太大，所以只算到 $n = 25$，這樣差不多有兩千多筆資料，可以看見非遞迴所用時間隨著 k 的變大呈指數型成長。</p>
+<p><img src="https://i.loli.net/2020/01/20/BYnUeCKLAWhpQdo.png" alt="n 從 1~25"></p>
+<h2 id="結論">結論</h2>
+<p>即使我的非遞迴實現採用堆疊去減少時間複雜度和空間複雜度，但還是比不過用遞迴實現的速度，這種遞推公式貌似遞迴做是最快的。</p>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-01-20
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/">離散數學</a>
+          <a href="/tags/%E7%AD%86%E8%A8%98/">筆記</a>
+          <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+          <a href="/tags/%E5%9C%96%E8%A1%A8/">圖表</a>
+          <a href="/tags/stirling/">Stirling</a>
+          <a href="/tags/matplotlib/">Matplotlib</a>
+          <a href="/tags/python/">Python</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/arch-linux-package-quick-start/">
+            <span class="next-text nav-default">Arch Linux 第一次打包就上手</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+</body>
+</html>

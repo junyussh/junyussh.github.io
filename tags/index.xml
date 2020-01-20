@@ -6,10 +6,73 @@
     <description>Recent content in Tags on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Tue, 14 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://junyussh.github.io/tags/c&#43;&#43;/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/c&#43;&#43;/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Matplotlib</title>
+      <link>https://junyussh.github.io/tags/matplotlib/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/matplotlib/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Python</title>
+      <link>https://junyussh.github.io/tags/python/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/python/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Stirling</title>
+      <link>https://junyussh.github.io/tags/stirling/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/stirling/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>圖表</title>
+      <link>https://junyussh.github.io/tags/%E5%9C%96%E8%A1%A8/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/%E5%9C%96%E8%A1%A8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>筆記</title>
+      <link>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>離散數學</title>
+      <link>https://junyussh.github.io/tags/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Arch Linux</title>
@@ -228,15 +291,6 @@
     </item>
     
     <item>
-      <title>筆記</title>
-      <link>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</link>
-      <pubDate>Mon, 04 Mar 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>ffmpeg</title>
       <link>https://junyussh.github.io/tags/ffmpeg/</link>
       <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
@@ -269,15 +323,6 @@
       <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/tags/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>C&#43;&#43;</title>
-      <link>https://junyussh.github.io/tags/c&#43;&#43;/</link>
-      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/c&#43;&#43;/</guid>
       <description></description>
     </item>
     
