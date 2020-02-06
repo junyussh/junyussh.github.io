@@ -6,10 +6,19 @@
     <description>Recent content in Posts on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Arch Linux 新增 CN 源及 GPG 金鑰匯入問題解決</title>
+      <link>https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/</link>
+      <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/</guid>
+      <description>&lt;p&gt;Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</title>
@@ -130,7 +139,7 @@
       <pubDate>Fri, 31 Aug 2018 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/caddy-web-server/</guid>
-      <description>Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&#39;s Encrypt 取得憑證，還會定期續約，真的是很</description>
+      <description>Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&amp;rsquo;s Encrypt 取得憑證，還會定期續約，真的是很</description>
     </item>
     
     <item>

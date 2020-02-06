@@ -2,6 +2,90 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://junyussh.github.io/tags/arch-linux/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/arch-linux-cn/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/categories/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/gpg/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/categories/linux/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/linux/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/pacman/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/post/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/categories/%E6%95%99%E5%AD%B8/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/</loc>
+    <lastmod>2020-02-06T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://junyussh.github.io/categories/c&#43;&#43;/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -16,21 +100,7 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://junyussh.github.io/tags/matplotlib/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/post/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -51,13 +121,6 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://junyussh.github.io/tags/%E5%9C%96%E8%A1%A8/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -66,13 +129,6 @@
   
   <url>
     <loc>https://junyussh.github.io/p/stirling-number/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -93,13 +149,6 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/</loc>
-    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://junyussh.github.io/categories/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/</loc>
     <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -107,8 +156,8 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/arch-linux/</loc>
-    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
+    <loc>https://junyussh.github.io/tags/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/</loc>
+    <lastmod>2020-01-20T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -135,20 +184,6 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/linux/</loc>
-    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/tags/linux/</loc>
-    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://junyussh.github.io/tags/package/</loc>
     <lastmod>2020-01-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -164,13 +199,6 @@
   
   <url>
     <loc>https://junyussh.github.io/tags/%E6%89%93%E5%8C%85/</loc>
-    <lastmod>2020-01-14T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/categories/%E6%95%99%E5%AD%B8/</loc>
     <lastmod>2020-01-14T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -254,14 +282,14 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/</loc>
+    <loc>https://junyussh.github.io/categories/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/</loc>
+    <loc>https://junyussh.github.io/tags/%E5%BD%B1%E9%9F%B3%E6%92%AD%E6%94%BE/</loc>
     <lastmod>2019-10-07T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -310,14 +338,14 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/</loc>
+    <loc>https://junyussh.github.io/tags/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/</loc>
     <lastmod>2019-05-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/</loc>
+    <loc>https://junyussh.github.io/categories/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/</loc>
     <lastmod>2019-05-03T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -345,14 +373,14 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/%E5%BF%83%E5%BE%97/</loc>
+    <loc>https://junyussh.github.io/categories/%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-04-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/%E5%BF%83%E5%BE%97/</loc>
+    <loc>https://junyussh.github.io/tags/%E5%BF%83%E5%BE%97/</loc>
     <lastmod>2019-04-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -366,13 +394,6 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
-    <lastmod>2019-04-22T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://junyussh.github.io/tags/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2019-04-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -380,7 +401,7 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/%E7%B4%80%E9%8C%84/</loc>
+    <loc>https://junyussh.github.io/categories/%E7%94%9F%E6%B4%BB/</loc>
     <lastmod>2019-04-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -388,6 +409,13 @@
   
   <url>
     <loc>https://junyussh.github.io/categories/%E7%B4%80%E9%8C%84/</loc>
+    <lastmod>2019-04-22T00:00:00+00:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/%E7%B4%80%E9%8C%84/</loc>
     <lastmod>2019-04-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -429,14 +457,14 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</loc>
+    <loc>https://junyussh.github.io/tags/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</loc>
     <lastmod>2018-12-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</loc>
+    <loc>https://junyussh.github.io/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</loc>
     <lastmod>2018-12-25T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -793,13 +821,6 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/pacman/</loc>
-    <lastmod>2017-09-12T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://junyussh.github.io/tags/plasma/</loc>
     <lastmod>2017-09-12T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -828,14 +849,14 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/tags/%E6%95%B8%E5%AD%B8/</loc>
+    <loc>https://junyussh.github.io/categories/%E6%95%B8%E5%AD%B8/</loc>
     <lastmod>2016-10-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/categories/%E6%95%B8%E5%AD%B8/</loc>
+    <loc>https://junyussh.github.io/tags/%E6%95%B8%E5%AD%B8/</loc>
     <lastmod>2016-10-15T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
