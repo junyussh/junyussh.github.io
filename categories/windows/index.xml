@@ -29,5 +29,14 @@
       <description>Photo by Farzad Nazifi on Unsplash 最近在中國某大學做了一陣子的工具人，發現好多人的電腦都裝了一些奇奇怪怪的中國特色軟體，有感而發，身為一個學資訊的人，實在是看不下</description>
     </item>
     
+    <item>
+      <title>用 youtube-dl 優雅下載 YouTube 影片</title>
+      <link>https://junyussh.github.io/p/use-youtube-dl-to-download-videos/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/use-youtube-dl-to-download-videos/</guid>
+      <description>Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最</description>
+    </item>
+    
   </channel>
 </rss>

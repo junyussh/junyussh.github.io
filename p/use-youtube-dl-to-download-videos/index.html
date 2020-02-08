@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>用 youtube-dl 優雅下載影片 - 書術方隅</title>
+  <title>用 youtube-dl 優雅下載 YouTube 影片 - 書術方隅</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.63.2 with theme even" />
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/use-youtube-dl-to-download-videos/" />
@@ -38,22 +38,22 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="用 youtube-dl 優雅下載影片" />
+<meta property="og:title" content="用 youtube-dl 優雅下載 YouTube 影片" />
 <meta property="og:description" content="Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/use-youtube-dl-to-download-videos/" />
 <meta property="article:published_time" content="2018-09-18T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-09-18T00:00:00+00:00" />
-<meta itemprop="name" content="用 youtube-dl 優雅下載影片">
+<meta itemprop="name" content="用 youtube-dl 優雅下載 YouTube 影片">
 <meta itemprop="description" content="Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最">
 <meta itemprop="datePublished" content="2018-09-18T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-09-18T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1036">
+<meta itemprop="wordCount" content="2866">
 
 
 
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="用 youtube-dl 優雅下載影片"/>
+<meta name="twitter:title" content="用 youtube-dl 優雅下載 YouTube 影片"/>
 <meta name="twitter:description" content="Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最"/>
 
 <!--[if lte IE 9]>
@@ -129,17 +129,18 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">用 youtube-dl 優雅下載影片</h1>
+      <h1 class="post-title">用 youtube-dl 優雅下載 YouTube 影片</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2018-09-18 </span>
         <div class="post-category">
             <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/windows/"> Windows </a>
             <a href="/categories/linux/"> Linux </a>
             <a href="/categories/youtube/"> Youtube </a>
             </div>
-          <span class="more-meta"> 約 1036 字 </span>
-          <span class="more-meta"> 預計閱讀 3 分鐘 </span>
+          <span class="more-meta"> 約 2866 字 </span>
+          <span class="more-meta"> 預計閱讀 6 分鐘 </span>
         
       </div>
     </header>
@@ -150,7 +151,20 @@
     <nav id="TableOfContents">
   <ul>
     <li><a href="#安裝">安裝</a></li>
-    <li><a href="#使用">使用</a></li>
+    <li><a href="#下載影片">下載影片</a>
+      <ul>
+        <li><a href="#品質">品質</a></li>
+        <li><a href="#影音合併">影音合併</a></li>
+        <li><a href="#字幕下載">字幕下載</a></li>
+      </ul>
+    </li>
+    <li><a href="#下載音樂">下載音樂</a></li>
+    <li><a href="#下載播放清單">下載播放清單</a>
+      <ul>
+        <li><a href="#下載整份清單">下載整份清單</a></li>
+        <li><a href="#指定下載範圍">指定下載範圍</a></li>
+      </ul>
+    </li>
     <li><a href="#proxy-設定">Proxy 設定</a></li>
     <li><a href="#其他影音平台">其他影音平台</a></li>
     <li><a href="#reference">Reference</a></li>
@@ -159,12 +173,13 @@
   </div>
 </div>
     <div class="post-content">
-      <p><img src="https://i.imgur.com/hOhXMd8.jpg" alt="Youtube"></p>
+      <p><img src="https://i.loli.net/2020/02/08/kYedRE65PgQG8bI.jpg" alt="Youtube"></p>
 <p>Youtube 是世界上最大的影音網站，應該很多人天天都在上面看影片吧，要是看到喜歡的影片想要下載，該怎麼做呢？如果是我，我平常都用 youtube-dl 來下載，我認為這是最優雅，最簡便，最快速的方式了，而且是開源軟體，還支援多種影音平台，可以說是下載影片的瑞士刀。</p>
 <!-- raw HTML omitted -->
+<p><strong>2020/02/08：增加進階指令教學</strong></p>
 <h2 id="安裝">安裝</h2>
 <p>先去官網下載符合自己平台的檔案，Windows 有已經編譯好的<a href="https://rg3.github.io/youtube-dl/download.html">可執行檔</a>，Linux 可以直接將執行檔放入 <code>/usr/local/bin/</code>，或著用 pip 套件管理員安裝。</p>
-<p>Windows 使用者下載完 youtube-dl 後請在 <code>youtube-dl.exe</code> 所在資料夾開啟 CMD 進行操作，至於怎麼在所在資料夾開啟 CMD 請參考之前的<a href="/p/use-lame-to-compress-wav/#%E5%A3%93%E5%88%B6">教學</a>。</p>
+<p>Windows 使用者下載完 youtube-dl 後請在 <code>youtube-dl.exe</code> 所在資料夾開啟 CMD 進行操作，至於怎麼在所在資料夾開啟 CMD 請參考之前的<a href="/p/use-lame-to-compress-wav/#%E5%A3%93%E5%88%B6">教學</a>；亦或是把放置 <code>youtube-dl.exe</code> 的目錄加入環境變數，這樣就可以直接在 CMD 中調用。</p>
 <p>類 UNIX 作業系統皆可用下面指令安裝。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -172,8 +187,17 @@
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
-sudo chmod a+rx /usr/local/bin/youtube-dl
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo curl -L https://yt-dl.org/downloads/latest/youtube-dl -o /usr/local/bin/youtube-dl
+$ sudo chmod a+rx /usr/local/bin/youtube-dl
+</code></pre></td></tr></table>
+</div>
+</div><p>Arch Linux 建議用 pacman 安裝。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S youtube-dl
 </code></pre></td></tr></table>
 </div>
 </div><p>也能使用 pip 安裝。</p>
@@ -182,17 +206,17 @@ sudo chmod a+rx /usr/local/bin/youtube-dl
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pip install --upgrade youtube_dl
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pip install --upgrade youtube_dl
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="使用">使用</h2>
+</div><h2 id="下載影片">下載影片</h2>
 <p>以下載一部 Youtube 影片為例，先在 Youtube 找到你想下載的影片，然後複製網址。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
 </code></pre></td></tr></table>
 </div>
 </div><p>這樣雖然能直接下載影片，但是不能選擇自己想要的品質，加上參數 <code>-F</code> 會列出提供哪些畫質下載。</p>
@@ -246,19 +270,234 @@ format code  extension  resolution note
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl -f <span class="m">137</span> https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -f <span class="m">137</span> https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
 </code></pre></td></tr></table>
 </div>
-</div><h2 id="proxy-設定">Proxy 設定</h2>
+</div><h3 id="品質">品質</h3>
+<p>youtube-dl 預設會下載最高品質的影片，也可以指定畫質。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="c1"># 下載 MP4 格式中最高畫質，或是其他格式中的最高畫質</span>
+$ youtube-dl -f <span class="s1">&#39;bestvideo[ext=mp4]+bestaudio[ext=m4a]/best[ext=mp4]/best&#39;</span>
+<span class="c1"># 指定最佳畫質，但不要高於 480p</span>
+$ youtube-dl -f <span class="s1">&#39;bestvideo[height&lt;=480]+bestaudio/best[height&lt;=480]&#39;</span>
+<span class="c1"># 下載檔案大小小於 50M 的最高畫質影片</span>
+$ youtube-dl -f <span class="s1">&#39;best[filesize&lt;50M]&#39;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="影音合併">影音合併</h3>
+<p>YouTube 1080p 以上畫質的影片視訊和音源是分開的下載的，傳統作法是先分別下載影片和聲音檔，再用其他工具合併，而 youtube-dl 可以整合 ffmpeg/avconv，下載完自動合併影音，非常方便。</p>
+<p>在 <code>-f</code> 參數中同時寫入影片和音源格式代號就會自動合併，預設輸出格式為 <code>mkv</code>，可以用 <code>--merge-output-format</code> 參數來指定輸出影片封裝格式，可選值有：<code>mkv</code>, <code>mp4</code>, <code>ogg</code>, <code>webm</code>, <code>flv</code>。</p>
+<p><strong>注意：當合併輸出格式為 <code>mp4</code> 時，音訊如果是 <code>webm</code> 格式合併時會出現錯誤，要指定為 <code>m4a</code> 或其他格式才能自動合併成功。</strong></p>
+<p>如果你要下載最高畫質的影片，並輸出為 MP4 影片可以這樣寫：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -f <span class="s1">&#39;bestvideo+bestaudio[ext=m4a]&#39;</span> --merge-output-format mp4 https://www.youtube.com/watch?v<span class="o">=</span>y5wkebBCwAE
+</code></pre></td></tr></table>
+</div>
+</div><p>一般人到這步就可以結束了，但如果你是對品質有<strong>強烈追求</strong>的偏執狂，請繼續看下去。</p>
+<p><strong>方法一：分別下載影片和音源，再合併成 MP4 (推薦)</strong></p>
+<p>如果你用 <code>-F</code> 去看會發現 <code>m4a</code> 的音訊通常不是最高音質，可以先用 <code>-f 'bestvideo+bestaudio'</code>，並指定合併成 MP4，先將最高品質的影片和音源下載下來，但因為 <code>webm</code> 音源無法合併成 MP4，會保留影片和音源結束工作。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -f <span class="s1">&#39;bestvideo+bestaudio&#39;</span> --merge-output-format mp4 https://www.youtube.com/watch?v<span class="o">=</span>y5wkebBCwAE
+</code></pre></td></tr></table>
+</div>
+</div><p>下載下來有兩個 <code>webm</code> 格式的檔案，一個只有純影片，另一個只有純聲音，再手動用 ffmpeg 去合併。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ffmpeg -i audio.webm -i video.webm -acodec copy -vcodec copy -strict -2 output.mp4
+</code></pre></td></tr></table>
+</div>
+</div><p>由於 opus 編碼的音源在 MP4 格式中是實驗特性，所以要加上 <code>-strict -2</code> 才能合併成功，但有些老舊的播放器可能會因為不支援 opus 編碼而無法正常播放。</p>
+<blockquote>
+<p>opus in MP4 support is experimental, add &lsquo;-strict -2&rsquo; if you want to use it.</p>
+</blockquote>
+<p><strong>方法二：先合併成 <code>webm</code>，再轉檔成 <code>mp4</code></strong></p>
+<p>youtube-dl 如果在 <code>-f</code> 參數中寫 <code>'bestvideo+bestaudio'</code> 會在下載完成後自動合併成 <code>webm</code> 影片檔，這時再用 ffmpeg 轉換成 mp4 格式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ ffmpeg -i input.webm output.mp4
+</code></pre></td></tr></table>
+</div>
+</div><p>雖然方便一點，但轉換的時間要很久，所以比較推薦使用方法一。</p>
+<h3 id="字幕下載">字幕下載</h3>
+<p>有 CC 字幕的影片 youtube-dl 也能下載。</p>
+<p>參數：</p>
+<ul>
+<li><code>--list-subs</code>：列出可下載的所有字幕</li>
+<li><code>--write-sub</code>：儲存字幕</li>
+<li><code>--embed-sub</code>：將字幕合併至影片中，需搭配 <code>--write-sub</code> 參數使用</li>
+<li><code>--all-subs</code>：下載所有字幕</li>
+<li><code>--sub-format</code>：下載的字幕格式，如果原影片沒有指定的字幕格式會去下載其他格式的字幕</li>
+<li><code>--sub-lang</code>：選擇要下載的字幕語言，用逗號分隔，例如：<code>zh_TW,ja</code></li>
+<li><code>--convert-subs</code>：將下載的字幕轉換成其他格式，目前支援 <code>srt|ass|vtt|lrc</code></li>
+</ul>
+<p>例如我想下載下面這部多語言字幕的影片。</p>
+<p><img src="https://i.loli.net/2020/02/08/hFaEHfS8vl4RDPp.png" alt="多字幕影片"></p>
+<p>先用 <code>--list-subs</code> 列出所有可下載字幕，注意上面是 YouTube 自動產生的字幕，下面是人工翻譯上傳的字幕。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl  --list-subs https://www.youtube.com/watch<span class="se">\?</span>v<span class="se">\=</span>y5wkebBCwAE
+<span class="o">[</span>youtube<span class="o">]</span> y5wkebBCwAE: Downloading webpage
+<span class="o">[</span>youtube<span class="o">]</span> y5wkebBCwAE: Downloading video info webpage
+<span class="o">[</span>youtube<span class="o">]</span> y5wkebBCwAE: Looking <span class="k">for</span> automatic captions
+Available automatic captions <span class="k">for</span> y5wkebBCwAE:
+Language formats
+af       vtt, ttml, srv3, srv2, srv1
+sq       vtt, ttml, srv3, srv2, srv1
+am       vtt, ttml, srv3, srv2, srv1
+...
+yi       vtt, ttml, srv3, srv2, srv1
+yo       vtt, ttml, srv3, srv2, srv1
+zu       vtt, ttml, srv3, srv2, srv1
+Available subtitles <span class="k">for</span> y5wkebBCwAE:
+Language formats
+ca       vtt, ttml, srv3, srv2, srv1
+zh-CN    vtt, ttml, srv3, srv2, srv1
+zh-TW    vtt, ttml, srv3, srv2, srv1
+en       vtt, ttml, srv3, srv2, srv1
+fr       vtt, ttml, srv3, srv2, srv1
+id       vtt, ttml, srv3, srv2, srv1
+ja       vtt, ttml, srv3, srv2, srv1
+ko       vtt, ttml, srv3, srv2, srv1
+pt       vtt, ttml, srv3, srv2, srv1
+pt-BR    vtt, ttml, srv3, srv2, srv1
+th       vtt, ttml, srv3, srv2, srv1
+</code></pre></td></tr></table>
+</div>
+</div><p>我想下載正體中文和日文的字幕，並合併到影片中可以這樣寫：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl --sub-lang zh-TW,ja --write-sub  --embed-subs https://www.youtube.com/watch?v<span class="o">=</span>y5wkebBCwAE
+</code></pre></td></tr></table>
+</div>
+</div><p>預設會合併成一個 mkv 影片，字幕軌有之前嵌入的中文、日文字幕。</p>
+<p><img src="https://i.loli.net/2020/02/08/d7tg91E8bkVSWDi.png" alt="字幕軌"></p>
+<p>如果你想將字幕存成 srt 格式，加上 <code>--convert-subs srt</code> 參數。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl --sub-lang zh-TW,ja --write-sub --convert-subs srt https://www.youtube.com/watch?v<span class="o">=</span>y5wkebBCwAE
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="下載音樂">下載音樂</h2>
+<p>用 <code>-x</code> 參數提取音源，<code>--audio-format</code> 指定輸出格式，可選值：<code>best</code>, <code>aac</code>, <code>flac</code>, <code>mp3</code>, <code>m4a</code>, <code>opus</code>, <code>vorbis</code> 和 <code>wav</code>，預設值為 <code>best</code>，要配合參數 <code>-x</code> 才有用。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -x --audio-format mp3 https://www.youtube.com/watch?v<span class="o">=</span>WI-EMzrUSP4
+</code></pre></td></tr></table>
+</div>
+</div><p>YouTube 最高音質通常為 <code>opus</code> 格式，如果選擇 <code>mp3</code> 位元率可能會被有損壓縮，如果想保持原來的位元率輸出格式請選 <code>opus</code>。</p>
+<p>其他參數：</p>
+<ul>
+<li><code>--embed-thumbnail</code>：嵌入影片縮圖(僅限 <code>mp3</code> 和 <code>m4a/mp4</code>)</li>
+<li><code>--add-metadata</code>：加入影片資訊</li>
+</ul>
+<p>假如我想下載這首歌曲。</p>
+<p><img src="https://i.loli.net/2020/02/08/uEzjZtOsmbq5Byn.png" alt="Sunset Rollercoaster - VANILLA VILLA"></p>
+<p>使用 <code>--embed-thumbnail</code> 和 <code>--add-metadata</code> 就會把資訊寫在 ID3 標籤裡。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -x --audio-format mp3 --embed-thumbnail --add-metadata https://www.youtube.com/watch?v<span class="o">=</span>gex2JGKDXIo
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://i.loli.net/2020/02/08/yXGWYEfV5Hixlmr.png" alt="音樂標籤"></p>
+<p>下面是用 mpv 播放器播放 Opus 音檔(最佳音質)顯示的資訊。</p>
+<p><img src="https://i.loli.net/2020/02/08/d3lnGozJpPKYiOe.png" alt=""></p>
+<p>這是 MP3 格式的位元率，其實兩者相去不遠，不必太在意。</p>
+<p><img src="https://i.loli.net/2020/02/08/gontNeLxvUuKr5T.png" alt=""></p>
+<h2 id="下載播放清單">下載播放清單</h2>
+<h3 id="下載整份清單">下載整份清單</h3>
+<p>跟下載影片一樣，只是把網址換成播放清單。</p>
+<h3 id="指定下載範圍">指定下載範圍</h3>
+<ul>
+<li><code>--playlist-start</code>：播放清單起始位置</li>
+<li><code>--playlist-end</code>：播放清單結束位置</li>
+<li><code>--playlist-items</code>：指定範圍，逗號分隔，例如：<code>1,2,5,8</code>, <code>1-3,7,10-13</code></li>
+</ul>
+<p>假設我要下載這個播放清單的 1~3 首歌，並存成 MP3 音樂檔。</p>
+<p><img src="https://i.loli.net/2020/02/08/zse6BjrMDKAO5Ty.png" alt="SpongeBob Production Music"></p>
+<p>指令可以這樣下：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -x --audio-format mp3 --embed-thumbnail --add-metadata --playlist-items 1-3 https://www.youtube.com/watch?v<span class="o">=</span>qRNTg7bk5LU<span class="p">&amp;</span><span class="nv">list</span><span class="o">=</span>RDqRNTg7bk5LU
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://i.loli.net/2020/02/08/6M5cpT3FAbemxg2.png" alt="下載的音樂"></p>
+<p>這種指令在下載專輯的時候很有用。</p>
+<h2 id="proxy-設定">Proxy 設定</h2>
 <p>如果你身在無法使用 Youtube 的國家要使用 youtube-dl，可以用 <code>--proxy</code> 參數進行代理。</p>
-<p>youtube-dl 內建的 &ndash;proxy 參數，支持 socks5 和 http 代理伺服器，通常現代代理軟體(SS、SSR 等)預設的本機連接埠都是 socks5://127.0.0.1:1080。</p>
+<p>youtube-dl 內建的 <code>--proxy</code> 參數，支持 Socks5 和 HTTP 代理伺服器，通常現代代理軟體(SS、SSR 等)預設的本機連接埠都是 <code>socks5://127.0.0.1:1080</code>。</p>
 <p>更多參數可以去看 youtube-dl 官方的 <a href="https://github.com/rg3/youtube-dl/blob/master/README.md">README</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl --proxy socks5://127.0.0.1:1080 https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl --proxy socks5://127.0.0.1:1080 https://www.youtube.com/watch?v<span class="o">=</span>ZzvYGRH9H1M
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="其他影音平台">其他影音平台</h2>
@@ -277,7 +516,7 @@ format code  extension  resolution note
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl -F https://www.bilibili.com/video/av30534279
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -F https://www.bilibili.com/video/av30534279
 <span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading webpage
 <span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading video info page
 <span class="o">[</span>info<span class="o">]</span> Available formats <span class="k">for</span> 30534279:
@@ -297,7 +536,7 @@ format code  extension  resolution note
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">youtube-dl -f <span class="m">2</span> https://www.bilibili.com/video/av30534279
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ youtube-dl -f <span class="m">2</span> https://www.bilibili.com/video/av30534279
 <span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading webpage
 <span class="o">[</span>BiliBili<span class="o">]</span> 30534279: Downloading video info page
 <span class="o">[</span>download<span class="o">]</span> Destination: 【FGO动画】无限流星制-Unlimited Stella Works--30534279.flv
@@ -308,6 +547,7 @@ format code  extension  resolution note
 <h2 id="reference">Reference</h2>
 <ul>
 <li><a href="https://github.com/rg3/youtube-dl/blob/master/README.md">youtube-dl/README.md at master · rg3/youtube-dl</a></li>
+<li><a href="https://yogapan.github.io/2017/08/16/Youtube-dl%E6%BF%83%E7%B8%AE%E6%95%99%E5%AD%B8%E7%AD%86%E8%A8%98/">Youtube-dl濃縮教學筆記 | 小蛇蛇的筆記</a></li>
 </ul>
 
     </div>
