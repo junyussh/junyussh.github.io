@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-  <title>Linux 下用 screen 連接 Serial Port - 書術方隅</title>
+  <title>Linux 下用 screen 連接 Serial Port(RS232) - 書術方隅</title>
   <meta name="renderer" content="webkit" />
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
 
@@ -16,7 +16,8 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Chun Yu" /><meta name="description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+<meta name="author" content="Chun Yu" /><meta name="description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
 
 
 
@@ -38,23 +39,26 @@
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
-<meta property="og:title" content="Linux 下用 screen 連接 Serial Port" />
-<meta property="og:description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總" />
+<meta property="og:title" content="Linux 下用 screen 連接 Serial Port(RS232)" />
+<meta property="og:description" content="
+有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/linux-connect-serial-console/" />
 <meta property="article:published_time" content="2018-07-26T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-07-26T00:00:00+00:00" />
-<meta itemprop="name" content="Linux 下用 screen 連接 Serial Port">
-<meta itemprop="description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總">
+<meta itemprop="name" content="Linux 下用 screen 連接 Serial Port(RS232)">
+<meta itemprop="description" content="
+有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。">
 <meta itemprop="datePublished" content="2018-07-26T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2018-07-26T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="462">
+<meta itemprop="wordCount" content="469">
 
 
 
-<meta itemprop="keywords" content="Linux,screen,console,tty,教學,筆記," /><meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Linux 下用 screen 連接 Serial Port"/>
-<meta name="twitter:description" content="有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總"/>
+<meta itemprop="keywords" content="Linux,screen,console,tty,教學,筆記,RS232," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux 下用 screen 連接 Serial Port(RS232)"/>
+<meta name="twitter:description" content="
+有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -129,12 +133,12 @@
           <article class="post">
     
     <header class="post-header">
-      <h1 class="post-title">Linux 下用 screen 連接 Serial Port</h1>
+      <h1 class="post-title">Linux 下用 screen 連接 Serial Port(RS232)</h1>
 
       <div class="post-meta">
         <span class="post-time"> 2018-07-26 </span>
         
-          <span class="more-meta"> 約 462 字 </span>
+          <span class="more-meta"> 約 469 字 </span>
           <span class="more-meta"> 預計閱讀 1 分鐘 </span>
         
       </div>
@@ -145,7 +149,7 @@
   <div class="post-toc-content always-active">
     <nav id="TableOfContents">
   <ul>
-    <li><a href="#查詢-com-port">查詢 COM Port</a></li>
+    <li><a href="#查詢-rs232-com-port">查詢 RS232 COM Port</a></li>
     <li><a href="#serial-連接">Serial 連接</a>
       <ul>
         <li><a href="#arch-linux">Arch Linux</a></li>
@@ -159,9 +163,8 @@
 </div>
     <div class="post-content">
       <p><img src="https://i.loli.net/2019/10/05/Ib7W4uR28ehkKmB.jpg" alt="Connect"></p>
-<p>有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接的方式。</p>
-<!-- raw HTML omitted -->
-<h2 id="查詢-com-port">查詢 COM Port</h2>
+<p>有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。</p>
+<h2 id="查詢-rs232-com-port">查詢 RS232 COM Port</h2>
 <p>在 Windows 下，使用裝置管理員就能查詢序列埠，在 Linux 下，先用 <code>dmesg</code> 來查詢 tty 連接記錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -192,7 +195,7 @@
 <span class="o">[</span>77968.251187<span class="o">]</span> pl2303 ttyUSB0: usb_serial_generic_read_bulk_callback - urb stopped: -32
 </code></pre></td></tr></table>
 </div>
-</div><p>如果看不出來自己插的是哪個 tty，可以先印出來，然後拔掉，再看一次記錄來比對，像是我用 USB 來連接 COM，大概猜一下應該是 <code>ttyUSB0</code>。</p>
+</div><p>如果看不出來自己插的是哪個 tty，可以先印出來，然後拔掉，再看一次記錄來比對，像是我用 USB 界面來連接 COM，大概猜一下應該是 <code>ttyUSB0</code>。</p>
 <p>如果你是直接插 USB 來連接的話可以執行下這個指令來查詢。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
@@ -232,7 +235,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">sudo yum install screen
 </code></pre></td></tr></table>
 </div>
-</div><p>安裝完成後就可以下指令來連接 COM Port 了，<code>speed</code> 通常是 <code>9600</code> 或 <code>115200</code>，最主要還是要看你那台設備的參數來輸。</p>
+</div><p>安裝完成後就可以下指令來連接 RS232 序列埠了，<code>speed</code> 通常是 <code>9600</code> 或 <code>115200</code>，最主要還是要看你那台設備的參數來輸。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
 <pre class="chroma"><code><span class="lnt">1
@@ -242,7 +245,6 @@
 </code></pre></td></tr></table>
 </div>
 </div><p>記得要加 <code>sudo</code> 不然會跑出 <code>[*screen is terminating*]</code> 訊息。</p>
-
     </div>
 
     <div class="post-copyright">
@@ -268,6 +270,7 @@
           <a href="/tags/tty/">tty</a>
           <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
           <a href="/tags/%E7%AD%86%E8%A8%98/">筆記</a>
+          <a href="/tags/rs232/">RS232</a>
           </div>
       <nav class="post-nav">
         <a class="prev" href="/p/caddy-web-server/">

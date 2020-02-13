@@ -12,12 +12,13 @@
     
     
     <item>
-      <title>Linux 下用 screen 連接 Serial Port</title>
+      <title>Linux 下用 screen 連接 Serial Port(RS232)</title>
       <link>https://junyussh.github.io/p/linux-connect-serial-console/</link>
       <pubDate>Thu, 26 Jul 2018 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/linux-connect-serial-console/</guid>
-      <description>有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來進行 COM 連接，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/10/05/Ib7W4uR28ehkKmB.jpg&#34; alt=&#34;Connect&#34;&gt;&lt;/p&gt;
+&lt;p&gt;有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。&lt;/p&gt;</description>
     </item>
     
   </channel>
