@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Hexo 遷移 Hugo 記錄心得 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content=" Photo by Randy Fath on Unsplash
+ 之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.64.0 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Hexo 遷移 Hugo 記錄心得" />
+<meta property="og:description" content="
+
+Photo by Randy Fath on Unsplash
+
+之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/" />
+<meta property="article:published_time" content="2020-02-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-13T00:00:00+00:00" />
+<meta itemprop="name" content="Hexo 遷移 Hugo 記錄心得">
+<meta itemprop="description" content="
+
+Photo by Randy Fath on Unsplash
+
+之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。">
+<meta itemprop="datePublished" content="2020-02-13T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2020-02-13T00:00:00&#43;00:00" />
+<meta itemprop="wordCount" content="2527">
+
+
+
+<meta itemprop="keywords" content="Hexo,Hugo,Disqus,GitLab,Github,git,Google Analytics,記錄,佈景主題,Blog," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Hexo 遷移 Hugo 記錄心得"/>
+<meta name="twitter:description" content="
+
+Photo by Randy Fath on Unsplash
+
+之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Hexo 遷移 Hugo 記錄心得</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-02-13 </span>
+        <div class="post-category">
+            <a href="/categories/hugo/"> Hugo </a>
+            <a href="/categories/hexo/"> Hexo </a>
+            <a href="/categories/%E8%A8%98%E9%8C%84/"> 記錄 </a>
+            <a href="/categories/%E5%BF%83%E5%BE%97/"> 心得 </a>
+            </div>
+          <span class="more-meta"> 約 2527 字 </span>
+          <span class="more-meta"> 預計閱讀 6 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安裝">安裝</a></li>
+    <li><a href="#佈景主題">佈景主題</a></li>
+    <li><a href="#新增文章">新增文章</a></li>
+    <li><a href="#本機測試">本機測試</a></li>
+    <li><a href="#產生靜態檔案">產生靜態檔案</a></li>
+    <li><a href="#佈署到-github-pages">佈署到 Github Pages</a></li>
+    <li><a href="#yaml-front-matter">YAML Front Matter</a></li>
+    <li><a href="#檔案名稱">檔案名稱</a></li>
+    <li><a href="#閱讀更多標籤">閱讀更多標籤</a></li>
+    <li><a href="#中國大陸使用者連線友好">中國大陸使用者連線友好</a></li>
+    <li><a href="#更換網址">更換網址</a>
+      <ul>
+        <li><a href="#disqus-遷移">Disqus 遷移</a></li>
+        <li><a href="#js-轉址">JS 轉址</a></li>
+        <li><a href="#google-analytics">Google Analytics</a></li>
+        <li><a href="#search-console">Search Console</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://i.loli.net/2020/02/13/5WTwmrNe3vJSAz2.jpg" alt="Rebuilding house"></p>
+<blockquote>
+<p>Photo by <a href="https://unsplash.com/@randyfath?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Randy Fath</a> on <a href="https://unsplash.com/s/photos/construction?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+<p>之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。</p>
+<h2 id="安裝">安裝</h2>
+<p>Hugo 使用 Golang 撰寫，可編譯成二進制可執行檔，安裝起來也十分簡便，我使用的是 Arch Linux，<code>pacman</code> 一行指令直接搞定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S hugo
+</code></pre></td></tr></table>
+</div>
+</div><p>然後用 Hugo 建立一個新網站。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">hugo new site blog
+<span class="nb">cd</span> blog
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="佈景主題">佈景主題</h2>
+<p>這是遷移後比較大的問題，Hexo 擁有眾多漂亮主題，不少主題由中國網友開發，除了符合華人審美觀外，對中文支援也十分良好，目前好看的 Hugo 的中文主題還不多，目前我選用的是 <a href="https://github.com/olOwOlo/hugo-theme-even">Even</a>，優點很多常用外掛都集成了，把網站語言設為 <code>tw</code>，翻譯檔手動翻譯成正體中文後基本就可以用了。</p>
+<p><img src="https://i.loli.net/2020/02/11/QeHVCSIhoqZ625i.png" alt="Even 範例網站"></p>
+<p>安裝主題跟 Hexo 類似，把 Repo Clone 到 <code>themes</code> 就行了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> themes
+git clone https://github.com/olOwOlo/hugo-theme-even.git even 
+</code></pre></td></tr></table>
+</div>
+</div><p><code>config.toml</code> 寫入 <code>theme = &quot;even&quot;</code>，像 Even 這種完善的主題，可以複製 <code>themes/even/exampleSite</code> 的 <code>config.toml</code> 到網站根目錄，很多詳細設定像是留言板、Google Analysis 都寫在裡面了。</p>
+<h2 id="新增文章">新增文章</h2>
+<p>Hugo 的文章放在 <code>/content/posts</code> 內，可以用指令來新增文章，而如果使用 Even 主題要將 <code>posts</code> 目錄名稱改成 <code>post</code>。</p>
+<pre><code>hugo new posts/my-first-post.md
+</code></pre>
+<h2 id="本機測試">本機測試</h2>
+<p>跟 Hexo 一樣，可以先啟動一個本機伺服器來預覽效果，當文章內容或是佈景主題檔案變更會自動更新瀏覽器內容。</p>
+<pre><code>hugo server -D
+</code></pre>
+<h2 id="產生靜態檔案">產生靜態檔案</h2>
+<p>在網站根目錄開啟終端機，輸入 <code>hugo</code> 就會產生靜態網頁放置在 <code>public</code> 目錄。</p>
+<h2 id="佈署到-github-pages">佈署到 Github Pages</h2>
+<p>在 <code>public</code> 初始化 Git 倉庫，並加入遠端倉庫。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git init
+git add remote upstream git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git
+</code></pre></td></tr></table>
+</div>
+</div><p>如果原本的 Git 倉庫已經有內容，但你不想要這些檔案，你可以在 push 的時候加上 <code>-f</code> 參數，只有第一次需要這樣做，之後就不用了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">git add . <span class="c1"># 把 public 下所有檔案加入 git 倉庫</span>
+git commit -m <span class="s2">&#34;migrate to Hugo&#34;</span>
+git push -f upstream master <span class="c1"># 第一次需要加 -f，因為倉庫有內容</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>可以寫一個 <code>deploy.sh</code> 來自動佈署，省去繁雜的指令，腳本內容參考自這個<a href="https://jdhao.github.io/2018/10/10/hexo_to_hugo">部落格</a>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+</span><span class="cp"></span>
+<span class="nb">echo</span> -e <span class="s2">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
+
+<span class="c1"># build the project</span>
+hugo 
+
+<span class="nb">cd</span> public
+
+git add .
+
+<span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;rebuilding site `date`&#34;</span>
+
+<span class="k">if</span> <span class="o">[</span> <span class="nv">$#</span> -eq <span class="m">1</span> <span class="o">]</span>
+  <span class="k">then</span> <span class="nv">msg</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$1</span><span class="s2">&#34;</span>
+<span class="k">fi</span>
+
+git commit -m <span class="s2">&#34;</span><span class="nv">$msg</span><span class="s2">&#34;</span>
+
+<span class="c1"># push source to github</span>
+
+git push upstream master
+
+<span class="c1"># come back to blog root</span>
+
+<span class="nb">cd</span> ..
+</code></pre></td></tr></table>
+</div>
+</div><p>增加執行權限。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ chmod +x deploy.sh
+</code></pre></td></tr></table>
+</div>
+</div><p>當你完成一篇文章並準備發佈時，執行這個腳本就會產生靜態網頁檔並推送到 Github。</p>
+<h2 id="yaml-front-matter">YAML Front Matter</h2>
+<p>Hugo 的 Front Matter 比較嚴格，不像 Hexo 一樣寬鬆，像日期格式在 Hugo 只能寫 <code>YYYY-MM-DD</code>，我平常在 Hexo 則寫 <code>YYYY/MM/DD</code>，這樣就無法識別了，必須修改每篇文章的 <code>date</code> 屬性，還好平常都懶得寫，只有少數幾篇，可以手動完成。</p>
+<h2 id="檔案名稱">檔案名稱</h2>
+<p>我發現 Hugo 的 Front Matter 不支援 <code>permalink</code>，但可以透過 <code>url</code> 來設定固定網址，不過前綴也要寫入，所以我之前一篇文章的 <code>permalink</code> 是 <code>use-youtube-dl-to-download-videos</code>，那我如果要瀏覽 <code>/p/use-youtube-dl-to-download-videos</code> 的話，那我 <code>url</code> 就要設定 <code>/p/use-youtube-dl-to-download-videos</code>，不是很靈活，而 Hugo 的網址命名規則預設是根據檔名產生，看了 Hugo 官方文件，可以在 <code>config.toml</code> 設定固定網址，並指定用檔案名稱，這樣就能保持先前在 Hexo 的網址結構，比較不影響 SEO。</p>
+<p>如果你使用非 Even 主題，可能要將 <code>post</code> 改成 <code>posts</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">permalinks</span><span class="p">]</span>
+  <span class="nx">post</span> <span class="p">=</span> <span class="s2">&#34;/p/:filename/&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="閱讀更多標籤">閱讀更多標籤</h2>
+<p>我原本在 Hexo 的閱讀更多標籤習慣使用 <code>&lt;!-- more --&gt;</code>，而在 Hugo 要改寫成 <code>&lt;!--more--&gt;</code>，more 兩邊不能有空格，不然無法解析。</p>
+<h2 id="中國大陸使用者連線友好">中國大陸使用者連線友好</h2>
+<p>之前因為 Gitlab 有免費 CI 服務就把部落格遷移到 Gitlab Pages，後來發現 Gitlab Pages 雖然服務周全，但延遲對於中國大陸有點高，經過我的調查，許多中國網友的部落格還是放在 Github Pages，而且也沒被牆，便決定遷回 Github Pages。</p>
+<p>圖床的部份也從 Imgur 改成由 Showfom 大佬架設的 <a href="http://sm.ms">sm.ms</a>，擁有多線 CDN，對各國使用者連線友好，除此之外上傳的圖片也要先經過壓縮避免載入太久，有些章首圖使用 Unsplash 的 CDN，通常要載入好一陣子，這次也一起下載回來改傳到 sm.ms 增進讀取速度。</p>
+<p>更新：本文撰寫期間 <a href="http://sm.ms">sm.ms</a> 已推出收費服務，免費版以撤除香港 CDN 節點改由 Cloudflare CDN 服務，部份地區速度可能變慢。</p>
+<h2 id="更換網址">更換網址</h2>
+<p>因為我沒錢買網址、買主機，通常都是用活動送的免費網址，所以只能使用 Github 的子域名，這次從 Gitlab Pages 換到 Github 網址也跟著變了，SEO 必定也會受影響。</p>
+<h3 id="disqus-遷移">Disqus 遷移</h3>
+<p>首當其衝的應該就是 Disqus 的留言，還好 Disqus 對站長友好，官方提供更換網址的服務，進入 Disqus <a href="https://disqus.com/admin/">管理界面</a>，修改網站網址。</p>
+<p><img src="https://i.loli.net/2020/02/13/FYmy1Ne3qzSlLkf.png" alt=""></p>
+<p>儲存設定後點下面的 Learn how 進入遷移工具，第二步修改網址。</p>
+<p><img src="https://i.loli.net/2020/02/13/9YskEdoTCDzjHlS.png" alt=""></p>
+<p><img src="https://i.loli.net/2020/02/13/pvV2JePOxdiBWqj.png" alt="Disqus 網址遷移工具"></p>
+<p><code>config.toml</code> 填寫 Disqus 的 short name。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">disqusShortname</span> <span class="p">=</span> <span class="s2">&#34;your-shortname&#34;</span>      <span class="c"># disqus_shortname</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="js-轉址">JS 轉址</h3>
+<p>要把原本的 Gitlab Pages 自動跳轉到現在的網頁，我寫了一段簡單的 JavaScript 程式碼放在 <code>&lt;head&gt;</code> 標籤中，這樣可以在載入完所有內容前就跳轉。</p>
+<p>這段程式碼用了 <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL API</a> 來解析 URL，把網址變成一個物件，將 host 改成現在的網址，傳輸協議也自動換成 SSL，並把物件內容轉換成字串，丟到 <code>window.location.href</code> 來轉址。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p"></span><span class="p">&gt;</span>
+    <span class="c1">// redirect to new site
+</span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">gitlab</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">)</span><span class="p">;</span>
+    <span class="nx">gitlab</span><span class="p">.</span><span class="nx">hostname</span> <span class="o">=</span> <span class="s2">&#34;junyussh.github.io&#34;</span><span class="p">;</span>
+    <span class="nx">gitlab</span><span class="p">.</span><span class="nx">protocol</span> <span class="o">=</span> <span class="s2">&#34;https&#34;</span><span class="p">;</span>
+    <span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">.</span><span class="nx">href</span> <span class="o">=</span> <span class="nx">gitlab</span><span class="p">.</span><span class="nx">toString</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="google-analytics">Google Analytics</h3>
+<p>這個好像不需要設定網址，Google 是看你的追蹤程式碼去抓取資料的，主要問題是我不知道追蹤 ID 在哪看，網路也查不到，最後靠我自己摸索到了。</p>
+<p><img src="https://i.loli.net/2020/02/13/4rPoHKYB25DXpuk.png" alt="追蹤程式碼獲取位置"></p>
+<p>獲得追蹤 ID 後，通常佈景主題可以設定追蹤 ID，像 Even 就能直接在 <code>config.toml</code> 設定，但好像 Even 主題有 Bug，實際測試並沒有加上 Google Analytics 程式碼(詳見下文)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s2">&#34;UA-XXXXXXXX-X&#34;</span>      <span class="c"># UA-XXXXXXXX-X</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="search-console">Search Console</h3>
+<p>Search Console 是用來分析文章曝光次數，網站熱門關鍵字的工具，可以得知哪個關鍵字曝光數最多。</p>
+<p>因為換網址了，需要新增資源，如果你的網址是自己買的，有所有權，那請選左邊的 [網域]，像我的是用 Github 提供的 <code>github.io</code> 子網域就要選右邊 [網址前置資源]。</p>
+<p><img src="https://i.loli.net/2020/02/13/9JyGL5slWjwXToc.png" alt="選取資源類型"></p>
+<p>驗證方式我採用 Google Analytics，因為我本來就有用 Google Analytics 分析服務，可以參考 Goolge 官方的教學<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">文章</a>，把這段程式碼放到 <code>&lt;head&gt;</code> 裡。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> Google Analytics </span><span class="c">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p"></span><span class="p">&gt;</span>
+<span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">g</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">a</span><span class="p">,</span><span class="nx">m</span><span class="p">)</span><span class="p">{</span><span class="nx">i</span><span class="p">[</span><span class="s1">&#39;GoogleAnalyticsObject&#39;</span><span class="p">]</span><span class="o">=</span><span class="nx">r</span><span class="p">;</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">=</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span><span class="kd">function</span><span class="p">(</span><span class="p">)</span><span class="p">{</span>
+<span class="p">(</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="p">.</span><span class="nx">q</span><span class="o">=</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="p">.</span><span class="nx">q</span><span class="o">||</span><span class="p">[</span><span class="p">]</span><span class="p">)</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)</span><span class="p">}</span><span class="p">,</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="p">.</span><span class="nx">l</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="p">)</span><span class="p">;</span><span class="nx">a</span><span class="o">=</span><span class="nx">s</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">,</span>
+<span class="nx">m</span><span class="o">=</span><span class="nx">s</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">;</span><span class="nx">a</span><span class="p">.</span><span class="nx">async</span><span class="o">=</span><span class="mi">1</span><span class="p">;</span><span class="nx">a</span><span class="p">.</span><span class="nx">src</span><span class="o">=</span><span class="nx">g</span><span class="p">;</span><span class="nx">m</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span><span class="nx">m</span><span class="p">)</span>
+<span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span><span class="nb">document</span><span class="p">,</span><span class="s1">&#39;script&#39;</span><span class="p">,</span><span class="s1">&#39;https://www.google-analytics.com/analytics.js&#39;</span><span class="p">,</span><span class="s1">&#39;ga&#39;</span><span class="p">)</span><span class="p">;</span>
+
+<span class="nx">ga</span><span class="p">(</span><span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="s1">&#39;UA-XXXXX-Y&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="nx">ga</span><span class="p">(</span><span class="s1">&#39;send&#39;</span><span class="p">,</span> <span class="s1">&#39;pageview&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+<span class="c">&lt;!--</span><span class="c"> End Google Analytics </span><span class="c">--&gt;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：程式碼片段必須放在 <code>&lt;head&gt;</code> 中，否則無法驗證。</p>
+<p>我發現 Even 主題貌似有 Bug，在 Layout 裡面沒有寫 Google Analytics 的程式碼，於是我手動修改了佈景主題程式碼。</p>
+<p>在 <code>themes/even/layouts/partials/head.html</code> 添加了這段程式碼。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!--</span><span class="c"> Analytics </span><span class="c">--&gt;</span>
+{{- if .Site.GoogleAnalytics -}}
+<span class="c">&lt;!--</span><span class="c">  {{ template &#34;_internal/google_analytics_async.html&#34; . }}</span><span class="c">--&gt;</span>
+<span class="p">&lt;</span><span class="nt">script</span><span class="p"></span><span class="p">&gt;</span>
+  <span class="p">(</span><span class="kd">function</span> <span class="p">(</span><span class="nx">i</span><span class="p">,</span> <span class="nx">s</span><span class="p">,</span> <span class="nx">o</span><span class="p">,</span> <span class="nx">g</span><span class="p">,</span> <span class="nx">r</span><span class="p">,</span> <span class="nx">a</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span> <span class="p">{</span>
+  <span class="nx">i</span><span class="p">[</span><span class="s1">&#39;GoogleAnalyticsObject&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="nx">r</span><span class="p">;</span> <span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="o">=</span> <span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span> <span class="o">||</span> <span class="kd">function</span> <span class="p">(</span><span class="p">)</span> <span class="p">{</span>
+    <span class="p">(</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="p">.</span><span class="nx">q</span> <span class="o">=</span> <span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="p">.</span><span class="nx">q</span> <span class="o">||</span> <span class="p">[</span><span class="p">]</span><span class="p">)</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)</span>
+  <span class="p">}</span><span class="p">,</span> <span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="p">.</span><span class="nx">l</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">*</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">(</span><span class="p">)</span><span class="p">;</span> <span class="nx">a</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">,</span>
+    <span class="nx">m</span> <span class="o">=</span> <span class="nx">s</span><span class="p">.</span><span class="nx">getElementsByTagName</span><span class="p">(</span><span class="nx">o</span><span class="p">)</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="p">;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">async</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="nx">a</span><span class="p">.</span><span class="nx">src</span> <span class="o">=</span> <span class="nx">g</span><span class="p">;</span> <span class="nx">m</span><span class="p">.</span><span class="nx">parentNode</span><span class="p">.</span><span class="nx">insertBefore</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">m</span><span class="p">)</span>
+  <span class="p">}</span><span class="p">)</span><span class="p">(</span><span class="nb">window</span><span class="p">,</span> <span class="nb">document</span><span class="p">,</span> <span class="s1">&#39;script&#39;</span><span class="p">,</span> <span class="s1">&#39;https://www.google-analytics.com/analytics.js&#39;</span><span class="p">,</span> <span class="s1">&#39;ga&#39;</span><span class="p">)</span><span class="p">;</span>
+
+  <span class="nx">ga</span><span class="p">(</span><span class="s1">&#39;create&#39;</span><span class="p">,</span> <span class="s1">&#39;{{ .Site.GoogleAnalytics }}&#39;</span><span class="p">,</span> <span class="s1">&#39;auto&#39;</span><span class="p">)</span><span class="p">;</span>
+  <span class="nx">ga</span><span class="p">(</span><span class="s1">&#39;send&#39;</span><span class="p">,</span> <span class="s1">&#39;pageview&#39;</span><span class="p">)</span><span class="p">;</span>
+<span class="p">&lt;</span><span class="p">/</span><span class="nt">script</span><span class="p">&gt;</span>
+{{- end -}}
+</code></pre></td></tr></table>
+</div>
+</div><p><code>config.toml</code> 加入你的追蹤 ID 即可用上 Google Analytics。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s2">&#34;UA-XXXXXXXX-X&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://jdhao.github.io/2018/10/10/hexo_to_hugo">把博客生成工具从 Hexo 迁移到 Hugo &mdash; 配置与设置 - jdhao&rsquo;s blog</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-02-13
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/hexo/">Hexo</a>
+          <a href="/tags/hugo/">Hugo</a>
+          <a href="/tags/disqus/">Disqus</a>
+          <a href="/tags/gitlab/">GitLab</a>
+          <a href="/tags/github/">Github</a>
+          <a href="/tags/git/">git</a>
+          <a href="/tags/google-analytics/">Google Analytics</a>
+          <a href="/tags/%E8%A8%98%E9%8C%84/">記錄</a>
+          <a href="/tags/%E4%BD%88%E6%99%AF%E4%B8%BB%E9%A1%8C/">佈景主題</a>
+          <a href="/tags/blog/">Blog</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/add-archlinux-cn-repository-and-install-keyring/">
+            <span class="next-text nav-default">Arch Linux 新增 CN 源及 GPG 金鑰匯入問題解決</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+</body>
+</html>

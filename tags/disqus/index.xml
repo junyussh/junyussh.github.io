@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Disqus on 書術方隅</title>
+    <link>https://junyussh.github.io/tags/disqus/</link>
+    <description>Recent content in Disqus on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://junyussh.github.io/tags/disqus/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Hexo 遷移 Hugo 記錄心得</title>
+      <link>https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/5WTwmrNe3vJSAz2.jpg&#34; alt=&#34;Rebuilding house&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@randyfath?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Randy Fath&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/construction?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

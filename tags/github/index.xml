@@ -6,10 +6,23 @@
     <description>Recent content in Github on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Tue, 12 Dec 2017 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.io/tags/github/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hexo 遷移 Hugo 記錄心得</title>
+      <link>https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/02/13/5WTwmrNe3vJSAz2.jpg&#34; alt=&#34;Rebuilding house&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@randyfath?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Randy Fath&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/construction?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>靜態部落格留言板蒐集</title>
@@ -19,6 +32,15 @@
       <guid>https://junyussh.github.io/p/comment-system-for-static-blog/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/10/05/BGeitLCIW3V9lxZ.jpg&#34; alt=&#34;Comment&#34;&gt;&lt;/p&gt;
 &lt;p&gt;最近想為自己的 Hexo Blog 增加留言功能，一般架設靜態部落格所使用的留言板都是 &lt;a href=&#34;https://disqus.com&#34;&gt;Disqus&lt;/a&gt; 居多，網路上的教學也一堆，不過之前爆出 &lt;a href=&#34;https://www.ithome.com.tw/news/117312&#34;&gt;Disqus 五年前被駭&lt;/a&gt;，我就想說除了 Disqus，我們還有其他的選擇嗎？答案是肯定的，以下是我從網路上所蒐集的留言版服務，不過有些是需要 Github 才能使用。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>新環境，新氣象</title>
+      <link>https://junyussh.github.io/p/new-hexo-blog/</link>
+      <pubDate>Tue, 17 Oct 2017 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/new-hexo-blog/</guid>
+      <description>話說先前我本想遠端用 Hexo 寫作，於是把 Hexo 的原始檔案都放在了 Coding.net 的 WebIDE 了，最近想發表文章卻無法進入 WebIDE，發 Issue 也沒有解決問題，這下只能下大絕了—</description>
     </item>
     
   </channel>

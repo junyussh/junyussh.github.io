@@ -6,10 +6,46 @@
     <description>Recent content in Categories on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Hexo</title>
+      <link>https://junyussh.github.io/categories/hexo/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/hexo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hugo</title>
+      <link>https://junyussh.github.io/categories/hugo/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>心得</title>
+      <link>https://junyussh.github.io/categories/%E5%BF%83%E5%BE%97/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/%E5%BF%83%E5%BE%97/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>記錄</title>
+      <link>https://junyussh.github.io/categories/%E8%A8%98%E9%8C%84/</link>
+      <pubDate>Thu, 13 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/%E8%A8%98%E9%8C%84/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Linux</title>
@@ -120,15 +156,6 @@
     </item>
     
     <item>
-      <title>心得</title>
-      <link>https://junyussh.github.io/categories/%E5%BF%83%E5%BE%97/</link>
-      <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/categories/%E5%BF%83%E5%BE%97/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>生活</title>
       <link>https://junyussh.github.io/categories/%E7%94%9F%E6%B4%BB/</link>
       <pubDate>Mon, 22 Apr 2019 00:00:00 +0000</pubDate>
@@ -161,6 +188,15 @@
       <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/categories/youtube/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>工具</title>
+      <link>https://junyussh.github.io/categories/%E5%B7%A5%E5%85%B7/</link>
+      <pubDate>Tue, 18 Sep 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/%E5%B7%A5%E5%85%B7/</guid>
       <description></description>
     </item>
     
