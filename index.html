@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.0 with theme even" />
+<meta name="generator" content="Hugo 0.64.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/" />
@@ -44,7 +44,7 @@
 <meta property="og:description" content="記錄各種軟體、程式開發的坑" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://junyussh.github.io/" />
-<meta property="og:updated_time" content="2020-02-13T00:00:00+00:00" />
+<meta property="og:updated_time" content="2020-02-17T13:18:32+08:00" />
 <meta itemprop="name" content="書術方隅">
 <meta itemprop="description" content="記錄各種軟體、程式開發的坑"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="書術方隅"/>
@@ -123,6 +123,35 @@
           <section id="posts" class="posts">
     <article class="post">
   <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/linux-not-to-suspend-when-closing-the-lid-on-terminal-window/">Linux 在終端環境中蓋上螢幕不睡眠(Suspend)</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2020-02-17 </span>
+      <div class="post-category">
+          <a href="/categories/linux/"> Linux </a>
+          <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+          <a href="/categories/arch-linux/"> Arch Linux </a>
+          </div>
+        <span class="more-meta"> 約 623 字 </span>
+        <span class="more-meta"> 預計閱讀 2 分鐘 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><img src="https://i.loli.net/2020/02/17/WZnAg2h6sTzr8bX.jpg" alt="Terminal on Kaypro 10"></p>
+<blockquote>
+<p>Photo by <a href="https://www.flickr.com/photos/mratzloff/">Matthew Ratzloff</a> on <a href="https://www.flickr.com/photos/mratzloff/9169314713/in/album-72157634396194597/">Flickr</a></p>
+</blockquote>
+<p>如果你是 Linux 使用者，不知道你有沒有遇過在桌面環境點關機後若是馬上蓋起螢幕就會進入睡眠(Suspend)而無法繼續關機的情況，亦或是你想將家中不用的舊電腦裝上 Arch 作為伺服器，想要蓋上螢幕省電的話就需要設定 <code>logind</code>，不然電腦就會睡眠，網路連接也會中斷。</p>
+    </div>
+    <div class="read-more">
+      <a href="/p/linux-not-to-suspend-when-closing-the-lid-on-terminal-window/" class="read-more-link">閱讀更多</a>
+    </div>
+  </div>
+</article>
+
+    <article class="post">
+  <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/migrate-blog-framwork-from-hexo-to-hugo/">Hexo 遷移 Hugo 記錄心得</a></h1>
     <div class="post-meta">
       <span class="post-time"> 2020-02-13 </span>
@@ -160,14 +189,18 @@
           <a href="/categories/linux/"> Linux </a>
           <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
           </div>
-        <span class="more-meta"> 約 710 字 </span>
+        <span class="more-meta"> 約 716 字 </span>
         <span class="more-meta"> 預計閱讀 2 分鐘 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <p>Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。</p>
+      <p><img src="https://i.loli.net/2020/02/17/bWue6h28KnMOqFv.jpg" alt="Repository"></p>
+<blockquote>
+<p>Photo by <a href="https://unsplash.com/@reskp?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Jametlene Reskp</a> on <a href="https://unsplash.com/s/photos/cardboard-box?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+<p>Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。</p>
     </div>
     <div class="read-more">
       <a href="/p/add-archlinux-cn-repository-and-install-keyring/" class="read-more-link">閱讀更多</a>
@@ -248,7 +281,11 @@
   
   <div class="post-content">
     <div class="post-summary">
-      Photo by Umberto on Unsplash 最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也
+      <p><img src="https://i.loli.net/2019/10/08/lN4q7E3tSGROQ85.jpg" alt="電路"></p>
+<blockquote>
+<p>Photo by <a href="https://unsplash.com/@umby?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Umberto</a> on <a href="https://unsplash.com/s/photos/electronic-chip?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
+</blockquote>
+<p>最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也是針對 MASM 的，而非開源跨平台的 NASM，所以不能直接在 Linux 編譯執行，需要用 DOSBox 模擬 DOS 環境才行，MASM 比較封閉且支援平台少，如位元的果你打算學組合語言的話建議學 NASM 語法，要不是學校要求用 MASM 我也想用 NASM 編譯。</p>
     </div>
     <div class="read-more">
       <a href="/p/write-masm-style-assembly-in-linux/" class="read-more-link">閱讀更多</a>
@@ -278,31 +315,6 @@
     </div>
     <div class="read-more">
       <a href="/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/" class="read-more-link">閱讀更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/ssr-client-tutorial-for-windows/">ShadowsocksR Windows 版新手教學</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2019-05-03 </span>
-      <div class="post-category">
-          <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
-          <a href="/categories/windows/"> Windows </a>
-          <a href="/categories/%E7%A7%91%E5%AD%B8%E4%B8%8A%E7%B6%B2/"> 科學上網 </a>
-          </div>
-        <span class="more-meta"> 約 1924 字 </span>
-        <span class="more-meta"> 預計閱讀 4 分鐘 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      Photo by Ethan McArthur on Unsplash 這篇文章寫得很混，寫了好幾個月，想寫時才寫，因為懶得截圖上傳，擱置了很久才完成，然而在撰寫過程中本人已改用 V2Ray，但 SSR 仍是一
-    </div>
-    <div class="read-more">
-      <a href="/p/ssr-client-tutorial-for-windows/" class="read-more-link">閱讀更多</a>
     </div>
   </div>
 </article>

@@ -17,7 +17,11 @@
       <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/</guid>
-      <description>&lt;p&gt;Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/02/17/bWue6h28KnMOqFv.jpg&#34; alt=&#34;Repository&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@reskp?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Jametlene Reskp&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/cardboard-box?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。&lt;/p&gt;</description>
     </item>
     
     <item>

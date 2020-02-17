@@ -17,7 +17,11 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/write-masm-style-assembly-in-linux/</guid>
-      <description>Photo by Umberto on Unsplash 最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/10/08/lN4q7E3tSGROQ85.jpg&#34; alt=&#34;電路&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@umby?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Umberto&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/electronic-chip?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也是針對 MASM 的，而非開源跨平台的 NASM，所以不能直接在 Linux 編譯執行，需要用 DOSBox 模擬 DOS 環境才行，MASM 比較封閉且支援平台少，如位元的果你打算學組合語言的話建議學 NASM 語法，要不是學校要求用 MASM 我也想用 NASM 編譯。&lt;/p&gt;</description>
     </item>
     
   </channel>

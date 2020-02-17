@@ -6,10 +6,23 @@
     <description>Recent content on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Thu, 13 Feb 2020 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 17 Feb 2020 13:18:32 +0800</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Linux 在終端環境中蓋上螢幕不睡眠(Suspend)</title>
+      <link>https://junyussh.github.io/p/linux-not-to-suspend-when-closing-the-lid-on-terminal-window/</link>
+      <pubDate>Mon, 17 Feb 2020 13:18:32 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/linux-not-to-suspend-when-closing-the-lid-on-terminal-window/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/02/17/WZnAg2h6sTzr8bX.jpg&#34; alt=&#34;Terminal on Kaypro 10&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://www.flickr.com/photos/mratzloff/&#34;&gt;Matthew Ratzloff&lt;/a&gt; on &lt;a href=&#34;https://www.flickr.com/photos/mratzloff/9169314713/in/album-72157634396194597/&#34;&gt;Flickr&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果你是 Linux 使用者，不知道你有沒有遇過在桌面環境點關機後若是馬上蓋起螢幕就會進入睡眠(Suspend)而無法繼續關機的情況，亦或是你想將家中不用的舊電腦裝上 Arch 作為伺服器，想要蓋上螢幕省電的話就需要設定 &lt;code&gt;logind&lt;/code&gt;，不然電腦就會睡眠，網路連接也會中斷。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Hexo 遷移 Hugo 記錄心得</title>
@@ -30,7 +43,11 @@
       <pubDate>Thu, 06 Feb 2020 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/</guid>
-      <description>&lt;p&gt;Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。&lt;/p&gt;</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/02/17/bWue6h28KnMOqFv.jpg&#34; alt=&#34;Repository&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@reskp?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Jametlene Reskp&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/cardboard-box?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -62,7 +79,11 @@
       <pubDate>Tue, 08 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/write-masm-style-assembly-in-linux/</guid>
-      <description>Photo by Umberto on Unsplash 最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2019/10/08/lN4q7E3tSGROQ85.jpg&#34; alt=&#34;電路&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@umby?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Umberto&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/electronic-chip?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;最近在學習王爽的《匯編語言》(組合語言)，書裡面教的內容以 16 位元的 Intel 8086 CPU 為學習平台，而教科書上使用的編譯器是微軟的 MASM，語法也是針對 MASM 的，而非開源跨平台的 NASM，所以不能直接在 Linux 編譯執行，需要用 DOSBox 模擬 DOS 環境才行，MASM 比較封閉且支援平台少，如位元的果你打算學組合語言的話建議學 NASM 語法，要不是學校要求用 MASM 我也想用 NASM 編譯。&lt;/p&gt;</description>
     </item>
     
     <item>
@@ -198,7 +219,8 @@
       <pubDate>Fri, 02 Feb 2018 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/etn-online-wallet-tutorial/</guid>
-      <description>上回已經介紹過 ETN CLI 錢包的基本使用教學，今天要介紹的是 ETN 官方出的線上錢包，使用線上錢包，只要有瀏覽器就能輕鬆管理錢包，要轉帳什麼的也不需要輸入</description>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/lf0kWyS.jpg&#34; alt=&#34;行動支付&#34;&gt;&lt;/p&gt;
+&lt;p&gt;上回已經介紹過 ETN CLI 錢包的基本使用&lt;a href=&#34;https://junyussh.gitlab.io/p/etn-cli-wallet-tutorial/&#34;&gt;教學&lt;/a&gt;，今天要介紹的是 ETN 官方出的線上錢包，使用線上錢包，只要有瀏覽器就能輕鬆管理錢包，要轉帳什麼的也不需要輸入一堆指令，與 CLI 錢包相比方便性較高，對於一般使用者也易於使用，畢竟 ETN 是為了方便支付而衍生的貨幣。&lt;/p&gt;</description>
     </item>
     
     <item>

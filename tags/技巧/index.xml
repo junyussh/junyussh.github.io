@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技巧 on 書術方隅</title>
+    <link>https://junyussh.github.io/tags/%E6%8A%80%E5%B7%A7/</link>
+    <description>Recent content in 技巧 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Mon, 17 Feb 2020 13:18:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://junyussh.github.io/tags/%E6%8A%80%E5%B7%A7/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Linux 在終端環境中蓋上螢幕不睡眠(Suspend)</title>
+      <link>https://junyussh.github.io/p/linux-not-to-suspend-when-closing-the-lid-on-terminal-window/</link>
+      <pubDate>Mon, 17 Feb 2020 13:18:32 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/linux-not-to-suspend-when-closing-the-lid-on-terminal-window/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/02/17/WZnAg2h6sTzr8bX.jpg&#34; alt=&#34;Terminal on Kaypro 10&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;a href=&#34;https://www.flickr.com/photos/mratzloff/&#34;&gt;Matthew Ratzloff&lt;/a&gt; on &lt;a href=&#34;https://www.flickr.com/photos/mratzloff/9169314713/in/album-72157634396194597/&#34;&gt;Flickr&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;如果你是 Linux 使用者，不知道你有沒有遇過在桌面環境點關機後若是馬上蓋起螢幕就會進入睡眠(Suspend)而無法繼續關機的情況，亦或是你想將家中不用的舊電腦裝上 Arch 作為伺服器，想要蓋上螢幕省電的話就需要設定 &lt;code&gt;logind&lt;/code&gt;，不然電腦就會睡眠，網路連接也會中斷。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
