@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HP on 書術方隅</title>
+    <link>https://junyussh.github.io/tags/hp/</link>
+    <description>Recent content in HP on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Thu, 20 Feb 2020 23:48:54 +0800</lastBuildDate>
+    
+	<atom:link href="https://junyussh.github.io/tags/hp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Arch Linux 使用 HP 印表機</title>
+      <link>https://junyussh.github.io/p/arch-linux-install-hp-printer/</link>
+      <pubDate>Thu, 20 Feb 2020 23:48:54 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/arch-linux-install-hp-printer/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/02/22/x3Dj5pT4aMsCKgu.jpg&#34; alt=&#34;Printer&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Image by &lt;a href=&#34;https://pixabay.com/users/TeroVesalainen-809550/?utm_source=link-attribution&amp;amp;utm_medium=referral&amp;amp;utm_campaign=image&amp;amp;utm_content=2178755&#34;&gt;TeroVesalainen&lt;/a&gt; from &lt;a href=&#34;https://pixabay.com/?utm_source=link-attribution&amp;amp;utm_medium=referral&amp;amp;utm_campaign=image&amp;amp;utm_content=2178755&#34;&gt;Pixabay&lt;/a&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;今天晚上我在幫我弟印作業，家裡書房用的那台老電腦不知道為什麼印多張印表機不吃紙，我弟又一直催，竟然叫一個 Linux 電腦去安裝印表機，當然為了 Arch Linux 的聲譽，我可以忍，身為 Arch Linux 的傳教士，我必須用行動去證明 &lt;strong&gt;Arch Linux 天下第一！！&lt;/strong&gt; 在 Arch Linux 上也能使用印表機。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
