@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/compress-photo-with-imagemagick/" />
@@ -232,7 +232,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec convert <span class="o">{</span><span class="o">}</span> -quality <span class="m">80</span> <span class="o">{</span><span class="o">}</span>.jpg <span class="se">\;</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec convert <span class="o">{}</span> -quality <span class="m">80</span> <span class="o">{}</span>.jpg <span class="se">\;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>但是檔名會變成 a.png.jpg，這時再用 <code>rename</code> 來批量重新命名就可以解決了。</p>
@@ -250,7 +250,7 @@
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec rm <span class="o">{</span><span class="o">}</span> <span class="se">\;</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec rm <span class="o">{}</span> <span class="se">\;</span>
 </code></pre></td></tr></table>
 </div>
 </div>

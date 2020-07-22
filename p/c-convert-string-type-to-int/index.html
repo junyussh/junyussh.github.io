@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/c-convert-string-type-to-int/" />
@@ -177,15 +177,15 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span><span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;cstdlib&gt;</span><span class="cp">
+</span><span class="cp">#include</span><span class="cpf">&lt;string&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="p">]</span><span class="p">)</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
     <span class="n">string</span> <span class="n">str</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">endl</span><span class="p">;</span>
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span>
     <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -203,7 +203,7 @@
 <pre class="chroma"><code class="language-bash" data-lang="bash">$ g++ -std<span class="o">=</span>c++11 string.cpp -o string.exe
 string.cpp: In <span class="k">function</span> <span class="s1">&#39;int main(int, const char**)&#39;</span>:
 string.cpp:9:21: error: cannot convert <span class="s1">&#39;std::__cxx11::string {aka std::__cxx11::basic_string&lt;char&gt;}&#39;</span> to <span class="s1">&#39;const char*&#39;</span> <span class="k">for</span> argument <span class="s1">&#39;1&#39;</span> to <span class="s1">&#39;int atoi(const char*)&#39;</span>
-     cout <span class="s">&lt;&lt; atoi(str) + 10 &lt;&lt; endl; // a</span>??a﹐? c_str<span class="o">(</span><span class="o">)</span> a?? string e??a?? char
+     cout <span class="s">&lt;&lt; atoi(str) + 10 &lt;&lt; endl; // a</span>??a﹐? c_str<span class="o">()</span> a?? string e??a?? char
                      ^
 </code></pre></td></tr></table>
 </div>
@@ -228,15 +228,15 @@ string.cpp:9:21: error: cannot convert <span class="s1">&#39;std::__cxx11::strin
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;cstdlib&gt; // atoi 函數所在函式庫</span><span class="cp">
-</span><span class="cp"></span><span class="cp">#</span><span class="cp">include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="cp">#include</span> <span class="cpf">&lt;iostream&gt;</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;cstdlib&gt; // atoi 函數所在函式庫</span><span class="cp">
+</span><span class="cp">#include</span> <span class="cpf">&lt;string&gt;</span><span class="cp">
 </span><span class="cp"></span><span class="k">using</span> <span class="k">namespace</span> <span class="n">std</span><span class="p">;</span>
-<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[</span><span class="p">]</span><span class="p">)</span>
+<span class="kt">int</span> <span class="nf">main</span><span class="p">(</span><span class="kt">int</span> <span class="n">argc</span><span class="p">,</span> <span class="kt">char</span> <span class="k">const</span> <span class="o">*</span><span class="n">argv</span><span class="p">[])</span>
 <span class="p">{</span>
     <span class="n">string</span> <span class="n">str</span><span class="p">;</span>
-    <span class="n">cin</span> <span class="o">&gt;</span><span class="o">&gt;</span> <span class="n">str</span><span class="p">;</span>
-    <span class="n">cout</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">(</span><span class="p">)</span><span class="p">)</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">&lt;</span><span class="o">&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 加上 c_str() 把 string 轉成 char
+    <span class="n">cin</span> <span class="o">&gt;&gt;</span> <span class="n">str</span><span class="p">;</span>
+    <span class="n">cout</span> <span class="o">&lt;&lt;</span> <span class="n">atoi</span><span class="p">(</span><span class="n">str</span><span class="p">.</span><span class="n">c_str</span><span class="p">())</span> <span class="o">+</span> <span class="mi">10</span> <span class="o">&lt;&lt;</span> <span class="n">endl</span><span class="p">;</span> <span class="c1">// 加上 c_str() 把 string 轉成 char
 </span><span class="c1"></span>    <span class="k">return</span> <span class="mi">0</span><span class="p">;</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>

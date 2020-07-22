@@ -6,15 +6,33 @@
     <description>Recent content in Categories on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Thu, 20 Feb 2020 23:48:54 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>aria2</title>
+      <link>https://junyussh.github.io/categories/aria2/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/aria2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>BitTorrent</title>
+      <link>https://junyussh.github.io/categories/bittorrent/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/bittorrent/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Linux</title>
       <link>https://junyussh.github.io/categories/linux/</link>
-      <pubDate>Thu, 20 Feb 2020 23:48:54 +0800</pubDate>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/categories/linux/</guid>
       <description></description>
@@ -23,9 +41,18 @@
     <item>
       <title>教學</title>
       <link>https://junyussh.github.io/categories/%E6%95%99%E5%AD%B8/</link>
-      <pubDate>Thu, 20 Feb 2020 23:48:54 +0800</pubDate>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/categories/%E6%95%99%E5%AD%B8/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>筆記</title>
+      <link>https://junyussh.github.io/categories/%E7%AD%86%E8%A8%98/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/%E7%AD%86%E8%A8%98/</guid>
       <description></description>
     </item>
     
@@ -80,15 +107,6 @@
       <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/categories/c&#43;&#43;/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>筆記</title>
-      <link>https://junyussh.github.io/categories/%E7%AD%86%E8%A8%98/</link>
-      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/categories/%E7%AD%86%E8%A8%98/</guid>
       <description></description>
     </item>
     

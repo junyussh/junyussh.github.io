@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/stirling-number/" />
@@ -267,13 +267,13 @@
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="nf">s</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
 <span class="p">{</span>
-    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="mi">1</span> <span class="o">|</span><span class="o">|</span> <span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="n">k</span><span class="p">)</span>
+    <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
     <span class="p">{</span>
         <span class="k">return</span> <span class="mi">1</span><span class="p">;</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
-        <span class="k">return</span> <span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span><span class="p">;</span>
+        <span class="k">return</span> <span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">+</span><span class="n">k</span><span class="o">*</span><span class="n">s</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">k</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -297,7 +297,7 @@
     <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">times</span><span class="p">;</span>
-<span class="p">}</span><span class="p">;</span>
+<span class="p">};</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>定義兩個堆疊，一個存結構，一個存算出來的值。</p>
@@ -321,9 +321,9 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
-<span class="n">scanf</span><span class="p">(</span><span class="sa"></span><span class="s">&#34;</span><span class="s">%d %d</span><span class="s">&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">)</span><span class="p">;</span>
-<span class="n">Stirling</span> <span class="n">stirling</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">}</span><span class="p">;</span>
-<span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">stirling</span><span class="p">)</span><span class="p">;</span>
+<span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d %d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">);</span>
+<span class="n">Stirling</span> <span class="n">stirling</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
+<span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">stirling</span><span class="p">);</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>接下來就是核心部份了，會先從 <code>s</code> 取堆疊頂端，看 <code>n</code>, <code>k</code> 是否符合條件(<code>n==1 || n==k</code>)，如果條件為真就在 <code>ans</code> 推入 <code>times</code> 的值並彈出 <code>s</code>，否則將 <code>s</code> 彈出，聲明兩個 <em>Stirling</em> 型態的結構 <code>new1</code> 和 <code>new2</code>，分別代表公式中的 $S(n-1, k-1)$ 和 $S(n-1, k)$ 並推入堆疊中，這步驟是為了將原本的 $S(n, k)$ 拆分成子問題，當條件符合中就會彈出 <code>s</code>，直到 <code>s</code> 為空迴圈終止，而拆分出來的子問題解答會存在 <code>ans</code> 堆疊中。</p>
@@ -348,21 +348,21 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
 <span class="p">{</span>
     <span class="n">Stirling</span> <span class="n">top</span><span class="p">,</span> <span class="n">new1</span><span class="p">,</span> <span class="n">new2</span><span class="p">;</span>
-    <span class="n">top</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span> <span class="o">|</span><span class="o">|</span> <span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">=</span><span class="o">=</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">top</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">==</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span> <span class="o">||</span> <span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">)</span>
     <span class="p">{</span>
-        <span class="n">ans</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">top</span><span class="p">.</span><span class="n">times</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">ans</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">top</span><span class="p">.</span><span class="n">times</span><span class="p">);</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
     <span class="p">}</span>
     <span class="k">else</span>
     <span class="p">{</span>
-        <span class="n">new1</span> <span class="o">=</span> <span class="p">{</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">times</span> <span class="o">*</span> <span class="mi">1</span><span class="p">}</span><span class="p">,</span> <span class="n">new2</span> <span class="o">=</span> <span class="p">{</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">times</span> <span class="o">*</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span><span class="p">}</span><span class="p">;</span>
-        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">new1</span><span class="p">)</span><span class="p">;</span>
-        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">new2</span><span class="p">)</span><span class="p">;</span>
+        <span class="n">new1</span> <span class="o">=</span> <span class="p">{</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">times</span> <span class="o">*</span> <span class="mi">1</span><span class="p">},</span> <span class="n">new2</span> <span class="o">=</span> <span class="p">{</span><span class="n">top</span><span class="p">.</span><span class="n">n</span> <span class="o">-</span> <span class="mi">1</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span><span class="p">,</span> <span class="n">top</span><span class="p">.</span><span class="n">times</span> <span class="o">*</span> <span class="n">top</span><span class="p">.</span><span class="n">k</span><span class="p">};</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">new1</span><span class="p">);</span>
+        <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">new2</span><span class="p">);</span>
     <span class="p">}</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
@@ -380,11 +380,11 @@
 </span></code></pre></td>
 <td class="lntd">
 <pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
-<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ans</span><span class="p">.</span><span class="n">empty</span><span class="p">(</span><span class="p">)</span><span class="p">)</span>
+<span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ans</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
 <span class="p">{</span>
-    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">ans</span><span class="p">.</span><span class="n">top</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
-    <span class="n">sum</span> <span class="o">+</span><span class="o">=</span> <span class="n">a</span><span class="p">;</span>
-    <span class="n">ans</span><span class="p">.</span><span class="n">pop</span><span class="p">(</span><span class="p">)</span><span class="p">;</span>
+    <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">ans</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
+    <span class="n">sum</span> <span class="o">+=</span> <span class="n">a</span><span class="p">;</span>
+    <span class="n">ans</span><span class="p">.</span><span class="n">pop</span><span class="p">();</span>
 <span class="p">}</span>
 </code></pre></td></tr></table>
 </div>

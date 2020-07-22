@@ -26,7 +26,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.64.1 with theme even" />
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/arch-linux-package-quick-start/" />
@@ -61,7 +61,7 @@ Arch Linux 採用類似 ports 的構建系統，使用 PKGBUILD 這種軟體包�
 最近參加了軟創比賽，官方要求必須使用快應用開發，雖然 IDE 有提供 Linux 版，但只有 deb 格式，AUR 也沒人打包，身為一位 Arch Linux 的愛好者怎麼能因此而放棄呢，於是我便打算親自打包，用 Arch Linux 這麼多年了，Arch Linux 的倉庫以軟體多聞名，大部分軟體都已經有人打包好了，不用自己打包，沒想到我也有需要自己打包的一天，第一次打包成功的那刻非常有成就感，我也能變成 Arch Linux 的貢獻者了。">
 <meta itemprop="datePublished" content="2020-01-14T00:00:00&#43;00:00" />
 <meta itemprop="dateModified" content="2020-01-14T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="4689">
+<meta itemprop="wordCount" content="4582">
 
 
 
@@ -157,7 +157,7 @@ Arch Linux 採用類似 ports 的構建系統，使用 PKGBUILD 這種軟體包�
             <a href="/categories/linux/"> Linux </a>
             <a href="/categories/%E6%89%93%E5%8C%85/"> 打包 </a>
             </div>
-          <span class="more-meta"> 約 4689 字 </span>
+          <span class="more-meta"> 約 4582 字 </span>
           <span class="more-meta"> 預計閱讀 10 分鐘 </span>
         
       </div>
@@ -173,17 +173,17 @@ Arch Linux 採用類似 ports 的構建系統，使用 PKGBUILD 這種軟體包�
     <li><a href="#編寫-pkgbuild">編寫 PKGBUILD</a></li>
     <li><a href="#pkgbuild-變數">PKGBUILD 變數</a>
       <ul>
-        <li><a href="#srcdir">srcdir</a></li>
-        <li><a href="#pkgdir">pkgdir</a></li>
+        <li><a href="#srcdir"><code>srcdir</code></a></li>
+        <li><a href="#pkgdir"><code>pkgdir</code></a></li>
       </ul>
     </li>
     <li><a href="#pkgbuild-函數">PKGBUILD 函數</a>
       <ul>
-        <li><a href="#prepare">prepare()</a></li>
-        <li><a href="#pkgver">pkgver()</a></li>
-        <li><a href="#build">build()</a></li>
-        <li><a href="#check">check()</a></li>
-        <li><a href="#package">package()</a></li>
+        <li><a href="#prepare"><code>prepare()</code></a></li>
+        <li><a href="#pkgver"><code>pkgver()</code></a></li>
+        <li><a href="#build"><code>build()</code></a></li>
+        <li><a href="#check"><code>check()</code></a></li>
+        <li><a href="#package"><code>package()</code></a></li>
       </ul>
     </li>
     <li><a href="#構建軟體包">構建軟體包</a>
@@ -315,35 +315,35 @@ drwxr-xr-x <span class="m">2</span> root root <span class="m">4096</span> Nov  <
 <span class="nv">pkgver</span><span class="o">=</span>VERSION
 <span class="nv">pkgrel</span><span class="o">=</span><span class="m">1</span>
 <span class="nv">pkgdesc</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">arch</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">arch</span><span class="o">=()</span>
 <span class="nv">url</span><span class="o">=</span><span class="s2">&#34;&#34;</span>
-<span class="nv">license</span><span class="o">=</span><span class="o">(</span><span class="s1">&#39;GPL&#39;</span><span class="o">)</span>
-<span class="nv">groups</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">depends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">makedepends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">optdepends</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">provides</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">conflicts</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">replaces</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">backup</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">options</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
+<span class="nv">license</span><span class="o">=(</span><span class="s1">&#39;GPL&#39;</span><span class="o">)</span>
+<span class="nv">groups</span><span class="o">=()</span>
+<span class="nv">depends</span><span class="o">=()</span>
+<span class="nv">makedepends</span><span class="o">=()</span>
+<span class="nv">optdepends</span><span class="o">=()</span>
+<span class="nv">provides</span><span class="o">=()</span>
+<span class="nv">conflicts</span><span class="o">=()</span>
+<span class="nv">replaces</span><span class="o">=()</span>
+<span class="nv">backup</span><span class="o">=()</span>
+<span class="nv">options</span><span class="o">=()</span>
 <span class="nv">install</span><span class="o">=</span>
 <span class="nv">changelog</span><span class="o">=</span>
-<span class="nv">source</span><span class="o">=</span><span class="o">(</span><span class="nv">$pkgname</span>-<span class="nv">$pkgver</span>.tar.gz<span class="o">)</span>
-<span class="nv">noextract</span><span class="o">=</span><span class="o">(</span><span class="o">)</span>
-<span class="nv">md5sums</span><span class="o">=</span><span class="o">(</span><span class="o">)</span> <span class="c1">#autofill using updpkgsums</span>
+<span class="nv">source</span><span class="o">=(</span><span class="nv">$pkgname</span>-<span class="nv">$pkgver</span>.tar.gz<span class="o">)</span>
+<span class="nv">noextract</span><span class="o">=()</span>
+<span class="nv">md5sums</span><span class="o">=()</span> <span class="c1">#autofill using updpkgsums</span>
 
-build<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+build<span class="o">()</span> <span class="o">{</span>
   <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
 
   ./configure --prefix<span class="o">=</span>/usr
   make
 <span class="o">}</span>
 
-package<span class="o">(</span><span class="o">)</span> <span class="o">{</span>
+package<span class="o">()</span> <span class="o">{</span>
   <span class="nb">cd</span> <span class="s2">&#34;</span><span class="nv">$pkgname</span><span class="s2">-</span><span class="nv">$pkgver</span><span class="s2">&#34;</span>
 
-  make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/</span><span class="s2">&#34;</span> install
+  make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/&#34;</span> install
 <span class="o">}</span>
 </code></pre></td></tr></table>
 </div>
@@ -390,7 +390,7 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">install -Dm644 LICENSE <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE</span><span class="s2">&#34;</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash">install -Dm644 LICENSE <span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/usr/share/licenses/</span><span class="nv">$pkgname</span><span class="s2">/LICENSE&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div></li>
@@ -412,7 +412,7 @@ Apache  Boost        CPL   FDL1.2  GPL2    LGPL2.1  MPL    PHP           Unlicen
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">optdepends</span><span class="o">=</span><span class="o">(</span>
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nv">optdepends</span><span class="o">=(</span>
   <span class="s1">&#39;cups: printing support&#39;</span>
   <span class="s1">&#39;sane: scanners support&#39;</span>
   <span class="s1">&#39;libgphoto2: digital cameras support&#39;</span>
@@ -485,7 +485,7 @@ make
 <pre class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/</span><span class="s2">&#34;</span> install
+<pre class="chroma"><code class="language-bash" data-lang="bash">make <span class="nv">DESTDIR</span><span class="o">=</span><span class="s2">&#34;</span><span class="nv">$pkgdir</span><span class="s2">/&#34;</span> install
 </code></pre></td></tr></table>
 </div>
 </div><p><code>makepkg --repackage</code> 只執行 <code>package()</code>，不執行 <code>build()</code>，如果僅修改包的依賴可以用這個指令重新打包以節省時間。</p>
@@ -529,8 +529,8 @@ make
 <p>zstd 相較於 xz 用壓縮比換來高性能。用我們的壓縮參數調用 zstd 重新壓縮軟體包導致了總體包大小增加 ～0.8% ，相對的這些包的解壓時間總體有 ～1300% 的提速。</p>
 <p>我們的軟體源中已經有超過 545 個 zstd 壓縮的套裝軟體了，隨著我們發布更新包，更多的會不斷加入。目前為止我們還未發現任何用戶可見的問題，所以感覺一切順利。</p>
 <p>如果你是一名打包者，如果你在使用最新的 devtools (&gt;= 20191227) 那麼你將自動開始打包新的 .pkg.tar.zst 包。
-如果你是一名最終用戶，沒有手動操作需要做，只要你已經閱讀並遵從了去年新聞中的建議 (https://t.me/archlinuxcn/124)。</p>
-<p>如果你從 2018 年到現在還沒有升級過 libarchive ，還有希望拯救你的系統！在 Eli Schwartz 的個人源 (<a href="https://wiki.archlinux.org/index.php/Unofficial_user_repositories#eschwartz">https://wiki.archlinux.org/index.php/Unofficial_user_repositories#eschwartz</a>)中提供了打包好的 pacman-static 二進位制包，用他的受信用戶(Trusted User)金鑰簽名，可以用這個完成系統升級。</p>
+如果你是一名最終用戶，沒有手動操作需要做，只要你已經閱讀並遵從了去年新聞中的<a href="https://t.me/archlinuxcn/124">建議</a>。</p>
+<p>如果你從 2018 年到現在還沒有升級過 libarchive ，還有希望拯救你的系統！在 Eli Schwartz 的<a href="https://wiki.archlinux.org/index.php/Unofficial_user_repositories#eschwartz">個人源</a>中提供了打包好的 pacman-static 二進位制包，用他的受信用戶(Trusted User)金鑰簽名，可以用這個完成系統升級。</p>
 </blockquote>
 <h2 id="測試-pkgbuild">測試 PKGBUILD</h2>
 <p>如果 <code>makepkg</code> 成功了，會在當前目錄產生一個 <code>$pkgname-$pkgver.pkg.tar.gz</code> 的檔案，可以使用 <code>pacman -U</code> 或 <code>pacman -A</code> 安裝。你可以用 pacman 的查詢函數來檢驗產生的包有沒有問題，<code>pacman -Qlp [package file]</code> 可以列出包裡的所有檔案，<code>pacman -Qip [package file]</code> 列出包的描述資訊。</p>

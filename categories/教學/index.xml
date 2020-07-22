@@ -6,10 +6,20 @@
     <description>Recent content in 教學 on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Thu, 20 Feb 2020 23:48:54 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://junyussh.github.io/categories/%E6%95%99%E5%AD%B8/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>aria2 小巧而強大的續傳下載軟體，支援 BT/Magnet</title>
+      <link>https://junyussh.github.io/p/how-to-use-aria2/</link>
+      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/how-to-use-aria2/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://i.loli.net/2020/07/22/e6Pgw9QWYqSpRUx.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;aria2 是一款用 C++ 開發的輕量級多協議續傳工具，不僅跨平台、佔用資源少，集種子、磁力、等協定於一身，還能像 IDM 一樣將檔案分割成多份，增加連線數來提昇下載速度，下載工具用這個就足夠了，會玩的人還會將 aria2 部署在資源少的 VPS 上，利用機房的大頻寬高速下載種子檔，本人在 Linux 就是使用 aria2 作為日常主力下載器，非常好用，本篇文章主要著重於教學 Linux 環境的使用方式，但 aria2 設定檔 Windows 通用。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Arch Linux 使用 HP 印表機</title>
