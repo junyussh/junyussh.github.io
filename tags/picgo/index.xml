@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PicGo on 書術方隅</title>
+    <link>https://junyussh.github.io/tags/picgo/</link>
+    <description>Recent content in PicGo on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Wed, 29 Jul 2020 23:25:32 +0800</lastBuildDate>
+    
+	<atom:link href="https://junyussh.github.io/tags/picgo/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床</title>
+      <link>https://junyussh.github.io/p/image-hosting-with-github-and-jsdelivr/</link>
+      <pubDate>Wed, 29 Jul 2020 23:25:32 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/image-hosting-with-github-and-jsdelivr/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/person-holding-photo-of-single-tree-at-daytime.jpg&#34; alt=&#34;Photograph&#34;&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;Photo by &lt;strong&gt;&lt;a href=&#34;https://www.pexels.com/@fotios-photos?utm_content=attributionCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=pexels&#34;&gt;Lisa Fotios&lt;/a&gt;&lt;/strong&gt; from &lt;strong&gt;&lt;a href=&#34;https://www.pexels.com/photo/person-holding-photo-of-single-tree-at-daytime-1252983/?utm_content=attributionCopyText&amp;amp;utm_medium=referral&amp;amp;utm_source=pexels&#34;&gt;Pexels&lt;/a&gt;&lt;/strong&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;終於到了這一天，一切都改變&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

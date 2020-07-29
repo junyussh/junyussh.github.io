@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content=" Photo by Lisa Fotios from Pexels
+  終於到了這一天，一切都改變
+ 自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.73.0 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/image-hosting-with-github-and-jsdelivr/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床" />
+<meta property="og:description" content="
+
+Photo by Lisa Fotios from Pexels
+
+
+終於到了這一天，一切都改變
+
+自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/image-hosting-with-github-and-jsdelivr/" />
+<meta property="article:published_time" content="2020-07-29T23:25:32+08:00" />
+<meta property="article:modified_time" content="2020-07-29T23:25:32+08:00" />
+<meta itemprop="name" content="Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床">
+<meta itemprop="description" content="
+
+Photo by Lisa Fotios from Pexels
+
+
+終於到了這一天，一切都改變
+
+自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。">
+<meta itemprop="datePublished" content="2020-07-29T23:25:32&#43;08:00" />
+<meta itemprop="dateModified" content="2020-07-29T23:25:32&#43;08:00" />
+<meta itemprop="wordCount" content="1431">
+
+
+
+<meta itemprop="keywords" content="Github,PicGo,教學,圖床,jsDelivr,CDN," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床"/>
+<meta name="twitter:description" content="
+
+Photo by Lisa Fotios from Pexels
+
+
+終於到了這一天，一切都改變
+
+自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-07-29 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%9C%96%E5%BA%8A/"> 圖床 </a>
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/picgo/"> PicGo </a>
+            <a href="/categories/github/"> Github </a>
+            </div>
+          <span class="more-meta"> 約 1431 字 </span>
+          <span class="more-meta"> 預計閱讀 3 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#棄坑原因">棄坑原因</a></li>
+    <li><a href="#解決方案選擇">解決方案選擇</a></li>
+    <li><a href="#建立-github-倉庫">建立 Github 倉庫</a></li>
+    <li><a href="#圖片上傳工具-picgo">圖片上傳工具 PicGo</a></li>
+    <li><a href="#安裝">安裝</a>
+      <ul>
+        <li><a href="#設定">設定</a></li>
+        <li><a href="#上傳">上傳</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/person-holding-photo-of-single-tree-at-daytime.jpg" alt="Photograph"></p>
+<blockquote>
+<p>Photo by <strong><a href="https://www.pexels.com/@fotios-photos?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Lisa Fotios</a></strong> from <strong><a href="https://www.pexels.com/photo/person-holding-photo-of-single-tree-at-daytime-1252983/?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Pexels</a></strong></p>
+</blockquote>
+<blockquote>
+<p>終於到了這一天，一切都改變</p>
+</blockquote>
+<p>自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。</p>
+<h2 id="棄坑原因">棄坑原因</h2>
+<p>SMMS 在之前<a href="./migrate-blog-framwork-from-hexo-to-hugo/">文章</a>有說過是中國網路圈裡面的一位大佬 Showfom 所架設，託管於他自家的主機極雲，擁有多線 CDN，對各國使用者連線友好，也是中國知名技術討論區 V2EX 指定用圖床，雖然免費好用，不過我這邊不是在為 SMMS 打廣告，有一天我朋友跟我說他之前上傳於 SMMS 的圖片被刪了，果然一看他的文章好多圖片都 404 了，SMMS 使用者條款也說會刪除不符合國家法律規定的圖片，這時我意識到不能完全將圖片託管到一個平台上，要是哪天平台無法營運或是莫名刪除圖片就得不償失，於是我開始尋找自建圖床的方案。</p>
+<h2 id="解決方案選擇">解決方案選擇</h2>
+<p>目前我蒐集來的自建方案如下：</p>
+<ul>
+<li>阿里雲 OSS+CDN(要錢但不貴，CDN 覆蓋全中國)</li>
+<li>七牛雲/又拍雲(七牛 HTTPS 流量要收費，而且每月免費流量僅 10G)</li>
+<li>Github + <a href="https://www.jsdelivr.com/">jsDelivr</a>(全球分發 CDN，但 Github 個人倉庫僅有 1G 空間)</li>
+<li>Cloudflare+Backblaze B2(Backblaze B2 與 Cloudflare 之間無傳輸費用，並免費提供 10G 空間，但 Cloudflare 中國連線速度貌似不佳)</li>
+</ul>
+<p>我的需求是中國連線速度快、請求次數高，但價格不能太高，如果能免費自然最好，還有圖片不能因為政治因素或其他原因被移除，經過綜合考量，我選擇了 Github + jsDelivr 方案，Github 背後有微軟爸爸，穩定性應該不用多說，jsDelivr 也是全球知名的免費 CDN 服務，在中國大陸也有節點可用，同時兼顧連線速度和價格。</p>
+<h2 id="建立-github-倉庫">建立 Github 倉庫</h2>
+<p>需要先開一個新的倉庫，記得設成公開 jsDelivr 才能分發。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/github_new_repo.png" alt="建立新倉庫"></p>
+<p>到 Github 的<a href="https://github.com/settings/tokens">個人設定</a>點擊「Generate new token」按鈕。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/github_setting.png" alt=""></p>
+<p><code>Token description</code> 隨便填，scopes 要把 <code>repo</code> 全選。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/github_token.png" alt="產生令牌"></p>
+<p>產生的令牌僅會顯示一次，請妥善保存。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/github_token_2.png" alt="產生的令牌"></p>
+<h2 id="圖片上傳工具-picgo">圖片上傳工具 PicGo</h2>
+<p>這邊使用眾多文章推薦之開源跨平台的強大圖床上傳工具 PicGo，可以方便將圖片上傳至 Github 並直接複製圖片網址到剪貼簿中。</p>
+<h2 id="安裝">安裝</h2>
+<p>Windows 平台使用者直接到 PicGo 的 <a href="https://github.com/Molunerfinn/PicGo/releases">Github Releases</a> 下載最新版執行即可，Linux 的話有提供 AppImage 的安裝，Arch 系的可以直接安裝 AUR 的 <code>picgo-appimage</code> 包。</p>
+<p>安裝完 AUR 裡的 <code>picgo-appimage</code> 後提示我版本要更新，但是經過測試最新測試版 <code>2.3.0</code> 在 Arch Linux 中無法啟動，所以還是使用穩定版。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ yay -S picgo-appimage
+</code></pre></td></tr></table>
+</div>
+</div><p>開啟後螢幕中間會出現一個 PicGo 的圖示，在上面點擊右鍵按「打開詳細窗口」。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/picgo.png" alt="右鍵點擊「打開詳細窗口」"></p>
+<h3 id="設定">設定</h3>
+<p>側邊欄 圖床設置 &gt; GitHub 圖床，填入以下資訊：</p>
+<ul>
+<li>倉庫名稱：<code>使用者名稱/倉庫名稱</code></li>
+<li>分支名：沒有另外建分支的話就填 <code>master</code></li>
+<li>設定 Token：填之前在個人設定申請到的令牌</li>
+<li>指定儲存路徑：如果寫 <code>img/</code>，會在倉庫根目錄建立 <code>img</code> 目錄，並將圖片上傳到裡面，記得<strong>結尾一定要加 <code>/</code></strong>，否則會變成圖片檔名的一部分</li>
+<li>自定義域名：上傳後會複製到剪貼簿的域名，PicGo 會按照「域名/檔案名稱」產生連結，我們要用 jsDelivr 分發，所以要改成 jsDelivr 的網址，這裡填 <code>  https://cdn.jsdelivr.net/gh/使用者名稱/倉庫名稱</code>，詳細請看 jsDelivr 的<a href="https://www.jsdelivr.com/?docs=gh">請求網址寫法</a></li>
+</ul>
+<p>記得按「確定」存檔，並設為預設圖床。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/picgo_github_setting.png" alt="PicGo Github 圖床設定"></p>
+<h3 id="上傳">上傳</h3>
+<p>側邊欄點擊「上傳區」，記得確保上面顯示 Github 圖床，上傳成功後會將網址複製到剪貼簿中，如果同時上傳多張圖片，則會用空格換行，建議是一次上傳一張。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/picgo_upload.png" alt="PicGo 上傳區"></p>
+<p>上傳成功後會出現通知提醒，進度調跑完要等一會才能獲得網址。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/picgo_upload_success.png" alt="PicGo 上傳成功通知"></p>
+<p>使用 jsDelivr 分發之後可以明顯發現文章載入的速度幾乎秒開，圖片也都備份在 Github 不怕丟失。</p>
+<blockquote>
+<p>再也沒有煩惱，一切都是愛</p>
+</blockquote>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://pockies.github.io/2019/04/27/weibo-to-github/">利用PicGo快速迁移Weibo外链图片到GitHub - Pockies | 博客</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/76947034">Github+jsDelivr+PicGo 打造稳定快速、高效免费图床 - 知乎</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-07-29
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/github/">Github</a>
+          <a href="/tags/picgo/">PicGo</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/%E5%9C%96%E5%BA%8A/">圖床</a>
+          <a href="/tags/jsdelivr/">jsDelivr</a>
+          <a href="/tags/cdn/">CDN</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/how-to-use-aria2/">
+            <span class="next-text nav-default">aria2 小巧而強大的續傳下載軟體，支援 BT/Magnet</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+</body>
+</html>
