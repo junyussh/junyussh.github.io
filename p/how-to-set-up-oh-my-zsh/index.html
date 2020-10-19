@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>如何在 Linux 中安裝 Oh My Zsh - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.76.5 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+<link href="/dist/even.c2a46f00.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="如何在 Linux 中安裝 Oh My Zsh" />
+<meta property="og:description" content="
+Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/" />
+<meta property="article:published_time" content="2020-10-19T18:27:13+08:00" />
+<meta property="article:modified_time" content="2020-10-19T18:27:13+08:00" />
+<meta itemprop="name" content="如何在 Linux 中安裝 Oh My Zsh">
+<meta itemprop="description" content="
+Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。">
+<meta itemprop="datePublished" content="2020-10-19T18:27:13+08:00" />
+<meta itemprop="dateModified" content="2020-10-19T18:27:13+08:00" />
+<meta itemprop="wordCount" content="1083">
+
+
+
+<meta itemprop="keywords" content="Linux,Zsh,教學,oh-my-zsh,arch-linux," />
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="如何在 Linux 中安裝 Oh My Zsh"/>
+<meta name="twitter:description" content="
+Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+
+<script>
+  (function (i, s, o, g, r, a, m) {
+  i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+    (i[r].q = i[r].q || []).push(arguments)
+  }, i[r].l = 1 * new Date(); a = s.createElement(o),
+    m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+  })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+
+  ga('create', 'UA-110952206-1', 'auto');
+  ga('send', 'pageview');
+</script>
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+</nav>
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">如何在 Linux 中安裝 Oh My Zsh</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2020-10-19 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> Linux </a>
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
+            </div>
+          <span class="more-meta"> 約 1083 字 </span>
+          <span class="more-meta"> 預計閱讀 3 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安裝-zsh">安裝 Zsh</a>
+      <ul>
+        <li><a href="#ubuntu">Ubuntu</a></li>
+        <li><a href="#centos">CentOS</a></li>
+        <li><a href="#arch-linux">Arch Linux</a></li>
+        <li><a href="#將-zsh-設為預設殼層">將 Zsh 設為預設殼層</a></li>
+      </ul>
+    </li>
+    <li><a href="#安裝-oh-my-zsh">安裝 Oh My Zsh</a>
+      <ul>
+        <li><a href="#curl">curl</a></li>
+        <li><a href="#wget">wget</a></li>
+      </ul>
+    </li>
+    <li><a href="#設定">設定</a>
+      <ul>
+        <li><a href="#選擇主題">選擇主題</a></li>
+        <li><a href="#powerline-字體安裝">Powerline 字體安裝</a></li>
+        <li><a href="#啟用外掛">啟用外掛</a></li>
+      </ul>
+    </li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/how-to-set-up-oh-my-zsh/oh-my-zsh.jpg" alt="Oh My Zsh"></p>
+<p>Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。</p>
+<h2 id="安裝-zsh">安裝 Zsh</h2>
+<p>安裝 Oh My Zsh 前先確保系統有安裝 Zsh，可以用下面指令檢視當前使用的殼層(shell)。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="nv">$SEHLL</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>安裝 <code>zsh</code> 包。</p>
+<h3 id="ubuntu">Ubuntu</h3>
+<p>Zsh 已經被 Ubuntu 收錄至官方儲存庫中。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt update
+$ sudo apt install zsh
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="centos">CentOS</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum update
+$ sudo yum -y install zsh
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="arch-linux">Arch Linux</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S zsh
+</code></pre></td></tr></table>
+</div>
+</div><p>安裝完成後輸入指令看已安裝的 Shell，如果最下方有出現 <code>zsh</code> 就表示安裝成功。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /etc/shells
+<span class="c1"># Pathnames of valid login shells.</span>
+<span class="c1"># See shells(5) for details.</span>
+
+/bin/sh
+/bin/bash
+/usr/bin/git-shell
+/bin/zsh
+/usr/bin/zsh
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="將-zsh-設為預設殼層">將 Zsh 設為預設殼層</h3>
+<p>如果你希望每次登入都使用 Zsh，需要修改預設殼層。</p>
+<p>列出目前系統所有的殼層。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ chsh -l
+</code></pre></td></tr></table>
+</div>
+</div><p>選擇 Zsh 作為預設殼層。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ chsh -s /usr/bin/zsh
+</code></pre></td></tr></table>
+</div>
+</div><p>然後重啟終端機看設定有沒有生效。</p>
+<h2 id="安裝-oh-my-zsh">安裝 Oh My Zsh</h2>
+<p>官方提供了一鍵腳本，直接下載執行就裝好了，如果有更新會在開啟終端機時提示要不要更新，如果選是的話會自動 git pull 更新內容。</p>
+<h3 id="curl">curl</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="wget">wget</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sh -c <span class="s2">&#34;</span><span class="k">$(</span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="設定">設定</h2>
+<p>Zsh 設定檔位於家目錄下，名為 <code>.zshrc</code>，環境變數的設定也寫在這個檔案裡，我們來設定一下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ vim ~/.zshrc
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="選擇主題">選擇主題</h3>
+<p>Oh My Zsh 中有多款漂亮的主題，可以到<a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Themes">官方 GIthub</a> 看截圖，選擇自己中意的樣式。</p>
+<p>當你選好主題後，修改 <code>~/.zshrc</code> 的環境變數 <code>ZSH_THEME</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;robbyrussell&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><strong>注意：有些主題(如：agnoster)需要安裝 <a href="https://github.com/powerline/fonts">Powerline Fonts</a> 才能正常顯示字體。</strong></p>
+<h3 id="powerline-字體安裝">Powerline 字體安裝</h3>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install fonts-powerline <span class="c1"># Ubuntu/Debian</span>
+$ sudo dnf install powerline-fonts <span class="c1"># Fedora/RHEL</span>
+$ sudo pacman -S powerline-fonts <span class="c1"># Arch Linux</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你希望生活中多點變化可以選擇隨機主題，每次啟動 zsh 時電腦會隨機幫你挑選一款主題。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;random&#34;</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>也可以從指定的主題列表中隨機選取。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME_RANDOM_CANDIDATES</span><span class="o">=(</span>
+  <span class="s2">&#34;robbyrussell&#34;</span>
+  <span class="s2">&#34;agnoster&#34;</span>
+<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="啟用外掛">啟用外掛</h3>
+<p>提到 oh-my-zsh 就不能不提到強大的外掛系統，裡面有非常多實用的函數，只需要在設定檔中啟用即可使用，你可以查看 oh-my-zsh 的 <a href="https://github.com/ohmyzsh/ohmyzsh/wiki/Plugins">Wiki</a> 看有哪些可用的外掛。</p>
+<p><strong>注意：啟用太多外掛會拖慢 Zsh 的啟動速度。</strong></p>
+<p>修改 <code>~/.zshrc</code>，修改 <code>plugins</code> 的地方，<code>plugins</code> 是個清單，應該長的像下面這樣。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">plugins</span><span class="o">=(</span>
+  git
+  bundler
+  dotenv
+  osx
+  rake
+  rbenv
+  ruby
+<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>注意：外掛之間只能用空格、Tab、換行來隔開，<strong>不能用逗號分隔</strong>！</p>
+<p>基本上要用什麼外掛就看自己的需求，我用的外掛也很少，只有下面幾個。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">plugins</span><span class="o">=(</span>git extract cp torrent<span class="o">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>強烈推薦 <code>extract</code> 外掛，只需要一句 <code>extract xxx.zip</code> 就能解壓縮各種格式的壓縮檔，非常方便，當然你系統也要安裝相應的解壓縮工具，只是 <code>extract</code> 幫你做 alias 了；自從有了 <code>extract</code>，我就不記解壓縮指令了 (不良示範請勿學習)。</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://github.com/ohmyzsh/ohmyzsh">ohmyzsh/ohmyzsh</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Zsh_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Zsh (简体中文) - ArchWiki</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2020-10-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/zsh/">Zsh</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/oh-my-zsh/">oh-my-zsh</a>
+          <a href="/tags/arch-linux/">arch-linux</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/image-hosting-with-github-and-jsdelivr/">
+            <span class="next-text nav-default">Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2020
+    <span class="heart">
+      <i class="iconfont icon-heart"></i>
+    </span>
+    <span class="author">Chun Yu</span>
+  </span>
+  <span>本站使用臺灣正體中文書寫，專業名詞翻譯依照<a href="http://terms.naer.edu.tw/">國家教育研究院</a>為規範</span>
+</div>
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+<script type="text/javascript" src="/dist/even.26188efa.min.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]},
+      showProcessingMessages: false,
+      messageStyle: 'none'
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@2.7.5/MathJax.js?config=TeX-MML-AM_CHTML"  integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+</body>
+</html>

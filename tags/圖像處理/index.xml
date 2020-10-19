@@ -6,11 +6,7 @@
     <description>Recent content in 圖像處理 on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/tags/%E5%9C%96%E5%83%8F%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/%E5%9C%96%E5%83%8F%E8%99%95%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>在 Linux 下用 ImageMagick 批量壓縮圖片</title>
       <link>https://junyussh.github.io/p/compress-photo-with-imagemagick/</link>

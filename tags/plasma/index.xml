@@ -6,11 +6,7 @@
     <description>Recent content in plasma on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Tue, 12 Sep 2017 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/tags/plasma/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 12 Sep 2017 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/plasma/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux sddm 啟動失敗方法</title>
       <link>https://junyussh.github.io/p/sddm-start-failed/</link>

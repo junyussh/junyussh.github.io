@@ -6,11 +6,7 @@
     <description>Recent content in BitTorrent on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/categories/bittorrent/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 22 Jul 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/categories/bittorrent/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>aria2 小巧而強大的續傳下載軟體，支援 BT/Magnet</title>
       <link>https://junyussh.github.io/p/how-to-use-aria2/</link>

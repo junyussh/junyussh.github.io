@@ -6,11 +6,7 @@
     <description>Recent content in 圖床 on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Wed, 29 Jul 2020 23:25:32 +0800</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/tags/%E5%9C%96%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Wed, 29 Jul 2020 23:25:32 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/%E5%9C%96%E5%BA%8A/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床</title>
       <link>https://junyussh.github.io/p/image-hosting-with-github-and-jsdelivr/</link>

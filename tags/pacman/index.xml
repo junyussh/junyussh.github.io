@@ -6,11 +6,7 @@
     <description>Recent content in pacman on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/tags/pacman/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 06 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/pacman/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Arch Linux 新增 CN 源及 GPG 金鑰匯入問題解決</title>
       <link>https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/</link>

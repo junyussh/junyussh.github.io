@@ -6,11 +6,7 @@
     <description>Recent content in PTT on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/tags/ptt/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 03 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/ptt/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>解決 PTT 在中國無法連線問題</title>
       <link>https://junyussh.github.io/p/solve-ptt-cannot-connect/</link>

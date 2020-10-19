@@ -2,8 +2,92 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://junyussh.github.io/tags/arch-linux/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://junyussh.github.io/categories/</loc>
-    <lastmod>2020-07-29T23:25:32+08:00</lastmod>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/linux/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/categories/linux/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/oh-my-zsh/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/post/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/zsh/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/tags/%E6%95%99%E5%AD%B8/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/categories/%E6%95%99%E5%AD%B8/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://junyussh.github.io/</loc>
+    <lastmod>2020-10-19T18:27:13+08:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -58,20 +142,6 @@
   </url>
   
   <url>
-    <loc>https://junyussh.github.io/post/</loc>
-    <lastmod>2020-07-29T23:25:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/tags/</loc>
-    <lastmod>2020-07-29T23:25:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://junyussh.github.io/tags/%E5%9C%96%E5%BA%8A/</loc>
     <lastmod>2020-07-29T23:25:32+08:00</lastmod>
     <changefreq>weekly</changefreq>
@@ -81,34 +151,6 @@
   <url>
     <loc>https://junyussh.github.io/categories/%E5%9C%96%E5%BA%8A/</loc>
     <lastmod>2020-07-29T23:25:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/tags/%E6%95%99%E5%AD%B8/</loc>
-    <lastmod>2020-07-29T23:25:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/categories/%E6%95%99%E5%AD%B8/</loc>
-    <lastmod>2020-07-29T23:25:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/</loc>
-    <lastmod>2020-07-29T23:25:32+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/tags/arch-linux/</loc>
-    <lastmod>2020-07-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -143,20 +185,6 @@
   
   <url>
     <loc>https://junyussh.github.io/categories/bittorrent/</loc>
-    <lastmod>2020-07-22T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/tags/linux/</loc>
-    <lastmod>2020-07-22T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/categories/linux/</loc>
     <lastmod>2020-07-22T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>
@@ -724,13 +752,6 @@
   
   <url>
     <loc>https://junyussh.github.io/categories/youtube/</loc>
-    <lastmod>2018-09-18T00:00:00+00:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://junyussh.github.io/categories/%E5%B7%A5%E5%85%B7/</loc>
     <lastmod>2018-09-18T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.5</priority>

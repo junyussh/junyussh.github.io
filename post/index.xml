@@ -6,10 +6,16 @@
     <description>Recent content in Posts on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Wed, 29 Jul 2020 23:25:32 +0800</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Mon, 19 Oct 2020 18:27:13 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>如何在 Linux 中安裝 Oh My Zsh</title>
+      <link>https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/</link>
+      <pubDate>Mon, 19 Oct 2020 18:27:13 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/how-to-set-up-oh-my-zsh/oh-my-zsh.jpg&#34; alt=&#34;Oh My Zsh&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床</title>

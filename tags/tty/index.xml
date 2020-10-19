@@ -6,11 +6,7 @@
     <description>Recent content in tty on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 17 Feb 2020 13:18:32 +0800</lastBuildDate>
-    
-	<atom:link href="https://junyussh.github.io/tags/tty/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 17 Feb 2020 13:18:32 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/tty/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 在終端環境中蓋上螢幕不睡眠(Suspend)</title>
       <link>https://junyussh.github.io/p/linux-not-to-suspend-when-closing-the-lid-on-terminal-window/</link>
