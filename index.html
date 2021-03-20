@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.80.0 with theme even" />
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.2e81bbed97b8b282c1aeb57488cc71c8d8c8ec559f3931531bd396bf31e0d4dd.css" rel="stylesheet">
+<link href="/sass/main.min.af7fd1da18d66c2b017df5b4cae508ef44cfcac3fb4c7c7a327fe4f4f9e28b08.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,10 +45,9 @@
 <meta property="og:description" content="記錄各種軟體、程式開發的坑" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="https://junyussh.github.io/" />
-<meta property="og:updated_time" content="2021-02-16T17:34:00+08:00" />
+
 <meta itemprop="name" content="書術方隅">
-<meta itemprop="description" content="記錄各種軟體、程式開發的坑">
-<meta name="twitter:card" content="summary"/>
+<meta itemprop="description" content="記錄各種軟體、程式開發的坑"><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="書術方隅"/>
 <meta name="twitter:description" content="記錄各種軟體、程式開發的坑"/>
 
@@ -121,6 +120,32 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/arch-linux-install-tinytex/">Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2021-03-20 </span>
+      <div class="post-category">
+          <a href="/categories/latex/"> LaTeX </a>
+          <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+          </div>
+        <span class="more-meta"> 約 1799 字 </span>
+        <span class="more-meta"> 預計閱讀 4 分鐘 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/banner.png" alt="TinyTeX + VSCode"></p>
+<p>LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。</p>
+<p>TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。</p>
+    </div>
+    <div class="read-more">
+      <a href="/p/arch-linux-install-tinytex/" class="read-more-link">閱讀更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/lenovo-xiaoxin-pro-13-unbox/">聯想小新 Pro 13 AMD 版開箱</a></h1>
@@ -291,36 +316,6 @@
   </div>
 </article>
 
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/migrate-blog-framwork-from-hexo-to-hugo/">Hexo 遷移 Hugo 記錄心得</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-02-13 </span>
-      <div class="post-category">
-          <a href="/categories/hugo/"> Hugo </a>
-          <a href="/categories/hexo/"> Hexo </a>
-          <a href="/categories/%E8%A8%98%E9%8C%84/"> 記錄 </a>
-          <a href="/categories/%E5%BF%83%E5%BE%97/"> 心得 </a>
-          </div>
-        <span class="more-meta"> 約 2531 字 </span>
-        <span class="more-meta"> 預計閱讀 6 分鐘 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><img src="https://i.loli.net/2020/02/13/5WTwmrNe3vJSAz2.jpg" alt="Rebuilding house"></p>
-<blockquote>
-<p>Photo by <a href="https://unsplash.com/@randyfath?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Randy Fath</a> on <a href="https://unsplash.com/s/photos/construction?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a></p>
-</blockquote>
-<p>之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。</p>
-    </div>
-    <div class="read-more">
-      <a href="/p/migrate-blog-framwork-from-hexo-to-hugo/" class="read-more-link">閱讀更多</a>
-    </div>
-  </div>
-</article>
-
     </section>
   
   <nav class="pagination">
@@ -375,7 +370,7 @@
 
 
 
-<script type="text/javascript" src="/js/main.min.c12618f9a600c40bd024996677e951e64d3487006775aeb22e200c990006c5c7.js"></script>
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
   <script type="text/javascript">
     window.MathJax = {
       tex: {

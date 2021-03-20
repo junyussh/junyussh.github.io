@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。
+TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.81.0 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/arch-linux-install-tinytex/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.af7fd1da18d66c2b017df5b4cae508ef44cfcac3fb4c7c7a327fe4f4f9e28b08.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境" />
+<meta property="og:description" content="
+LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。
+TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/arch-linux-install-tinytex/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-03-20T17:10:48&#43;00:00" />
+<meta property="article:modified_time" content="2021-03-20T17:10:48&#43;00:00" />
+
+<meta itemprop="name" content="Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境">
+<meta itemprop="description" content="
+LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。
+TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。"><meta itemprop="datePublished" content="2021-03-20T17:10:48&#43;00:00" />
+<meta itemprop="dateModified" content="2021-03-20T17:10:48&#43;00:00" />
+<meta itemprop="wordCount" content="1799">
+<meta itemprop="keywords" content="LaTeX,TinyTeX,Linux,R,Arch Linux,教學," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境"/>
+<meta name="twitter:description" content="
+LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。
+TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-03-20 </span>
+        <div class="post-category">
+            <a href="/categories/latex/"> LaTeX </a>
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            </div>
+          <span class="more-meta"> 約 1799 字 </span>
+          <span class="more-meta"> 預計閱讀 4 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#安裝-r-語言">安裝 R 語言</a></li>
+    <li><a href="#安裝-tinytex">安裝 TinyTeX</a></li>
+    <li><a href="#更換-ctan-鏡像">更換 CTAN 鏡像</a></li>
+    <li><a href="#測試編譯">測試編譯</a></li>
+    <li><a href="#配合-vscode-latex-workshop">配合 VSCode LaTeX Workshop</a>
+      <ul>
+        <li><a href="#安裝-latex-workshop-擴充功能">安裝 LaTeX Workshop 擴充功能</a></li>
+        <li><a href="#配置">配置</a></li>
+      </ul>
+    </li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/banner.png" alt="TinyTeX + VSCode"></p>
+<p>LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。</p>
+<p>TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。</p>
+<h2 id="安裝-r-語言">安裝 R 語言</h2>
+<p>TinyTeX 是用 R 語言編寫的，執行時需要依賴 R 語言環境。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S r
+</code></pre></td></tr></table>
+</div>
+</div><p>安裝完成後輸入 <code>R</code> 確認是否安裝成功。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash">$ R
+R version 4.0.4 <span class="o">(</span>2021-02-15<span class="o">)</span> -- <span class="s2">&#34;Lost Library Book&#34;</span>
+Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2021</span> The R Foundation <span class="k">for</span> Statistical Computing
+Platform: x86_64-pc-linux-gnu <span class="o">(</span>64-bit<span class="o">)</span>
+
+R 是免費軟體，不提供任何擔保。
+在某些條件下您可以將其自由散布。
+用 <span class="s1">&#39;license()&#39;</span> 或 <span class="s1">&#39;licence()&#39;</span> 來獲得散布的詳細條件。
+
+R 是個合作計劃，有許多人為之做出了貢獻。
+用 <span class="s1">&#39;contributors()&#39;</span> 來看詳細的情況並且
+用 <span class="s1">&#39;citation()&#39;</span> 會告訴您如何在出版品中正確地參照 R 或 R 套件。
+
+用 <span class="s1">&#39;demo()&#39;</span> 來看一些示範程式，用 <span class="s1">&#39;help()&#39;</span> 來檢視線上輔助檔案，或
+用 <span class="s1">&#39;help.start()&#39;</span> 透過 HTML 瀏覽器來看輔助檔案。
+用 <span class="s1">&#39;q()&#39;</span> 離開 R。
+
+&gt;
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="安裝-tinytex">安裝 TinyTeX</h2>
+<p>雖然 Arch Wiki 說 AUR 裡面有 R 語言的套件，可以用 Pacman 管理，但我安裝 AUR 裡的 TinyTeX 卻出現一堆問題，折騰了一番還是沒成功編譯 TeX，最後還是直接用 R 去安裝 TinyTeX。</p>
+<p>安裝 TinyTeX 前先確保系統中沒有其他 LaTeX 套件，如：TeX Live、MiKTeX、MacTeX 等，一個系統裡最好不要有兩個 LaTeX 套件存在，否則可能會發生衝突。</p>
+<p>在 R 語言交互界面輸入下面指令安裝 TinyTeX，會自動從 TinyTeX 官網下載。</p>
+<p>使用 <code>install.packages()</code> 函數時可能會報錯 <code>無法載入共享物件 '/usr/lib/R/library/tcltk/libs/tcltk.so'</code>，這是因為 <code>install.packages()</code> 需要用 tk 叫出 GUI 來選擇鏡像，安裝 <code>tk</code> 包就可以解決。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;tinytex&#39;</span><span class="p">)</span>
+<span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">::</span><span class="nf">install_tinytex</span><span class="p">()</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果你使用非 root 用戶安裝，可能會出現以下提示，問你是否儲存到家目錄下，直接 Yes 就好。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;tinytex&#39;</span><span class="p">)</span>
+<span class="n">Warning</span> <span class="n">in</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;tinytex&#34;</span><span class="p">)</span> <span class="o">:</span>
+  <span class="s">&#39;lib = &#34;/usr/lib/R/library&#34;&#39;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">writable</span>
+<span class="n">Would</span> <span class="n">you</span> <span class="n">like</span> <span class="n">to</span> <span class="n">use</span> <span class="n">a</span> <span class="n">personal</span> <span class="n">library</span> <span class="n">instead</span><span class="o">?</span> <span class="p">(</span><span class="n">yes</span><span class="o">/</span><span class="n">No</span><span class="o">/</span><span class="n">cancel</span><span class="p">)</span> <span class="n">y</span>
+<span class="n">Would</span> <span class="n">you</span> <span class="n">like</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">personal</span> <span class="n">library</span>
+‘<span class="o">~/</span><span class="n">R</span><span class="o">/</span><span class="n">x86_64</span><span class="o">-</span><span class="n">pc</span><span class="o">-</span><span class="n">linux</span><span class="o">-</span><span class="n">gnu</span><span class="o">-</span><span class="n">library</span><span class="o">/</span><span class="m">4.0</span>’
+<span class="n">to</span> <span class="n">install</span> <span class="n">packages</span> <span class="n">into</span><span class="o">?</span> <span class="p">(</span><span class="n">yes</span><span class="o">/</span><span class="n">No</span><span class="o">/</span><span class="n">cancel</span><span class="p">)</span> <span class="n">y</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>如果安裝 TinyTeX 過程過慢，可以到 <a href="https://github.com/yihui/tinytex-releases/releases">GitHub Release</a> 用瀏覽器下載，再把檔案路徑傳給安裝函數。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/tinytex-download.png" alt="選擇預編譯好的安裝檔"></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">:::</span><span class="nf">install_prebuilt</span><span class="p">(</span><span class="s">&#34;~/TinyTeX-1-v2021.03.tar.gz&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>安裝完成後退出 R 交互界面(Ctrl+D)，編輯 <code>~/.bash_profile</code>，在環境變數裡加入 <code>~/bin</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/bin:<span class="nv">$PATH</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>套用環境變數。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.bash_profile
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="更換-ctan-鏡像">更換 CTAN 鏡像</h2>
+<p>如果你在中國大陸使用 TinyTeX 的話建議你換鏡像來加速下載，雖然預設的鏡像是南方科技大學的，但不知道速度為什麼這麼慢，我換成上海交大鏡像站就快多了。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">::</span><span class="nf">tlmgr_repo</span><span class="p">(</span><span class="s">&#34;https://mirrors.sjtug.sjtu.edu.cn/ctan/&#34;</span><span class="p">)</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="測試編譯">測試編譯</h2>
+<p>先編寫一個 TeX 檔案進行編譯測試，並儲存為 <code>hello.tex</code>。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-tex" data-lang="tex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>xeCJK<span class="nb">}</span>
+<span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
+<span class="k">\setCJKmainfont</span><span class="nb">{</span>Noto Serif CJK TC<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+TinyTeX 測試。
+
+數學公式測試：
+<span class="k">\begin</span><span class="nb">{</span>align*<span class="nb">}</span>
+    <span class="k">\lim\limits</span><span class="nb">_{</span><span class="k">\Delta</span> x <span class="k">\rightarrow</span> 0<span class="nb">}</span> <span class="k">\frac</span><span class="nb">{</span><span class="k">\cos</span> <span class="k">\Delta</span> x-1<span class="nb">}{</span><span class="k">\Delta</span> x<span class="nb">}</span> = 1
+<span class="k">\end</span><span class="nb">{</span>align*<span class="nb">}</span>
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>開啟 R，並輸入下面指令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;/home/chunyu/Sites/TeX&#34;</span><span class="p">)</span>  <span class="c1"># 設置 R 工作目錄</span>
+<span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">::</span><span class="nf">xelatex</span><span class="p">(</span><span class="s">&#34;hello.tex&#34;</span><span class="p">)</span> <span class="c1"># 用 xelatex 編譯</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>這時 TinyTeX 會自動從 CTAN 中下載需要的包，初次跑這個指令可能會慢一點。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/tinytex-compile.png" alt="xelatex 編譯 hello.tex"></p>
+<p>編譯成功的話會產生 <code>hello.pdf</code>，打開可以看見編譯效果。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/hello-pdf.png" alt="hello.tex 編譯效果"></p>
+<h2 id="配合-vscode-latex-workshop">配合 VSCode LaTeX Workshop</h2>
+<h3 id="安裝-latex-workshop-擴充功能">安裝 LaTeX Workshop 擴充功能</h3>
+<p>直接 Ctrl+P 輸入下面指令安裝或是在側邊欄 Extensions 頁面搜尋 LaTeX Workshop。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">ext install James-Yu.latex-workshop
+</code></pre></td></tr></table>
+</div>
+</div><h3 id="配置">配置</h3>
+<p>平常我都是在 VSCode 搭配 TeX Workshop 擴充功能來寫 LaTeX 並自動編譯，但 TinyTeX 是用 R 語言安裝的，編譯程式不能直接在環境變數中找到，要通過 R 去呼叫腳本。</p>
+<p>File &gt; Settings 搜尋 <code>latex-workshop.latex.tools</code>，點編輯 <code>settings.json</code>。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/latex-workshop-setting-tools.png" alt="編輯 latex-workshop.latex.tools 設定"></p>
+<p>加入下面內容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;tinytex_xelatex&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;Rscript&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;args&#34;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&#34;-e&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;tinytex::xelatex(commandArgs(trailingOnly=TRUE)[1],clean=FALSE,engine_args=\&#34;-synctex=1\&#34;)&#34;</span><span class="p">,</span>
+            <span class="s2">&#34;%DOC_EXT%&#34;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>再來添加 Recipe，一樣搜尋 <code>latex-workshop.latex.recipes</code> 編輯 <code>settings.json</code> 加入下面內容：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;latex-workshop.latex.recipes&#34;</span><span class="err">:</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;xelatex (tinytex)&#34;</span><span class="p">,</span>
+        <span class="nt">&#34;tools&#34;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="s2">&#34;tinytex_xelatex&#34;</span>
+        <span class="p">]</span>
+    <span class="p">}</span>
+<span class="p">]</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>重啟 VSCode，點選側邊欄的 LaTeX Workshop 界面就會出現剛才新增的 Recipe，點擊編譯一次成功後，以後儲存 TeX 檔就會自動產生 PDF 了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/tex-workshop-recipes.png" alt="TeX Workshop 裡新增的 Recipe"></p>
+<p>在折騰的時候偶然看見 LaTeX Workshop 的<a href="https://github.com/openhsr/LaTeX-Workshop">官方文件</a>中是這麼形容 TinyTeX 的，意思是喜歡冒險的可以裝 TinyTeX？今天安裝 TinyTeX 確實挺折騰的，官方文件寫得很簡單，但實際上遇到不少問題，當然有一部分是我擅作主張安裝 AUR 裡的包造成的，官方也沒寫如何在 VSCode 配置，研究了一會才搞定，反正大家按我的教學走應該不會出什麼大問題。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/latex-workshop-readme.png" alt="LaTeX Workshop README"></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://www.ruin-of-future.online/0xa8/tinytex-latex-workshop-how-to-use-the-light-weighted-latex/">[TinyTex &amp; LaTex Workshop] 最轻量LaTex的正确打开方式 – 未来遗迹</a></li>
+<li><a href="https://yihui.org/tinytex/cn/">TinyTeX 中文文档 - Yihui Xie | 谢益辉</a></li>
+<li><a href="https://zhuanlan.zhihu.com/p/32119213">TinyTeX，轻量级TeX Live - 知乎</a></li>
+<li><a href="https://my.oschina.net/u/4891219/blog/4814472">2020年12月16日.精简版LaTeX——TinyTeX的从“零”开始的所有安装步骤（R语言+RStudio编译器+RMarkdown、TinyTeX库） - 佐佑思维的个人空间 - OSCHINA - 中文开源技术交流社区</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/R">R - ArchWiki</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-03-20
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/latex/">LaTeX</a>
+          <a href="/tags/tinytex/">TinyTeX</a>
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/r/">R</a>
+          <a href="/tags/arch-linux/">Arch Linux</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/lenovo-xiaoxin-pro-13-unbox/">
+            <span class="next-text nav-default">聯想小新 Pro 13 AMD 版開箱</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

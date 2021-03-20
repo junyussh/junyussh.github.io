@@ -6,7 +6,18 @@
     <description>Recent content in Linux on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 19 Oct 2020 18:27:13 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Mar 2021 17:10:48 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境</title>
+      <link>https://junyussh.github.io/p/arch-linux-install-tinytex/</link>
+      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/arch-linux-install-tinytex/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/banner.png&#34; alt=&#34;TinyTeX + VSCode&#34;&gt;&lt;/p&gt;
+&lt;p&gt;LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。&lt;/p&gt;
+&lt;p&gt;TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>如何在 Linux 中安裝 Oh My Zsh</title>
       <link>https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/</link>

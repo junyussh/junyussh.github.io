@@ -6,7 +6,61 @@
     <description>Recent content in Tags on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Tue, 16 Feb 2021 17:34:00 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 20 Mar 2021 17:10:48 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Arch Linux</title>
+      <link>https://junyussh.github.io/tags/arch-linux/</link>
+      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/arch-linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LaTeX</title>
+      <link>https://junyussh.github.io/tags/latex/</link>
+      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://junyussh.github.io/tags/linux/</link>
+      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>R</title>
+      <link>https://junyussh.github.io/tags/r/</link>
+      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/r/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>TinyTeX</title>
+      <link>https://junyussh.github.io/tags/tinytex/</link>
+      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/tinytex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>教學</title>
+      <link>https://junyussh.github.io/tags/%E6%95%99%E5%AD%B8/</link>
+      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/%E6%95%99%E5%AD%B8/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>AMD</title>
       <link>https://junyussh.github.io/tags/amd/</link>
@@ -44,24 +98,6 @@
     </item>
     
     <item>
-      <title>Arch Linux</title>
-      <link>https://junyussh.github.io/tags/arch-linux/</link>
-      <pubDate>Mon, 19 Oct 2020 18:27:13 +0800</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/arch-linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://junyussh.github.io/tags/linux/</link>
-      <pubDate>Mon, 19 Oct 2020 18:27:13 +0800</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>oh-my-zsh</title>
       <link>https://junyussh.github.io/tags/oh-my-zsh/</link>
       <pubDate>Mon, 19 Oct 2020 18:27:13 +0800</pubDate>
@@ -76,15 +112,6 @@
       <pubDate>Mon, 19 Oct 2020 18:27:13 +0800</pubDate>
       
       <guid>https://junyussh.github.io/tags/zsh/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>教學</title>
-      <link>https://junyussh.github.io/tags/%E6%95%99%E5%AD%B8/</link>
-      <pubDate>Mon, 19 Oct 2020 18:27:13 +0800</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/%E6%95%99%E5%AD%B8/</guid>
       <description></description>
     </item>
     
