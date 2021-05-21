@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="前幾天的每日一題，結果光寫題解寫了三天…，這題本來想用動態規劃解，但沒做出來，看題解發現要用互斥或性質來解，在紙上證明了好久才搞懂原理，寫一篇文章記錄一下。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.82.0 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor" />
+<meta property="og:description" content="前幾天的每日一題，結果光寫題解寫了三天…，這題本來想用動態規劃解，但沒做出來，看題解發現要用互斥或性質來解，在紙上證明了好久才搞懂原理，寫一篇文章記錄一下。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-05-21T16:19:37&#43;00:00" />
+<meta property="article:modified_time" content="2021-05-21T16:19:37&#43;00:00" />
+
+<meta itemprop="name" content="LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor">
+<meta itemprop="description" content="前幾天的每日一題，結果光寫題解寫了三天…，這題本來想用動態規劃解，但沒做出來，看題解發現要用互斥或性質來解，在紙上證明了好久才搞懂原理，寫一篇文章記錄一下。"><meta itemprop="datePublished" content="2021-05-21T16:19:37&#43;00:00" />
+<meta itemprop="dateModified" content="2021-05-21T16:19:37&#43;00:00" />
+<meta itemprop="wordCount" content="2016">
+<meta itemprop="keywords" content="LeetCode,題解,C&#43;&#43;," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor"/>
+<meta name="twitter:description" content="前幾天的每日一題，結果光寫題解寫了三天…，這題本來想用動態規劃解，但沒做出來，看題解發現要用互斥或性質來解，在紙上證明了好久才搞懂原理，寫一篇文章記錄一下。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-05-21 </span>
+        <div class="post-category">
+            <a href="/categories/leetcode/"> LeetCode </a>
+            <a href="/categories/%E9%A1%8C%E8%A7%A3/"> 題解 </a>
+            </div>
+          <span class="more-meta"> 約 2016 字 </span>
+          <span class="more-meta"> 預計閱讀 5 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#題目描述">題目描述</a></li>
+    <li><a href="#解題分析">解題分析</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>前幾天的每日一題，結果光寫題解寫了三天…，這題本來想用動態規劃解，但沒做出來，看題解發現要用互斥或性質來解，在紙上證明了好久才搞懂原理，寫一篇文章記錄一下。</p>
+<h2 id="題目描述">題目描述</h2>
+<p>給一個整數陣列 <code>arr</code>，其中選出三個索引值 <code>i</code>、<code>j</code>、<code>k</code>，其中 <code>(0 &lt;= i &lt; j &lt;= k &lt; arr.length)</code>。</p>
+<p><code>a</code> 和 <code>b</code> 定義如下：</p>
+<ul>
+<li><code>a = arr[i] ^ arr[i + 1] ^ ... ^ arr[j - 1]</code></li>
+<li><code>b = arr[j] ^ arr[j + 1] ^ ... ^ arr[k]</code></li>
+</ul>
+<p>其中 <code>^</code> 符號表示互斥或(XOR)操作。</p>
+<p>返回使得 <code>a == b</code> 的三元組 <code>(i, j, k)</code> 數目。</p>
+<p><strong>範例 1</strong></p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-fallback" data-lang="fallback">Input: arr = [2,3,1,6,7]
+Output: 4
+Explanation: The triplets are (0,1,2), (0,2,2), (2,3,4) and (2,4,4)
+</code></pre></td></tr></table>
+</div>
+</div><p>範例解釋：</p>
+<ul>
+<li>當 <code>(i, j, k) = (0, 1, 2)</code> 時，$a = 2,\ b = 3 \oplus 1 = 2$ 符合 <code>a == b</code> 的條件</li>
+</ul>
+<h2 id="解題分析">解題分析</h2>
+<p>要解這題要先了解 XOR 的規則，下面給出 XOR 的真值表。</p>
+<table>
+<thead>
+<tr>
+<th>a</th>
+<th>b</th>
+<th>Output</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>0</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>0</td>
+<td>1</td>
+</tr>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>0</td>
+</tr>
+</tbody>
+</table>
+<p>由真值表可以觀察出 XOR 的規則，兩個輸入不同才為真。</p>
+<p>XOR 還有以下性質($\oplus$ 代表互斥或運算符)：</p>
+<ul>
+<li>$a \oplus a = 0$</li>
+<li>$a \oplus 0 = a$</li>
+<li>$a \oplus b = b \oplus a$</li>
+<li>$a \oplus (b \oplus c) = (a \oplus b) \oplus c$</li>
+</ul>
+<p>要求出題目要求區間 i, k 使得 a = b；因為 a = b，根據 $a \oplus a = 0$ 的性質，得出 $a \oplus b=0$，$arr[i]\oplus \cdots \oplus arr[j-1]\oplus arr[j] \oplus \cdots \oplus arr[k] = 0$，也就是說我們只需要從陣列中尋找一串<strong>連續的</strong>元素，他們的 XOR 結果為 0 即可找到我們要求的區間。</p>
+<p>區間裡的元素任意組合互斥或結果都是 0，證明如下（使用性質 $a \oplus (b \oplus c) = (a \oplus b) \oplus c$）：</p>
+<p>$$
+a = a_1 \oplus a_2 \<br>
+b = b_1 \oplus b_2 \<br>
+a = b \<br>
+a \oplus b = 0 \<br>
+(a_1 \oplus a 2) \oplus (b_1 \oplus b_2)=0 \<br>
+a_1 \oplus (a_2 \oplus b_1 \oplus b_2) = 0
+$$</p>
+<p>再來還需要看一個問題，假設陣列 <code>[1, 2, 5, 6]</code>，互斥或結果為 0，那麼可能的組合有以下幾種：</p>
+<ul>
+<li>$a = 1,\ b = 2 \oplus 5 \oplus 6=1$，<code>(i, j, k) = (0, 1, 3)</code></li>
+<li>$a = 1\oplus 2=3,\ b = 5 \oplus 6=3$，<code>(i, j, k) = (0, 2, 3)</code></li>
+<li>$a = 1 \oplus 2 \oplus 5=6, \ b=6$，<code>(i, j, k) = (0, 3, 3)</code></li>
+</ul>
+<p>由上可以觀察出當有 n 個連續元素的互斥或結果為 0，則有 $n-1$ 種組合。</p>
+<p>因為我們要求連續區間的互斥或結果，可以用陣列儲存連續計算的 XOR 值，這種陣列我們稱為前綴互斥或陣列。
+$$
+pXor[i] = pXor[i-1] \oplus arr[i]
+$$
+假設我們有陣列 <code>[1, 2, 3, 4, 7, 9]</code>，<code>pXor[i]</code> 表示前 i 項元素的互斥或結果。</p>
+<ul>
+<li>前 0 項互斥或值：$0$</li>
+<li>前 1 項互斥或值：$1$</li>
+<li>前 2 項互斥或值：$1 \oplus 2=3$</li>
+<li>前 3 項互斥或值：$1 \oplus 2 \oplus 3 = 0$</li>
+<li>前 4 項互斥或值：$1 \oplus 2 \oplus 3 \oplus 4 = 4$</li>
+<li>前 5 項互斥或值：$1 \oplus 2 \oplus 3 \oplus 4 \oplus 7 = 3$</li>
+<li>前 6 項互斥或值：$1 \oplus 2 \oplus 3 \oplus 4 \oplus 7 \oplus 9 = 10$</li>
+</ul>
+<p>前綴互斥或陣列 <code>pXor = [0, 1, 3, 0, 4, 3, 10]</code>。</p>
+<p>假設我們想要求第 3 項到第 6 項的互斥或值，不需要暴力計算 $3 \oplus 4 \oplus 7 \oplus 9=9$，只需要取 $pXor[2]=1 \oplus 2=3$ 和 $pXor[6]=1 \oplus 2 \oplus 3 \oplus 4 \oplus 7 \oplus 9 = 10$，並計算 $pXor[2]\oplus pXor[6]=9$；因為 $3 \oplus 4 \oplus 7 \oplus 9 = (1 \oplus 2) \oplus (1 \oplus 2 \oplus 3 \oplus 4 \oplus 7 \oplus 9)=9$，其中前兩項的 $1 \oplus 2$ 會和前六項的 $1 \oplus 2$ 抵消。</p>
+<p>所以我們只需要在互斥或陣列中找尋相同數字的元素 $pXor[i-1] == pXor[k]$，就可以得到區間 $i$ 和 $k$，前面說過當有 $n$ 個元素時，組合數為 $n-1$；那區間 $i \to k$ 則有 $k-i$ 種組合，每次找到 $pXor[i-1] == pXor[k]$ 就把 $k-i$ 加入 <code>ans</code> 變數，最後返回 <code>ans</code> 的值即可。</p>
+<p>按照上述邏輯可以寫出以下程式碼。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">countTriplets</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// 前綴互斥或陣列
+</span><span class="c1"></span>    <span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">pXor</span><span class="p">(</span><span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">()</span><span class="o">+</span><span class="mi">1</span><span class="p">);</span>
+    <span class="c1">// 前綴互斥或陣列第 0 項為 0，不寫這句也可以，因為 vector 初始化值為 0
+</span><span class="c1"></span>    <span class="n">pXor</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// 計算前綴互斥或陣列
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">pXor</span><span class="p">[</span><span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">]</span> <span class="o">=</span> <span class="n">pXor</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">^</span> <span class="n">arr</span><span class="p">[</span><span class="n">i</span><span class="p">];</span>
+    <span class="p">}</span>
+    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// 因為要判斷 pXor[i-1] == pXor[k]，如果 i 從 0 開始會越界
+</span><span class="c1"></span>    <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">i</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span> <span class="n">i</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">i</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="k">for</span><span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;=</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+        <span class="p">{</span>
+            <span class="k">if</span> <span class="p">(</span><span class="n">pXor</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">pXor</span><span class="p">[</span><span class="n">k</span><span class="p">])</span>
+            <span class="p">{</span>
+                <span class="n">ans</span> <span class="o">+=</span> <span class="n">k</span><span class="o">-</span><span class="n">i</span><span class="p">;</span>
+            <span class="p">}</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>時間複雜度：$O(n^2)$</li>
+<li>空間複雜度：$O(n)$</li>
+</ul>
+<p>上面我們只在乎 XOR 值出現的 index，那我們可以利用 Hash Table 記錄下來以降低時間複雜度，然後將互斥或值出現的次數也紀錄下來。假設區間 $[i,k]$ 的互斥或值為 0，那之前說過 $j$ 有 $k-i$ 種可能性。假設我們遍歷到 $k$ 時互斥或值為 $x$，而 $x$ 在 $k$ 之前出現過 4 次，分別出現在 $[i_1, i_2, i_3, i_4]$，那 $j$ 有 $(k-i_1)+(k-i_2)+(k-i_3)+(k-i_4)=4 \cdot k - (i_1+i_2+i_3+i_4)$ 種可能；由此我們可以得到下面公式 $count \cdot  k - index_sum$。</p>
+<p>範例：假設 <code>arr = [1, 1, 1, 1, 1]</code>，<code>pXor = [0, 1, 0, 1, 0, 1]</code>，注意第一個 0 不算在 k 裡面，假設 $k=3$(第三個 0)，在 k 之前出現過 2 次 0，分別位於 0 和 2，那麼有 $(k-0)+(k-2)=2\cdot k - (0+2)=4$ 種可能，並把每一步算出來的組合數加到 <code>ans</code> 中。</p>
+<p>重新優化的程式碼如下。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span><span class="lnt">25
+</span><span class="lnt">26
+</span><span class="lnt">27
+</span></code></pre></td>
+<td class="lntd">
+<pre class="chroma"><code class="language-cpp" data-lang="cpp"><span class="kt">int</span> <span class="nf">countTriplets</span><span class="p">(</span><span class="n">vector</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="o">&amp;</span><span class="n">arr</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="c1">// val 儲存連續互斥或結果
+</span><span class="c1"></span>    <span class="kt">int</span> <span class="n">ans</span> <span class="o">=</span> <span class="mi">0</span><span class="p">,</span> <span class="n">val</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+    <span class="c1">// count 記錄出現次數，total 儲存位置總和
+</span><span class="c1"></span>    <span class="n">unordered_map</span><span class="o">&lt;</span><span class="kt">int</span><span class="p">,</span> <span class="kt">int</span><span class="o">&gt;</span> <span class="n">count</span><span class="p">,</span> <span class="n">total</span><span class="p">;</span>
+    <span class="k">for</span> <span class="p">(</span><span class="kt">int</span> <span class="n">k</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span> <span class="n">k</span> <span class="o">&lt;</span> <span class="n">arr</span><span class="p">.</span><span class="n">size</span><span class="p">();</span> <span class="n">k</span><span class="o">++</span><span class="p">)</span>
+    <span class="p">{</span>
+        <span class="n">val</span> <span class="o">=</span> <span class="n">val</span> <span class="o">^</span> <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">];</span>
+        <span class="c1">// val 之前沒有出現過
+</span><span class="c1"></span>        <span class="k">if</span> <span class="p">(</span><span class="n">count</span><span class="p">.</span><span class="n">find</span><span class="p">(</span><span class="n">val</span><span class="p">)</span> <span class="o">==</span> <span class="n">count</span><span class="p">.</span><span class="n">end</span><span class="p">())</span>
+        <span class="p">{</span>
+            <span class="n">count</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+            <span class="n">total</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+        <span class="p">}</span>
+        <span class="k">else</span>
+        <span class="p">{</span>
+            <span class="c1">// 前面數學優化的結果：次數*k - 位置總和
+</span><span class="c1"></span>            <span class="n">ans</span> <span class="o">+=</span> <span class="n">count</span><span class="p">[</span><span class="n">val</span><span class="p">]</span> <span class="o">*</span> <span class="n">k</span> <span class="o">-</span> <span class="n">total</span><span class="p">[</span><span class="n">val</span><span class="p">];</span>
+        <span class="p">}</span>
+        <span class="c1">// val^arr[k] 是用來求前一項的連續互斥或值，這句的作用是把上一項的次數 +1，因為我們計算的時候不會採用當前項的次數
+</span><span class="c1"></span>        <span class="n">count</span><span class="p">[</span><span class="n">val</span> <span class="o">^</span> <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span><span class="o">++</span><span class="p">;</span>
+        <span class="c1">// 前一項對應的位置總和 +k，注意我們遍歷的時候 k = 0 時是從 pXor 的第二個元素開始的，所以往前一項加
+</span><span class="c1"></span>        <span class="n">total</span><span class="p">[</span><span class="n">val</span> <span class="o">^</span> <span class="n">arr</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span> <span class="o">+=</span> <span class="n">k</span><span class="p">;</span>
+    <span class="p">}</span>
+    <span class="k">return</span> <span class="n">ans</span><span class="p">;</span>
+<span class="p">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><ul>
+<li>時間複雜度：$O(n)$</li>
+<li>空間複雜度：$O(n)$</li>
+</ul>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/count-triplets-that-can-form-two-arrays-of-equal-xor/accept.png" alt="通過率"></p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor/solution/xin-shou-pian-qian-ru-shen-chu-xi-lie-1-cnk37/">新手篇 &ndash; 浅入深出系列1 - 形成两个异或相等数组的三元组数目 - 力扣（LeetCode）</a></li>
+<li><a href="https://leetcode-cn.com/problems/count-triplets-that-can-form-two-arrays-of-equal-xor/solution/shu-ju-jie-gou-he-suan-fa-wei-yun-suan-1-05h9/">【数据结构和算法】位运算1ms，击败了100%的用户 - 形成两个异或相等数组的三元组数目 - 力扣（LeetCode）</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-05-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/leetcode/">LeetCode</a>
+          <a href="/tags/%E9%A1%8C%E8%A7%A3/">題解</a>
+          <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/arch-linux-install-tinytex/">
+            <span class="next-text nav-default">Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

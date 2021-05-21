@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>題解 on 書術方隅</title>
+    <link>https://junyussh.github.io/tags/%E9%A1%8C%E8%A7%A3/</link>
+    <description>Recent content in 題解 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Fri, 21 May 2021 16:19:37 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/%E9%A1%8C%E8%A7%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor</title>
+      <link>https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/</link>
+      <pubDate>Fri, 21 May 2021 16:19:37 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/</guid>
+      <description>&lt;p&gt;前幾天的每日一題，結果光寫題解寫了三天…，這題本來想用動態規劃解，但沒做出來，看題解發現要用互斥或性質來解，在紙上證明了好久才搞懂原理，寫一篇文章記錄一下。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
