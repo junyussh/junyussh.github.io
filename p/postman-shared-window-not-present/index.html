@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/postman-shared-window-not-present/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,12 @@
 <meta property="og:description" content="最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/postman-shared-window-not-present/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-07-19T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-07-19T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-07-19T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-19T00:00:00+00:00" />
 
 <meta itemprop="name" content="Postman Shared window not present! 解決方法">
-<meta itemprop="description" content="最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但"><meta itemprop="datePublished" content="2018-07-19T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-07-19T00:00:00&#43;00:00" />
+<meta itemprop="description" content="最近滾完 Arch Linux，因為將近兩個月沒有滾，出現了一堆問題，好在詢問 Telegram 上的 Arch Linux 群組後成功將系統更新，軟體也升級到最新版，雖然整體煥然一新，但"><meta itemprop="datePublished" content="2018-07-19T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-19T00:00:00+00:00" />
 <meta itemprop="wordCount" content="224">
 <meta itemprop="keywords" content="Linux,Postman,筆記," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Postman Shared window not present! 解決方法"/>
@@ -157,21 +157,21 @@
 <p>一開始是點開應用程式啟動器的 Postman 捷徑沒有反應，後來在終端機輸入 <code>postman</code> 才出現錯誤訊息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ postman
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ postman
 Shared window not present!
 </code></pre></td></tr></table>
 </div>
 </div><p>至於解決方法很簡單，刪除 Postman 的 config 目錄就可以解決問題了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">rm -rf <span class="nv">$HOME</span>/.config/Postman
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">rm -rf <span class="nv">$HOME</span>/.config/Postman
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>

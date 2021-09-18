@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/how-to-use-aria2/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,13 +45,13 @@
 aria2 是一款用 C&#43;&#43; 開發的輕量級多協議續傳工具，不僅跨平台、佔用資源少，集種子、磁力、等協定於一身，還能像 IDM 一樣將檔案分割成多份，增加連線數來提昇下載速度，下載工具用這個就足夠了，會玩的人還會將 aria2 部署在資源少的 VPS 上，利用機房的大頻寬高速下載種子檔，本人在 Linux 就是使用 aria2 作為日常主力下載器，非常好用，本篇文章主要著重於教學 Linux 環境的使用方式，但 aria2 設定檔 Windows 通用。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/how-to-use-aria2/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-07-22T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-07-22T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2020-07-22T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-07-22T00:00:00+00:00" />
 
 <meta itemprop="name" content="aria2 小巧而強大的續傳下載軟體，支援 BT/Magnet">
 <meta itemprop="description" content="
-aria2 是一款用 C&#43;&#43; 開發的輕量級多協議續傳工具，不僅跨平台、佔用資源少，集種子、磁力、等協定於一身，還能像 IDM 一樣將檔案分割成多份，增加連線數來提昇下載速度，下載工具用這個就足夠了，會玩的人還會將 aria2 部署在資源少的 VPS 上，利用機房的大頻寬高速下載種子檔，本人在 Linux 就是使用 aria2 作為日常主力下載器，非常好用，本篇文章主要著重於教學 Linux 環境的使用方式，但 aria2 設定檔 Windows 通用。"><meta itemprop="datePublished" content="2020-07-22T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-07-22T00:00:00&#43;00:00" />
+aria2 是一款用 C&#43;&#43; 開發的輕量級多協議續傳工具，不僅跨平台、佔用資源少，集種子、磁力、等協定於一身，還能像 IDM 一樣將檔案分割成多份，增加連線數來提昇下載速度，下載工具用這個就足夠了，會玩的人還會將 aria2 部署在資源少的 VPS 上，利用機房的大頻寬高速下載種子檔，本人在 Linux 就是使用 aria2 作為日常主力下載器，非常好用，本篇文章主要著重於教學 Linux 環境的使用方式，但 aria2 設定檔 Windows 通用。"><meta itemprop="datePublished" content="2020-07-22T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-07-22T00:00:00+00:00" />
 <meta itemprop="wordCount" content="3410">
 <meta itemprop="keywords" content="aria2,BitTorrent,Magnet,Linux,Arch Linux,教學,筆記," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="aria2 小巧而強大的續傳下載軟體，支援 BT/Magnet"/>
@@ -202,31 +202,31 @@ aria2 是一款用 C&#43;&#43; 開發的輕量級多協議續傳工具，不僅�
 <h3 id="arch-linux">Arch Linux</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S aria2
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S aria2
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="ubuntudebian">Ubuntu/Debian</h3>
 <p>注意 apt 源裡的套件經常過於老舊，如果要使用最新版建議自己編譯。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install aria2
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install aria2
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="rhelcentosfedora">RHEL/CentOS/Fedora</h3>
 <p>需要安裝 epel 源才能安裝。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ yum install epel-release -y
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ yum install epel-release -y
 $ yum install aria2 -y
 </code></pre></td></tr></table>
 </div>
@@ -235,7 +235,7 @@ $ yum install aria2 -y
 <p>把下面內容儲存，啟動 aria2 時用 <code>--conf-path=</code> 參數來指定設定檔，預設設定檔路徑 <code>~/.config/aria2/aria2.conf</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">  1
+<pre tabindex="0" class="chroma"><code><span class="lnt">  1
 </span><span class="lnt">  2
 </span><span class="lnt">  3
 </span><span class="lnt">  4
@@ -337,7 +337,7 @@ $ yum install aria2 -y
 </span><span class="lnt">100
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="c1">## &#39;#&#39;開頭為註解內容，選項都有對應的說明，請根據需要修改 ##</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="c1">## &#39;#&#39;開頭為註解內容，選項都有對應的說明，請根據需要修改 ##</span>
 <span class="c1">## 註解選項填寫的是預設值，建議在需要修改時再取消註解  ##</span>
 
 <span class="c1">## 檔案儲存相關 ##</span>
@@ -445,46 +445,46 @@ $ yum install aria2 -y
 <h4 id="從-web-下載檔案">從 Web 下載檔案</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ aria2c http://example.org/mylinux.iso
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ aria2c http://example.org/mylinux.iso
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="使用兩個線程下載">使用兩個線程下載</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ aria2c -x2 http://a/f.iso
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ aria2c -x2 http://a/f.iso
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="下載種子">下載種子</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ aria2c http://example.org/mylinux.torrent
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ aria2c http://example.org/mylinux.torrent
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="從磁鏈下載種子">從磁鏈下載種子</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ aria2c <span class="s1">&#39;magnet:?xt=urn:btih:248D0A1CD08284299DE78D5C1ED359BB46717D8C&#39;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ aria2c <span class="s1">&#39;magnet:?xt=urn:btih:248D0A1CD08284299DE78D5C1ED359BB46717D8C&#39;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h4 id="從純文字檔中尋找-url-下載">從純文字檔中尋找 URL 下載</h4>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ aria2c -i uris.txt
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ aria2c -i uris.txt
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="webui">WebUI</h3>
@@ -509,10 +509,10 @@ $ yum install aria2 -y
 <p>一般修改 aria2 設定檔中的 <code>bt-tracker</code> 並重啟 aria2。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">bt-tracker</span><span class="o">=</span><span class="s">udp://tracker.coppersurfer.tk:6969/announce,http://tracker.internetwarriors.net:1337/announce,udp://tracker.opentrackr.org:1337/announce</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="na">bt-tracker</span><span class="o">=</span><span class="s">udp://tracker.coppersurfer.tk:6969/announce,http://tracker.internetwarriors.net:1337/announce,udp://tracker.opentrackr.org:1337/announce</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="腳本自動更新">腳本自動更新</h3>
@@ -521,7 +521,7 @@ $ yum install aria2 -y
 <p>腳本來源：<a href="https://stray.love/itshou-zha/wei-aria2-tian-jia-tracker-fu-wu-qi">天涼好個秋</a></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -533,7 +533,7 @@ $ yum install aria2 -y
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/sh
 </span><span class="cp"></span><span class="c1">#more trackers list, see https://github.com/ngosang/trackerslist</span>
 
 <span class="nv">tracker_url</span><span class="o">=</span><span class="s1">&#39;https://raw.githubusercontent.com/ngosang/trackerslist/master/trackers_all.txt&#39;</span>
@@ -551,7 +551,7 @@ $ yum install aria2 -y
 <p><code>User</code> 預設是 root，這裡需要修改為自己常用的用戶名稱，我的下載路徑設定在家目錄下，如果用 root 執行 aria2，下載的檔案權限只有 root 才能讀寫，為了方便存取檔案，所以我把執行用戶改成一般用戶。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -563,7 +563,7 @@ $ yum install aria2 -y
 </span><span class="lnt">10
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[Unit]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[Unit]</span>
 <span class="na">Description</span><span class="o">=</span><span class="s">Aria2 Service</span>
 <span class="na">After</span><span class="o">=</span><span class="s">network.target</span>
 
@@ -578,21 +578,21 @@ $ yum install aria2 -y
 </div><p>重新載入 daemon 後就可以啟動了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl daemon-reload
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl daemon-reload
 $ sudo systemctl start aria2
 </code></pre></td></tr></table>
 </div>
 </div><p>我自己習慣設成開機自啟動，想要下載的時候直接打開 AriaNg 就能開始下載。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl <span class="nb">enable</span> aria2
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo systemctl <span class="nb">enable</span> aria2
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>

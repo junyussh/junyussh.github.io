@@ -6,16 +6,7 @@
     <description>Recent content in C&#43;&#43; on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 20 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</title>
-      <link>https://junyussh.github.io/p/stirling-number/</link>
-      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/p/stirling-number/</guid>
-      <description>&lt;p&gt;這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。&lt;/p&gt;</description>
-    </item>
-    
+    <lastBuildDate>Wed, 19 Dec 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/categories/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>C&#43;&#43; string 型態轉 int</title>
       <link>https://junyussh.github.io/p/c-convert-string-type-to-int/</link>

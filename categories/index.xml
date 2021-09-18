@@ -179,24 +179,6 @@
     </item>
     
     <item>
-      <title>C&#43;&#43;</title>
-      <link>https://junyussh.github.io/categories/c&#43;&#43;/</link>
-      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/categories/c&#43;&#43;/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>離散數學</title>
-      <link>https://junyussh.github.io/categories/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/</link>
-      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/categories/%E9%9B%A2%E6%95%A3%E6%95%B8%E5%AD%B8/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>打包</title>
       <link>https://junyussh.github.io/categories/%E6%89%93%E5%8C%85/</link>
       <pubDate>Tue, 14 Jan 2020 00:00:00 +0000</pubDate>
@@ -274,6 +256,15 @@
       <pubDate>Tue, 25 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/categories/%E5%BD%B1%E9%9F%B3%E8%99%95%E7%90%86/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>C&#43;&#43;</title>
+      <link>https://junyussh.github.io/categories/c&#43;&#43;/</link>
+      <pubDate>Wed, 19 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/categories/c&#43;&#43;/</guid>
       <description></description>
     </item>
     

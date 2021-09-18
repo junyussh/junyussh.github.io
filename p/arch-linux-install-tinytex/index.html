@@ -25,7 +25,7 @@ TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/arch-linux-install-tinytex/" />
@@ -37,7 +37,7 @@ TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -47,14 +47,14 @@ LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的�
 TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/arch-linux-install-tinytex/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2021-03-20T17:10:48&#43;00:00" />
-<meta property="article:modified_time" content="2021-03-20T17:10:48&#43;00:00" />
+<meta property="article:published_time" content="2021-03-20T17:10:48+00:00" />
+<meta property="article:modified_time" content="2021-03-20T17:10:48+00:00" />
 
 <meta itemprop="name" content="Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境">
 <meta itemprop="description" content="
 LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。
-TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。"><meta itemprop="datePublished" content="2021-03-20T17:10:48&#43;00:00" />
-<meta itemprop="dateModified" content="2021-03-20T17:10:48&#43;00:00" />
+TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。"><meta itemprop="datePublished" content="2021-03-20T17:10:48+00:00" />
+<meta itemprop="dateModified" content="2021-03-20T17:10:48+00:00" />
 <meta itemprop="wordCount" content="1799">
 <meta itemprop="keywords" content="LaTeX,TinyTeX,Linux,R,Arch Linux,教學," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境"/>
@@ -175,16 +175,16 @@ TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究
 <p>TinyTeX 是用 R 語言編寫的，執行時需要依賴 R 語言環境。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pacman -S r
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pacman -S r
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝完成後輸入 <code>R</code> 確認是否安裝成功。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -204,7 +204,7 @@ TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究
 </span><span class="lnt">18
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ R
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ R
 R version 4.0.4 <span class="o">(</span>2021-02-15<span class="o">)</span> -- <span class="s2">&#34;Lost Library Book&#34;</span>
 Copyright <span class="o">(</span>C<span class="o">)</span> <span class="m">2021</span> The R Foundation <span class="k">for</span> Statistical Computing
 Platform: x86_64-pc-linux-gnu <span class="o">(</span>64-bit<span class="o">)</span>
@@ -231,18 +231,18 @@ R 是個合作計劃，有許多人為之做出了貢獻。
 <p>使用 <code>install.packages()</code> 函數時可能會報錯 <code>無法載入共享物件 '/usr/lib/R/library/tcltk/libs/tcltk.so'</code>，這是因為 <code>install.packages()</code> 需要用 tk 叫出 GUI 來選擇鏡像，安裝 <code>tk</code> 包就可以解決。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;tinytex&#39;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;tinytex&#39;</span><span class="p">)</span>
 <span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">::</span><span class="nf">install_tinytex</span><span class="p">()</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你使用非 root 用戶安裝，可能會出現以下提示，問你是否儲存到家目錄下，直接 Yes 就好。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -251,7 +251,7 @@ R 是個合作計劃，有許多人為之做出了貢獻。
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;tinytex&#39;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#39;tinytex&#39;</span><span class="p">)</span>
 <span class="n">Warning</span> <span class="n">in</span> <span class="nf">install.packages</span><span class="p">(</span><span class="s">&#34;tinytex&#34;</span><span class="p">)</span> <span class="o">:</span>
   <span class="s">&#39;lib = &#34;/usr/lib/R/library&#34;&#39;</span> <span class="n">is</span> <span class="n">not</span> <span class="n">writable</span>
 <span class="n">Would</span> <span class="n">you</span> <span class="n">like</span> <span class="n">to</span> <span class="n">use</span> <span class="n">a</span> <span class="n">personal</span> <span class="n">library</span> <span class="n">instead</span><span class="o">?</span> <span class="p">(</span><span class="n">yes</span><span class="o">/</span><span class="n">No</span><span class="o">/</span><span class="n">cancel</span><span class="p">)</span> <span class="n">y</span>
@@ -264,45 +264,45 @@ R 是個合作計劃，有許多人為之做出了貢獻。
 <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/tinytex-download.png" alt="選擇預編譯好的安裝檔"></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">:::</span><span class="nf">install_prebuilt</span><span class="p">(</span><span class="s">&#34;~/TinyTeX-1-v2021.03.tar.gz&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">:::</span><span class="nf">install_prebuilt</span><span class="p">(</span><span class="s">&#34;~/TinyTeX-1-v2021.03.tar.gz&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝完成後退出 R 交互界面(Ctrl+D)，編輯 <code>~/.bash_profile</code>，在環境變數裡加入 <code>~/bin</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/bin:<span class="nv">$PATH</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">export</span> <span class="nv">PATH</span><span class="o">=</span>~/bin:<span class="nv">$PATH</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>套用環境變數。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.bash_profile
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">source</span> ~/.bash_profile
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="更換-ctan-鏡像">更換 CTAN 鏡像</h2>
 <p>如果你在中國大陸使用 TinyTeX 的話建議你換鏡像來加速下載，雖然預設的鏡像是南方科技大學的，但不知道速度為什麼這麼慢，我換成上海交大鏡像站就快多了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">::</span><span class="nf">tlmgr_repo</span><span class="p">(</span><span class="s">&#34;https://mirrors.sjtug.sjtu.edu.cn/ctan/&#34;</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">::</span><span class="nf">tlmgr_repo</span><span class="p">(</span><span class="s">&#34;https://mirrors.sjtug.sjtu.edu.cn/ctan/&#34;</span><span class="p">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="測試編譯">測試編譯</h2>
 <p>先編寫一個 TeX 檔案進行編譯測試，並儲存為 <code>hello.tex</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -316,7 +316,7 @@ R 是個合作計劃，有許多人為之做出了貢獻。
 </span><span class="lnt">12
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-tex" data-lang="tex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>xeCJK<span class="nb">}</span>
 <span class="k">\usepackage</span><span class="nb">{</span>amsmath<span class="nb">}</span>
 <span class="k">\setCJKmainfont</span><span class="nb">{</span>Noto Serif CJK TC<span class="nb">}</span>
@@ -333,11 +333,11 @@ TinyTeX 測試。
 </div><p>開啟 R，並輸入下面指令。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;/home/chunyu/Sites/TeX&#34;</span><span class="p">)</span>  <span class="c1"># 設置 R 工作目錄</span>
+<pre tabindex="0" class="chroma"><code class="language-R" data-lang="R"><span class="o">&gt;</span> <span class="nf">setwd</span><span class="p">(</span><span class="s">&#34;/home/chunyu/Sites/TeX&#34;</span><span class="p">)</span>  <span class="c1"># 設置 R 工作目錄</span>
 <span class="o">&gt;</span> <span class="n">tinytex</span><span class="o">::</span><span class="nf">xelatex</span><span class="p">(</span><span class="s">&#34;hello.tex&#34;</span><span class="p">)</span> <span class="c1"># 用 xelatex 編譯</span>
 </code></pre></td></tr></table>
 </div>
@@ -350,10 +350,10 @@ TinyTeX 測試。
 <p>直接 Ctrl+P 輸入下面指令安裝或是在側邊欄 Extensions 頁面搜尋 LaTeX Workshop。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">ext install James-Yu.latex-workshop
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">ext install James-Yu.latex-workshop
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="配置">配置</h3>
@@ -363,7 +363,7 @@ TinyTeX 測試。
 <p>加入下面內容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -376,7 +376,7 @@ TinyTeX 測試。
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="err">:</span> <span class="p">[</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;latex-workshop.latex.tools&#34;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;tinytex_xelatex&#34;</span><span class="p">,</span>
         <span class="nt">&#34;command&#34;</span><span class="p">:</span> <span class="s2">&#34;Rscript&#34;</span><span class="p">,</span>
@@ -392,7 +392,7 @@ TinyTeX 測試。
 </div><p>再來添加 Recipe，一樣搜尋 <code>latex-workshop.latex.recipes</code> 編輯 <code>settings.json</code> 加入下面內容：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -402,7 +402,7 @@ TinyTeX 測試。
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;latex-workshop.latex.recipes&#34;</span><span class="err">:</span> <span class="p">[</span>
+<pre tabindex="0" class="chroma"><code class="language-json" data-lang="json"><span class="s2">&#34;latex-workshop.latex.recipes&#34;</span><span class="err">:</span> <span class="p">[</span>
     <span class="p">{</span>
         <span class="nt">&#34;name&#34;</span><span class="p">:</span> <span class="s2">&#34;xelatex (tinytex)&#34;</span><span class="p">,</span>
         <span class="nt">&#34;tools&#34;</span><span class="p">:</span> <span class="p">[</span>
@@ -453,7 +453,7 @@ TinyTeX 測試。
       <nav class="post-nav">
         <a class="prev" href="/p/count-triplets-that-can-form-two-arrays-of-equal-xor/">
             <i class="iconfont icon-left"></i>
-            <span class="prev-text nav-default">LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor</span>
+            <span class="prev-text nav-default">LeetCode.1442 Count Triplets That Can Form Two Arrays of Equal Xor</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
         <a class="next" href="/p/lenovo-xiaoxin-pro-13-unbox/">

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,12 @@
 <meta property="og:description" content="Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/use-spotify-in-terminal-with-mopidy-and-ncmpcpp/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2019-10-07T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2019-10-07T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2019-10-07T00:00:00+00:00" />
+<meta property="article:modified_time" content="2019-10-07T00:00:00+00:00" />
 
 <meta itemprop="name" content="Mopidy &#43; ncmpcpp 打造 Spotify 客戶端">
-<meta itemprop="description" content="Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的"><meta itemprop="datePublished" content="2019-10-07T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-10-07T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Photo by Abigail Keenan on StockSnap 你是否曾經想過在終端機聽 Spotify，本來以為 Spotify 只能在瀏覽器或是桌面客戶端使用，竟然還有這種方案，原本想說這方案可以替代 Linux 版的"><meta itemprop="datePublished" content="2019-10-07T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2019-10-07T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1789">
 <meta itemprop="keywords" content="Linux,軟體,教學,mpd,mopidy,ncmpcpp,terminal,影音播放," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Mopidy &#43; ncmpcpp 打造 Spotify 客戶端"/>
@@ -212,10 +212,10 @@
 <p>這裡只介紹 Arch Linux 的安裝方法，先把 Mopidy 和 ncmpcpp 裝好。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S mopidy ncmpcpp
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S mopidy ncmpcpp
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="設定">設定</h2>
@@ -223,53 +223,53 @@
 <p>將 <code>mopidy</code> 加入 <code>audio</code> 組。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo gpasswd -a mopidy audio
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo gpasswd -a mopidy audio
 </code></pre></td></tr></table>
 </div>
 </div><p>先建立一個範例設定檔。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mopidyctl config
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo mopidyctl config
 </code></pre></td></tr></table>
 </div>
 </div><p>如果建立途中發生 <code>使用者帳戶已逾期</code> 就更改 <code>mopidy</code> 使用者的過期日期為永不逾期，這個是大坑啊，找了好久資料才找到解決方法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo chage -E -1 mopidy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo chage -E -1 mopidy
 </code></pre></td></tr></table>
 </div>
 </div><p>設定檔的位置在 <code>/etc/mopidy/mopidy.conf</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/mopidy/mopidy.conf
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/mopidy/mopidy.conf
 </code></pre></td></tr></table>
 </div>
 </div><p>注意：設定檔修改後須重啟服務才會生效。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl restart mopidy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl restart mopidy
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="本機音樂瀏覽">本機音樂瀏覽</h3>
 <p>Mopidy 設定檔中的 <code>[file]</code>  區塊取消註解，在 <code>media_dirs</code> 裡設定你想要瀏覽的目錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -277,7 +277,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[file]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[file]</span>
 <span class="na">enabled</span> <span class="o">=</span> <span class="s">true</span>
 <span class="na">media_dirs</span> <span class="o">=</span> <span class="s">
 </span><span class="s">  $XDG_MUSIC_DIR|Music
@@ -289,17 +289,17 @@
 <p>安裝 Mopidy 的 Spotify 的擴充套件，Arch 已經放在 aur 裡了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S mopidy-spotify
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yay -S mopidy-spotify
 </code></pre></td></tr></table>
 </div>
 </div><p>加入 Spotify 模組的設定，比特率預設 <code>160</code>，嫌音質不夠高的話可以改成 <code>320</code>，<code>client_id</code> 和 <code>client_secret</code> 請從<a href="https://www.mopidy.com/authenticate/#spotify">這裡</a>獲取。</p>
 <p><strong>注意：Spotify 會員才能使用此模組</strong></p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -307,7 +307,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[spotify]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[spotify]</span>
 <span class="na">username</span> <span class="o">=</span> <span class="s">abc@example.com</span>
 <span class="na">password</span> <span class="o">=</span> <span class="s">123456</span>
 <span class="na">client_id</span> <span class="o">=</span> 
@@ -322,14 +322,14 @@
 <p>若要使用 PulseAudio 服務要先配置 PulseAudio 的 TCP Socket 監聽，編輯 <code>/etc/pulse/default.pa</code>，寫入下面這行。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span><span class="lnt">5
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="c1">### Network access (may be configured with paprefs, so leave this commented</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="c1">### Network access (may be configured with paprefs, so leave this commented</span>
 <span class="c1">### here if you plan to use paprefs)</span>
 <span class="c1">#load-module module-esound-protocol-tcp</span>
 <span class="na">load-module module-native-protocol-tcp auth-ip-acl</span><span class="o">=</span><span class="s">127.0.0.1</span>
@@ -339,23 +339,23 @@
 </div><p>然後 Mopidy 設定檔輸出設定指定剛才設置的 PulseAudio 端口。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[audio]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[audio]</span>
 <span class="na">output</span> <span class="o">=</span> <span class="s">pulsesink server=127.0.0.1</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>修改完設定後重啟 PulseAudio 和 Mopidy。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pulseaudio --kill
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pulseaudio --kill
 start-pulseaudio-x11
 sudo systemctl restart mopidy
 </code></pre></td></tr></table>
@@ -367,16 +367,16 @@ sudo systemctl restart mopidy
 <p>音樂可視化需要在 ncmpcpp 設定檔設定，先建立 config 資料夾。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkdir ~/.ncmpcpp
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkdir ~/.ncmpcpp
 </code></pre></td></tr></table>
 </div>
 </div><p>編輯 <code>~/.ncmpcpp/config</code> 寫入：</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -384,7 +384,7 @@ sudo systemctl restart mopidy
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="na">visualizer_output_name</span> <span class="o">=</span>                 <span class="s">&#34;FIFO&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="na">visualizer_output_name</span> <span class="o">=</span>                 <span class="s">&#34;FIFO&#34;</span>
 <span class="na">visualizer_in_stereo</span> <span class="o">=</span>                     <span class="s">&#34;no&#34;</span>
 <span class="na">visualizer_fifo_path</span> <span class="o">=</span>                     <span class="s">&#34;/tmp/mpd.fifo&#34;</span>
 <span class="na">visualizer_sync_interval</span> <span class="o">=</span>                 <span class="s">&#34;10&#34;</span>
@@ -395,20 +395,20 @@ sudo systemctl restart mopidy
 </div><p>然後新建 <code>/tmp/mpd.fifo</code>，這個檔案是類比輸出裝置的 buffer。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">mkfifo /tmp/mpd.fifo
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">mkfifo /tmp/mpd.fifo
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="cli-visualizer">cli-visualizer</h3>
 <p>用 ncmpcpp 內建的可視化界面常常出現 <code>Could not open file &quot;/tmp/mpd.fifo&quot; for writing</code> 的錯誤，所以我通常使用 cli-visulizer 來做音樂可視化，cli-visualizer 是 CLI 界面下的音樂可視化軟體，有多種可視化模式可以選擇，在 Arch 中一樣可以用 aur 安裝。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">yay -S cli-visualizer
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">yay -S cli-visualizer
 </code></pre></td></tr></table>
 </div>
 </div><p>這個工具可以讀取當前音源，並即時畫出可視化圖形，如果用 PulseAudio 輸出，電腦其他音源也會被繪製出來，安裝好後無須設定，在終端中輸入 <code>vis</code> 即可開啟，缺點是如果終端機字體設太大像素就會很少。</p>

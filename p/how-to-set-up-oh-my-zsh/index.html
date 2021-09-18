@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,13 +45,13 @@
 Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-10-19T18:27:13&#43;08:00" />
-<meta property="article:modified_time" content="2020-10-19T18:27:13&#43;08:00" />
+<meta property="article:published_time" content="2020-10-19T18:27:13+08:00" />
+<meta property="article:modified_time" content="2020-10-19T18:27:13+08:00" />
 
 <meta itemprop="name" content="如何在 Linux 中安裝 Oh My Zsh">
 <meta itemprop="description" content="
-Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。"><meta itemprop="datePublished" content="2020-10-19T18:27:13&#43;08:00" />
-<meta itemprop="dateModified" content="2020-10-19T18:27:13&#43;08:00" />
+Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。"><meta itemprop="datePublished" content="2020-10-19T18:27:13+08:00" />
+<meta itemprop="dateModified" content="2020-10-19T18:27:13+08:00" />
 <meta itemprop="wordCount" content="1083">
 <meta itemprop="keywords" content="Linux,Zsh,教學,oh-my-zsh,arch-linux," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="如何在 Linux 中安裝 Oh My Zsh"/>
@@ -182,10 +182,10 @@ Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，�
 <p>安裝 Oh My Zsh 前先確保系統有安裝 Zsh，可以用下面指令檢視當前使用的殼層(shell)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="nv">$SEHLL</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ <span class="nb">echo</span> <span class="nv">$SEHLL</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝 <code>zsh</code> 包。</p>
@@ -193,38 +193,38 @@ Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，�
 <p>Zsh 已經被 Ubuntu 收錄至官方儲存庫中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt update
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt update
 $ sudo apt install zsh
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="centos">CentOS</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum update
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo yum update
 $ sudo yum -y install zsh
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="arch-linux">Arch Linux</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S zsh
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S zsh
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝完成後輸入指令看已安裝的 Shell，如果最下方有出現 <code>zsh</code> 就表示安裝成功。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -235,7 +235,7 @@ $ sudo yum -y install zsh
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ cat /etc/shells
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ cat /etc/shells
 <span class="c1"># Pathnames of valid login shells.</span>
 <span class="c1"># See shells(5) for details.</span>
 
@@ -251,19 +251,19 @@ $ sudo yum -y install zsh
 <p>列出目前系統所有的殼層。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ chsh -l
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ chsh -l
 </code></pre></td></tr></table>
 </div>
 </div><p>選擇 Zsh 作為預設殼層。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ chsh -s <span class="k">$(</span>/usr/bin/zsh<span class="k">)</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ chsh -s <span class="k">$(</span>/usr/bin/zsh<span class="k">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>然後重啟終端機看設定有沒有生效。</p>
@@ -272,29 +272,29 @@ $ sudo yum -y install zsh
 <h3 id="curl">curl</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sh -c <span class="s2">&#34;</span><span class="k">$(</span>curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="wget">wget</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sh -c <span class="s2">&#34;</span><span class="k">$(</span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sh -c <span class="s2">&#34;</span><span class="k">$(</span>wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh<span class="k">)</span><span class="s2">&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="設定">設定</h2>
 <p>Zsh 設定檔位於家目錄下，名為 <code>.zshrc</code>，環境變數的設定也寫在這個檔案裡，我們來設定一下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ vim ~/.zshrc
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ vim ~/.zshrc
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="選擇主題">選擇主題</h3>
@@ -302,22 +302,22 @@ $ sudo yum -y install zsh
 <p>當你選好主題後，修改 <code>~/.zshrc</code> 的環境變數 <code>ZSH_THEME</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;robbyrussell&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;robbyrussell&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p><strong>注意：有些主題(如：agnoster)需要安裝 <a href="https://github.com/powerline/fonts">Powerline Fonts</a> 才能正常顯示字體。</strong></p>
 <h3 id="powerline-字體安裝">Powerline 字體安裝</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install fonts-powerline <span class="c1"># Ubuntu/Debian</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo apt-get install fonts-powerline <span class="c1"># Ubuntu/Debian</span>
 $ sudo dnf install powerline-fonts <span class="c1"># Fedora/RHEL</span>
 $ sudo pacman -S powerline-fonts <span class="c1"># Arch Linux</span>
 </code></pre></td></tr></table>
@@ -325,22 +325,22 @@ $ sudo pacman -S powerline-fonts <span class="c1"># Arch Linux</span>
 </div><p>如果你希望生活中多點變化可以選擇隨機主題，每次啟動 zsh 時電腦會隨機幫你挑選一款主題。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;random&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME</span><span class="o">=</span><span class="s2">&#34;random&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>也可以從指定的主題列表中隨機選取。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME_RANDOM_CANDIDATES</span><span class="o">=(</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">ZSH_THEME_RANDOM_CANDIDATES</span><span class="o">=(</span>
   <span class="s2">&#34;robbyrussell&#34;</span>
   <span class="s2">&#34;agnoster&#34;</span>
 <span class="o">)</span>
@@ -352,7 +352,7 @@ $ sudo pacman -S powerline-fonts <span class="c1"># Arch Linux</span>
 <p>修改 <code>~/.zshrc</code>，修改 <code>plugins</code> 的地方，<code>plugins</code> 是個清單，應該長的像下面這樣。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -363,7 +363,7 @@ $ sudo pacman -S powerline-fonts <span class="c1"># Arch Linux</span>
 </span><span class="lnt">9
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">plugins</span><span class="o">=(</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">plugins</span><span class="o">=(</span>
   git
   bundler
   dotenv
@@ -378,10 +378,10 @@ $ sudo pacman -S powerline-fonts <span class="c1"># Arch Linux</span>
 <p>基本上要用什麼外掛就看自己的需求，我用的外掛也很少，只有下面幾個。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">plugins</span><span class="o">=(</span>git extract cp torrent<span class="o">)</span>
+<pre tabindex="0" class="chroma"><code class="language-shell" data-lang="shell"><span class="nv">plugins</span><span class="o">=(</span>git extract cp torrent<span class="o">)</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>強烈推薦 <code>extract</code> 外掛，只需要一句 <code>extract xxx.zip</code> 就能解壓縮各種格式的壓縮檔，非常方便，當然你系統也要安裝相應的解壓縮工具，只是 <code>extract</code> 幫你做 alias 了；自從有了 <code>extract</code>，我就不記解壓縮指令了 (不良示範請勿學習)。</p>

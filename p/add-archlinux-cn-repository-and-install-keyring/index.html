@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -49,16 +49,16 @@ Photo by Jametlene Reskp on Unsplash
 Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/add-archlinux-cn-repository-and-install-keyring/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-02-06T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-02-06T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2020-02-06T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-06T00:00:00+00:00" />
 
 <meta itemprop="name" content="Arch Linux 新增 CN 源及 GPG 金鑰匯入問題解決">
 <meta itemprop="description" content="
 
 Photo by Jametlene Reskp on Unsplash
 
-Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。"><meta itemprop="datePublished" content="2020-02-06T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-02-06T00:00:00&#43;00:00" />
+Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。"><meta itemprop="datePublished" content="2020-02-06T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-02-06T00:00:00+00:00" />
 <meta itemprop="wordCount" content="716">
 <meta itemprop="keywords" content="Linux,Arch Linux,GPG,pacman,Arch Linux CN," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arch Linux 新增 CN 源及 GPG 金鑰匯入問題解決"/>
@@ -177,55 +177,55 @@ Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上
 <p>平常我常用中科大的源，我這裡用中國移動連線速度最快，但偶爾會連不上。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
 <span class="na">Server</span> <span class="o">=</span> <span class="s">https://mirrors.ustc.edu.cn/archlinuxcn/$arch</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>清華的也不錯，都有在定期更新維護。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
 <span class="na">Server</span> <span class="o">=</span> <span class="s">https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>浙江大學，中國雙一流名校技術力應該還是可以的，跟清華應該不相上下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
 <span class="na">Server</span> <span class="o">=</span> <span class="s">https://mirrors.zju.edu.cn/archlinuxcn/$arch</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>重慶大學，當上面兩個源都掛掉時的選擇，不過我宿舍移動連線速度不佳。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
 <span class="na">Server</span> <span class="o">=</span> <span class="s">https://mirrors.cqu.edu.cn/archlinuxcn/$arch</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>xTom 在香港的鏡像，我回台灣時用這個，速度很快，在中國速度應該也很好。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
+<pre tabindex="0" class="chroma"><code class="language-ini" data-lang="ini"><span class="k">[archlinuxcn]</span>
 <span class="na">Server</span> <span class="o">=</span> <span class="s">https://mirror.xtom.com.hk/archlinuxcn/$arch</span>
 </code></pre></td></tr></table>
 </div>
@@ -233,20 +233,20 @@ Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上
 <p>編輯 <code>/etc/pacman.conf</code>，最下面加入剛才選擇的鏡像。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/pacman.conf
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/pacman.conf
 </code></pre></td></tr></table>
 </div>
 </div><p>然後同步軟體倉庫，並安裝 <code>archlinuxcn-keyring</code> 導入 GPG 金鑰。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Syy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -Syy
 sudo pacman -S archlinuxcn-keyring
 </code></pre></td></tr></table>
 </div>
@@ -255,7 +255,7 @@ sudo pacman -S archlinuxcn-keyring
 <p>第一種原因可能是系統時間有錯誤，輸入 <code>timedatectl</code> 來檢查系統時間是否正確。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -265,7 +265,7 @@ sudo pacman -S archlinuxcn-keyring
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>user@Arch ~<span class="o">]</span>$ timedatectl 
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>user@Arch ~<span class="o">]</span>$ timedatectl 
                Local time: Sun 2019-08-25 14:55:29 CST
            Universal time: Sun 2019-08-25 06:55:29 UTC
                  RTC time: Sun 2019-08-25 06:55:29
@@ -278,22 +278,22 @@ System clock synchronized: yes
 </div><p>若有時差可以試著用 NTP 來同步時間，關於時間修正的問題詳情請見，詳情請見 <a href="https://wiki.archlinux.org/index.php/System_time_(%E7%AE%80%E4%BD%93%E4%B8%AD%E6%96%87)">Arch Wiki</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo timedatectl set-ntp <span class="nb">true</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo timedatectl set-ntp <span class="nb">true</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>如果你時間沒有問題，卻還是發生這種問題，只能重建本機金鑰庫。(感謝 <a href="https://farseerfc.me/">fc 老師</a>提供此方法)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo rm -rf /etc/pacman.d/gnupg
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo rm -rf /etc/pacman.d/gnupg
 sudo pacman-key --init
 sudo pacman-key --populate archlinux
 sudo pacman-key --populate archlinuxcn
@@ -302,10 +302,10 @@ sudo pacman-key --populate archlinuxcn
 </div><p>最後重新安裝 <code>archlinuxcn-keyring</code> 套件應該就沒問題了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S archlinuxcn-keyring
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S archlinuxcn-keyring
 </code></pre></td></tr></table>
 </div>
 </div>
@@ -340,8 +340,8 @@ sudo pacman-key --populate archlinuxcn
             <span class="prev-text nav-default">Hexo 遷移 Hugo 記錄心得</span>
             <span class="prev-text nav-mobile">上一篇</span>
           </a>
-        <a class="next" href="/p/stirling-number/">
-            <span class="next-text nav-default">斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</span>
+        <a class="next" href="/p/arch-linux-package-quick-start/">
+            <span class="next-text nav-default">Arch Linux 第一次打包就上手</span>
             <span class="next-text nav-mobile">下一篇</span>
             <i class="iconfont icon-right"></i>
           </a>

@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/caddy-web-server/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,12 @@
 <meta property="og:description" content="Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&rsquo;s Encrypt 取得憑證，還會定期續約，真的是很" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/caddy-web-server/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-08-31T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-08-31T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-08-31T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-08-31T00:00:00+00:00" />
 
 <meta itemprop="name" content="用 Caddy 當伺服器，自動申請 SSL 證書">
-<meta itemprop="description" content="Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&rsquo;s Encrypt 取得憑證，還會定期續約，真的是很"><meta itemprop="datePublished" content="2018-08-31T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-08-31T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Caddy 是一套用 Golang 撰寫的伺服器，開源並支援各種平台，Caddy 主打讓每個網站都有 SSL 憑證，使用 Caddy 架設網站會自動從 Let&rsquo;s Encrypt 取得憑證，還會定期續約，真的是很"><meta itemprop="datePublished" content="2018-08-31T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-08-31T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1128">
 <meta itemprop="keywords" content="" /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="用 Caddy 當伺服器，自動申請 SSL 證書"/>
@@ -171,36 +171,36 @@
 <p>Run 一下 <code>caddy</code> 看有沒有安裝成功，預設會監聽 <code>2015</code> Port，到瀏覽器輸入 <code>http://localhost:2015</code> 應該會出現 <code>404 not found</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">caddy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">caddy
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="設定">設定</h2>
 <p>Caddy 的設定檔名稱預設為 <code>Caddyfile</code>，可以在執行 Caddy 時加入參數指定設定檔路徑，否則會使用當前目錄下的 <code>Caddyfile</code> 作為設定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">caddy -conf<span class="o">=</span>/etc/caddy/Caddyfile
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">caddy -conf<span class="o">=</span>/etc/caddy/Caddyfile
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="caddyfile">Caddyfile</h3>
 <p>第一行必須為網站的網址，如果是多個網址綁定在同個空間建議第二種寫法。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">localhost:80</span>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">localhost:80</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>以下示範簡易 <code>Caddyfile</code> 語法，設定不會太困難，有點像是 <code>nginx.conf</code> 的格式，詳細語法說明請參考<a href="https://caddyserver.com/docs">官方文件</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -208,7 +208,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">example.com</span> <span class="p">{</span>
+<pre tabindex="0" class="chroma"><code class="language-nginx" data-lang="nginx"><span class="k">example.com</span> <span class="p">{</span>
     <span class="kn">gzip</span> <span class="c1"># 啟用 gzip 壓縮功能
 </span><span class="c1"></span>    <span class="s">root</span> <span class="s">/var/www/</span> <span class="c1"># 指定網站根目錄
 </span><span class="c1"></span>    <span class="s">tls</span> <span class="s">abc@example.com</span> <span class="c1"># 設定 SSL 申請人信箱
@@ -221,12 +221,12 @@
 <p>每次啟動 Caddy 都要下指令，但要是離開 Session 就會停止了，當然你可以用 <code>nohup caddy &amp;</code> 來保持一直執行，我個人比較喜歡做成 system service 來管理。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo curl -s https://raw.githubusercontent.com/mholt/caddy/master/dist/init/linux-systemd/caddy.service -o /etc/systemd/system/caddy.service
 sudo systemctl daemon-reload <span class="c1"># 重新載入 service</span>
 sudo systemctl <span class="nb">enable</span> caddy <span class="c1"># 開機自動啟動</span>
 </code></pre></td></tr></table>
@@ -234,23 +234,23 @@ sudo systemctl <span class="nb">enable</span> caddy <span class="c1"># 開機自
 </div><p>根據 service 的設定，Caddy 設定檔會讀取 <code>/etc/caddy/Caddyfile</code>，要先建立 <code>/etc/caddy</code> 目錄，並將 <code>Caddyfile</code> 放在目錄裡。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /etc/caddy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /etc/caddy
 sudo touch /etc/caddy/Caddyfile
 </code></pre></td></tr></table>
 </div>
 </div><p>Caddy 會將 SSL 證書放在 <code>/etc/ssl/caddy</code>，要先建立此目錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /etc/ssl/caddy
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo mkdir /etc/ssl/caddy
 sudo chown -R www-data:root /etc/ssl/caddy
 sudo chmod <span class="m">0770</span> /etc/ssl/caddy
 </code></pre></td></tr></table>
@@ -259,18 +259,18 @@ sudo chmod <span class="m">0770</span> /etc/ssl/caddy
 <p>可以先啟動 Caddy，看 <code>status</code> 有沒有錯誤訊息。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start caddy <span class="c1"># 啟動 Caddy</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo systemctl start caddy <span class="c1"># 啟動 Caddy</span>
 sudo systemctl status caddy <span class="c1"># 檢視 Caddy 狀態</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>若出現 <code>active</code>，那恭喜你，已經成功部署 Caddy 了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -280,7 +280,7 @@ sudo systemctl status caddy <span class="c1"># 檢視 Caddy 狀態</span>
 </span><span class="lnt">8
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">● caddy.service - Caddy HTTP/2 web server
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">● caddy.service - Caddy HTTP/2 web server
    Loaded: loaded <span class="o">(</span>/etc/systemd/system/caddy.service<span class="p">;</span> disabled<span class="p">;</span> vendor preset: enabled<span class="o">)</span>
    Active: active <span class="o">(</span>running<span class="o">)</span> since Fri 2018-08-31 09:47:53 UTC<span class="p">;</span> 5s ago
      Docs: https://caddyserver.com/docs
@@ -294,21 +294,21 @@ sudo systemctl status caddy <span class="c1"># 檢視 Caddy 狀態</span>
 <p>如果在 GCP 架設 Caddy 的話要注意，GCP 因為安全考量，必須要用 root 身分執行 Caddy 才能監聽 <code>80</code> Port，所以要修改 <code>caddy.service</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/systemd/system/caddy.service
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo vim /etc/systemd/system/caddy.service
 </code></pre></td></tr></table>
 </div>
 </div><p>在 <code>User</code> 的地方改成 <code>root</code>，以 root 身分執行指令，一般的伺服器環境不需要做此設定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="p">;</span> User and group the process will run as.
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="p">;</span> User and group the process will run as.
 <span class="nv">User</span><span class="o">=</span>root
 <span class="nv">Group</span><span class="o">=</span>www-data
 </code></pre></td></tr></table>

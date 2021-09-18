@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/compress-photo-with-imagemagick/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,12 @@
 <meta property="og:description" content="在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/compress-photo-with-imagemagick/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-06-04T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-06-04T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-06-04T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-06-04T00:00:00+00:00" />
 
 <meta itemprop="name" content="在 Linux 下用 ImageMagick 批量壓縮圖片">
-<meta itemprop="description" content="在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，"><meta itemprop="datePublished" content="2018-06-04T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-06-04T00:00:00&#43;00:00" />
+<meta itemprop="description" content="在 Windows 裡，我通常都是使用 Caesium 這套軟體來批量壓縮圖片，在 Linux 中雖然可以用 Wine 來模擬 Caesium，但 ImageMagick 也能實現相同的效果，壓縮速度很快，幾乎在一瞬間，"><meta itemprop="datePublished" content="2018-06-04T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-06-04T00:00:00+00:00" />
 <meta itemprop="wordCount" content="460">
 <meta itemprop="keywords" content="Linux,script,圖像處理," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="在 Linux 下用 ImageMagick 批量壓縮圖片"/>
@@ -167,47 +167,47 @@
 <h3 id="arch-linux">Arch Linux</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S imagemagick
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S imagemagick
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="centosfedorarhel">CentOS/Fedora/RHEL</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo yum install imagemagick
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo yum install imagemagick
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="ubuntudebian">Ubuntu/Debian</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo  apt-get install imagemagick  
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo  apt-get install imagemagick  
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝完成後可以下命令看是否安裝成功。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">convert --version
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">convert --version
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="指令格式">指令格式</h2>
 <p>詳細用法可以輸入 <code>convert</code> 了解。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">convert <span class="o">[</span>options ...<span class="o">]</span> file <span class="o">[</span> <span class="o">[</span>options ...<span class="o">]</span> file ...<span class="o">]</span> <span class="o">[</span>options ...<span class="o">]</span> file
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">convert <span class="o">[</span>options ...<span class="o">]</span> file <span class="o">[</span> <span class="o">[</span>options ...<span class="o">]</span> file ...<span class="o">]</span> <span class="o">[</span>options ...<span class="o">]</span> file
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="壓縮圖片">壓縮圖片</h2>
@@ -215,38 +215,38 @@
 <p>輸出的檔案格式不能是 png，png 是無損格式，如果選 png，檔案不會壓縮，所以建議選用 jpg。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">convert a.png -quality <span class="m">80</span> a.jpg
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">convert a.png -quality <span class="m">80</span> a.jpg
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="批量處理">批量處理</h2>
 <p>Unix 系統中，bash 指令相當好用，組合一下就能做出強大的功能，如果想要把當前目錄的所有副檔名為 png 的圖片進行壓縮，可以用 <code>find</code> 來過濾檔案。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec convert <span class="o">{}</span> -quality <span class="m">80</span> <span class="o">{}</span>.jpg <span class="se">\;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec convert <span class="o">{}</span> -quality <span class="m">80</span> <span class="o">{}</span>.jpg <span class="se">\;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>但是檔名會變成 a.png.jpg，這時再用 <code>rename</code> 來批量重新命名就可以解決了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">rename .png.jpg .jpg *.png.jpg
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">rename .png.jpg .jpg *.png.jpg
 </code></pre></td></tr></table>
 </div>
 </div><p>如果壓縮後要刪除原始檔也可以用 <code>find</code> 解決。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec rm <span class="o">{}</span> <span class="se">\;</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">find *.png -exec rm <span class="o">{}</span> <span class="se">\;</span>
 </code></pre></td></tr></table>
 </div>
 </div>

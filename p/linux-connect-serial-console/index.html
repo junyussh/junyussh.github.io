@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/linux-connect-serial-console/" />
@@ -36,7 +36,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -45,13 +45,13 @@
 有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/linux-connect-serial-console/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-07-26T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-07-26T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-07-26T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-07-26T00:00:00+00:00" />
 
 <meta itemprop="name" content="Linux 下用 screen 連接 Serial Port(RS232)">
 <meta itemprop="description" content="
-有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。"><meta itemprop="datePublished" content="2018-07-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-07-26T00:00:00&#43;00:00" />
+有在做嵌入式系統平常應該都在 Windows 下用 Putty 之類的工具來連接 RS232 序列埠，如果開發環境在 Linux 的話，要連接系統還要切到 Windows 操作豈不是太不方便了，經過一番搜尋，總算找到在 Linux 也能優雅連接 RS232 的方式。"><meta itemprop="datePublished" content="2018-07-26T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-07-26T00:00:00+00:00" />
 <meta itemprop="wordCount" content="469">
 <meta itemprop="keywords" content="Linux,screen,console,tty,教學,筆記,RS232," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Linux 下用 screen 連接 Serial Port(RS232)"/>
@@ -164,16 +164,16 @@
 <p>在 Windows 下，使用裝置管理員就能查詢序列埠，在 Linux 下，先用 <code>dmesg</code> 來查詢 tty 連接記錄。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">dmesg <span class="p">|</span> grep tty
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">dmesg <span class="p">|</span> grep tty
 </code></pre></td></tr></table>
 </div>
 </div><p>會印出類似 log 的東西。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -182,7 +182,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>    0.000000<span class="o">]</span> console <span class="o">[</span>tty0<span class="o">]</span> enabled
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>    0.000000<span class="o">]</span> console <span class="o">[</span>tty0<span class="o">]</span> enabled
 <span class="o">[</span>    0.363187<span class="o">]</span> 0000:00:16.3: ttyS0 at I/O 0x60b0 <span class="o">(</span><span class="nv">irq</span> <span class="o">=</span> 19, <span class="nv">base_baud</span> <span class="o">=</span> 115200<span class="o">)</span> is a 16550A
 <span class="o">[</span>70780.799601<span class="o">]</span> usb 1-1.2: pl2303 converter now attached to ttyUSB0
 <span class="o">[</span>70820.199828<span class="o">]</span> pl2303 ttyUSB0: pl2303 converter now disconnected from ttyUSB0
@@ -195,10 +195,10 @@
 <p>如果你是直接插 USB 來連接的話可以執行下這個指令來查詢。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">ls /dev/ttyUSB*
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ls /dev/ttyUSB*
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="serial-連接">Serial 連接</h2>
@@ -207,37 +207,37 @@
 <h3 id="arch-linux">Arch Linux</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S screen
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S screen
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="ubuntu--debian">Ubuntu &amp; Debian</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install screen
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo apt-get install screen
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="redhat-centos-fedora">Redhat (CentOS, Fedora)</h3>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo yum install screen
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo yum install screen
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝完成後就可以下指令來連接 RS232 序列埠了，<code>speed</code> 通常是 <code>9600</code> 或 <code>115200</code>，最主要還是要看你那台設備的參數來輸。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-fallback" data-lang="fallback">sudo screen /dev/ttyUSB0 -s &lt;speed&gt;
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">sudo screen /dev/ttyUSB0 -s &lt;speed&gt;
 </code></pre></td></tr></table>
 </div>
 </div><p>記得要加 <code>sudo</code> 不然會跑出 <code>[*screen is terminating*]</code> 訊息。</p>

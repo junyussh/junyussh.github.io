@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/convert-tak-format-in-windows/" />
@@ -35,7 +35,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -43,12 +43,12 @@
 <meta property="og:description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/convert-tak-format-in-windows/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2018-12-25T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2018-12-25T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2018-12-25T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-12-25T00:00:00+00:00" />
 
 <meta itemprop="name" content="將 TAK 轉檔成其他格式(Windows)">
-<meta itemprop="description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了"><meta itemprop="datePublished" content="2018-12-25T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2018-12-25T00:00:00&#43;00:00" />
+<meta itemprop="description" content="Photo by Natalie Perea on Unsplash TAK 好像是近年興起的無損音樂格式，在拿到 TAK 格式的音檔後知道有這種格式，但是什麼軟體都開不了，竟然連 PotPlayer 這種萬能播放器也播不了，去查了"><meta itemprop="datePublished" content="2018-12-25T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2018-12-25T00:00:00+00:00" />
 <meta itemprop="wordCount" content="1000">
 <meta itemprop="keywords" content="教學,TAK,影音處理,Windows,ffmpeg,libav," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="將 TAK 轉檔成其他格式(Windows)"/>
@@ -178,37 +178,37 @@
 <p>載完 ffmpeg(或 libav) 後，可以加入環境變量，然後開啟終端機，輸入下面指令，指令的功能是先用 <code>takc</code> 解碼，再用 pipeline 串流給 libav 做轉檔(也可換成 ffmpeg)，輸出成 flac 格式。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">takc -d disc1.tak - <span class="p">|</span> avconv -i - disc1.flac
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">takc -d disc1.tak - <span class="p">|</span> avconv -i - disc1.flac
 </code></pre></td></tr></table>
 </div>
 </div><p>要是出現以下錯誤訊息，請把檔案名稱取的簡單一點，盡量不要有特殊字符，像是中文、日文，還有我發現別跟 <code>.cue</code> 檔放在同一目錄下執行指令，不然也會出錯。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>tak @ 03af5860<span class="o">]</span> unsupported codec: <span class="m">0</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>tak @ 03af5860<span class="o">]</span> unsupported codec: <span class="m">0</span>
 Error <span class="k">while</span> decoding stream <span class="c1">#0:0: Not yet implemented in FFmpeg, patches welcome</span>
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span> files with read/write errors.
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="m">1</span> files with read/write errors.
 </code></pre></td></tr></table>
 </div>
 </div><div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">pipe:: Invalid data found when processing input
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pipe:: Invalid data found when processing input
 </code></pre></td></tr></table>
 </div>
 </div><p>雖然 TAK 號稱擁有優秀的壓縮率，但轉成 flac 後也才多了 7 MB，真不知道把音樂弄成這格式的意義在哪裡？</p>

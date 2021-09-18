@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -49,16 +49,16 @@ Photo by Randy Fath on Unsplash
 之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/migrate-blog-framwork-from-hexo-to-hugo/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-02-13T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-02-13T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2020-02-13T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-02-13T00:00:00+00:00" />
 
 <meta itemprop="name" content="Hexo 遷移 Hugo 記錄心得">
 <meta itemprop="description" content="
 
 Photo by Randy Fath on Unsplash
 
-之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。"><meta itemprop="datePublished" content="2020-02-13T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-02-13T00:00:00&#43;00:00" />
+之前趁著中國國慶假期，把之前用 Hexo 架的部落格遷移到 Hugo 了，自從 Hugo 出來後就一直很想換靜態部落格框架，Hexo 原先編譯速度太慢，我採用 Gitlab CI 自動集成，每次 Push 就會集成一次，修改一個檔案，可能要花上三分鐘以上才會部署上去，還有複雜的 npm 生態，安裝那些模組也很耗時，種種原因讓我想從 Hexo 換成 Hugo，而 Hugo 號稱世界上最快的靜態網站產生器，使用 Golang 編寫，性能優秀，產生網站十分迅速，一存檔就完成重載，跟 Hexo 比起來真的快多了。"><meta itemprop="datePublished" content="2020-02-13T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-02-13T00:00:00+00:00" />
 <meta itemprop="wordCount" content="2531">
 <meta itemprop="keywords" content="Hexo,Hugo,Disqus,GitLab,Github,git,Google Analytics,記錄,佈景主題,Blog," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Hexo 遷移 Hugo 記錄心得"/>
@@ -193,20 +193,20 @@ Photo by Randy Fath on Unsplash
 <p>Hugo 使用 Golang 撰寫，可編譯成二進制可執行檔，安裝起來也十分簡便，我使用的是 Arch Linux，<code>pacman</code> 一行指令直接搞定。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S hugo
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S hugo
 </code></pre></td></tr></table>
 </div>
 </div><p>然後用 Hugo 建立一個新網站。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">hugo new site blog
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">hugo new site blog
 <span class="nb">cd</span> blog
 </code></pre></td></tr></table>
 </div>
@@ -216,11 +216,11 @@ Photo by Randy Fath on Unsplash
 <p>安裝主題跟 Hexo 類似，把 Repo Clone 到 <code>themes</code> 就行了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> themes
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="nb">cd</span> themes
 git clone https://github.com/olOwOlo/hugo-theme-even.git even 
 </code></pre></td></tr></table>
 </div>
@@ -239,23 +239,23 @@ git clone https://github.com/olOwOlo/hugo-theme-even.git even
 <p>在 <code>public</code> 初始化 Git 倉庫，並加入遠端倉庫。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git init
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git init
 git add remote upstream git@github.com:&lt;username&gt;/&lt;username&gt;.github.io.git
 </code></pre></td></tr></table>
 </div>
 </div><p>如果原本的 Git 倉庫已經有內容，但你不想要這些檔案，你可以在 push 的時候加上 <code>-f</code> 參數，只有第一次需要這樣做，之後就不用了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">git add . <span class="c1"># 把 public 下所有檔案加入 git 倉庫</span>
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">git add . <span class="c1"># 把 public 下所有檔案加入 git 倉庫</span>
 git commit -m <span class="s2">&#34;migrate to Hugo&#34;</span>
 git push -f upstream master <span class="c1"># 第一次需要加 -f，因為倉庫有內容</span>
 </code></pre></td></tr></table>
@@ -263,7 +263,7 @@ git push -f upstream master <span class="c1"># 第一次需要加 -f，因為倉
 </div><p>可以寫一個 <code>deploy.sh</code> 來自動佈署，省去繁雜的指令，腳本內容參考自這個<a href="https://jdhao.github.io/2018/10/10/hexo_to_hugo">部落格</a>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -291,7 +291,7 @@ git push -f upstream master <span class="c1"># 第一次需要加 -f，因為倉
 </span><span class="lnt">26
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="cp">#!/bin/bash
 </span><span class="cp"></span>
 <span class="nb">echo</span> -e <span class="s2">&#34;\033[0;32mDeploying updates to GitHub...\033[0m&#34;</span>
 
@@ -322,10 +322,10 @@ git push upstream master
 </div><p>增加執行權限。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ chmod +x deploy.sh
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ chmod +x deploy.sh
 </code></pre></td></tr></table>
 </div>
 </div><p>當你完成一篇文章並準備發佈時，執行這個腳本就會產生靜態網頁檔並推送到 Github。</p>
@@ -336,11 +336,11 @@ git push upstream master
 <p>如果你使用非 Even 主題，可能要將 <code>post</code> 改成 <code>posts</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">permalinks</span><span class="p">]</span>
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="p">[</span><span class="nx">permalinks</span><span class="p">]</span>
   <span class="nx">post</span> <span class="p">=</span> <span class="s2">&#34;/p/:filename/&#34;</span>
 </code></pre></td></tr></table>
 </div>
@@ -361,10 +361,10 @@ git push upstream master
 <p><code>config.toml</code> 填寫 Disqus 的 short name。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">disqusShortname</span> <span class="p">=</span> <span class="s2">&#34;your-shortname&#34;</span>      <span class="c"># disqus_shortname</span>
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">disqusShortname</span> <span class="p">=</span> <span class="s2">&#34;your-shortname&#34;</span>      <span class="c"># disqus_shortname</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="js-轉址">JS 轉址</h3>
@@ -372,7 +372,7 @@ git push upstream master
 <p>這段程式碼用了 <a href="https://developer.mozilla.org/en-US/docs/Web/API/URL">URL API</a> 來解析 URL，把網址變成一個物件，將 host 改成現在的網址，傳輸協議也自動換成 SSL，並把物件內容轉換成字串，丟到 <code>window.location.href</code> 來轉址。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -381,7 +381,7 @@ git push upstream master
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
     <span class="c1">// redirect to new site
 </span><span class="c1"></span>    <span class="kd">var</span> <span class="nx">gitlab</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">URL</span><span class="p">(</span><span class="nb">window</span><span class="p">.</span><span class="nx">location</span><span class="p">);</span>
     <span class="nx">gitlab</span><span class="p">.</span><span class="nx">hostname</span> <span class="o">=</span> <span class="s2">&#34;junyussh.github.io&#34;</span><span class="p">;</span>
@@ -396,10 +396,10 @@ git push upstream master
 <p>獲得追蹤 ID 後，通常佈景主題可以設定追蹤 ID，像 Even 就能直接在 <code>config.toml</code> 設定，但好像 Even 主題有 Bug，實際測試並沒有加上 Google Analytics 程式碼(詳見下文)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s2">&#34;UA-XXXXXXXX-X&#34;</span>      <span class="c"># UA-XXXXXXXX-X</span>
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s2">&#34;UA-XXXXXXXX-X&#34;</span>      <span class="c"># UA-XXXXXXXX-X</span>
 </code></pre></td></tr></table>
 </div>
 </div><h3 id="search-console">Search Console</h3>
@@ -409,7 +409,7 @@ git push upstream master
 <p>驗證方式我採用 Google Analytics，因為我本來就有用 Google Analytics 分析服務，可以參考 Goolge 官方的教學<a href="https://developers.google.com/analytics/devguides/collection/analyticsjs/">文章</a>，把這段程式碼放到 <code>&lt;head&gt;</code> 裡。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -422,7 +422,7 @@ git push upstream master
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Google Analytics --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Google Analytics --&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
 <span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">i</span><span class="p">,</span><span class="nx">s</span><span class="p">,</span><span class="nx">o</span><span class="p">,</span><span class="nx">g</span><span class="p">,</span><span class="nx">r</span><span class="p">,</span><span class="nx">a</span><span class="p">,</span><span class="nx">m</span><span class="p">){</span><span class="nx">i</span><span class="p">[</span><span class="s1">&#39;GoogleAnalyticsObject&#39;</span><span class="p">]</span><span class="o">=</span><span class="nx">r</span><span class="p">;</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">=</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">]</span><span class="o">||</span><span class="kd">function</span><span class="p">(){</span>
 <span class="p">(</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">].</span><span class="nx">q</span><span class="o">=</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">].</span><span class="nx">q</span><span class="o">||</span><span class="p">[]).</span><span class="nx">push</span><span class="p">(</span><span class="nx">arguments</span><span class="p">)},</span><span class="nx">i</span><span class="p">[</span><span class="nx">r</span><span class="p">].</span><span class="nx">l</span><span class="o">=</span><span class="mi">1</span><span class="o">*</span><span class="k">new</span> <span class="nb">Date</span><span class="p">();</span><span class="nx">a</span><span class="o">=</span><span class="nx">s</span><span class="p">.</span><span class="nx">createElement</span><span class="p">(</span><span class="nx">o</span><span class="p">),</span>
@@ -440,7 +440,7 @@ git push upstream master
 <p>在 <code>themes/even/layouts/partials/head.html</code> 添加了這段程式碼。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -457,7 +457,7 @@ git push upstream master
 </span><span class="lnt">15
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Analytics --&gt;</span>
+<pre tabindex="0" class="chroma"><code class="language-html" data-lang="html"><span class="c">&lt;!-- Analytics --&gt;</span>
 {{- if .Site.GoogleAnalytics -}}
 <span class="c">&lt;!--  {{ template &#34;_internal/google_analytics_async.html&#34; . }}--&gt;</span>
 <span class="p">&lt;</span><span class="nt">script</span><span class="p">&gt;</span>
@@ -477,10 +477,10 @@ git push upstream master
 </div><p><code>config.toml</code> 加入你的追蹤 ID 即可用上 Google Analytics。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s2">&#34;UA-XXXXXXXX-X&#34;</span>
+<pre tabindex="0" class="chroma"><code class="language-toml" data-lang="toml"><span class="nx">googleAnalytics</span> <span class="p">=</span> <span class="s2">&#34;UA-XXXXXXXX-X&#34;</span>
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="reference">Reference</h2>

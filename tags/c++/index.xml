@@ -8,21 +8,12 @@
     <language>tw</language>
     <lastBuildDate>Fri, 21 May 2021 16:19:37 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/tags/c++/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>LeetCode.1142 Count Triplets That Can Form Two Arrays of Equal Xor</title>
+      <title>LeetCode.1442 Count Triplets That Can Form Two Arrays of Equal Xor</title>
       <link>https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/</link>
       <pubDate>Fri, 21 May 2021 16:19:37 +0000</pubDate>
       
       <guid>https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/</guid>
       <description>&lt;p&gt;前幾天的每日一題，結果光寫題解寫了三天…，這題本來想用動態規劃解，但沒做出來，看題解發現要用互斥或性質來解，在紙上證明了好久才搞懂原理，寫一篇文章記錄一下。&lt;/p&gt;</description>
-    </item>
-    
-    <item>
-      <title>斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</title>
-      <link>https://junyussh.github.io/p/stirling-number/</link>
-      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/p/stirling-number/</guid>
-      <description>&lt;p&gt;這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。&lt;/p&gt;</description>
     </item>
     
     <item>

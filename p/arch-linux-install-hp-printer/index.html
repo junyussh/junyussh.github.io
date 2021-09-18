@@ -25,7 +25,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.88.1 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/arch-linux-install-hp-printer/" />
@@ -37,7 +37,7 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
@@ -49,16 +49,16 @@ Image by TeroVesalainen from Pixabay
 今天晚上我在幫我弟印作業，家裡書房用的那台老電腦不知道為什麼印多張印表機不吃紙，我弟又一直催，竟然叫一個 Linux 電腦去安裝印表機，當然為了 Arch Linux 的聲譽，我可以忍，身為 Arch Linux 的傳教士，我必須用行動去證明 Arch Linux 天下第一！！ 在 Arch Linux 上也能使用印表機。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/arch-linux-install-hp-printer/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-02-20T23:48:54&#43;08:00" />
-<meta property="article:modified_time" content="2020-02-20T23:48:54&#43;08:00" />
+<meta property="article:published_time" content="2020-02-20T23:48:54+08:00" />
+<meta property="article:modified_time" content="2020-02-20T23:48:54+08:00" />
 
 <meta itemprop="name" content="Arch Linux 使用 HP 印表機">
 <meta itemprop="description" content="
 
 Image by TeroVesalainen from Pixabay
 
-今天晚上我在幫我弟印作業，家裡書房用的那台老電腦不知道為什麼印多張印表機不吃紙，我弟又一直催，竟然叫一個 Linux 電腦去安裝印表機，當然為了 Arch Linux 的聲譽，我可以忍，身為 Arch Linux 的傳教士，我必須用行動去證明 Arch Linux 天下第一！！ 在 Arch Linux 上也能使用印表機。"><meta itemprop="datePublished" content="2020-02-20T23:48:54&#43;08:00" />
-<meta itemprop="dateModified" content="2020-02-20T23:48:54&#43;08:00" />
+今天晚上我在幫我弟印作業，家裡書房用的那台老電腦不知道為什麼印多張印表機不吃紙，我弟又一直催，竟然叫一個 Linux 電腦去安裝印表機，當然為了 Arch Linux 的聲譽，我可以忍，身為 Arch Linux 的傳教士，我必須用行動去證明 Arch Linux 天下第一！！ 在 Arch Linux 上也能使用印表機。"><meta itemprop="datePublished" content="2020-02-20T23:48:54+08:00" />
+<meta itemprop="dateModified" content="2020-02-20T23:48:54+08:00" />
 <meta itemprop="wordCount" content="958">
 <meta itemprop="keywords" content="Arch Linux,記錄,教學,Linux,HP,CUPS,印表機," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Arch Linux 使用 HP 印表機"/>
@@ -179,7 +179,7 @@ Image by TeroVesalainen from Pixabay
 <p>插入 USB 線後輸入 <code>lsusb</code> 看有沒有偵測到印表機裝置。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -192,7 +192,7 @@ Image by TeroVesalainen from Pixabay
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ lsusb
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ lsusb
 Bus <span class="m">003</span> Device 002: ID 8087:0024 Intel Corp. Integrated Rate Matching Hub
 Bus <span class="m">003</span> Device 001: ID 1d6b:0002 Linux Foundation 2.0 root hub
 Bus <span class="m">001</span> Device 031: ID 5986:02d5 Acer, Inc 
@@ -210,11 +210,11 @@ Bus <span class="m">002</span> Device 001: ID 1d6b:0002 Linux Foundation 2.0 roo
 <p>首先我們先安裝 <code>cups</code> 套件並啟動 <code>org.cups.cupsd.service</code>。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S cups
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S cups
 $ sudo systemctl start org.cups.cupsd.service
 </code></pre></td></tr></table>
 </div>
@@ -222,19 +222,19 @@ $ sudo systemctl start org.cups.cupsd.service
 <p>大多數的 HP 印表機都採用 <code>hplip</code> 套件，內含 HP 印表機的安裝設定程式。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S hplip
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo pacman -S hplip
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝完成後建議使用 HP Setup 程式來新增印表機。(詳見下文)</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo hp-setup -i
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo hp-setup -i
 </code></pre></td></tr></table>
 </div>
 </div><h2 id="web-管理界面">Web 管理界面</h2>
@@ -249,10 +249,10 @@ $ sudo systemctl start org.cups.cupsd.service
 <p>正當我心灰意冷，準備放棄時，發現論壇有人說執行 HP 的安裝程式來新增，後來看了一下 Arch Wiki，後面也寫要執行(不認真看 Arch Wiki 的下場)。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-bash" data-lang="bash">$ sudo hp-setup -i
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ sudo hp-setup -i
 </code></pre></td></tr></table>
 </div>
 </div><p>安裝程式會用對話式來詢問，自動下載 PPD(Postscript Printer Description) 描述檔，可能我之前新增印表機時沒有上傳描述檔。</p>
