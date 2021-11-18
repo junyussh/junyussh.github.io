@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="IFTTT 是 If This Then That 的縮寫，功能也如同字面意思，如果(If)發生了什麼，就(Then)去執行設定好的動作，能簡易的將各式各樣的服務串聯在一起，創造出屬於自己的獨特應用。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.3 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/ifttt-forward-twitter-likes-to-telegram/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram" />
+<meta property="og:description" content="IFTTT 是 If This Then That 的縮寫，功能也如同字面意思，如果(If)發生了什麼，就(Then)去執行設定好的動作，能簡易的將各式各樣的服務串聯在一起，創造出屬於自己的獨特應用。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/ifttt-forward-twitter-likes-to-telegram/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-08-30T12:49:40+08:00" />
+<meta property="article:modified_time" content="2021-08-30T12:49:40+08:00" />
+
+<meta itemprop="name" content="通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram">
+<meta itemprop="description" content="IFTTT 是 If This Then That 的縮寫，功能也如同字面意思，如果(If)發生了什麼，就(Then)去執行設定好的動作，能簡易的將各式各樣的服務串聯在一起，創造出屬於自己的獨特應用。"><meta itemprop="datePublished" content="2021-08-30T12:49:40+08:00" />
+<meta itemprop="dateModified" content="2021-08-30T12:49:40+08:00" />
+<meta itemprop="wordCount" content="971">
+<meta itemprop="keywords" content="IFTTT,Telegram,Twitter,Anime," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram"/>
+<meta name="twitter:description" content="IFTTT 是 If This Then That 的縮寫，功能也如同字面意思，如果(If)發生了什麼，就(Then)去執行設定好的動作，能簡易的將各式各樣的服務串聯在一起，創造出屬於自己的獨特應用。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-08-30 </span>
+        <div class="post-category">
+            <a href="/categories/ifttt/"> IFTTT </a>
+            <a href="/categories/telegram/"> Telegram </a>
+            <a href="/categories/twitter/"> Twitter </a>
+            </div>
+          <span class="more-meta"> 約 971 字 </span>
+          <span class="more-meta"> 預計閱讀 2 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#建立應用">建立應用</a></li>
+    <li><a href="#綁定-telegram">綁定 Telegram</a></li>
+    <li><a href="#修改推送內文產生預覽圖片">修改推送內文產生預覽圖片</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>IFTTT 是 If This Then That 的縮寫，功能也如同字面意思，如果(If)發生了什麼，就(Then)去執行設定好的動作，能簡易的將各式各樣的服務串聯在一起，創造出屬於自己的獨特應用。</p>
+<p>使用者可以建立一個 Applet，並設定當我在某個網站 A(Channel A) 執行了某項操作，然後觸發(trigger)另一個服務 B(Channel B) 執行某個反應動作(Action)，整個流稱稱為自動化服務(Recipes)。</p>
+<p>這個服務在 2011 年就上線了，之前是看見 DIYgod 用過才知道這個服務，他用 IFTTT 串聯 Twitter 和 Telegram。每當他發了推文，就會自動同步推文到他的個人頻道。我也有類似的需求，我平常逛 Twitter 有個習慣，如果看見好看的動漫插畫就會按下喜歡，另存圖片，並將 Twitter 網址發到我的個人頻道做備份，但每次複製網址貼到 Telegram 上顯得有些麻煩，如果是在手機上操作還得頻繁切換不同的 APP，為了解決這個問題才下定決心配一個 IFTTT 應用。</p>
+<h2 id="建立應用">建立應用</h2>
+<p>首先開啟 IFTTT 官網註冊一個帳號，登入後點擊右上角的 Create，免費帳號可以新建 3 個 Applets。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/ifttt-after-signup.png" alt=""></p>
+<p>Add 後搜尋並選擇 Twitter。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/if-add.png" alt=""></p>
+<p>觸發動作選 New liked tweet by you。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/choose-trigger.png" alt=""></p>
+<p>接著選擇觸發執行的動作。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/then-add.png" alt=""></p>
+<h2 id="綁定-telegram">綁定 Telegram</h2>
+<p>搜尋 Telegram 並選擇 Send message。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/choose-action.png" alt=""></p>
+<p>這時需要綁定 IFTTT 的 Telegram 機器人，點擊 @IFTTT 連結加入 Telegram 機器人。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/ifttt-bot.png" alt=""></p>
+<p>第一次使用的話會要你授權，點一下按鈕就可以了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/authorize-ifttt.png" alt=""></p>
+<p>如果你要綁定群組的話就發送 <code>/connect_group</code>，頻道則發送 <code>/connect_channel</code>。這裡示範頻道綁定方法，頻道 Subscriber 加入 IFTTT 機器人，記得給予管理員權限讓它可以發訊息。然後再發送頻道的 ID 給機器人就綁定成功了。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/channel-add-ifttt.png" alt=""></p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/connect-channel.png" alt=""></p>
+<h2 id="修改推送內文產生預覽圖片">修改推送內文產生預覽圖片</h2>
+<p>Target chat 記得選擇剛才綁定的群組/頻道。Message text 的地方要注意，<code>{{TweetEmbedCode}}</code> 的包含「內文+連結—用戶名+日期」，Telegram 會將連結後接的 <code>—</code> 視為連結的一部分，導致網址無法導向正確的推文而無法產生預覽。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/preview-link-error.png" alt=""></p>
+<p>建議改成以下形式。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">{{Text}}
+{{CreatedAt}}&lt;br&gt;
+via Twitter https://twitter.com/{{UserName}}
+</code></pre></td></tr></table>
+</div>
+</div><p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/send-message-setting.png" alt=""></p>
+<p><code>{{Text}}</code> 是推文的內文，<code>{{CreatedAt}}</code> 是發推日期，<code>{{UserName}}</code> 是推文的帳號 ID。</p>
+<p>接著就可以測試在推文點喜歡會不會發訊息到頻道裡，經過測試，IFTTT 延遲蠻高的，需要等一陣子才能看見發來的訊息。左邊是我之前手動複製的效果，右邊是 IFTTT 傳的效果。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/ifttt-forward-twitter-likes-to-telegram/before-after.png" alt=""></p>
+<p>IFTTT 還有很多玩法，通過 RSS 可以創造更多可玩性，比如當部落格發佈新文章時同時發佈到社交媒體、當對 Instagram 圖片點喜歡時，自動轉存到 Dropbox 等。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://diygod.me/2125/">论 IFTTT 的正确食用姿势 | Hi, DIYgod</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-08-30
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/ifttt/">IFTTT</a>
+          <a href="/tags/telegram/">Telegram</a>
+          <a href="/tags/twitter/">Twitter</a>
+          <a href="/tags/anime/">Anime</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/count-triplets-that-can-form-two-arrays-of-equal-xor/">
+            <span class="next-text nav-default">LeetCode.1442 Count Triplets That Can Form Two Arrays of Equal Xor</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

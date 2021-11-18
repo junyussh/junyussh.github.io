@@ -6,7 +6,16 @@
     <description>Recent content in Posts on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Fri, 21 May 2021 16:19:37 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 30 Aug 2021 12:49:40 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram</title>
+      <link>https://junyussh.github.io/p/ifttt-forward-twitter-likes-to-telegram/</link>
+      <pubDate>Mon, 30 Aug 2021 12:49:40 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/ifttt-forward-twitter-likes-to-telegram/</guid>
+      <description>&lt;p&gt;IFTTT 是 If This Then That 的縮寫，功能也如同字面意思，如果(If)發生了什麼，就(Then)去執行設定好的動作，能簡易的將各式各樣的服務串聯在一起，創造出屬於自己的獨特應用。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>LeetCode.1442 Count Triplets That Can Form Two Arrays of Equal Xor</title>
       <link>https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/</link>
@@ -123,6 +132,15 @@
 &lt;p&gt;Photo by &lt;a href=&#34;https://unsplash.com/@reskp?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Jametlene Reskp&lt;/a&gt; on &lt;a href=&#34;https://unsplash.com/s/photos/cardboard-box?utm_source=unsplash&amp;amp;utm_medium=referral&amp;amp;utm_content=creditCopyText&#34;&gt;Unsplash&lt;/a&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;Arch Linux 是擁有最多軟體包的發行版，使用者可以自行打包上傳到 AUR 源，官方的包也很豐富，但是官方源提供的中國軟體較為稀少，還好在中國也有一群熱愛 Arch Linux 的開發者幫我們打包了不少二進制軟體包，像是中國常用的 QQ、網易雲音樂、WPS 等等，只要新增 Arch Linux CN 源就可以輕鬆安裝這些軟體。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)</title>
+      <link>https://junyussh.github.io/p/stirling-number/</link>
+      <pubDate>Mon, 20 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/stirling-number/</guid>
+      <description>&lt;p&gt;這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間複雜度比較我想要用圖表來呈現，不過當時案牘勞形沒時間研究繪製方法，擱到了寒假才繼續完成。&lt;/p&gt;</description>
     </item>
     
     <item>

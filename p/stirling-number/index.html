@@ -16,7 +16,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
 
 
-<meta name="author" content="Chun Yu" /><meta name="description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。
+<meta name="author" content="Chun Yu" /><meta name="description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間複雜度比較我想要用圖表來呈現，不過當時案牘勞形沒時間研究繪製方法，擱到了寒假才繼續完成。
 " /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
 
 
@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.82.0 with theme even" />
+<meta name="generator" content="Hugo 0.89.3 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/stirling-number/" />
@@ -36,24 +36,24 @@
 
 
 
-<link href="/sass/main.min.39a3e01cac9473be1356f3572fcfe34b2e363efabad244a99a40f28a812c837e.css" rel="stylesheet">
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
 
 
 <meta property="og:title" content="斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)" />
-<meta property="og:description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。" />
+<meta property="og:description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間複雜度比較我想要用圖表來呈現，不過當時案牘勞形沒時間研究繪製方法，擱到了寒假才繼續完成。" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://junyussh.github.io/p/stirling-number/" /><meta property="article:section" content="post" />
-<meta property="article:published_time" content="2020-01-20T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2020-01-20T00:00:00&#43;00:00" />
+<meta property="article:published_time" content="2020-01-20T00:00:00+00:00" />
+<meta property="article:modified_time" content="2020-01-20T00:00:00+00:00" />
 
 <meta itemprop="name" content="斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)">
-<meta itemprop="description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。"><meta itemprop="datePublished" content="2020-01-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2020-01-20T00:00:00&#43;00:00" />
-<meta itemprop="wordCount" content="1507">
+<meta itemprop="description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間複雜度比較我想要用圖表來呈現，不過當時案牘勞形沒時間研究繪製方法，擱到了寒假才繼續完成。"><meta itemprop="datePublished" content="2020-01-20T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2020-01-20T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1510">
 <meta itemprop="keywords" content="離散數學,筆記,C&#43;&#43;,圖表,Stirling,Matplotlib,Python," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="斯特林(Stirling)數介紹與程式計算(C&#43;&#43;)"/>
-<meta name="twitter:description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。"/>
+<meta name="twitter:description" content="這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間複雜度比較我想要用圖表來呈現，不過當時案牘勞形沒時間研究繪製方法，擱到了寒假才繼續完成。"/>
 
 <!--[if lte IE 9]>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
@@ -135,7 +135,7 @@
             <a href="/categories/%E7%AD%86%E8%A8%98/"> 筆記 </a>
             <a href="/categories/c&#43;&#43;/"> C&#43;&#43; </a>
             </div>
-          <span class="more-meta"> 約 1507 字 </span>
+          <span class="more-meta"> 約 1510 字 </span>
           <span class="more-meta"> 預計閱讀 4 分鐘 </span>
         
       </div>
@@ -163,7 +163,7 @@
   </div>
 </div>
     <div class="post-content">
-      <p>這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間比較我想要用圖表來呈現，不過當時事物繁忙沒時間研究怎麼繪製，擱到了寒假才繼續完成。</p>
+      <p>這學期在學離散數學的代數與集合論，剛好上到了 Stirling 數這一章，老師便叫我們寫個程式來計算 Stirling 數並撰寫實驗報告，要用遞迴和非遞迴方式實現並比較兩者差異，計算公式本來就是遞推，所以用遞迴很好實現，主要是非遞迴的實現思路較為難想，當時其實已經把這篇文章的原型寫好了，最後的時間複雜度比較我想要用圖表來呈現，不過當時案牘勞形沒時間研究繪製方法，擱到了寒假才繼續完成。</p>
 <h2 id="概念">概念</h2>
 <p>Stirling 數是用來計算一個集合中可以分組的組合數量，公式如下，<code>n</code> 是集合中元素數量，<code>k</code> 是組合數，利用遞迴關係可以求出 Stirling 數。</p>
 <p>$$S(n, k)=S(n-1, k-1)+k \cdot S(n-1, k)$$</p>
@@ -248,7 +248,7 @@
 <p>用遞迴來寫是最直覺簡單的方式了，程式碼也較為簡單，遞迴中止的條件設 $k=1$ 和 $n=k$ 時返回 1，核心程式碼如下。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -261,7 +261,7 @@
 </span><span class="lnt">11
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="nf">s</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="nf">s</span><span class="p">(</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span>
 <span class="p">{</span>
     <span class="k">if</span><span class="p">(</span><span class="n">n</span> <span class="o">==</span> <span class="mi">1</span> <span class="o">||</span> <span class="n">n</span> <span class="o">==</span> <span class="n">k</span><span class="p">)</span>
     <span class="p">{</span>
@@ -280,7 +280,7 @@
 <p><code>times</code> 就是代表 $S(n-1, k)$ 前面的 $k$，預設值為 1。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -288,7 +288,7 @@
 </span><span class="lnt">6
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="nc">Stirling</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">struct</span> <span class="nc">Stirling</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">n</span><span class="p">;</span>
     <span class="kt">int</span> <span class="n">k</span><span class="p">;</span>
@@ -299,24 +299,24 @@
 </div><p>定義兩個堆疊，一個存結構，一個存算出來的值。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="n">stack</span><span class="o">&lt;</span><span class="n">Stirling</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="n">stack</span><span class="o">&lt;</span><span class="n">Stirling</span><span class="o">&gt;</span> <span class="n">s</span><span class="p">;</span>
 <span class="n">stack</span><span class="o">&lt;</span><span class="kt">int</span><span class="o">&gt;</span> <span class="n">ans</span><span class="p">;</span>
 </code></pre></td></tr></table>
 </div>
 </div><p>先輸入 n, k，並寫入到 Stirling 的結構裡推入推疊中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">;</span>
 <span class="n">scanf</span><span class="p">(</span><span class="s">&#34;%d %d&#34;</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">n</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">k</span><span class="p">);</span>
 <span class="n">Stirling</span> <span class="n">stirling</span> <span class="o">=</span> <span class="p">{</span><span class="n">n</span><span class="p">,</span> <span class="n">k</span><span class="p">,</span> <span class="mi">1</span><span class="p">};</span>
 <span class="n">s</span><span class="p">.</span><span class="n">push</span><span class="p">(</span><span class="n">stirling</span><span class="p">);</span>
@@ -325,7 +325,7 @@
 </div><p>接下來就是核心部份了，會先從 <code>s</code> 取堆疊頂端，看 <code>n</code>, <code>k</code> 是否符合條件(<code>n==1 || n==k</code>)，如果條件為真就在 <code>ans</code> 推入 <code>times</code> 的值並彈出 <code>s</code>，否則將 <code>s</code> 彈出，聲明兩個 <em>Stirling</em> 型態的結構 <code>new1</code> 和 <code>new2</code>，分別代表公式中的 $S(n-1, k-1)$ 和 $S(n-1, k)$ 並推入堆疊中，這步驟是為了將原本的 $S(n, k)$ 拆分成子問題，當條件符合中就會彈出 <code>s</code>，直到 <code>s</code> 為空迴圈終止，而拆分出來的子問題解答會存在 <code>ans</code> 堆疊中。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt"> 1
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
 </span><span class="lnt"> 2
 </span><span class="lnt"> 3
 </span><span class="lnt"> 4
@@ -344,7 +344,7 @@
 </span><span class="lnt">17
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">s</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
 <span class="p">{</span>
     <span class="n">Stirling</span> <span class="n">top</span><span class="p">,</span> <span class="n">new1</span><span class="p">,</span> <span class="n">new2</span><span class="p">;</span>
     <span class="n">top</span> <span class="o">=</span> <span class="n">s</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>
@@ -366,7 +366,7 @@
 </div><p>最後將 <code>ans</code> 中的值一個一個彈出求和就是答案了。</p>
 <div class="highlight"><div class="chroma">
 <table class="lntable"><tr><td class="lntd">
-<pre class="chroma"><code><span class="lnt">1
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
 </span><span class="lnt">2
 </span><span class="lnt">3
 </span><span class="lnt">4
@@ -375,7 +375,7 @@
 </span><span class="lnt">7
 </span></code></pre></td>
 <td class="lntd">
-<pre class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+<pre tabindex="0" class="chroma"><code class="language-c++" data-lang="c++"><span class="kt">int</span> <span class="n">sum</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
 <span class="k">while</span> <span class="p">(</span><span class="o">!</span><span class="n">ans</span><span class="p">.</span><span class="n">empty</span><span class="p">())</span>
 <span class="p">{</span>
     <span class="kt">int</span> <span class="n">a</span> <span class="o">=</span> <span class="n">ans</span><span class="p">.</span><span class="n">top</span><span class="p">();</span>

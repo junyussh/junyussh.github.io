@@ -24,7 +24,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.88.1 with theme even" />
+<meta name="generator" content="Hugo 0.89.3 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/count-triplets-that-can-form-two-arrays-of-equal-xor/" />
@@ -224,11 +224,11 @@ Explanation: The triplets are (0,1,2), (0,2,2), (2,3,4) and (2,4,4)
 <p>要求出題目要求區間 i, k 使得 a = b；因為 a = b，根據 $a \oplus a = 0$ 的性質，得出 $a \oplus b=0$，$arr[i]\oplus \cdots \oplus arr[j-1]\oplus arr[j] \oplus \cdots \oplus arr[k] = 0$，也就是說我們只需要從陣列中尋找一串<strong>連續的</strong>元素，他們的 XOR 結果為 0 即可找到我們要求的區間。</p>
 <p>區間裡的元素任意組合互斥或結果都是 0，證明如下（使用性質 $a \oplus (b \oplus c) = (a \oplus b) \oplus c$）：</p>
 <p>$$
-a = a_1 \oplus a_2 \<br>
-b = b_1 \oplus b_2 \<br>
-a = b \<br>
-a \oplus b = 0 \<br>
-(a_1 \oplus a 2) \oplus (b_1 \oplus b_2)=0 \<br>
+a = a_1 \oplus a_2 \
+b = b_1 \oplus b_2 \
+a = b \
+a \oplus b = 0 \
+(a_1 \oplus a 2) \oplus (b_1 \oplus b_2)=0 \
 a_1 \oplus (a_2 \oplus b_1 \oplus b_2) = 0
 $$</p>
 <p>再來還需要看一個問題，假設陣列 <code>[1, 2, 5, 6]</code>，互斥或結果為 0，那麼可能的組合有以下幾種：</p>
@@ -413,7 +413,11 @@ $$
           <a href="/tags/c&#43;&#43;/">C&#43;&#43;</a>
           </div>
       <nav class="post-nav">
-        
+        <a class="prev" href="/p/ifttt-forward-twitter-likes-to-telegram/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
         <a class="next" href="/p/arch-linux-install-tinytex/">
             <span class="next-text nav-default">Arch Linux 安裝 TinyTeX 打造輕量級 LaTeX 環境</span>
             <span class="next-text nav-mobile">下一篇</span>
