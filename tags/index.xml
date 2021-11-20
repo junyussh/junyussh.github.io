@@ -6,7 +6,61 @@
     <description>Recent content in Tags on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 30 Aug 2021 12:49:40 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 19 Nov 2021 01:20:03 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>LaTeX</title>
+      <link>https://junyussh.github.io/tags/latex/</link>
+      <pubDate>Fri, 19 Nov 2021 01:20:03 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/latex/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Linux</title>
+      <link>https://junyussh.github.io/tags/linux/</link>
+      <pubDate>Fri, 19 Nov 2021 01:20:03 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/linux/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Pandoc</title>
+      <link>https://junyussh.github.io/tags/pandoc/</link>
+      <pubDate>Fri, 19 Nov 2021 01:20:03 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/pandoc/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Word</title>
+      <link>https://junyussh.github.io/tags/word/</link>
+      <pubDate>Fri, 19 Nov 2021 01:20:03 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/word/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>筆記</title>
+      <link>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</link>
+      <pubDate>Fri, 19 Nov 2021 01:20:03 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>論文</title>
+      <link>https://junyussh.github.io/tags/%E8%AB%96%E6%96%87/</link>
+      <pubDate>Fri, 19 Nov 2021 01:20:03 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/tags/%E8%AB%96%E6%96%87/</guid>
+      <description></description>
+    </item>
+    
     <item>
       <title>Anime</title>
       <link>https://junyussh.github.io/tags/anime/</link>
@@ -76,24 +130,6 @@
       <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
       
       <guid>https://junyussh.github.io/tags/arch-linux/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LaTeX</title>
-      <link>https://junyussh.github.io/tags/latex/</link>
-      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/latex/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Linux</title>
-      <link>https://junyussh.github.io/tags/linux/</link>
-      <pubDate>Sat, 20 Mar 2021 17:10:48 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/linux/</guid>
       <description></description>
     </item>
     
@@ -247,15 +283,6 @@
       <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
       
       <guid>https://junyussh.github.io/tags/magnet/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>筆記</title>
-      <link>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</link>
-      <pubDate>Wed, 22 Jul 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://junyussh.github.io/tags/%E7%AD%86%E8%A8%98/</guid>
       <description></description>
     </item>
     

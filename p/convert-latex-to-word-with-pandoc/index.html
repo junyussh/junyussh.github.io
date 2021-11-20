@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>利用 Pandoc 將 LaTeX 轉成 Word - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="有寫過 LaTeX 的人應該知道 Pandoc 這個強大的文件格式轉換工具，開源跨平台，可以將不同的文件格式互相轉換，十分強大。個人不喜歡用微軟的 Word，經常被自動樣式、段落階層搞的毛一堆，現在寫文件都用 LaTeX 或 Markdown，不過有的時候學校比較食古不化，不接受 PDF 需要交 Word，這時就能用這工具快速轉換來節省時間。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.89.3 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/convert-latex-to-word-with-pandoc/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="利用 Pandoc 將 LaTeX 轉成 Word" />
+<meta property="og:description" content="有寫過 LaTeX 的人應該知道 Pandoc 這個強大的文件格式轉換工具，開源跨平台，可以將不同的文件格式互相轉換，十分強大。個人不喜歡用微軟的 Word，經常被自動樣式、段落階層搞的毛一堆，現在寫文件都用 LaTeX 或 Markdown，不過有的時候學校比較食古不化，不接受 PDF 需要交 Word，這時就能用這工具快速轉換來節省時間。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/convert-latex-to-word-with-pandoc/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-11-19T01:20:03+08:00" />
+<meta property="article:modified_time" content="2021-11-19T01:20:03+08:00" />
+
+<meta itemprop="name" content="利用 Pandoc 將 LaTeX 轉成 Word">
+<meta itemprop="description" content="有寫過 LaTeX 的人應該知道 Pandoc 這個強大的文件格式轉換工具，開源跨平台，可以將不同的文件格式互相轉換，十分強大。個人不喜歡用微軟的 Word，經常被自動樣式、段落階層搞的毛一堆，現在寫文件都用 LaTeX 或 Markdown，不過有的時候學校比較食古不化，不接受 PDF 需要交 Word，這時就能用這工具快速轉換來節省時間。"><meta itemprop="datePublished" content="2021-11-19T01:20:03+08:00" />
+<meta itemprop="dateModified" content="2021-11-19T01:20:03+08:00" />
+<meta itemprop="wordCount" content="798">
+<meta itemprop="keywords" content="筆記,LaTeX,Pandoc,Linux,Word,論文," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="利用 Pandoc 將 LaTeX 轉成 Word"/>
+<meta name="twitter:description" content="有寫過 LaTeX 的人應該知道 Pandoc 這個強大的文件格式轉換工具，開源跨平台，可以將不同的文件格式互相轉換，十分強大。個人不喜歡用微軟的 Word，經常被自動樣式、段落階層搞的毛一堆，現在寫文件都用 LaTeX 或 Markdown，不過有的時候學校比較食古不化，不接受 PDF 需要交 Word，這時就能用這工具快速轉換來節省時間。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">利用 Pandoc 將 LaTeX 轉成 Word</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-11-19 </span>
+        <div class="post-category">
+            <a href="/categories/latex/"> LaTeX </a>
+            <a href="/categories/pandoc/"> Pandoc </a>
+            <a href="/categories/word/"> Word </a>
+            </div>
+          <span class="more-meta"> 約 798 字 </span>
+          <span class="more-meta"> 預計閱讀 2 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#基本指令">基本指令</a></li>
+    <li><a href="#進階用法">進階用法</a></li>
+    <li><a href="#常見問題">常見問題</a>
+      <ul>
+        <li><a href="#外部-tex-檔案無法引入">外部 TeX 檔案無法引入</a></li>
+      </ul>
+    </li>
+    <li><a href="#總結">總結</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>有寫過 LaTeX 的人應該知道 Pandoc 這個強大的文件格式轉換工具，開源跨平台，可以將不同的文件格式互相轉換，十分強大。個人不喜歡用微軟的 Word，經常被自動樣式、段落階層搞的毛一堆，現在寫文件都用 LaTeX 或 Markdown，不過有的時候學校比較食古不化，不接受 PDF 需要交 Word，這時就能用這工具快速轉換來節省時間。</p>
+<h2 id="基本指令">基本指令</h2>
+<p>如果只是簡單的 LaTeX 轉 Word 可以不用加參數。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc main.tex -o main.docx
+</code></pre></td></tr></table>
+</div>
+</div><p>想套用模板的話加入 <code>-–reference-doc</code> 指定模板，某些期刊會提供 Word 模板下載。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc main.tex --reference-doc<span class="o">=</span>pg4-sample-word-template.docx -o main.docx
+</code></pre></td></tr></table>
+</div>
+</div><p>有引用的話需要加入 <code>--bibliography</code> 指定 Bibtex 檔案，注意要在內文中有引用文獻才會顯示引用的文獻。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc main.tex --bibliography<span class="o">=</span>References.bib -o main.tex
+</code></pre></td></tr></table>
+</div>
+</div><p>可以用 <code>--csl</code> 指定引用文獻格式，在<a href="https://github.com/citation-style-language/styles">這裡</a>可以下載各種格式的 csl。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc main.tex --csl<span class="o">=</span>ieee.csl --bibliography<span class="o">=</span>References.bib -o main.tex
+</code></pre></td></tr></table>
+</div>
+</div><p>預設的文獻格式：</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/convert-latex-to-word-with-pandoc/default-style.png" alt="Default reference style"></p>
+<p>IEEE 風格的引用文獻會在內文中標注引用文獻編號。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/convert-latex-to-word-with-pandoc/ieee-style.png" alt="IEEE style reference"></p>
+<h2 id="進階用法">進階用法</h2>
+<p>如果想要標註圖片、表格的話可以指定 filter 使用 pandoc-crossref 處理，有些複雜的地方需要指定 LaTeX 引擎。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc main.tex --csl<span class="o">=</span>ieee.csl --bibliography<span class="o">=</span>References.bib --reference-doc<span class="o">=</span>pg4-sample-word-template.docx --filter<span class="o">=</span>pandoc-crossref --pdf-engine<span class="o">=</span>xelatex -o main.docx
+</code></pre></td></tr></table>
+</div>
+</div><p><a href="">pandoc-crossref</a> 建議在 Linux/Unix 環境安裝，我用 Arch Linux 安裝有點麻煩，一直提示缺庫，裝了相應的 Haskell 套件依舊說缺庫，後面滾了系統才好。</p>
+<p>效果就是可以在內文標注的地方加入超連結，點一下就能跳轉到對應的圖片/表格。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/convert-latex-to-word-with-pandoc/crossref.png" alt="Reference of figure"></p>
+<h2 id="常見問題">常見問題</h2>
+<h3 id="外部-tex-檔案無法引入">外部 TeX 檔案無法引入</h3>
+<p>如果你引入的 tex 檔和你要轉換的 tex 同屬一個層級目錄，那 Pandoc 會無法識別，必須要像下面的目錄結構，把你要引入的 tex 檔放入子目錄。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">├── main.tex
+└── somefolder
+    └── somefile.tex
+</code></pre></td></tr></table>
+</div>
+</div><p>然後在 <code>main.tex</code> 中這樣寫。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span><span class="lnt">6
+</span><span class="lnt">7
+</span><span class="lnt">8
+</span><span class="lnt">9
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="k">\documentclass</span><span class="nb">{</span>article<span class="nb">}</span>
+<span class="k">\begin</span><span class="nb">{</span>document<span class="nb">}</span>
+
+<span class="k">\section*</span><span class="nb">{</span>Test<span class="nb">}</span>
+
+    This is main tex file.
+    <span class="k">\input</span><span class="nb">{</span>somefolder/somefile<span class="nb">}</span>
+
+<span class="k">\end</span><span class="nb">{</span>document<span class="nb">}</span>
+</code></pre></td></tr></table>
+</div>
+</div><p><code>somefile.tex</code>：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-tex" data-lang="tex"><span class="k">\section</span><span class="nb">{</span>Sub tex<span class="nb">}</span>
+
+This is the sub tex file.
+</code></pre></td></tr></table>
+</div>
+</div><p>再執行轉換指令。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">pandoc main.tex -t docx -o main.docx
+</code></pre></td></tr></table>
+</div>
+</div><p>效果如下。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/convert-latex-to-word-with-pandoc/include-test.png" alt="LaTeX including test"></p>
+<h2 id="總結">總結</h2>
+<p>雖然 Pandoc 可以互相轉換不同格式的文件，但是這些轉換都不能保證百分百不跑版，最多保持文字內容還在，其他複雜的內容可能會轉換失敗跑版，需要手動修改。尤其是碰到表格、圖片、文獻引用、tikz，測試過發現表格跑版最嚴重，圖片會過大超出版面；數學公式則會沒有編號，標註也會失效。</p>
+<h2 id="references">References</h2>
+<ul>
+<li><a href="https://tex.stackexchange.com/questions/362082/pandoc-does-not-include-input-files">Pandoc: does not include input files - TeX - LaTeX Stack Exchange</a></li>
+<li><a href="https://tex.stackexchange.com/questions/268196/how-to-convert-latex-to-word-using-pandoc-and-keep-citations-as-numeral">bibliographies - How to convert LaTex to word using PanDoc and keep citations as numeral - TeX - LaTeX Stack Exchange</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-11-19
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E7%AD%86%E8%A8%98/">筆記</a>
+          <a href="/tags/latex/">LaTeX</a>
+          <a href="/tags/pandoc/">Pandoc</a>
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/word/">Word</a>
+          <a href="/tags/%E8%AB%96%E6%96%87/">論文</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/ifttt-forward-twitter-likes-to-telegram/">
+            <span class="next-text nav-default">通過 IFTTT 將 Twitter 喜歡的推文轉發到 Telegram</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

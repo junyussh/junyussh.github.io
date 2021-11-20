@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pandoc on 書術方隅</title>
+    <link>https://junyussh.github.io/categories/pandoc/</link>
+    <description>Recent content in Pandoc on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Fri, 19 Nov 2021 01:20:03 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/categories/pandoc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>利用 Pandoc 將 LaTeX 轉成 Word</title>
+      <link>https://junyussh.github.io/p/convert-latex-to-word-with-pandoc/</link>
+      <pubDate>Fri, 19 Nov 2021 01:20:03 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/convert-latex-to-word-with-pandoc/</guid>
+      <description>&lt;p&gt;有寫過 LaTeX 的人應該知道 Pandoc 這個強大的文件格式轉換工具，開源跨平台，可以將不同的文件格式互相轉換，十分強大。個人不喜歡用微軟的 Word，經常被自動樣式、段落階層搞的毛一堆，現在寫文件都用 LaTeX 或 Markdown，不過有的時候學校比較食古不化，不接受 PDF 需要交 Word，這時就能用這工具快速轉換來節省時間。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
