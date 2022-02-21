@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>Linux 開機時自動掛載 Windows 磁區 - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="Linux 開機時自動掛載 Windows 磁區" />
+<meta property="og:description" content="如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2022-02-21T17:34:22+08:00" />
+<meta property="article:modified_time" content="2022-02-21T17:34:22+08:00" />
+
+<meta itemprop="name" content="Linux 開機時自動掛載 Windows 磁區">
+<meta itemprop="description" content="如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。"><meta itemprop="datePublished" content="2022-02-21T17:34:22+08:00" />
+<meta itemprop="dateModified" content="2022-02-21T17:34:22+08:00" />
+<meta itemprop="wordCount" content="1040">
+<meta itemprop="keywords" content="Linux,教學,NTFS,fstab," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Linux 開機時自動掛載 Windows 磁區"/>
+<meta name="twitter:description" content="如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">Linux 開機時自動掛載 Windows 磁區</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2022-02-21 </span>
+        <div class="post-category">
+            <a href="/categories/linux/"> Linux </a>
+            <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+            </div>
+          <span class="more-meta"> 約 1040 字 </span>
+          <span class="more-meta"> 預計閱讀 3 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#ntfs3-vs-ntfs-3g">NTFS3 vs NTFS-3g</a></li>
+    <li><a href="#fstab">fstab</a></li>
+    <li><a href="#references">References</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。</p>
+<h2 id="ntfs3-vs-ntfs-3g">NTFS3 vs NTFS-3g</h2>
+<p>以前內核僅提供唯讀的 NTFS 驅動，需要安裝 NTFS-3g 才能讀寫，但自從 Linux 5.15 後，內核就加入了由 Paragon Software 提供的 <a href="https://www.paragon-software.com/home/ntfs3-driver-faq/">NTFS 驅動</a>，並叫 NTFS3，完整實現 NTFS 3.1 的標準，從內核級別支援 NTFS，從此不需要再安裝 <code>ntfs-3g</code> 也能讀寫 NTFS 檔案系統。</p>
+<p>NTFS3 相較 NTFS-3g 最大的改進就是性能了，NTFS-3g 採用 FUSE 掛載，寫入時 CPU 佔用率較高，新版 NTFS3 寫入速度快，也能減少 CPU 佔用，不過有人說 NTFS3 還不穩定，就依自身需求選擇吧。</p>
+<h2 id="fstab">fstab</h2>
+<p>管理 Linux 啟動掛載磁區的設定檔是 fstab，位置在 <code>/etc/fstab</code>，系統會根據 fstab 的順序依次掛載，只要在這檔案末端加入你要掛載的磁區就好。</p>
+<p>fstab 的格式為：<code>&lt;device&gt; &lt;dir&gt; &lt;type&gt; &lt;options&gt; &lt;dump&gt; &lt;fsck&gt;</code>。</p>
+<ul>
+<li>device：磁區的 UUID 或是設備路徑，UUID 可以通過 <code>blkid</code> 命令取得。</li>
+<li>dir：掛載的目錄。</li>
+<li>type：檔案系統(File System)代號。</li>
+<li>options：相關掛載選項。</li>
+<li>dump：是否啟用備份，ext2/3 才有用，<code>0</code> 表示禁用。</li>
+<li>fsck：是否開機時檢查磁區。對於 root 磁區應該要寫 <code>1</code>，其他磁區寫 <code>2</code>，禁用寫 <code>0</code>。如果 root 採用 Btrfs 或 XFS 檔案系統應該寫 0。</li>
+</ul>
+<p>第一欄 <code>device</code> 可以寫 UUID 或設備路徑，UUID 比較麻煩，用設備路徑就可以了，輸入 <code>fdisk -l</code> 可以獲取電腦的所有磁區，找到你的 Windows 磁區代號，根據磁區容量和類型來確定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ fdisk -l
+Disk /dev/nvme0n1: 476.94 GiB, <span class="m">512110190592</span> bytes, <span class="m">1000215216</span> sectors
+Disk model: WDC PC SN730 SDBPNTY-512G-1101          
+Units: sectors of <span class="m">1</span> * <span class="nv">512</span> <span class="o">=</span> <span class="m">512</span> bytes
+Sector size <span class="o">(</span>logical/physical<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+I/O size <span class="o">(</span>minimum/optimal<span class="o">)</span>: <span class="m">512</span> bytes / <span class="m">512</span> bytes
+Disklabel type: gpt
+Disk identifier: 0C94E453-A793-4F7B-93AF-3E01A4DF6A74
+
+所用裝置           Start       結束      磁區   Size 類型
+/dev/nvme0n1p1      <span class="m">2048</span>     <span class="m">534527</span>    <span class="m">532480</span>   260M EFI System
+/dev/nvme0n1p2    <span class="m">534528</span>     <span class="m">567295</span>     <span class="m">32768</span>    16M Microsoft reserved
+/dev/nvme0n1p3    <span class="m">567296</span>  <span class="m">252138543</span> <span class="m">251571248</span>   120G Microsoft basic data
+/dev/nvme0n1p4 <span class="m">252138544</span>  <span class="m">629625903</span> <span class="m">377487360</span>   180G Microsoft basic data
+/dev/nvme0n1p5 <span class="m">629714944</span>  <span class="m">966692863</span> <span class="m">336977920</span> 160.7G Linux filesystem
+/dev/nvme0n1p6 <span class="m">966692864</span> <span class="m">1000215182</span>  <span class="m">33522319</span>    16G Linux swap
+</code></pre></td></tr></table>
+</div>
+</div><p>比如我的 C 槽是所在裝置是 <code>/dev/nvme0n1p3</code>，這就是對應到 fstab 的 <code>device</code> 欄。</p>
+<p>第二欄 <code>dir</code>，就是磁區掛載的目錄，一般我會放在 <code>/mnt</code> 下。這邊我建了一個 <code>/mnt/Windows</code> 目錄。</p>
+<p>第三欄 <code>type</code> 有兩種可以選，如果你想用 NTFS-3g 驅動就填 <code>ntfs-3g</code>，用內核 NTFS 驅動就寫 <code>ntfs3</code>。</p>
+<p>第四欄 <code>option</code> 寫 <code>uid=userid,gid=groupid,umask=0022</code>，<code>umask</code> 是設定掛載的檔案目錄權限，<code>uid</code> 和 <code>gid</code> 填自己就好，可以通過 <code>id</code> 命令取得。</p>
+<p>剩下兩個欄位填 <code>0</code> 就好。</p>
+<p>整行就是：</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback">/dev/nvme0n1p3 /mnt/Windows ntfs3 uid=1000,gid=1000 0 0
+</code></pre></td></tr></table>
+</div>
+</div><p>意思就是將 <code>/dev/nvme0n1p3</code> 裝置掛載到 <code>/mnt/Windows</code> 目錄，檔案系統類型為 NTFS，僅有用戶 uid=1000 和 gid=1000 的用戶可以存取修改。</p>
+<h2 id="references">References</h2>
+<ol>
+<li><a href="https://wiki.archlinux.org/title/Fstab">fstab - ArchWiki</a></li>
+<li><a href="https://wiki.archlinux.org/title/NTFS-3G">NTFS-3G - ArchWiki</a></li>
+</ol>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2022-02-21
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/%E6%95%99%E5%AD%B8/">教學</a>
+          <a href="/tags/ntfs/">NTFS</a>
+          <a href="/tags/fstab/">fstab</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/p/convert-latex-to-word-with-pandoc/">
+            <span class="next-text nav-default">利用 Pandoc 將 LaTeX 轉成 Word</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

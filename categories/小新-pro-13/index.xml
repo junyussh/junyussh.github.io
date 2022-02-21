@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>小新 Pro 13 on 書術方隅</title>
+    <link>https://junyussh.github.io/categories/%E5%B0%8F%E6%96%B0-pro-13/</link>
+    <description>Recent content in 小新 Pro 13 on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Mon, 15 Feb 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://junyussh.github.io/categories/%E5%B0%8F%E6%96%B0-pro-13/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>聯想小新 Pro 13 系統使用 Arch Linux</title>
+      <link>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</link>
+      <pubDate>Mon, 15 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</guid>
+      <description>&lt;p&gt;工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。&lt;/p&gt;
+&lt;p&gt;本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

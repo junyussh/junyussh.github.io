@@ -6,7 +6,16 @@
     <description>Recent content in Linux on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Fri, 19 Nov 2021 01:20:03 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Feb 2022 17:34:22 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 開機時自動掛載 Windows 磁區</title>
+      <link>https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/</link>
+      <pubDate>Mon, 21 Feb 2022 17:34:22 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/</guid>
+      <description>&lt;p&gt;如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>利用 Pandoc 將 LaTeX 轉成 Word</title>
       <link>https://junyussh.github.io/p/convert-latex-to-word-with-pandoc/</link>
@@ -25,6 +34,16 @@
       <description>&lt;p&gt;&lt;img src=&#34;https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/arch-linux-install-tinytex/banner.png&#34; alt=&#34;TinyTeX + VSCode&#34;&gt;&lt;/p&gt;
 &lt;p&gt;LaTeX 是科研人員經常用到的一門排版語言，用來編寫專業的數學公式非常方便，然而 LaTeX 環境的安裝卻十分麻煩，如果要裝 LaTeX 環境應該很多人都會選擇裝 TeX Live，可是 TeX Live 的體積龐大，內含多個包的技術文件，動輒好幾 G；為了解決這個問題，TinyTeX 誕生了，把對用戶毫無用處的原始碼與文件去除，進而降低佔用空間，根據需求自動安裝缺失的包，對喜愛 KISS 哲學的 Arch User 是一大福音。&lt;/p&gt;
 &lt;p&gt;TinyTeX 剛出幾年而已，網路上資料並不多，今天安裝這個研究了好久總算搞定，寫篇教學記錄一下。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>聯想小新 Pro 13 系統使用 Arch Linux</title>
+      <link>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</link>
+      <pubDate>Mon, 15 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</guid>
+      <description>&lt;p&gt;工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。&lt;/p&gt;
+&lt;p&gt;本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。&lt;/p&gt;</description>
     </item>
     
     <item>

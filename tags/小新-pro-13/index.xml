@@ -17,5 +17,15 @@
 &lt;p&gt;聯想小新 Pro 13 是近期非常熱門的一款機型，其優秀的性能，清楚的螢幕，輕巧的重量，讓許多網友紛紛直呼「真香」，不過只有在中國大陸的電商平台有這種高性價比的價格，剛好最近也想換新電腦了，之前舊電腦的性能已經無法支撐的我開發，而我人剛好也在中國，便趁著雙十一在天貓下單了一台嚐鮮，其實這台電腦我在 11/12 就收到了，只是當時作業和考試因素沒有時間撰寫開箱文，擱置到現在才憋出來，這篇也是本部落格的第一篇開箱文，以前沒有撰寫經驗，哪裡寫的不好還請指出。&lt;/p&gt;</description>
     </item>
     
+    <item>
+      <title>聯想小新 Pro 13 系統使用 Arch Linux</title>
+      <link>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</link>
+      <pubDate>Mon, 15 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</guid>
+      <description>&lt;p&gt;工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。&lt;/p&gt;
+&lt;p&gt;本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。&lt;/p&gt;</description>
+    </item>
+    
   </channel>
 </rss>

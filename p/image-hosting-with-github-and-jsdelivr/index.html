@@ -26,7 +26,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.89.3 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/p/image-hosting-with-github-and-jsdelivr/" />
@@ -66,7 +66,7 @@ Photo by Lisa Fotios from Pexels
 
 自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。"><meta itemprop="datePublished" content="2020-07-29T23:25:32+08:00" />
 <meta itemprop="dateModified" content="2020-07-29T23:25:32+08:00" />
-<meta itemprop="wordCount" content="1431">
+<meta itemprop="wordCount" content="1516">
 <meta itemprop="keywords" content="Github,PicGo,教學,圖床,jsDelivr,CDN," /><meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床"/>
 <meta name="twitter:description" content="
@@ -159,8 +159,8 @@ Photo by Lisa Fotios from Pexels
             <a href="/categories/picgo/"> PicGo </a>
             <a href="/categories/github/"> Github </a>
             </div>
-          <span class="more-meta"> 約 1431 字 </span>
-          <span class="more-meta"> 預計閱讀 3 分鐘 </span>
+          <span class="more-meta"> 約 1516 字 </span>
+          <span class="more-meta"> 預計閱讀 4 分鐘 </span>
         
       </div>
     </header>
@@ -204,7 +204,11 @@ Photo by Lisa Fotios from Pexels
 <li>Github + <a href="https://www.jsdelivr.com/">jsDelivr</a>(全球分發 CDN，但 Github 個人倉庫僅有 1G 空間)</li>
 <li>Cloudflare+Backblaze B2(Backblaze B2 與 Cloudflare 之間無傳輸費用，並免費提供 10G 空間，但 Cloudflare 中國連線速度貌似不佳)</li>
 </ul>
-<p>我的需求是中國連線速度快、請求次數高，但價格不能太高，如果能免費自然最好，還有圖片不能因為政治因素或其他原因被移除，經過綜合考量，我選擇了 Github + jsDelivr 方案，Github 背後有微軟爸爸，穩定性應該不用多說，jsDelivr 也是全球知名的免費 CDN 服務，在中國大陸也有節點可用，同時兼顧連線速度和價格。</p>
+<p>我的需求是中國連線速度快、請求次數高，但價格不能太高，如果能免費自然最好，還有圖片不能因為政治因素或其他原因被移除，經過綜合考量，我選擇了 Github + jsDelivr 方案，Github 背後有微軟爸爸，穩定性應該不用多說，jsDelivr 也是全球知名的免費 CDN 服務，<del>在中國大陸也有節點可用</del>，同時兼顧連線速度和價格。</p>
+<blockquote>
+<p>更新：jsDelivr 在 2021/12/20 域名備案被吊銷，其中國 CDN 服務商<a href="https://www.wangsu.com/">網宿</a>移除了 jsDelivr 帳號，目前在中國使用 Fastly 線路。</p>
+<p>事件詳情請見：<a href="https://huangxin.dev/partly-technical/in-response-to-jsdelivr-icp-license-revokement">jsDelivr 备案被吊销后，网页静态资源何去何从 | 惶心博客</a></p>
+</blockquote>
 <h2 id="建立-github-倉庫">建立 Github 倉庫</h2>
 <p>需要先開一個新的倉庫，記得設成公開 jsDelivr 才能分發。</p>
 <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/github_new_repo.png" alt="建立新倉庫"></p>
@@ -339,7 +343,7 @@ Photo by Lisa Fotios from Pexels
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
   </span>
 </div>
 

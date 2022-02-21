@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>fstab on 書術方隅</title>
+    <link>https://junyussh.github.io/tags/fstab/</link>
+    <description>Recent content in fstab on 書術方隅</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>tw</language>
+    <lastBuildDate>Mon, 21 Feb 2022 17:34:22 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/tags/fstab/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 開機時自動掛載 Windows 磁區</title>
+      <link>https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/</link>
+      <pubDate>Mon, 21 Feb 2022 17:34:22 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/</guid>
+      <description>&lt;p&gt;如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

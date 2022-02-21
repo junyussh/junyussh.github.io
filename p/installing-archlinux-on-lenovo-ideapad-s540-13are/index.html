@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>聯想小新 Pro 13 系統使用 Arch Linux - 書術方隅</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Chun Yu" /><meta name="description" content="工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。
+本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。
+" /><meta name="keywords" content="Linux, 軟體, 電腦, 生活, Arch, Windows" />
+
+
+
+
+
+
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
+
+
+<link rel="canonical" href="https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+<link href="/sass/main.min.f92fd13721ddf72129410fd8250e73152cc6f2438082b6c0208dc24ee7c13fc4.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+
+
+<meta property="og:title" content="聯想小新 Pro 13 系統使用 Arch Linux" />
+<meta property="og:description" content="工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。
+本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/" /><meta property="article:section" content="post" />
+<meta property="article:published_time" content="2021-02-15T00:00:00+00:00" />
+<meta property="article:modified_time" content="2021-02-15T00:00:00+00:00" />
+
+<meta itemprop="name" content="聯想小新 Pro 13 系統使用 Arch Linux">
+<meta itemprop="description" content="工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。
+本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。"><meta itemprop="datePublished" content="2021-02-15T00:00:00+00:00" />
+<meta itemprop="dateModified" content="2021-02-15T00:00:00+00:00" />
+<meta itemprop="wordCount" content="1953">
+<meta itemprop="keywords" content="Arch Linux,Linux,記錄,小新 Pro 13,聯想," /><meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="聯想小新 Pro 13 系統使用 Arch Linux"/>
+<meta name="twitter:description" content="工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。
+本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。"/>
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">書術方隅</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">Home</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">Archives</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">Tags</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">Categories</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">書術方隅</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">Home</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">Archives</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">Tags</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">Categories</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">聯想小新 Pro 13 系統使用 Arch Linux</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2021-02-15 </span>
+        <div class="post-category">
+            <a href="/categories/%E5%B0%8F%E6%96%B0-pro-13/"> 小新 Pro 13 </a>
+            <a href="/categories/linux/"> Linux </a>
+            </div>
+          <span class="more-meta"> 約 1953 字 </span>
+          <span class="more-meta"> 預計閱讀 4 分鐘 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目錄</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li><a href="#前置工作">前置工作</a></li>
+    <li><a href="#遇到問題">遇到問題</a>
+      <ul>
+        <li><a href="#error-key-could-not-be-looked-up-remotely">error: key could not be looked up remotely</a></li>
+        <li><a href="#wifi-無法連接">WiFi 無法連接</a></li>
+        <li><a href="#連接網路">連接網路</a></li>
+      </ul>
+    </li>
+    <li><a href="#調校">調校</a>
+      <ul>
+        <li><a href="#gpu-加速">GPU 加速</a></li>
+        <li><a href="#觸控板">觸控板</a></li>
+        <li><a href="#hidpi">HiDPI</a></li>
+        <li><a href="#關閉-beep">關閉 Beep</a></li>
+      </ul>
+    </li>
+    <li><a href="#已知問題">已知問題</a></li>
+    <li><a href="#使用心得">使用心得</a></li>
+    <li><a href="#reference">Reference</a></li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <p>工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。</p>
+<p>本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。</p>
+<h2 id="前置工作">前置工作</h2>
+<p>準備好最新版 Arch Linux ISO，然後燒錄到隨身碟開機，燒錄方法建議選用 Ventoy，這樣一個隨身碟就能啟動多個 ISO 映像檔。</p>
+<h2 id="遇到問題">遇到問題</h2>
+<p>有一陣子沒有安裝 Arch Linux 了，沒想到這次安裝都改朝換代了，遇到一些小問題，寫下來給需要的人。</p>
+<h3 id="error-key-could-not-be-looked-up-remotely">error: key could not be looked up remotely</h3>
+<p>第一次我用 2019 年的映像檔嘗試安裝時報了這個錯誤，在執行 <code>paccstrap</code> 時就一直說無法匯入遠端金鑰，我本來還想說是不是我在中國，GFW 把 GPG 金鑰伺服器給牆了，反正查了很久也沒找到可行的解決方案，就直接去 archlinux-cn 群裡問了，fc 老師說可能是我的映像檔太舊造成的，換新應該就沒問題。</p>
+<p>於是我馬上去交大開源鏡像站下了一個最新版 Archiso，順帶一提，交大鏡像站是遲先生負責維護的，可能是剛開站，目前使用的人不多，掉包情況比較少發生，下載速度也直接拉滿，如果你在中國大陸推薦使用。</p>
+<p>以前用舊鏡像裝系統都沒有出問題，我印象中我以前一直用我高中的 Archiso 裝了好多次都沒問題，但也不建議用太舊的鏡像裝。</p>
+<h3 id="wifi-無法連接">WiFi 無法連接</h3>
+<p>之前載入舊版 Archiso 連網卡都沒偵測到，還是用手機通過 USB 共享移動流量，換上新版 ISO 才偵測到網卡的，用家裡的無線網路還是速度快又穩。</p>
+<p>首先輸入 <code>ip link</code> 確認是否偵測到無線網卡，如果有 <code>wlan0</code> 就代表有網卡，預設是關閉的，輸入下面指令來啟動。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">ip link <span class="nb">set</span> wlan0 up
+</code></pre></td></tr></table>
+</div>
+</div><p>小新 Pro 13 的無線網卡預設禁用，如果報錯 <code>Operation not possible due to RF-kill</code> 就 unblock rfkill。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">rfkill unblock all
+</code></pre></td></tr></table>
+</div>
+</div><p>再啟動一次網卡應該就能成功了，可以用 <code>ip link</code> 確認目前網卡狀態。</p>
+<h3 id="連接網路">連接網路</h3>
+<p>以前 Archiso 都是用 <code>wifi-menu</code> 來連無線網路的，不知道什麼時候改成用 iwd 的，在進入新版 Archiso 後，歡迎文字下面就寫說如果要連網請輸入 <code>iwctl</code>，其實使用發現 iwd 也很強大，使用配置上也較為簡易。</p>
+<p>輸入 <code>iwctl</code> 啟動 iwd 交互界面，交互界面會的開頭會顯示 <code>[iwd]#</code>。</p>
+<p>確認 Wifi 裝置的名稱，下一步掃描網路需要。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># device list</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>掃描附近的無線網路，將 <code>wlan0</code> 替換成上一步獲取到的無線網卡名稱，如果你電腦配置和我相同應該不用換。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station wlan0 scan</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>獲取剛才掃描到的網路。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station device get-networks</span>
+</code></pre></td></tr></table>
+</div>
+</div><p>連接到特定的網路，把 <code>SSID</code> 替換成你要連的網路名稱(SSID)，如果需要密碼驗證 iwd 會提示輸入密碼。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash"><span class="o">[</span>iwd<span class="o">]</span><span class="c1"># station device connect SSID</span>
+</code></pre></td></tr></table>
+</div>
+</div><h2 id="調校">調校</h2>
+<h3 id="gpu-加速">GPU 加速</h3>
+<p>小新 Pro 13 使用的顯示卡是 AMD 核顯，可以安裝 AMD GPU 相關驅動，加速 Xorg 2D 繪製速度。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S xf86-video-amdgpu
+</code></pre></td></tr></table>
+</div>
+</div><p>VAAPI 解碼加速安裝 <code>libva-mesa-driver</code> 套件。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">sudo pacman -S libva-mesa-driver
+</code></pre></td></tr></table>
+</div>
+</div><p>安裝 <code>libva-utils</code> 套件並執行 <code>vainfo</code> 來驗證 VA-API 設定。</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span><span class="lnt">15
+</span><span class="lnt">16
+</span><span class="lnt">17
+</span><span class="lnt">18
+</span><span class="lnt">19
+</span><span class="lnt">20
+</span><span class="lnt">21
+</span><span class="lnt">22
+</span><span class="lnt">23
+</span><span class="lnt">24
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-bash" data-lang="bash">$ vainfo
+---
+vainfo: VA-API version: 1.10 <span class="o">(</span>libva 2.10.0<span class="o">)</span>
+vainfo: Driver version: Mesa Gallium driver 20.3.4 <span class="k">for</span> AMD RENOIR <span class="o">(</span>DRM 3.40.0, 5.10.11-arch1-1, LLVM 11.0.1<span class="o">)</span>
+vainfo: Supported profile and entrypoints
+      VAProfileMPEG2Simple            : VAEntrypointVLD
+      VAProfileMPEG2Main              : VAEntrypointVLD
+      VAProfileVC1Simple              : VAEntrypointVLD
+      VAProfileVC1Main                : VAEntrypointVLD
+      VAProfileVC1Advanced            : VAEntrypointVLD
+      VAProfileH264ConstrainedBaseline: VAEntrypointVLD
+      VAProfileH264ConstrainedBaseline: VAEntrypointEncSlice
+      VAProfileH264Main               : VAEntrypointVLD
+      VAProfileH264Main               : VAEntrypointEncSlice
+      VAProfileH264High               : VAEntrypointVLD
+      VAProfileH264High               : VAEntrypointEncSlice
+      VAProfileHEVCMain               : VAEntrypointVLD
+      VAProfileHEVCMain               : VAEntrypointEncSlice
+      VAProfileHEVCMain10             : VAEntrypointVLD
+      VAProfileHEVCMain10             : VAEntrypointEncSlice
+      VAProfileJPEGBaseline           : VAEntrypointVLD
+      VAProfileVP9Profile0            : VAEntrypointVLD
+      VAProfileVP9Profile2            : VAEntrypointVLD
+      VAProfileNone                   : VAEntrypointVideoProc
+</code></pre></td></tr></table>
+</div>
+</div><p>可以看見 <code>vainfo</code> 的 Driver Version 寫著 AMD。</p>
+<h3 id="觸控板">觸控板</h3>
+<p>為了讓觸控板體驗和在 WIndows 上相同，我建議改成以下設置，啟用兩指點擊代表右鍵，並將捲動方向修改和 Windows 相同(兩手往上滑頁面向下捲動)。</p>
+<p>在 LInux 中游標的移動速度好像較 Windows 慢一點，可以將游標移動速度調成 0.20，否則選取較長文字很難一次選取成功。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/installing-archlinux-on-lenovo-ideapad-s540-13are/touchpad_setting.png" alt=""></p>
+<p>至於手勢可以通過安裝 <a href="https://github.com/bulletmark/libinput-gestures">libinput-gestures</a> 寫設定檔配置，比較麻煩尚未折騰，但在 Firefox 上可以通過三指滑動切換上/下一頁。</p>
+<h3 id="hidpi">HiDPI</h3>
+<p>小新 Pro 13 螢幕有 2.5k 解析度，屬於 HiDPI，Plasma 預設的字體大小可能會難以閱讀，而在 Windows 中可以透過縮放來調整，而 Linux 也不例外，在 顯示與螢幕 -&gt; 顯示設定 中設置全域縮放比例為 150%。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/installing-archlinux-on-lenovo-ideapad-s540-13are/display_setting.png" alt=""></p>
+<p>然後到 啟動與關閉 -&gt; 登入畫面（SDDM） 的進階頁籤點選同步設定，將 DPI 縮放設定同步到 SDDM。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/installing-archlinux-on-lenovo-ideapad-s540-13are/sddm_setting.png" alt=""></p>
+<p>而游標大小我也調大成 36，我覺得游標大一點比較好找。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/installing-archlinux-on-lenovo-ideapad-s540-13are/cursor_setting.png" alt=""></p>
+<h3 id="關閉-beep">關閉 Beep</h3>
+<p>如果你在安裝界面有使用 Vim 和 Tab 補全應該會發現如果發生錯誤時會發出非常大聲的系統響鈴，若是不注意的話很容易被嚇到，我自己就被嚇過好多次，建議關閉，如果使用 Plasma 可以在 無障礙輔助 -&gt; 響鈴 的地方取消啟用系統響鈴。</p>
+<p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/installing-archlinux-on-lenovo-ideapad-s540-13are/alarm_setting.png" alt=""></p>
+<h2 id="已知問題">已知問題</h2>
+<p>在 Arch Wiki 上，聯想小新 Pro 13 有專門的條目，其國外發行型號為 <a href="https://wiki.archlinux.org/index.php/Lenovo_IdeaPad_S540_13ARE">Lenovo IdeaPad S540 13ARE</a>，大部分硬體都是開箱即用，不需要安裝其他驅動，比較不方便的地方是想在 Plasma 中使用觸控板手勢需要安裝 libinput-gestures 自行設定。</p>
+<h2 id="使用心得">使用心得</h2>
+<p>不知道是不是因為螢幕是 2.5k 解析度的關係，字體渲染變得細膩、清楚，有 MacOS 的感覺了；這幾天用下來續航上也有所提昇，可能因為 Linux 開機時執行的行程較少，Linux 的功耗比 Windows 低，純粹文書作業的情況下耗電量很低，基本上可以用一整天，整體上我覺得在小新使用 Linux 的體驗較 Windows 佳，如果之後發現其他可以調整的東西會再更新文章內容。</p>
+<h2 id="reference">Reference</h2>
+<ul>
+<li><a href="https://abcdlsj.github.io/post/archlinux-i3wm-config-in-lenovo-ideapad-s540-13are/">ArchLinux i3wm Config (联想小新 pro 13, Lenovo IdeaPad S540 13ARE) - Blog</a></li>
+<li><a href="https://blog.indexyz.me/archives/install-linux-in-xiaoxin/">在小新 13 Pro 上安装 Linux Desktop 环境 - Indexyz Blog</a></li>
+<li><a href="https://wiki.archlinux.org/index.php/Lenovo_IdeaPad_S540_13ARE">Lenovo IdeaPad S540 13ARE - ArchWiki</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Chun Yu</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2021-02-15
+        
+    </span>
+  </p>
+  
+  
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/arch-linux/">Arch Linux</a>
+          <a href="/tags/linux/">Linux</a>
+          <a href="/tags/%E8%A8%98%E9%8C%84/">記錄</a>
+          <a href="/tags/%E5%B0%8F%E6%96%B0-pro-13/">小新 Pro 13</a>
+          <a href="/tags/%E8%81%AF%E6%83%B3/">聯想</a>
+          </div>
+      <nav class="post-nav">
+        <a class="prev" href="/p/lenovo-xiaoxin-pro-13-unbox/">
+            <i class="iconfont icon-left"></i>
+            <span class="prev-text nav-default">聯想小新 Pro 13 AMD 版開箱</span>
+            <span class="prev-text nav-mobile">上一篇</span>
+          </a>
+        <a class="next" href="/p/how-to-set-up-oh-my-zsh/">
+            <span class="next-text nav-default">如何在 Linux 中安裝 Oh My Zsh</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'tech-notes-shelf';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="https://github.com/junyussh/" class="iconfont icon-github" title="github"></a>
+      <a href="https://gitlab.com/junyussh/" class="iconfont icon-gitlab" title="gitlab"></a>
+  <a href="https://junyussh.github.io/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  <span class="power-by">
+    由 <a class="hexo-link" href="https://gohugo.io">Hugo</a> 強力驅動
+  </span>
+  <span class="division">|</span>
+  <span class="theme-info">
+    主題 - 
+    <a class="theme-link" href="https://github.com/olOwOlo/hugo-theme-even">Even</a>
+  </span>
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    2016 - 
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+<script type="text/javascript" src="/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-110952206-1', 'auto');
+	ga('set', 'anonymizeIp', true);
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+
+
+
+
+
+</body>
+</html>

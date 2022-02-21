@@ -23,7 +23,7 @@
 
 
 
-<meta name="generator" content="Hugo 0.89.3 with theme even" />
+<meta name="generator" content="Hugo 0.92.0 with theme even" />
 
 
 <link rel="canonical" href="https://junyussh.github.io/" />
@@ -120,6 +120,30 @@
       <div class="content-wrapper">
         <div id="content" class="content">
           <section id="posts" class="posts">
+    <article class="post">
+  <header class="post-header">
+    <h1 class="post-title"><a class="post-link" href="/p/mount-windows-partition-while-linux-startup/">Linux 開機時自動掛載 Windows 磁區</a></h1>
+    <div class="post-meta">
+      <span class="post-time"> 2022-02-21 </span>
+      <div class="post-category">
+          <a href="/categories/linux/"> Linux </a>
+          <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
+          </div>
+        <span class="more-meta"> 約 1040 字 </span>
+        <span class="more-meta"> 預計閱讀 3 分鐘 </span>
+    </div>
+  </header>
+  
+  <div class="post-content">
+    <div class="post-summary">
+      <p>如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。</p>
+    </div>
+    <div class="read-more">
+      <a href="/p/mount-windows-partition-while-linux-startup/" class="read-more-link">閱讀更多</a>
+    </div>
+  </div>
+</article>
+
     <article class="post">
   <header class="post-header">
     <h1 class="post-title"><a class="post-link" href="/p/convert-latex-to-word-with-pandoc/">利用 Pandoc 將 LaTeX 轉成 Word</a></h1>
@@ -247,59 +271,25 @@
 
     <article class="post">
   <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/how-to-set-up-oh-my-zsh/">如何在 Linux 中安裝 Oh My Zsh</a></h1>
+    <h1 class="post-title"><a class="post-link" href="/p/installing-archlinux-on-lenovo-ideapad-s540-13are/">聯想小新 Pro 13 系統使用 Arch Linux</a></h1>
     <div class="post-meta">
-      <span class="post-time"> 2020-10-19 </span>
+      <span class="post-time"> 2021-02-15 </span>
       <div class="post-category">
+          <a href="/categories/%E5%B0%8F%E6%96%B0-pro-13/"> 小新 Pro 13 </a>
           <a href="/categories/linux/"> Linux </a>
-          <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
-          <a href="/categories/%E5%B7%A5%E5%85%B7/"> 工具 </a>
           </div>
-        <span class="more-meta"> 約 1083 字 </span>
-        <span class="more-meta"> 預計閱讀 3 分鐘 </span>
+        <span class="more-meta"> 約 1953 字 </span>
+        <span class="more-meta"> 預計閱讀 4 分鐘 </span>
     </div>
   </header>
   
   <div class="post-content">
     <div class="post-summary">
-      <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/how-to-set-up-oh-my-zsh/oh-my-zsh.jpg" alt="Oh My Zsh"></p>
-<p>Zsh 是工程師們的好夥伴，相較於大部份發行版內建的 Bash，改進了 Tab 的補全和萬用字元等功能，同時兼容 POSIX 的 sh，在輸入指令時按 Tab 就可以快速補全指令，大幅增加開發的效率，同時，Zsh 提供高亮樣式，賞心悅目，讓終端機的使用體驗更上一層，而 Zsh 設定檔配置過程較為複雜，於是有了 oh-my-zsh 這個以社區為驅動的開源配置框架，內置多種實用函數、外掛、主題，由於簡單好配置，oh-my-zsh 也成為新手使用 Zsh 的第一步。</p>
+      <p>工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。</p>
+<p>本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。</p>
     </div>
     <div class="read-more">
-      <a href="/p/how-to-set-up-oh-my-zsh/" class="read-more-link">閱讀更多</a>
-    </div>
-  </div>
-</article>
-
-    <article class="post">
-  <header class="post-header">
-    <h1 class="post-title"><a class="post-link" href="/p/image-hosting-with-github-and-jsdelivr/">Github &#43; jsDelivr &#43; PicGo 免費打造全球 CDN 分發圖床</a></h1>
-    <div class="post-meta">
-      <span class="post-time"> 2020-07-29 </span>
-      <div class="post-category">
-          <a href="/categories/%E5%9C%96%E5%BA%8A/"> 圖床 </a>
-          <a href="/categories/%E6%95%99%E5%AD%B8/"> 教學 </a>
-          <a href="/categories/picgo/"> PicGo </a>
-          <a href="/categories/github/"> Github </a>
-          </div>
-        <span class="more-meta"> 約 1431 字 </span>
-        <span class="more-meta"> 預計閱讀 3 分鐘 </span>
-    </div>
-  </header>
-  
-  <div class="post-content">
-    <div class="post-summary">
-      <p><img src="https://cdn.jsdelivr.net/gh/junyussh/blog_pic/img/image-hosting-with-github-and-jsdelivr/person-holding-photo-of-single-tree-at-daytime.jpg" alt="Photograph"></p>
-<blockquote>
-<p>Photo by <strong><a href="https://www.pexels.com/@fotios-photos?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Lisa Fotios</a></strong> from <strong><a href="https://www.pexels.com/photo/person-holding-photo-of-single-tree-at-daytime-1252983/?utm_content=attributionCopyText&amp;utm_medium=referral&amp;utm_source=pexels">Pexels</a></strong></p>
-</blockquote>
-<blockquote>
-<p>終於到了這一天，一切都改變</p>
-</blockquote>
-<p>自從換了靜態部落格後，我一直以來都使用免費的 Imgur 作為圖床，但是去了中國大陸後才發覺原來 Imgur 的訪問速度在中國這麼慢，那時候我開始針對中國的網路環境寫一些教學，也希望我的部落格不管在哪裡都能快速開啟，為了讓中國網友瀏覽本部落格時也有良好的瀏覽體驗，我開始將圖片改上傳至 SMMS 圖床。</p>
-    </div>
-    <div class="read-more">
-      <a href="/p/image-hosting-with-github-and-jsdelivr/" class="read-more-link">閱讀更多</a>
+      <a href="/p/installing-archlinux-on-lenovo-ideapad-s540-13are/" class="read-more-link">閱讀更多</a>
     </div>
   </div>
 </article>
@@ -341,7 +331,7 @@
   <span class="copyright-year">
     &copy; 
     2016 - 
-    2021<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
+    2022<span class="heart"><i class="iconfont icon-heart"></i></span><span>Chun Yu</span>
   </span>
 </div>
 

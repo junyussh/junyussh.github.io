@@ -6,7 +6,26 @@
     <description>Recent content in Linux on 書術方隅</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>tw</language>
-    <lastBuildDate>Mon, 19 Oct 2020 18:27:13 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 21 Feb 2022 17:34:22 +0800</lastBuildDate><atom:link href="https://junyussh.github.io/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Linux 開機時自動掛載 Windows 磁區</title>
+      <link>https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/</link>
+      <pubDate>Mon, 21 Feb 2022 17:34:22 +0800</pubDate>
+      
+      <guid>https://junyussh.github.io/p/mount-windows-partition-while-linux-startup/</guid>
+      <description>&lt;p&gt;如果你使用的是雙系統，在使用 Linux 時可能會經常用到 Windows 磁區的檔案，雖然在環境桌面裡的檔案管理器通常能夠點選左側磁碟掛載，但每次掛載都得輸一次密碼進行系統調用，由於是臨時掛載，重開機後開啟檔案管理器就會提示之前打開的頁籤位置不存在，多次後便覺麻煩，寫成開機掛載就沒這問題了。&lt;/p&gt;</description>
+    </item>
+    
+    <item>
+      <title>聯想小新 Pro 13 系統使用 Arch Linux</title>
+      <link>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</link>
+      <pubDate>Mon, 15 Feb 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://junyussh.github.io/p/installing-archlinux-on-lenovo-ideapad-s540-13are/</guid>
+      <description>&lt;p&gt;工程師開發是離不開 Linux 環境的，而聯想小新具有強大的多核 AMD CPU，使用 Linux 才能完全解放硬體的性能，這次安裝的發行版是我的老朋友 Arch Linux，遵守 KISS(Keep It Simple Stupid) 原則，系統安裝完非常乾淨，沒有多餘的軟體，根據自己的需求再去安裝其他套件，非常符合我的哲學，而且 Arch Linux 是滾動發行版，也就是說可以直接將內核升級到最新版，不需要重裝系統，系統也能保持最新版本，一勞永逸。&lt;/p&gt;
+&lt;p&gt;本篇不多著墨 Arch Linux 的安裝細節，主要記錄這次安裝時踩的坑以及安裝完系統後需要進行哪些設定。&lt;/p&gt;</description>
+    </item>
+    
     <item>
       <title>如何在 Linux 中安裝 Oh My Zsh</title>
       <link>https://junyussh.github.io/p/how-to-set-up-oh-my-zsh/</link>
